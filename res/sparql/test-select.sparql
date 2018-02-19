@@ -1,0 +1,13 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla:<http://purl.org/powla/powla.owl#>
+
+select (count(distinct ?mf) as ?akkdat) where {
+  ?mf conll:CAT "MF" .
+  ?akk powla:hasParent ?mf .
+  ?akk conll:INFL ?ainfl .
+  filter(contains(?ainfl, "Akk"))
+  ?dat powla:hasParent ?mf .
+  ?dat conll:INFL ?dinfl .
+  filter(contains(?dinfl, "Dat"))
+  ?akk powla:nextNode+ ?dat .
+}
