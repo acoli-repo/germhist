@@ -1,0 +1,36 @@
+# 8 : Merge verbal complex verb chunks
+# look for a finite verb for a V*PP or V*PS marked verb directly left of right of it and add itself to left/right phrase
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+delete {
+  ?verb conll:REDUCE ?chunk .
+} insert {
+  ?verb conll:REDUCE ?chunk4
+} where {
+  { # marked as participle in verbal complex
+    ?verb conll:REDUCE ?chunk .
+    ?chunk mi:CAT "VX" .
+    ?verb conll:POS ?pos .
+    FILTER strends(?pos, "PP")
+  } UNION {
+    ?verb conll:REDUCE ?chunk .
+    ?chunk mi:CAT "VX" .
+    ?verb conll:POS ?pos .
+    FILTER strends(?pos, "PS")
+  }
+  OPTIONAL {
+    ?chunk conll:SHIFT ?chunk2 .
+    ?chunk2 mi:FIN "true" .
+  }
+  OPTIONAL {
+    ?chunk3 conll:SHIFT ?chunk.
+    ?chunk3 mi:FIN "true" .
+  }
+  bind(bound(?chunk2) as ?A)
+  bind(bound(?chunk3) as ?B)
+  FILTER ((?A || ?B) && (!(?A && ?B))) # exclusive or
+  bind(IF(BOUND(?chunk2), ?chunk2, ?chunk3) as ?chunk4)
+  bind(IF(BOUND(?w2), ?w2, ?w3) as ?w4)
+}

@@ -1,0 +1,45 @@
+# 1 : Insert clause boundaries as word-level annotation mi:SB "true"
+#     delete conll:SHIFT if the subject has mi:SB "true" 
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# insert clause boundary for intrasentential clauses
+insert {
+  ?w mi:SB "true" .
+} where {
+  { # w0 is marked as sentence boundary and next word w is not marked as sentence boundary but has a POS tag of a sentence boundary
+    ?w2 conll:SB ?sb .
+    ?w2 conll:SHIFT ?w .
+    ?w conll:POS ?pos .
+    optional{?w mi:SB ?sb0}
+    filter(!bound(?sb0))
+    filter(strstarts(?pos, "$"))
+  } union {
+    ?w conll:SB ?sb .
+    optional{?w mi:SB ?sb0}
+    filter(!bound(?sb0))
+    ?w conll:SHIFT ?w2 .
+    ?w2 conll:POS ?pos .
+    filter(!strstarts(?pos, "$"))
+  } union { # t t $ t
+    ?w conll:POS ?pos .
+    optional{?w mi:SB ?sb0}
+    filter(!bound(?sb0))
+    filter(strstarts(?pos, "$"))
+    ?w conll:SHIFT ?w2 .
+    optional{?w2 conll:SB ?sb . }
+    filter(!bound(?sb))
+    ?w2 conll:POS ?pos2 .
+    filter(!strstarts(?pos2, "$"))
+  }
+};
+
+# delete conll:SHIFT if the subject has mi:SB "true"
+# => conll:SHIFT operates within the orhpographical clause only
+DELETE {
+	?u conll:SHIFT ?v.
+} WHERE {
+	?u mi:SB "true".
+	?u conll:SHIFT ?v.
+};

@@ -1,0 +1,36 @@
+#7 : Extent verb chunks by pronominal adverbs 
+# ITERATE: includes its own repairNext version
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+insert {
+  ?w2 conll:REDUCE ?chunk .
+} where {
+  ?verb conll:REDUCE ?chunk .
+  ?chunk mi:CAT "VX" .
+  ?w2 nif:nextWord ?verb .
+  ?w2 conll:SHIFT ?chunk.
+  ?w2 conll:POS ?pos2 .
+  FILTER (?pos2 IN ("PAVAP", "PAVD", "PAVG", "PAVW"))
+};
+
+# stepAUX_repairNext (included here because of iterations)
+
+# AUX 1. delete conll:SHIFT within a chunk
+DELETE {
+	?u conll:SHIFT ?v.
+} WHERE {
+	?u conll:SHIFT ?v.
+	?u conll:REDUCE+/(^conll:REDUCE)+ ?v.
+};
+
+# AUX 2. connect the phrase instead of its children
+DELETE {
+	?pre conll:SHIFT ?child.
+} INSERT {
+	?pre conll:SHIFT ?phrase.
+} WHERE {
+	?pre conll:SHIFT ?child.
+	?child conll:REDUCE+ ?phrase.
+};

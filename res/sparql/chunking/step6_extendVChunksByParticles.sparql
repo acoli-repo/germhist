@@ -1,0 +1,15 @@
+# 6 : Extent verb chunks by particles
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+insert {
+  ?w2 conll:REDUCE ?chunk .
+} where {
+  ?verb conll:REDUCE ?chunk .
+  ?chunk mi:CAT "VX" .  
+  ?chunk ^conll:SHIFT ?w2 .
+  ?w2 a nif:Word.
+  ?w2 conll:POS ?pos2 .
+  FILTER regex(?pos2, "PTKVZ|PTKNEG")
+}

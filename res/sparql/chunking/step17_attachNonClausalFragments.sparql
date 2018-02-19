@@ -1,0 +1,35 @@
+#17 : if a fragment does not contain a verbal element, attach it to the last clause without further analysis
+# these can be appositions, right dislocations, or middle field/post field constituents detached by a relative clause 
+# ITERATIVE: fix conll:SHIFT
+
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# if a fragment follows a clause and does not contain a verb chunk (as top-level child), attach it to the clause without further analysis
+INSERT {
+	?f conll:REDUCE ?c.
+} WHERE {
+	?c mi:CAT "Cl".
+	?c conll:SHIFT ?f.
+	?f mi:CAT "Frag".
+	FILTER(NOT EXISTS { ?f (^conll:REDUCE)/mi:CAT "VX" })
+};
+
+# AUX 1. delete conll:SHIFT within a chunk
+DELETE {
+	?u conll:SHIFT ?v.
+} WHERE {
+	?u conll:SHIFT ?v.
+	?u conll:REDUCE/^conll:REDUCE ?v.
+};
+
+# AUX 2. connect the phrase instead of its children
+DELETE {
+	?child conll:SHIFT ?post.
+} INSERT {
+	?phrase conll:SHIFT ?post.
+} WHERE {
+	?child conll:SHIFT ?post.
+	?child conll:REDUCE ?phrase.
+}

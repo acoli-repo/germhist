@@ -1,0 +1,44 @@
+# 2 : Insert noun chunk heads
+# all nouns with empty left neighbour + all nouns with non noun right neighbour + all nouns with left noun neighbour infl differing from own infl
+# CC: removed clausal head dependency
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+insert {
+  ?noun conll:REDUCE ?nounXName .
+  ?nounXName mi:CAT "NX" . 	# mark as noun chunk
+  ?nounXName conll:INFL ?ninfl .
+  ?nounXName mi:PN ?pnm . 		# mark for pronoun or not (boolean)
+  ?nounXName conll:ANIMACY ?nani
+} where {
+  { # noun at the end of a sentence or clause  - i.e. conll:SHIFT not bound (e.g. if mi:SB "true", cf. step1)
+    ?noun conll:POS ?pos . 
+    FILTER (?pos IN ("NA", "NE", "CARDS", "PPER", "PI", "PG", "PRF", "DDS", "DPOSS", "DRELS", "DGS", "DIS", "DWS", "ADJS")) 
+    MINUS {?noun conll:SHIFT ?w2  }
+  } UNION { # noun word and the immediately next word has no noun POS tag
+    ?noun conll:POS ?pos . 
+    FILTER (?pos IN ("NA", "NE", "CARDS", "PPER", "PI", "PG", "PRF", "DDS", "DPOSS", "DRELS", "DGS", "DIS", "DWS", "ADJS")) 
+    ?noun conll:SHIFT ?w2 . 
+    OPTIONAL {?w2 conll:POS ?pos2 . }
+    FILTER ((bound(?pos2) && ?pos2 NOT IN ("NA", "NE", "CARDS", "PPER", "PI", "PG", "PRF", "DDS", "DPOSS", "DRELS", "DGS", "DIS", "DWS", "ADJS")) || (!bound(?pos2)))
+  } UNION { # noun word and the next word is a noun but has a different inflection (only case and number are considered)
+    ?noun conll:POS ?pos . 
+    FILTER (?pos IN ("NA", "NE", "CARDS", "PPER", "PI", "PG", "PRF", "DDS", "DPOSS", "DRELS", "DGS", "DIS", "DWS", "ADJS")) 
+    ?noun conll:INFL ?infl . 
+    BIND(if(strlen(?infl) = 3, ?infl, replace(?infl, "^(.*\\.)?(.*\\.(Sg)?(Pl)?)(\\..*)?$", "$2")) as ?ninfl3) 
+    ?noun conll:SHIFT ?w2 .
+    ?w2 conll:POS ?pos2 . 
+    FILTER (?pos2 IN ("NA", "NE", "CARDS", "PPER", "PI", "PG", "PRF", "DDS", "DPOSS", "DRELS", "DGS", "DIS", "DWS", "ADJS")) . 
+    ?w2 conll:INFL ?infl2 . 
+    BIND(if(strlen(?infl2) = 3, ?infl2, replace(?infl2, "^(.*\\.)?(.*\\.(Sg)?(Pl)?)(\\..*)?$", "$2")) as ?ninfl2) 
+    FILTER (?ninfl3 != ?ninfl2)
+  }
+  OPTIONAL {?noun conll:INFL ?infl . }
+  BIND(if(bound(?infl), if((strlen(?infl) = 3), ?infl, replace(?infl, "^(.*\\.)?(.*\\.(Sg)?(Pl)?)(\\..*)?$", "$2")), "w/o") as ?ninfl) # inflection of parent noun chunk is set to "w/o" if there is no inflection (names)
+  OPTIONAL {?noun conll:ANIMACY ?ani}
+  BIND(IF(BOUND(?ani), ?ani, "none") as ?nani)
+  # like "<file:///M113-G1.ttl/s122_10i>"
+  BIND(uri(concat(str(?noun), "i")) as ?nounXName)
+  BIND(IF((?pos IN ("PPER", "PI", "PG", "PRF", "DDS", "DPOSS", "DRELS", "DGS", "DIS", "DWS")), "true", "false") as ?pnm)
+}

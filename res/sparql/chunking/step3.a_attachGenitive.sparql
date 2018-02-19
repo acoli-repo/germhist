@@ -1,0 +1,34 @@
+# 3.a : attach genitive NPs to adjacent NXs
+# no need to iterate
+# to be applied after NX expansion
+# after this operation and before PX inference, NX expansion is to be applied again, as genitives can occur between determiner and main verb, e.g., M004-N1:
+# 4	t598_000	diu	dër	DDART	Fem.Nom.Sg	-
+# 5	t599_000	gotes	got	NA	Gen.Sg	-
+# 6	t600_000	hant	hant	NA	Nom.Sg	S*
+
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# 1. append genitive to preceding NX (default in *Modern* High German)
+INSERT {
+  ?gen conll:REDUCE ?chunk  
+} WHERE { 
+  ?chunk mi:CAT "NX".
+  ?chunk conll:SHIFT ?gen.
+  ?gen mi:CAT "NX".
+  ?gen conll:INFL ?infl.
+  FILTER(contains(?infl,'Gen'))
+};
+
+# 2. append genitive to following NX (N004-N1: diu gutes hant), if not attached by rule 1
+INSERT {
+  ?gen conll:REDUCE ?chunk  
+} WHERE { 
+  ?chunk mi:CAT "NX".
+  ?gen conll:SHIFT ?chunk.
+  ?gen mi:CAT "NX".
+  ?gen conll:INFL ?infl.
+  FILTER(contains(?infl,'Gen'))
+  MINUS { [] conll:REDUCE ?gen }
+};

@@ -1,0 +1,227 @@
+# postprocessing: powla to word
+# remove information to facilitate for parse visualization
+# currently ReM-specific (see especially at the bottom)
+
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+prefix powla: <http://purl.org/powla/powla.owl#>
+
+# ######################
+# # delete terms:CHUNK # if pointing to the chunk itself
+# ######################
+
+DELETE {
+	?a powla:hasParent ?a
+} WHERE {
+	?a powla:hasParent ?a
+};
+
+##############################
+# powla:Node => pseudo-WORDs #
+##############################
+
+# make every powla:Node which is not a nif:Sentence a nif:Word
+DELETE {
+	?x a powla:Node.
+} INSERT {
+	?x a nif:Word.
+	?x conll:WORD " ".		# to suppress a warning
+} WHERE {
+	?x a powla:Node.
+	MINUS { ?x a nif:Sentence }
+};
+
+##########################
+# nif:nextWord inference # we presuppose no cycles in POWLA hierarchies
+##########################
+
+# remove original nif:nextWord
+DELETE {
+	?x nif:nextWord ?y
+} WHERE {
+	?x nif:nextWord ?y
+};
+
+# powla:nextNode => nif:nextWord
+DELETE {
+	?x powla:nextNode ?y
+} INSERT {
+	?x nif:nextWord ?y
+} WHERE {
+	?x powla:nextNode ?y
+};
+
+# parent before first child
+INSERT {
+	?parent nif:nextWord ?child.
+} WHERE {
+	?child powla:hasParent ?parent.
+	MINUS { [] nif:nextWord ?child }
+	MINUS { ?parent a powla:Root. }
+};
+
+# if a node does not have a nif:nextWord, but an ancestor has with a sibling, and *there is no younger ancestor with a sibling*, then move that transition here
+DELETE {
+	?ancestor nif:nextWord ?sibling.
+} INSERT {
+	?descendant nif:nextWord ?sibling.
+} WHERE {
+	?descendant powla:hasParent+ ?ancestor.
+	MINUS { ?descendant nif:nextWord [] }
+	?ancestor nif:nextWord ?sibling.
+	?ancestor powla:hasParent/^powla:hasParent ?sibling.
+	MINUS {				# it must be the *closest ancestor*, because otherwise, we have ambiguities
+		?descendant powla:hasParent+ ?tmp.
+		?tmp powla:hasParent+ ?ancestor.
+		?tmp nif:nextWord ?tsibling.
+		?tmp powla:hasParent/^powla:hasParent ?tsibling.
+	}
+};
+
+#################################
+# powla:hasParent => conll:HEAD #
+#################################
+
+DELETE {
+	?x powla:hasParent ?y.
+	?x conll:HEAD ?z.
+} INSERT {
+	?x conll:HEAD ?y.
+} WHERE {
+	?x powla:hasParent ?y.
+	OPTIONAL { ?x conll:HEAD ?z. }
+};
+
+# ################################################
+# # resolve multiple chunks at the same position #
+# ################################################
+# # shouldn't occur
+
+# DELETE {
+	# ?last nif:nextWord ?small.
+	# ?big nif:nextWord ?next.
+	# ?small conll:HEAD ?smallHead.
+# } INSERT {
+	# ?big nif:nextWord ?small.
+	# ?small conll:HEAD ?big.
+# } WHERE {
+	# ?chk1 nif:nextWord/^nif:nextWord ?chk2. 
+	# FILTER(?chk1 != ?chk2)
+	
+	# OPTIONAL { ?last nif:nextWord ?chk1. ?last nif:nextWord ?chk2 }
+	# OPTIONAL { ?chk1 nif:nextWord ?next. ?chk2 nif:nextWord ?next }
+
+	# ?tok conll:HEAD+ ?chk1.
+	# FILTER(NOT EXISTS { ?tok conll:HEAD+ ?chk2 })
+	
+	# BIND(?chk1 AS ?big)
+	# BIND(?chk2 AS ?small)
+	
+	# ?small conll:HEAD ?smallHead.
+# };
+
+# DELETE {
+	# ?last nif:nextWord ?small.
+	# ?big nif:nextWord ?next.
+	# ?small conll:HEAD ?smallHead.
+# } INSERT {
+	# ?big nif:nextWord ?small.
+	# ?small conll:HEAD ?big.
+# } WHERE {
+	# ?chk1 ^nif:nextWord/nif:nextWord ?chk2. 
+	# FILTER(?chk1 != ?chk2)
+	
+	# OPTIONAL { ?last nif:nextWord ?chk1. ?last nif:nextWord ?chk2 }
+	# OPTIONAL { ?chk1 nif:nextWord ?next. ?chk2 nif:nextWord ?next }
+
+	# ?tok conll:HEAD+ ?chk1.
+	# FILTER(NOT EXISTS { ?tok conll:HEAD+ ?chk2 })
+	
+	# BIND(?chk1 AS ?big)
+	# BIND(?chk2 AS ?small)
+	
+	# ?small conll:HEAD ?smallHead.
+# };
+
+# DELETE {
+	# ?last nif:nextWord ?small.
+	# ?big nif:nextWord ?next.
+	# ?small conll:HEAD ?smallHead.
+# } INSERT {
+	# ?big nif:nextWord ?small.
+	# ?small conll:HEAD ?big.
+# } WHERE {
+	# ?chk1 nif:nextWord/^nif:nextWord ?chk2. 
+	# FILTER(?chk1 != ?chk2)
+	
+	# OPTIONAL { ?last nif:nextWord ?chk1. ?last nif:nextWord ?chk2 }
+	# OPTIONAL { ?chk1 nif:nextWord ?next. ?chk2 nif:nextWord ?next }
+
+	# ?tok conll:HEAD+ ?chk2.
+	# FILTER(NOT EXISTS { ?tok conll:HEAD+ ?chk1 })
+	
+	# BIND(?chk2 AS ?big)
+	# BIND(?chk1 AS ?small)
+	
+	# ?small conll:HEAD ?smallHead.
+# };
+
+# DELETE {
+	# ?last nif:nextWord ?small.
+	# ?big nif:nextWord ?next.
+	# ?small conll:HEAD ?smallHead.
+# } INSERT {
+	# ?big nif:nextWord ?small.
+	# ?small conll:HEAD ?big.
+# } WHERE {
+	# ?chk1 ^nif:nextWord/nif:nextWord ?chk2. 
+	# FILTER(?chk1 != ?chk2)
+	
+	# OPTIONAL { ?last nif:nextWord ?chk1. ?last nif:nextWord ?chk2 }
+	# OPTIONAL { ?chk1 nif:nextWord ?next. ?chk2 nif:nextWord ?next }
+
+	# ?tok conll:HEAD+ ?chk2.
+	# FILTER(NOT EXISTS { ?tok conll:HEAD+ ?chk1 })
+	
+	# BIND(?chk2 AS ?big)
+	# BIND(?chk1 AS ?small)
+	
+	# ?small conll:HEAD ?smallHead.
+# };
+
+# ####################
+# # conll:HEAD fixes #
+# ####################
+# # shouldn't occur
+
+# # if multiple HEAD, delete all heads that do not have a minimal span
+# DELETE {
+	# ?a conll:HEAD ?broadX.
+# } WHERE {
+	# ?a conll:HEAD ?broadX.
+	# ?a conll:HEAD ?smallX.
+	# FILTER(?broadX != ?smallX)
+	# FILTER(NOT EXISTS { ?word conll:HEAD+ ?broadX. ?word conll:HEAD* ?smallX })
+# };
+
+
+#####################
+# ReM visualization #
+#####################
+
+DELETE {
+	?a conll:CAT ?cat.
+} INSERT {
+	?a conll:EDGE ?cat.
+} WHERE {
+	?a conll:CAT ?cat.
+	MINUS { ?a conll:EDGE [] }
+};
+
+INSERT {		# to suppress a warning
+	?w conll:WORD " ".
+} WHERE {
+	?w a nif:Word.
+	MINUS { ?w conll:WORD [] }
+};

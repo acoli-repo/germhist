@@ -1,0 +1,17 @@
+#9 : Subjugate PPX to preceding NX
+# NOTE: strictly low attachment, as we are interested in arguments, only
+# iteration is not necessary
+# merge PPX into whatever chunk is left of it (if any)
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# attach to the *deepest* immediately preceding chunk
+insert {
+  ?pchunk conll:REDUCE ?xchunk .
+} where {
+  ?pchunk mi:CAT "PPX" .
+  ?xchunk conll:REDUCE*/conll:SHIFT ?pchunk .				# (an ancestor of) xchunk immediately mi:precedes pchunk 
+  ?xchunk mi:CAT "NX".
+  ?xchunk ^conll:REDUCE/nif:nextWord/conll:REDUCE+ ?pchunk.	# (the last word of) xchunk immediately	nif:precedes pchunk; xchunk is the *deepest* chunk => no PX
+}

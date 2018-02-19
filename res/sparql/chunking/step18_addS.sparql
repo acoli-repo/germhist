@@ -1,0 +1,17 @@
+#18 : add explicit Sentence node covering all top-level chunks
+
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# add explicit Sentence node covering all top-level chunks
+INSERT {
+	?s mi:CAT "S".
+	?chunk conll:REDUCE ?s.
+} WHERE {
+	?first a nif:Word.
+	MINUS { [] nif:nextWord ?first . }
+	BIND(URI(concat(str(?first),'_S')) AS ?s)
+	?first conll:REDUCE*/conll:SHIFT* ?chunk.
+	MINUS { ?chunk conll:REDUCE [] }		# because it might be ?first
+};

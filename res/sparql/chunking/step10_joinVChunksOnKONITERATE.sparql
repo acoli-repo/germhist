@@ -1,0 +1,61 @@
+#10 : join verb chunks on conjunction words and matching FIN attribute
+# ITERATE: includes repair next
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# FIXME : leads to chunks with multiple parent nodes
+
+insert {
+  ?newVC mi:CAT "VX" .
+  ?newVC mi:FIN ?fin .
+  ?newVC conll:POS ?vcpos .
+  ?vc conll:REDUCE ?newVC .
+  ?vc2 conll:REDUCE ?newVC .
+  ?pkon conll:REDUCE ?newVC .
+} where {
+  ?vc mi:CAT "VX" .
+  ?w conll:REDUCE+ ?vc .
+  ?vc conll:SHIFT ?pkon .
+  ?pkon conll:POS ?pkonpos FILTER (contains(?pkonpos, "KON"))
+  ?pkon conll:SHIFT ?vc2.
+  ?vc2 mi:CAT "VX" .
+  ?vc2 mi:FIN ?fin2.
+  ?vc mi:FIN ?fin.
+  filter(?fin2 = ?fin)
+  ?vc conll:POS ?vcpos .
+  bind(iri(concat(str(?vc), "i")) as ?newVC)
+  MINUS {	# must not precede another unattached (conll:SHIFT!) conjunction
+	?vc2 conll:SHIFT+/conll:POS ?pos33
+	filter(contains(?pos33, "KON")) 
+  }
+};
+
+# repair conll:SHIFT
+
+# AUX 1. delete conll:SHIFT within a chunk
+DELETE {
+	?u conll:SHIFT ?v.
+} WHERE {
+	?u conll:SHIFT ?v.
+	# ?u conll:REDUCE/^conll:REDUCE ?v.			# faster, but works only if one layer of chunks is added between stepAUX applications
+	?u conll:REDUCE+/(^conll:REDUCE)+ ?v.		# more robust, but slower
+};
+
+# AUX 2. connect the phrase instead of its children
+DELETE {
+	?pre conll:SHIFT ?child.
+} INSERT {
+	?pre conll:SHIFT ?phrase.
+} WHERE {
+	?pre conll:SHIFT ?child.
+	?child conll:REDUCE+ ?phrase.
+};
+DELETE {
+	?child conll:SHIFT ?post.
+} INSERT {
+	?phrase conll:SHIFT ?post.
+} WHERE {
+	?child conll:SHIFT ?post.
+	?child conll:REDUCE+ ?phrase.
+};

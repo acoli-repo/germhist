@@ -1,0 +1,77 @@
+# 3 : Insert rest of noun chunk iteratively 
+# ITERATE: includes its own repairNext version
+# search for adjectives determiners and multi word noun chunks
+# therefore search for already as part of a chunk words that have a left neighbour that has:
+#   * no part-of-a-chunk marking
+#   * the same case and numerus OR a adjectival number
+#   * is not a verb
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# extend NX with preceding elements that show agreement
+INSERT {
+  ?w2 conll:REDUCE ?chunk  
+} WHERE {
+  ?chunk mi:CAT ?cat . 
+  ?w2 conll:SHIFT ?chunk . 
+  OPTIONAL {?w2 conll:REDUCE ?chunk2} .
+  FILTER(!BOUND(?chunk2))
+  ?chunk conll:INFL ?infl .
+  ?w2 conll:POS ?pos2 .
+  ?w2 conll:INFL ?infl2 .
+  FILTER ((?pos2 = "CARDA") || contains(?infl2, ?infl))
+  FILTER (!strstarts(?pos2, "V"))
+  # keep noun infl and search recursively to the left
+};
+
+# extend NX with following elements that show agreement
+INSERT {
+  ?w2 conll:REDUCE ?chunk  
+} WHERE {
+  ?chunk mi:CAT ?cat .
+  ?chunk conll:SHIFT ?w2 . 
+  OPTIONAL {?w2 conll:REDUCE ?chunk2} .
+  FILTER(!BOUND(?chunk2))
+  ?chunk conll:INFL ?infl .
+  ?w2 conll:POS ?pos2 .
+  ?w2 conll:INFL ?infl2 .
+  FILTER ((regex(?pos2, "^(CARD|D|ADJ).*N$")) || contains(?infl2, ?infl))
+  FILTER (!strstarts(?pos2, "V"))
+};
+
+
+# stepAUX_repairNext (included here because of iterations)
+
+# AUX 1. delete conll:SHIFT within a chunk
+DELETE {
+	?u conll:SHIFT ?v.
+} WHERE {
+	?u conll:SHIFT ?v.
+	?u conll:REDUCE+/(^conll:REDUCE)+ ?v.
+};
+
+# AUX 2. connect the phrase instead of its children
+DELETE {
+	?pre conll:SHIFT ?child.
+} INSERT {
+	?pre conll:SHIFT ?phrase.
+} WHERE {
+	?pre conll:SHIFT ?child.
+	?child conll:REDUCE+ ?phrase.
+};
+DELETE {
+	?child conll:SHIFT ?post.
+} INSERT {
+	?phrase conll:SHIFT ?post.
+} WHERE {
+	?child conll:SHIFT ?post.
+	?child conll:REDUCE+ ?phrase.
+};
+
+# AUX 3. remove conll:SHIFT pointing to itself
+DELETE {
+	?a conll:SHIFT ?a
+} WHERE {
+	?a conll:SHIFT ?a.		
+};

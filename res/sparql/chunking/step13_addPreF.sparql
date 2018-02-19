@@ -1,0 +1,35 @@
+#13 : add prefield and preprefield
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# prefield = last constituent before left bracket, but not a conjunction
+# may be preceded by general adverbs, those can be included in the PreF, too
+INSERT {
+	?pf mi:CAT "PreF".
+	?x conll:REDUCE ?pf.
+	?adv conll:REDUCE ?pf.
+} WHERE {
+	?x conll:SHIFT/mi:CAT "LB".
+	MINUS { ?x conll:POS "KON" }
+	OPTIONAL { 						# include a preceding (sequence of) adverb(s)
+		?adv conll:SHIFT+ ?x. 
+		?adv conll:POS "AVD".
+		MINUS { ?adv conll:SHIFT+ ?tmp. ?tmp conll:SHIFT+ ?x. ?tmp conll:POS ?tpos FILTER(?tpos!="AVD") }
+	}
+ 	BIND(iri(concat(str(?x),'_PreF')) AS ?pf)
+};
+
+
+
+# preprefield = konjunktion before left bracket or prefield
+# M522-N1: [unde] druhte mich
+INSERT {
+	?ppf mi:CAT "PrePreF".
+	?x conll:REDUCE ?ppf.
+} WHERE {
+	{ ?x conll:SHIFT/mi:CAT "LB" } UNION 					# anything we could not put into prefield
+	{ ?x conll:SHIFT/mi:CAT "PreF". ?x conll:POS "KON". }	# or known preprefield elements
+	MINUS { ?x conll:REDUCE [] }                            # no prefields
+ 	BIND(iri(concat(str(?x),'_PrePreF')) AS ?ppf)
+};

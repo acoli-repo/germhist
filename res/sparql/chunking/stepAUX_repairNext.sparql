@@ -1,0 +1,47 @@
+# AUX : if a conll:REDUCE has been inserted, then update conll:SHIFT to connect adjacent phrase
+# this is to be called in the pipeline after a new chunk has been inserted
+# may need to be iterated
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# AUX 1. delete conll:SHIFT within a chunk
+DELETE {
+	?u conll:SHIFT ?v.
+} WHERE {
+	?u conll:SHIFT ?v.
+	# ?u conll:REDUCE/^conll:REDUCE ?v.			# faster, but works only if one layer of chunks is added between stepAUX applications
+	?u conll:REDUCE+/(^conll:REDUCE)+ ?v.		# more robust, but slower
+};
+
+# AUX 2. connect the phrase instead of its children
+DELETE {
+	?pre conll:SHIFT ?child.
+} INSERT {
+	?pre conll:SHIFT ?phrase.
+} WHERE {
+	?pre conll:SHIFT ?child.
+	?child conll:REDUCE+ ?phrase.
+};
+DELETE {
+	?child conll:SHIFT ?post.
+} INSERT {
+	?phrase conll:SHIFT ?post.
+} WHERE {
+	?child conll:SHIFT ?post.
+	?child conll:REDUCE+ ?phrase.
+};
+
+# AUX 3. remove conll:SHIFT pointing to itself
+DELETE {
+	?a conll:SHIFT ?a
+} WHERE {
+	?a conll:SHIFT ?a.		
+};
+
+# AUX 4. if a chunk contains a Word with mi:SB "true", delete this flag
+DELETE {
+	?sb mi:SB "true"
+} WHERE {
+	?sb mi:SB "true"; mi:CHHUNK [].
+};

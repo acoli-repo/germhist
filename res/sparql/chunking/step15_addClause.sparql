@@ -1,0 +1,50 @@
+#15 : add clauses (parsed clauses) or fragments (unparsed clauses)
+# (successfully parsed) clause: contains only fields and punctuation
+# fragment: contains unclassified (other) information, incl. complex constructions such as left dislocation, etc.
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# 1. mark everything connected by conll:SHIFT (i.e., not interrupted by mi:SB "true") as clause
+INSERT {
+	?cl mi:CAT "Cl".
+	?x conll:REDUCE ?cl.
+} WHERE {
+	?first conll:SHIFT [].
+	MINUS { [] conll:SHIFT $first. }
+	?first conll:SHIFT* ?x.
+	BIND(iri(concat(replace(str(?first),'_[A-Za-z]*$',''),'_Cl')) AS ?cl)
+};
+
+# 2. mark clause or fragment as relative clause by connector KOUS, DREL..., etc.
+INSERT {
+	?cl mi:connector ?pos
+} WHERE {
+	?cl mi:CAT "Cl".
+	?cl (^conll:REDUCE)+/conll:POS ?pos.
+	FILTER(?pos="KOUS" || ?pos="AVG" || strstarts(?pos,"DREL") || strstarts(?pos,"PREL"))
+}; 
+
+# 3. identify fragments as clauses which contain anything else but fields and punctuation
+DELETE {
+	?cl mi:CAT "Cl".
+} INSERT {
+	?cl mi:CAT "Frag"
+} WHERE {
+	?cl mi:CAT "Cl".
+	?x conll:REDUCE ?cl.
+	?x mi:CAT ?cat.
+	FILTER(?cat!="PreF" && ?cat !="LB" && ?cat!="MF" && ?cat != "RB" && ?cat!= "PostF" && ?cat != "PrePreF" )
+};
+
+DELETE {
+	?cl mi:CAT "Cl".
+} INSERT {
+	?cl mi:CAT "Frag"
+} WHERE {
+	?cl mi:CAT "Cl".
+	?word conll:REDUCE ?cl.
+	?word a nif:Word.
+	?word conll:POS ?pos.
+	FILTER(!(strstarts(?pos,"$")))
+};

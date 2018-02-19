@@ -1,0 +1,18 @@
+# 5 : Insert verb chunks
+# and marks finiteness (V..IMP or V..FIN)
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+
+insert {
+  ?verb conll:REDUCE ?verbXName .
+  ?verbXName mi:CAT "VX" .
+  ?verbXName mi:FIN ?fin .
+  ?verbXName conll:POS ?pos .
+} where {
+  ?verb conll:POS ?pos .
+  FILTER strstarts(?pos, "V")
+  bind(IF(regex(?pos, "^.*(IMP|FIN)$"), "true", "false") as ?fin)	
+  bind(uri(concat(str(?verb), "i")) as ?verbXName)
+};

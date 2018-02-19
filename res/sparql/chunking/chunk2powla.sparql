@@ -1,0 +1,84 @@
+# postprocessing: remove conll:SHIFT, convert conll:REDUCE to powla:hasParent, introduce powla:nextNode
+# note that we do not sanitize the structures we find
+
+# resulting data model (for nif:Word, nif:Sentence and all chunks ([] conll:REDUCE ?chunk)
+#		?child powla:next ?sibling; powla:hasParent ?parent.
+#		?child a powla:Node OR ?child a nif:Word.
+#		?parent a nif:Node.
+#		?child powla:hasParent+ ?root.?root a nif:Sentence, powla:Root
+
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+prefix powla: <http://purl.org/powla/powla.owl#>
+
+# 1. remove all conll:SHIFT
+DELETE {
+	?x conll:SHIFT ?y.
+} WHERE {
+	?x conll:SHIFT ?y.
+};
+
+# 2. define every conll:REDUCE [] as a powla:Node, with powla:hasParent pointers from its children
+DELETE {
+	?child conll:REDUCE ?chunk.
+} INSERT {
+	?child powla:hasParent ?chunk.
+	?chunk a powla:Node.
+} WHERE {
+	?child conll:REDUCE ?chunk.
+};
+
+# 3. for sparsity, we do not need to explicitly define terminals, these could be inferred
+
+# 4. assign top-level chunks to the nif:Sentence (and declare it as powla:Root); this should be the only element fulfilling the condition that [] conll:HEAD ?x and not ?x conll:HEAD []
+INSERT {
+	?chunk powla:hasParent ?root.
+	?root a powla:Root.
+} WHERE {
+	{ ?chunk a nif:Word } UNION { [] powla:hasParent ?chunk }
+	MINUS { ?chunk powla:hasParent [] }
+	{ SELECT ?chunk (SAMPLE(?sentence) AS ?root)
+	  WHERE {
+		?chunk (^powla:hasParent)*/conll:HEAD+ ?sentence.
+		MINUS { ?sentence conll:HEAD [] }
+	  } GROUP BY ?chunk
+	}
+};
+
+# 5. powla:nextNode between adjacent siblings
+# note that we presuppose tree structures, but do not validate or correct non-tree structures
+# with multiple parents, the same node may have multiple powla:nextNode properties, then double-check at query time to have the same parent
+
+# 5.a powla:nextNode between all siblings, empty nodes are unordered
+INSERT {
+	?a powla:nextNode ?b
+} WHERE {
+	?a powla:hasParent/^powla:hasParent ?b.
+	?a (^powla:hasParent)*/nif:nextWord+/powla:hasParent* ?b.
+	FILTER(?a != ?b)
+};
+
+# 5.b remove powla:nextNode between siblings which do have another sibling in between (may still be discontinuous, but this may lead to reordering in powla2word.sparql)
+DELETE {
+	?a powla:nextNode ?c.
+} WHERE {
+	?a powla:nextNode+ ?b. 
+	FILTER(?a != ?b)
+	?b powla:nextNode+ ?c. 
+	FILTER(?b != ?c)
+	?a powla:nextNode ?c. 
+	FILTER(?a != ?c)
+};
+
+# 6. move everything from the mi: namespace into the conll: namespace
+DELETE {
+	?x ?mi ?y
+} INSERT {
+	?x ?conll ?y
+} WHERE {
+	?x a powla:Node.
+	?x ?mi ?y.
+	FILTER(strstarts(str(?mi),"http://purl.org/acoli/open-ie/"))
+	BIND(URI(replace(str(?mi),"http://purl.org/acoli/open-ie/","http://ufal.mff.cuni.cz/conll2009-st/task-description.html#")) AS ?conll)
+}

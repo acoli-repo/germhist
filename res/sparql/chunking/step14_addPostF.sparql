@@ -1,0 +1,24 @@
+#13 : add postfield
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# postfield: any non-field chunks following RB or MF
+INSERT {
+	?pf mi:CAT "PostF".
+	?x conll:REDUCE ?pf.
+} WHERE {
+	?field mi:CAT ?cat FILTER(?cat="RB") .
+	?field conll:SHIFT ?first.
+	?first conll:SHIFT* ?x.
+	FILTER(NOT EXISTS { 
+		?first conll:SHIFT* ?tmp. 
+		?tmp conll:SHIFT* ?x.
+		?tmp mi:CAT ?cat.
+		FILTER(?cat="MF" || ?cat = "PreF" || ?cat="LB" || ?cat="RB")
+	})
+	MINUS {
+		?x conll:POS ?pos. FILTER(strstarts(?pos,"$"))
+	}
+	BIND(iri(concat(str(?first),'_PoF')) AS ?pf)
+};

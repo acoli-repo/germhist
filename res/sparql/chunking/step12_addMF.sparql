@@ -1,0 +1,33 @@
+#12 : create MFs
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# 1. create an MF chunk for every LB - RB pair
+insert {
+  ?newPart conll:REDUCE ?mfc .
+  ?mfc mi:CAT "MF" .
+} WHERE {
+	?lb mi:CAT "LB".
+	?lb conll:SHIFT ?firstPart.
+	?firstPart conll:SHIFT* ?newPart.
+	?newPart conll:SHIFT+/mi:CAT "RB".
+	MINUS { ?firstPart conll:SHIFT* ?tmp. ?tmp mi:CAT "LB". ?tmp conll:SHIFT* ?newPart. }
+	MINUS { ?firstPart conll:SHIFT* ?tmp. ?tmp mi:CAT "RB". ?tmp conll:SHIFT* ?newPart. }
+	bind(uri(concat(str(?firstPart), "_MF")) as ?mfc)
+};
+
+# 2. create an MF chunk for every LB (until end of clause, excluding punctuation)
+insert {
+  ?newPart conll:REDUCE ?mfc .
+  ?mfc mi:CAT "MF" .
+} WHERE {
+	?lb mi:CAT "LB".
+	?lb conll:SHIFT ?firstPart.
+	FILTER(NOT EXISTS{ ?firstPart conll:REDUCE [] }) # as created by 1
+	MINUS { ?firstPart mi:CAT "LB" }
+	MINUS { ?firstPart mi:CAT "RB" }
+	?firstPart conll:SHIFT* ?newPart.
+	MINUS { ?newPart conll:POS ?pos FILTER(strstarts(?pos,'$')) }
+	bind(uri(concat(str(?firstPart), "_MF")) as ?mfc)
+};

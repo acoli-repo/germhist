@@ -1,0 +1,11 @@
+# 0 : add a conll:SHIFT property between all words within a sentence (later: between parsed chunks) # TODO: rename to conll:SHIFT
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# insert conll:SHIFT between all words within a sentence
+INSERT {
+	?u conll:SHIFT ?v.
+} WHERE {
+	?u nif:nextWord ?v
+}

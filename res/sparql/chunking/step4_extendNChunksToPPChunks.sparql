@@ -1,0 +1,21 @@
+# 4 : building prepositional chunks
+# CC: instead of changing, we create an additional PP chunk
+
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# create PPX (and keep NX)
+insert {
+  ?ppchunk mi:CAT "PPX" .
+  ?chunk conll:REDUCE ?ppchunk .
+  ?w2 conll:REDUCE ?ppchunk.
+} where {
+  ?w2 conll:SHIFT ?chunk.
+  ?w2 nif:nextWord ?chunkPart .
+  ?chunkPart conll:REDUCE+ ?chunk .
+  ?w2 conll:POS "APPR" .
+  ?w2 conll:TID ?tid.
+  # like "<file:///M113-G1.ttl#s122_4ii>"
+  BIND(IRI(concat(str(?chunk), "i")) AS ?ppchunk)
+}

@@ -1,0 +1,128 @@
+#16 : attach relative clauses to the last preceding noun chunk
+# NON-iterative: low attachment, left attachment
+# for detecting relative clauses, we rely on mi:connector (for relative clauses only)
+
+# TODO: support non-continuities by resolving relative pronouns, e.g., 
+# Ich kam mit [denen] gut aus, [von denen ich etwas lernen konnte].
+
+# NOTE: deterministic left attachment, but this can be incorrect, e.g., the following M004-N1 fragment may show right attachment to the next clause (which agrees in mood, but the syntax is a bit unclear: multiple prefield constituents?):
+# ...
+# s1_8_Cl_PoF . . . \ PostF---------- *
+# s1_8_Cl     . . . . / Cl----------- *
+# s1_8_LB     . . . . . / LB--------- *
+# s1_8        . . . . . . / --------- swie       ID 8 KOEBLERLEMMA [Schwager, wie] LEMMA swiè LEXERLEMMA [wie] POS AVG TID t107_000
+# s1_9i_MF    . . . . . \ MF---- *
+# s1_9i       . . . . . . / NX--- *          INFL Nom.Sg
+# s1_9        . . . . . . . / ------- daz        ID 9 INFL Neut.Nom.Sg KOEBLERLEMMA [da, der] LEMMA dër LEXERLEMMA [der, obgleich] POS DDS TID t108_000
+# s1_10i_RB   . . . . . \ RB--------- *
+# s1_10i      . . . . . . / VX--- *          POS VAFIN
+# s1_10       . . . . . . . / ------- wære       ID 10 INFL Subj.Past.Sg.3 KOEBLERLEMMA [Wesen, wesen] LEMMA wësen LEXERLEMMA [wonen] POS VAFIN TID t109_000
+# s1_11       . . . . . . . \ ------- geschehen  ID 11 KOEBLERLEMMA [Geschehen, geschehen] LEMMA ge-schëhen LEXERLEMMA [geschehen] POS VVPP SB S* TID t110_000
+# s1_12i_Cl   . . \ Cl--------------- *
+# s1_12i_PreF . . . / PreF----------- *
+# s1_12i      . . . . / NX------- *          INFL Nom.Sg
+# s1_12       . . . . . / ----------- er         ID 12 INFL Masc.Nom.Sg.3 KOEBLERLEMMA [Erz, Mann, er, früher] LEMMA ër LEXERLEMMA [früher] POS PPER TID t111_000
+# s1_13i_LB   . . . \ LB------------- *
+# s1_13i      . . . . / VX------- *          POS VAFIN
+# s1_13       . . . . . / ----------- hæte       ID 13 INFL (Subj).Past.Sg.3 KOEBLERLEMMA [Haben, haben] LEMMA haben LEXERLEMMA [haben, halten] POS VAFIN TID t112_000
+# s1_14i_MF   . . . \ MF-------- *
+# s1_14i      . . . . / NX------- *          INFL Akk.Pl
+# s1_14       . . . . . / ----------- wunder     ID 14 INFL Akk.Pl KOEBLERLEMMA wunter LEMMA wunter LEXERLEMMA wunter POS NA TID t113_000
+# s1_15i_RB   . . . \ RB------------- *
+# s1_15i      . . . . / VX------- *          POS VVPP
+# s1_15       . . . . . / ----------- gesehen    ID 15 KOEBLERLEMMA [Sehen, sehen] LEMMA sëhen LEXERLEMMA [sehen] POS VVPP SB DE TID t114_000
+
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+# 1. connector: attach to fields
+
+# 1.0 if LB is a relative pronoun with same inflection as an immediately preceding NX, attach it there
+INSERT {
+	?cl conll:REDUCE ?nchunk.
+} WHERE {
+	?cl mi:connector "DRELS".
+	?lb conll:REDUCE ?cl.
+	?lb mi:CAT "LB".
+	?lb (^conll:REDUCE)* ?drels.
+	?drels conll:POS "DRELS".
+	?drels conll:INFL ?drelsInfl.
+	
+	?lastContentWord nif:nextWord+ ?drels.
+	FILTER(NOT EXISTS { ?lastContentWord nif:nextWord+ ?tmp. ?tmp nif:nextWord+ ?drels. ?tmp conll:POS ?pos FILTER(!strstarts(?pos,'$')) })
+	?lastContentWord conll:REDUCE+ ?nchunk.
+	?nchunk conll:REDUCE*/conll:SHIFT ?cl.
+	?nchunk mi:CAT "NX".
+	?nchunk conll:INFL ?ninfl.
+	FILTER(contains(?drelsInfl,?ninfl))
+};
+
+# 1.a if following a fragment, attach to it without further analysis
+INSERT {
+	?cl conll:REDUCE ?last.
+} WHERE {
+	?cl mi:connector [].
+	MINUS { ?cl conll:REDUCE [] }.
+	?last conll:SHIFT ?cl.
+	?last mi:CAT "Frag".
+};
+
+# 1.b if following RB, MF or LB, create a PostF
+### we include MF here because we want to have minimal MFs, in theory, relative clauses could modify MF constituents without being in PostField
+### also, for following LB, one could also create a MF
+###   e.g. Modern"und dass, wie ich eben sagte, er nicht nach Hause kam, ..."
+###   however, we're conservative wrt. our data, thus Postfield
+INSERT {
+	?pf conll:REDUCE ?last.
+	?pf mi:CAT "PostF".
+	?cl conll:REDUCE ?pf.
+} WHERE {
+	?cl mi:connector [].
+	MINUS { ?cl conll:REDUCE [] }.
+	?last conll:SHIFT ?cl.
+	?lastField conll:REDUCE ?last.
+	MINUS { 
+		?otherField conll:REDUCE ?last FILTER(?otherField!=?lastField).
+		?lastField (^conll:REDUCE)+/nif:next+/conll:REDUCE+ ?otherField
+    }
+	?lastField mi:CAT ?cat FILTER(?cat="RB" || ?cat="MF")			# mi:CAT, i.e., skips individual words, e.g., punctuation
+	BIND(iri(concat(str(?cl),'_PoF')) AS ?pf)
+};
+
+# 1.c if following a PoF, attach to it
+# UNTESTED
+INSERT {
+	?cl conll:REDUCE ?pf.
+} WHERE {
+	?cl mi:connector [].
+	MINUS { ?cl conll:REDUCE [] }.
+	?last conll:SHIFT ?cl.
+	?pf conll:REDUCE ?last.
+	MINUS { 
+		?otherField conll:REDUCE ?last FILTER(?otherField!=?pf).
+		?pf (^conll:REDUCE)+/nif:next+/conll:REDUCE+ ?otherField
+    }
+	?pf mi:CAT "PostF".
+};
+
+# 1.d following PreF is not possible because a dissociated PreF would not have been recognized
+# N/A
+
+# # 2. relative pronoun: attach to last noun chunk
+# INSERT {
+	# ?cl conll:REDUCE ?chunk
+# } WHERE {
+	# ?chunk mi:CAT "NX".
+	# ?chunk ^conll:REDUCE/nif:nextWord+/conll:REDUCE+ ?cl.
+	# ?cl mi:connector ?conn FILTER(contains("REL"))
+	# MINUS { ?chunk conll:REDUCE+ ?cl }
+	# MINUS { ?cl conll:REDUCE+ ?chunk }
+	# MINUS {
+		# ?chunk ^conll:REDUCE/nif:nextWord+/conll:REDUCE+ ?tmp.
+		# ?tmp mi:CAT "NX".
+		# ?tmp ^conll:REDUCE/nif:nextWord+/conll:REDUCE+ ?cl.
+	# }
+# };
+
+# TODO: cataphors, i.e., if unattached

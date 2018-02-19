@@ -1,0 +1,203 @@
+#11 : Insert middle field brackets (LB,RB)
+
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+prefix mi: <http://purl.org/acoli/open-ie/>
+
+#11.1: 	mark VAFIN ... VVPP as LB ... RB
+INSERT {
+	?lb mi:CAT "LB".
+	?vafin conll:REDUCE ?lb.
+	?rb mi:CAT "RB".
+	?vvpp conll:REDUCE ?rb.
+} WHERE {
+	?vafin conll:POS "VAFIN".
+	?vafin conll:SHIFT+ ?vvpp.
+	?vvpp conll:POS "VVPP".
+	MINUS {
+		?vafin ^conll:REDUCE*/conll:POS "VVPP".			# must not yet include a participle => relative clause
+	}
+	MINUS {
+		?vafin conll:SHIFT+ ?tmp.
+		?tmp conll:POS "VVPP".
+		?tmp conll:SHIFT+ ?vvpp.
+	}
+	MINUS {
+		?vafin conll:SHIFT+ ?tmp.
+		?tmp conll:POS "VAFIN".
+		?tmp conll:SHIFT+ ?vvpp.
+	}
+	BIND(IRI(concat(str(?vafin),'_LB')) AS ?lb)
+	BIND(IRI(concat(str(?vvpp),'_RB')) AS ?rb)
+};
+
+# 11.2: skipped
+
+# 11.3: clause internal verb + verb partikel => LB ... RB
+INSERT {
+	?lb mi:CAT "LB".
+	?vfin conll:REDUCE ?lb.
+	?rb mi:CAT "RB".
+	?ptkvz conll:REDUCE ?rb.
+} WHERE {
+	?vfin mi:FIN "true".
+	MINUS { ?vfin conll:REDUCE [] } 
+	?vfin conll:SHIFT+ ?ptkvz.
+	?ptkvz conll:POS "PTKVZ".
+
+	MINUS {
+		?vfin conll:SHIFT+ ?tmp.
+		?tmp conll:POS "PTKVZ".
+		?tmp conll:SHIFT+ ?ptkvz.
+	}
+	MINUS {
+		?vfin conll:SHIFT+ ?tmp.
+		?tmp mi:FIN "true".
+		?tmp conll:SHIFT+ ?ptkvz.
+	}
+
+	BIND(IRI(concat(str(?vfin),'_LB')) AS ?lb)
+	BIND(IRI(concat(str(?ptkvz),'_RB')) AS ?rb)
+};
+
+# 11.4 : Insert middle field chunks VMFIN VVINF
+INSERT {
+	?lb mi:CAT "LB".
+	?vmfin conll:REDUCE ?lb.
+	?rb mi:CAT "RB".
+	?vvinf conll:REDUCE ?rb.
+} WHERE {
+	?vmfin conll:POS "VMFIN".
+	MINUS { ?vmfin conll:REDUCE [] } 
+	?vmfin conll:SHIFT+ ?vvinf.
+	MINUS { ?vvinf conll:REDUCE [] } 
+	?vvinf conll:POS "VVINF".
+	MINUS {
+		?vmfin conll:SHIFT+ ?tmp.
+		?tmp conll:POS "VMFIN".
+		FILTER(?tmp != ?vmfin)
+		?tmp conll:SHIFT+ ?vvinf.
+	}
+	MINUS {
+		?vmfin conll:SHIFT+ ?tmp.
+		?tmp conll:POS "VVINF".
+		?tmp conll:SHIFT+ ?vvinf.
+		FILTER(?tmp != ?vvinf)
+	}
+
+	BIND(IRI(concat(str(?vmfin),'_LB')) AS ?lb)
+	BIND(IRI(concat(str(?vvinf),'_RB')) AS ?rb)
+};
+
+# 11.5 :  detect middle field in relative clauses using KOUS/AVG and DREL
+# after this query, all relative clauses are supposed to be marked => finite verbs represent left boundaries
+
+# 11.5.a KOUS or DRELS as left bracket, VFIN (complex) as right bracket
+INSERT {
+	?lb mi:CAT "LB".
+	?complementizer conll:REDUCE ?lb.
+	?rb mi:CAT "RB".
+	?vfin conll:REDUCE ?rb.
+} WHERE {
+	{ ?complementizer conll:POS "KOUS" } UNION 					# Konjunktion, unterordnend
+	{ ?complementizer (^conll:REDUCE)*/conll:POS "DRELS" } UNION 	# Determinativ, relativisch, substituierend, part of an NP
+	{ ?complementizer conll:POS "AVG" }							# Relativadverb, generalisierend, z.B. swie (wie)
+	?complementizer conll:SHIFT+ ?vfin.
+	?vfin mi:FIN "true".
+	MINUS { ?vfin conll:REDUCE [] } 
+	MINUS {
+		?complementizer conll:SHIFT+ ?tmp.
+		?tmp conll:POS ?tpos FILTER(?tpos="KOUS" || ?tpos="AVG").
+		FILTER(?tmp != ?complementizer)
+		?tmp conll:SHIFT+ ?vfin.
+	}
+	MINUS {
+		?complementizer conll:SHIFT+ ?tmp.
+		?tmp ^conll:REDUCE/conll:POS "DRELS".
+		FILTER(?tmp != ?complementizer)
+		?tmp conll:SHIFT+ ?vfin.
+	}
+	MINUS {
+		?complementizer conll:SHIFT+ ?tmp.
+		?tmp mi:FIN "true".
+		?tmp conll:SHIFT+ ?vfin.
+		FILTER(?tmp != ?vfin)
+	}
+
+	BIND(IRI(concat(str(?complementizer),'_LB')) AS ?lb)
+	BIND(IRI(concat(str(?vfin),'_RB')) AS ?rb)
+};
+
+# 11.5.b KOUS/AVG or DRELS as left bracket, VFIN (complex) as right bracket, *across orthographic clause boundaries*, i.e., using nif:nextWord
+#    insert conll:SHIFT transitions for orthographic clause boundaries in this case
+
+INSERT {
+	?lb mi:CAT "LB".
+	?complementizer conll:REDUCE ?lb.
+	?rb mi:CAT "RB".
+	?vfin conll:REDUCE ?rb.
+	?sb conll:SHIFT ?next.
+} WHERE {
+	{ ?complementizer conll:POS "KOUS" } UNION 
+	{ ?complementizer conll:POS "AVG" } UNION 
+	{ ?complementizer ^conll:REDUCE/conll:POS "DRELS" }
+	MINUS { ?complementizer conll:REDUCE [] }
+	?complementizer nif:nextWord+/conll:REDUCE* ?vfin.
+	?vfin mi:FIN "true".
+	MINUS { ?vfin conll:REDUCE [] }
+	MINUS {
+		?complementizer (^conll:REDUCE)*/nif:nextWord+ ?tmp.
+		?tmp conll:POS ?tpos FILTER(?tpos="KOUS" || ?tpos="AVG" || ?tpos="DRELS") .
+		FILTER(?tmp != ?complementizer)
+		?tmp nif:nextWord+/conll:REDUCE* ?vfin.
+	}
+	MINUS {
+		?complementizer (^conll:REDUCE)*/nif:nextWord+/conll:REDUCE* ?tmp.
+		?tmp mi:FIN "true".
+		MINUS { ?tmp conll:REDUCE [] }
+		?tmp (^conll:REDUCE)*/nif:nextWord+/conll:REDUCE* ?vfin.
+		FILTER(?tmp != ?vfin)
+	}
+	OPTIONAL {
+		?complementizer (^conll:REDUCE)*/nif:nextWord* ?sb.
+		[] conll:SHIFT ?sb.
+		MINUS { ?sb conll:SHIFT [] }
+		?sb nif:nextWord/conll:REDUCE* ?next.
+		MINUS { ?next conll:REDUCE [] }
+		?next (^conll:REDUCE)*/nif:nextWord*/conll:REDUCE* ?vfin.
+	}
+
+	BIND(IRI(concat(str(?complementizer),'_LB')) AS ?lb)
+	BIND(IRI(concat(str(?vfin),'_RB')) AS ?rb)
+};
+
+# 11.6 : after relative clauses are marked, every finite verb chunk that does not contain an infinite verb or a verbal particle must represent a left boundary or a fragment
+# #    but cf. M522-N1: here, a clause boundary rips a MF apart => repair heuristic: insert LB only if no PTKVZ is contained (=> these will be fragments)
+# 15	t563_000	daz	dazz	KOUS	-	-
+# 16	t564_000	mir	ich	PPER	Dat.Sg.1	-
+# 17	t565_000	daz	dër	DDART	Neut.Nom.Sg	-
+# 18	t566_000	rôte	rôt	ADJA	Pos.Neut.Nom.Sg.wk	-
+# 19	t567_000	walebluot	wal(e)-bluot	NA	Nom.Sg	-
+# 20	t568_000	-	-	$_	-	-
+# 21	t569_000	ze	ze	APPR	-	-
+# 22	t570_000	beiden	bèide	DIA	*.Dat.Pl.st	-
+# 23	t571_000	ôren	ôre	NA	Dat.Pl	-
+# 24	t572_000	ûz	ûz/>+dringen	PTKVZ	-	-
+# 25	t573_000	dranc	dringen/ûz>+	VVFIN	Ind.Past.Sg.3	DE
+# 26	t574_000	-	-	$_	-	$E, 
+## NOTE: verbal complex with finite elements remain unmarked
+
+# 11.6 after relative clauses are marked, every finite verb chunk that does not contain an infinite verb or a verbal particle must represent a left boundary
+INSERT {
+	?lb mi:CAT "LB".
+	?vfin conll:REDUCE ?lb.
+} WHERE {
+	?vfin mi:FIN "true".
+	MINUS { ?vfin conll:REDUCE [] }						# not in a left or right bracket
+	MINUS { ?vfin (^conll:REDUCE)+ ?tmp. 
+			?tmp a nif:Word. 
+			?tmp conll:POS ?pos FILTER (strstarts(?pos,'V')) FILTER(!regex(?pos,'.*(FIN|IMP)$'))
+		}
+	MINUS { ?vfin (^conll:REDUCE)+/conll:POS "PTKVZ" }
+	BIND(IRI(concat(str(?vfin),'_LB')) AS ?lb)
+};
