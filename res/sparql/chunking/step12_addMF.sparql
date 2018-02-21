@@ -22,12 +22,13 @@ insert {
   ?newPart conll:REDUCE ?mfc .
   ?mfc mi:CAT "MF" .
 } WHERE {
+
 	?lb mi:CAT "LB".
 	?lb conll:SHIFT ?firstPart.
 	FILTER(NOT EXISTS{ ?firstPart conll:REDUCE [] }) # as created by 1
-	MINUS { ?firstPart mi:CAT "LB" }
-	MINUS { ?firstPart mi:CAT "RB" }
 	?firstPart conll:SHIFT* ?newPart.
 	MINUS { ?newPart conll:POS ?pos FILTER(strstarts(?pos,'$')) }
+	MINUS { ?firstPart conll:SHIFT* ?tmp. ?tmp mi:CAT "LB". ?tmp conll:SHIFT* ?newPart. }
+	MINUS { ?firstPart conll:SHIFT* ?tmp. ?tmp mi:CAT "RB". ?tmp conll:SHIFT* ?newPart. }
 	bind(uri(concat(str(?firstPart), "_MF")) as ?mfc)
 };
