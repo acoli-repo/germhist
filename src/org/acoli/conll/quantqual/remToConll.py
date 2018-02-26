@@ -4,9 +4,10 @@ Created on 09.02.2017
 
 @author: Benjamin Kosmehl
 
-Convert REM xml files into conll format.
+Convert CoraXML XML files from the ReM corpus into CoNLL format.
+The transformation is done using the tags in the XML tree defined in variable "tagz" as well as punctuation and id as columns.
 
-TODO: insert file meta information as comment into conll
+TODO: insert file meta information as comment into CoNLL
 """
 from lxml import etree  # @UnresolvedImport#
 from time import time
@@ -15,6 +16,7 @@ import codecs
 import argparse
 import logging
 import re
+import sys
 
 logger = logging.getLogger()
 
@@ -104,12 +106,15 @@ def initializeLogger(logPath, fileName, loglevelFile = logging.DEBUG, loglevelCo
 
 if __name__ == "__main__":
     
-    parser = argparse.ArgumentParser(description="Convert REM xml to conll format.")
-    parser.add_argument("-dir", default="./", help="set REM xml files directory (\"./\" default)")
-    parser.add_argument("-files", default="all", help="list of REM xml file names in REM xml directory separated by whitespace (all by default) - e.g. \"M001-N1 M002-N1\"")
-    parser.add_argument("-dest", default="./", help="set REM conll files output directory (\"./\" default)")
+    parser = argparse.ArgumentParser(description="Convert ReM CoraXML to CoNLL format.")
+    parser.add_argument("-dir", default="./", help="set ReM XML files directory (\"./\" default)")
+    parser.add_argument("-files", default="all", help="list of ReM XML file names in ReM XML directory separated by whitespace (all by default) - e.g. \"M001-N1 M002-N1\"")
+    parser.add_argument("-dest", default="./", help="set ReM CoNLL files output directory (\"./\" default)")
+    if len(sys.argv)==1:
+        parser.print_help()
+        sys.exit(1)
     args = parser.parse_args()
-    
+        
     logPath = "./"
     fileName = "{0}_{1}".format(path.basename(__file__), str(time())[:9])
     initializeLogger(logPath, fileName, loglevelFile = logging.DEBUG, loglevelConsole = logging.DEBUG)
@@ -119,7 +124,9 @@ if __name__ == "__main__":
         
     
     if args.files != "all":
-        for f in args.files.split():                
+        for f in args.files.split():   
+            if not f.endswith(".xml"):
+                f = f + ".xml"                     
             processSrcFile(path.join(srcDir, f), outDir)
     else:
         for file in listdir(srcDir):  

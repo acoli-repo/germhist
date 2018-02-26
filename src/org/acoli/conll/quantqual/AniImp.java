@@ -1,4 +1,4 @@
-package aniImpP;
+package org.acoli.conll.quantqual;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package translit;
+package org.acoli.conll.quantqual;
 
 import java.io.*;
 import java.util.*;
@@ -20,6 +20,7 @@ public class Transliterator {
 	protected final boolean full;
 	protected final boolean keepCase;
 	
+	@SuppressWarnings("serial")
 	protected final Map<String, String> charMap = new HashMap<String, String>(){{
 		put("~", ""); 
 		put("<", ""); 
@@ -403,7 +404,7 @@ public class Transliterator {
 		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(argv[0]), encoding));
 		
 		Hashtable<String,Hashtable<String,Integer>> src2tgt2freq = new Hashtable<String,Hashtable<String,Integer>>();
-		Hashtable<String,Hashtable<String,Integer>> s2t2freq = new Hashtable<String,Hashtable<String,Integer>>();
+		//Hashtable<String,Hashtable<String,Integer>> s2t2freq = new Hashtable<String,Hashtable<String,Integer>>();
 		
 		// (0) initialize
 		System.err.print("initialize ..");

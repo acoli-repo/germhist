@@ -42,25 +42,26 @@
 DEBUG=false;			# set to false for production mode
 
 # CC: note that these paths don't resolve to the SVN structure
-srcDir=../res/rem/conllREF/*conll
-traliDir=../../mhd2de/
-aniImpDir=../../AnimacyImport/
-animacyCSVSrc=../../animacy/animacy-de_PLUS.csv
+# tar xfO rem-coraxml-20161222.tar.xz rem-coraxml-20161222/M001-N1.xml
+dataDir=../res/data/
+remFiles=${dataDir}samples.conll
+srcDir=./src/
+animacyCSVSrc=./res/data/animacy-de_manual.csv
 conll2rdfDir=../../conll-rdf.git/trunk/
-chunkingPipeline=../../chunkingPipeline/chunking/
+chunkingPipeline=./res/sparql/chunking/chunking/
 traliDirAbs=$(realpath $traliDir)
 animacyCSVSrcAbs=$(realpath $animacyCSVSrc)
 chunkingPipelineAbs=$(realpath $chunkingPipeline)
 
 if $DEBUG; then
-	srcDir=./samples.conll
+	remFiles=./samples.conll
 fi;
 
-(cd $traliDir && \
-javac -encoding "utf-8" translit/Transliterator.java
+(cd $srcDir && \
+javac -encoding "utf-8" org.acoli.conll.quantqual/Transliterator.java
 )
-(cd $aniImpDir && \
-javac -encoding "utf-8" aniImpP/AniImp.java
+(cd $srcDir && \
+javac -encoding "utf-8" org.acoli.conll.quantqual/AniImp.java
 )
 set LANG=C.UTF-8;
 if [ $OSTYPE = "cygwin" ]; then
@@ -91,7 +92,7 @@ if echo $OSTYPE | grep 'cygwin' >&/dev/null; then
 	aniImpDir=`cygpath -wa $aniImpDir`;
 fi;
 
-for f in $srcDir ; do \
+for f in $remFiles ; do \
   bare=$(basename $f);
   ttlfile=${bare%.conll}.ttl;
   tuttl=file:///${ttlfile}'/';
@@ -102,11 +103,11 @@ for f in $srcDir ; do \
   # hyperlemmata and animacy #
   ############################
   #
-  java -cp $traliDir translit.Transliterator $traliDirAbs/translit/mhd-koebler.tsv 1 2 4 | \
-  java -cp $traliDir translit.Transliterator $traliDirAbs/translit/lexerlemmas_1_to_1.tsv 2 5 4 | \
-  java -cp $traliDir translit.Transliterator $traliDirAbs/translit/manual_translit.tsv 1 2 4 | \
+  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDir/mhd-koebler.tsv 1 2 4 | \
+  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDir/lexerlemmas_1_to_1.tsv 2 5 4 | \
+  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDir/manual_translit.tsv 1 2 4 | \
   tee ./transliterated/$bare | \
-  java -cp $aniImpDir aniImpP.AniImp $animacyCSVSrcAbs 4 8 9 10 | \
+  java -cp $srcDir org.acoli.conll.quantqual.AniImp $animacyCSVSrcAbs 4 8 9 10 | \
   tee ./animacyannotated/$bare | \
   #
   ######################################
@@ -211,123 +212,3 @@ for f in $srcDir ; do \
   $conll2rdfDir/run.sh CoNLLRDFFormatter > ./ttlchunked/$ttlfile;
 done
 
-# #!/bin/bash
-# # read ReM CoNLL, transliterate using koebler and lexer, transform to RDF and apply chunking update scripts -> save into turtle files
-
-# # CC: note that these paths don't resolve to the SVN structure
-# srcDir=../res/rem/conllREF/*conll
-# traliDir=../../mhd2de/
-# aniImpDir=../../AnimacyImport/
-# animacyCSVSrc=../../animacy/animacy-de.csv
-# conll2rdfDir=../../conll-rdf.git/trunk/
-# chunkingPipeline=../../chunkingPipeline/chunking/
-# traliDirAbs=$(realpath $traliDir)
-# animacyCSVSrcAbs=$(realpath $animacyCSVSrc)
-# chunkingPipelineAbs=$(realpath $chunkingPipeline)
-# (cd $traliDir && \
-# javac -encoding "utf-8" translit/Transliterator.java
-# )
-# (cd $aniImpDir && \
-# javac -encoding "utf-8" aniImpP/AniImp.java
-# )
-# set LANG=C.UTF-8;
-# if [ $OSTYPE = "cygwin" ]; then
-  # traliDirAbs=$(cygpath -ma $traliDir);
-  # animacyCSVSrcAbs=$(cygpath -ma $animacyCSVSrc);
-  # chunkingPipelineAbs=$(cygpath -ma $chunkingPipelineAbs);
-# fi;
-# if [ ! -d ./transliterated ]
-  # then mkdir ./transliterated
-# fi;
-# if [ ! -d ./animacyannotated ]
-  # then mkdir ./animacyannotated
-# fi;
-# if [ ! -d ./rdfchunked ]
-  # then mkdir ./rdfchunked
-# fi;
-
-# # cygwin support: windows classpaths
-# if echo $OSTYPE | grep 'cygwin' >&/dev/null; then
-	# traliDir=`cygpath -wa $traliDir`;
-	# aniImpDir=`cygpath -wa $aniImpDir`;
-# fi;
-
-
-# for f in $srcDir ; do \
-  # bare=$(basename $f);
-  # tuttl=file:///${bare%.conll}.ttl#;
-  # exec 5<$f;
-  # cat <&5|\
-  # java -cp $traliDir translit.Transliterator $traliDirAbs/translit/mhd-koebler.tsv 1 2 4 | \
-  # java -cp $traliDir translit.Transliterator $traliDirAbs/translit/lexerlemmas_1_to_1.tsv 2 5 4 | \
-  # tee ./transliterated/$bare | \
-  # java -cp $aniImpDir aniImpP.AniImp $animacyCSVSrcAbs | \
-  # tee ./animacyannotated/$bare | \
-  # $conll2rdfDir/run.sh CoNLLStreamExtractor $tuttl ID TID WORD LEMMA POS INFL SB KOEBLERLEMMA LEXERLEMMA ANIMACY | \
-  # $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates \
-      # $chunkingPipelineAbs/step1_insertClausalHeads.sparql{1} \
-      # $chunkingPipelineAbs/step1_4_insertClausalHeads.sparql{1} \
-      # $chunkingPipelineAbs/step1_5_insertClausalHeads.sparql{u} \
-      # $chunkingPipelineAbs/step2_insertNChunkHeads.sparql{1} \
-      # $chunkingPipelineAbs/step3_extendNChunksITERATE.sparql{u} \
-      # $chunkingPipelineAbs/step4_extendNChunksToPPChunks.sparql{1} \
-      # $chunkingPipelineAbs/step5_insertVChunks.sparql{1} \
-      # $chunkingPipelineAbs/step6_extentVChunksByParticles.sparql{1} \
-      # $chunkingPipelineAbs/step7_extentVChunksByPronominalAdverbs.sparql{u} \
-      # $chunkingPipelineAbs/step8_mergeVChunkComplexs.sparql{1} \
-      # $chunkingPipelineAbs/step9_mergePPChunksToXChunks.sparql{1} \
-      # $chunkingPipelineAbs/step10_joinVChunksOnKONITERATE.sparql{u} \
-      # $chunkingPipelineAbs/step11_insertMFChunks1.sparql{1} \
-      # $chunkingPipelineAbs/step11_insertMFChunks2.sparql{1} \
-      # $chunkingPipelineAbs/step11_insertMFChunks3.sparql{1} \
-      # $chunkingPipelineAbs/step11_insertMFChunks4.sparql{1} \
-      # $chunkingPipelineAbs/step12_1_addMinMaxToT1Chunks.sparql{1} \
-      # $chunkingPipelineAbs/step12_2_addMinMaxToT2Chunks.sparql{u} \
-      # $chunkingPipelineAbs/step13_addContentToMF.sparql{1} | \
-  # $conll2rdfDir/run.sh CoNLLRDFFormatter \
-  # >./rdfchunked/${bare%.conll}.ttl;
-  # exec 5>&-;
-  # done
-
-# #
-# #  
-# #  java -cp $aniImpDir aniImpP.AniImp  | \
-# #  java translit.Transliterator translit/mhd-koebler.tsv -full -keepCase 1 2 4 | \
-# #  java translit.Transliterator translit/mhd-koebler.tsv -full 1 2 4 | \
-# #  java translit.Transliterator translit/mhd-koebler.tsv -keepCase 1 2 4 | \
-# #  java translit.Transliterator translit/lexerlemmas_1_to_1.tsv -full -keepCase 2 5 4 | \
-# #  java translit.Transliterator translit/lexerlemmas_1_to_1.tsv -full 2 5 4 | \
-# #  java translit.Transliterator translit/lexerlemmas_1_to_1.tsv -keepCase 2 5 4 | \
-# #bare=$(basename $f);
-# #tuttl=file:///${bare%.conll}.ttl#;
-# #cat $f | \
-# #./run.sh \
-# #	CoNLLStreamExtractor $tuttl \
-# #	ID TID SID WORD POS LEMMA INFL TF-IDF LEXER_SENSE GN_SENSE MHDBDB_SENSE SB Animacy \ # not anymore
-# #	-u ../quantqual/src/main/resources/sparql/chunking/step1_insertClausalHeads.sparql{1} \
-# #	   ../quantqual/src/main/resources/sparql/chunking/step1_4_insertClausalHeads.sparql{1} \
-# #
-# #
-# #  java -cp $conll2rdfDir/src org.acoli.conll.rdf.CoNLLRDFUpdater -custom -updates | \
-# #    $chunkingPipelineAbs/step1_insertClausalHeads.sparql{1} \
-# #    $chunkingPipelineAbs/step1_4_insertClausalHeads.sparql{1} \
-# #    $chunkingPipelineAbs/step1_5_insertClausalHeads.sparql{269} \
-# #    $chunkingPipelineAbs/step2_insertNChunkHeads.sparql{1} \
-# #    $chunkingPipelineAbs/step3_extendNChunksITERATE.sparql{40} \
-# #    $chunkingPipelineAbs/step4_extendNChunksToPPChunks.sparql{1} \
-# #    $chunkingPipelineAbs/step5_insertVChunks.sparql{1} \
-# #    $chunkingPipelineAbs/step6_extentVChunksByParticles.sparql{1} \
-# #    $chunkingPipelineAbs/step7_extentVChunksByPronominalAdverbs.sparql{70} \
-# #    $chunkingPipelineAbs/step8_mergeVChunkComplexs.sparql{1} \
-# #    $chunkingPipelineAbs/step9_mergePPChunksToXChunks.sparql{1} \
-# #    $chunkingPipelineAbs/step10_joinVChunksOnKONITERATE.sparql{20} \
-# #    $chunkingPipelineAbs/step11_insertMFChunks1.sparql{1} \
-# #    $chunkingPipelineAbs/step11_insertMFChunks2.sparql{1} \
-# #    $chunkingPipelineAbs/step11_insertMFChunks3.sparql{1} \
-# #    $chunkingPipelineAbs/step11_insertMFChunks4.sparql{1} \
-# #    $chunkingPipelineAbs/step12_1_addMinMaxToT1Chunks.sparql{1} \
-# #    $chunkingPipelineAbs/step12_2_addMinMaxToT2Chunks.sparql{20} \
-# #    $chunkingPipelineAbs/step13_addContentToMF.sparql{1} | \
-# #
-# #cat ../../quantqual/src/main/remREFC/M403-G1.conll | java -cp ../../mhd2de/ translit.Transliterator C:/Users/gbenj/Documents/workspace/mhd2de/translit/mhd-koebler.tsv 1 2 4
-# #cd C:/Users/gbenj/Documents/workspace/qq/src
