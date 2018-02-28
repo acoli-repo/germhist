@@ -28,11 +28,9 @@
 # - production mode: copy this pipeline to rem_pipe.sh to run it on the full corpus or set DEBUG=false (below) for stream processing
 
 # TODO
-# - remove conll:HEAD from the parsing pipeline
-# - rename mi:next to conll:SHIFT and mi:CHUNK to conll:REDUCE
 # - introduce data structures that can be navigated, following the POWLA vocabulary, with powla:next between siblings, powla:hasParent between child and parent
 # - update test scripts
-# - remove * operator from CoNLL-RDF. Instead, perform numbered iterations only as long as they apply (otherwise, we cannot guarantee that a query terminates)
+# - check if all resources exist before running pipeline
 
 ##########
 # config #
@@ -41,55 +39,45 @@
 # meta parameter
 DEBUG=false;			# set to false for production mode
 
-# CC: note that these paths don't resolve to the SVN structure
-# tar xfO rem-coraxml-20161222.tar.xz rem-coraxml-20161222/M001-N1.xml
-dataDir=../res/data/
-remFiles=${dataDir}samples.conll
+dataDir=./res/data/
 srcDir=./src/
-animacyCSVSrc=./res/data/animacy-de_manual.csv
-conll2rdfDir=../../conll-rdf.git/trunk/
-chunkingPipeline=./res/sparql/chunking/chunking/
-traliDirAbs=$(realpath $traliDir)
-animacyCSVSrcAbs=$(realpath $animacyCSVSrc)
+outDir=./out
+remFiles=${dataDir}remdata/*
+conll2rdfDir=../conll-rdf.git/trunk
+chunkingPipeline=./res/sparql/chunking/
+dataDirAbs=$(realpath $dataDir)
 chunkingPipelineAbs=$(realpath $chunkingPipeline)
 
-if $DEBUG; then
-	remFiles=./samples.conll
-fi;
-
-(cd $srcDir && \
-javac -encoding "utf-8" org.acoli.conll.quantqual/Transliterator.java
-)
-(cd $srcDir && \
-javac -encoding "utf-8" org.acoli.conll.quantqual/AniImp.java
-)
 set LANG=C.UTF-8;
 if [ $OSTYPE = "cygwin" ]; then
-  traliDirAbs=$(cygpath -ma $traliDir);
-  animacyCSVSrcAbs=$(cygpath -ma $animacyCSVSrc);
+  srcDir=$(cygpath -ma $srcDir);
+  dataDirAbs=$(cygpath -ma $dataDirAbs);
   chunkingPipelineAbs=$(cygpath -ma $chunkingPipelineAbs);
 fi;
-if [ ! -d ./transliterated ]
-  then mkdir ./transliterated
+(cd $srcDir && \
+  javac -encoding "utf-8" org/acoli/conll/quantqual/Transliterator.java; 
+  javac -encoding "utf-8" org/acoli/conll/quantqual/AniImp.java; 
+)
+if [ ! -d $outDir ]
+  then mkdir $outDir
 fi;
-if [ ! -d ./animacyannotated ]
-  then mkdir ./animacyannotated
+if $DEBUG; then
+  remFiles=${dataDir}samples.conll;
+  if [ ! -d $outDir/transliterated ]
+    then mkdir $outDir/transliterated
+  fi;
+  if [ ! -d $outDir/animacyannotated ]
+    then mkdir $outDir/animacyannotated
+  fi;
+  if [ ! -d $outDir/ttlbare ]
+    then mkdir $outDir/ttlbare
+  fi;
+  if [ ! -d $outDir/ttlfin ]
+    then mkdir $outDir/ttlfin
+  fi;
 fi;
-if [ ! -d ./ttlbare ]
-  then mkdir ./ttlbare
-fi;
-if [ ! -d ./ttlfin ]
-  then mkdir ./ttlfin
-fi;
-if [ ! -d ./ttlchunked ]
-  then mkdir ./ttlchunked
-fi;
-
-
-# cygwin support: windows classpaths
-if echo $OSTYPE | grep 'cygwin' >&/dev/null; then
-	traliDir=`cygpath -wa $traliDir`;
-	aniImpDir=`cygpath -wa $aniImpDir`;
+if [ ! -d $outDir/ttlchunked ]
+  then mkdir $outDir/ttlchunked
 fi;
 
 for f in $remFiles ; do \
@@ -103,12 +91,13 @@ for f in $remFiles ; do \
   # hyperlemmata and animacy #
   ############################
   #
-  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDir/mhd-koebler.tsv 1 2 4 | \
-  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDir/lexerlemmas_1_to_1.tsv 2 5 4 | \
-  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDir/manual_translit.tsv 1 2 4 | \
-  tee ./transliterated/$bare | \
-  java -cp $srcDir org.acoli.conll.quantqual.AniImp $animacyCSVSrcAbs 4 8 9 10 | \
-  tee ./animacyannotated/$bare | \
+  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/mhd-koebler.tsv 1 2 4 | \
+  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/lexerlemmas_1_to_1.tsv 2 5 4 | \
+  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/manual_translit.tsv 1 2 4 | \
+  if $DEBUG; then tee $outDir/transliterated/$bare; else cat; fi | \
+  java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de_manual.csv 4 8 9 10 | \
+  # TODO: fix for animacy from WordNet
+  if $DEBUG; then tee $outDir/animacyannotated/$bare; else cat; fi | \
   #
   ######################################
   # aux: fix URIs to original file name#
@@ -140,7 +129,7 @@ for f in $remFiles ; do \
 	print $lastline;
 	' | \
   grep -v 'http://ignore.me' | \
-  tee ./ttlbare/$ttlfile | \
+  if $DEBUG; then tee $outDir/ttlbare/$ttlfile; else cat; fi | \
   #
   ############
   # chunking #
@@ -205,10 +194,11 @@ for f in $remFiles ; do \
   #
   # write formatted (original) CoNLL-RDF to stderr
   $conll2rdfDir/run.sh CoNLLRDFFormatter | \
-  tee ./ttlfin/$ttlfile | \
+  if $DEBUG; then tee $outDir/ttlfin/$ttlfile; else cat; fi | \
   # conversion to POWLA (interoperable data structures)
   $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates \
-    $chunkingPipelineAbs/chunk2powla.sparql | \
-  $conll2rdfDir/run.sh CoNLLRDFFormatter > ./ttlchunked/$ttlfile;
+    $chunkingPipelineAbs/chunk2powla.sparql 	\
+    $chunkingPipelineAbs/powla2word.sparql 		| \
+  if $DEBUG; then $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar; else $conll2rdfDir/run.sh CoNLLRDFFormatter > $outDir/ttlchunked/$ttlfile; fi;
 done
 
