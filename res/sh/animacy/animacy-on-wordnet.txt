@@ -1,0 +1,468 @@
+animacy induction with wordnet 3.1
+
+1. find top-level concepts
+
+	select distinct *
+	where { 
+	  ?a a wno:Synset. 
+	  ?a wno:part_of_speech wno:noun.
+	  FILTER(NOT EXISTS { ?a wno:hypernym [] })
+	  FILTER(NOT EXISTS { ?a wno:instance_hypernym [] })
+	  FILTER(NOT EXISTS { ?a wno:instance_hyponym [] })
+	  FILTER(NOT EXISTS { ?a wno:part_meronym [] })
+	  FILTER(NOT EXISTS { ?a wno:member_meronym [] })
+	  { SELECT ?a (SAMPLE (?aLabel) as ?label)
+		WHERE {
+		  ?a rdfs:label ?aLabel.
+		} GROUP BY ?a
+	  }
+	  ?a ?b ?c
+	}
+	LIMIT 100
+
+=> top-level concept is 
+<http://wordnet-rdf.princeton.edu/wn31/100001740-n>	"entity"
+
+2. dump the top layer of WordNet for manual classification
+
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+
+select distinct ?bId ?blabel ?cId ?clabel ?dId ?dlabel ?instances
+where { 
+  ?b wno:hypernym wn:100001740-n.
+  ?c wno:hypernym ?b.
+  ?d wno:hypernym ?c.
+  
+  BIND(replace(str(?b),'.*/','') AS ?bId)
+  BIND(replace(str(?c),'.*/','') AS ?cId)
+  BIND(replace(str(?d),'.*/','') AS ?dId)
+  
+  { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?blabel) 
+    WHERE { ?b rdfs:label ?label }
+    GROUP BY ?b ORDER BY ?b ?label
+  }
+  { SELECT ?c (GROUP_CONCAT(?label; separator=", ") AS ?clabel) 
+    WHERE { ?c rdfs:label ?label }
+    GROUP BY ?c ORDER BY ?c ?label
+  }
+  { SELECT ?d (GROUP_CONCAT(?label; separator=", ") AS ?dlabel) 
+    WHERE { ?d rdfs:label ?label }
+    GROUP BY ?d ORDER BY ?d ?label
+  }
+  { SELECT ?d (GROUP_CONCAT(?label; separator=", ") AS ?instances) 
+    WHERE { ?e wno:hypernym|wno:instance_hypernym ?d; rdfs:label ?label }
+    GROUP BY ?d ORDER BY ?d ?e ?label
+  }
+}
+
+3. export as CSV and annotate manually
+
+classification schema:
+- human
+- animate 
+- inanimate (incl. abstract)
+cf. https://de.wikipedia.org/wiki/Belebtheitshierarchie
+this means that top-level concepts are by definition inanimate (i.e., abstract)
+
+3.a non-classifiable => dump sub-hierarchy and re-classify
+
+	inanimate	default	(includes abstractions)
+	animate	100004258-n	animate thing, living thing
+	human	100007846-n	individual, mortal, person, somebody, someone, soul
+	human	109213796-n	agent
+	human	110398111-n	manipulator, operator
+	human	114802595-n	agent
+	human	107958392-n	people
+	human	107967506-n	social group
+	human	107983996-n	ethnic group, ethnos
+	human	107984596-n	race
+	human	108177175-n	people, citizenry
+	human	108195659-n	population
+	human	108197108-n	mass, people, hoi polloi, masses, multitude, the great unwashed
+	human	108323595-n	varna
+
+4. apply to wordnet and expand, using wno:hypernym, alone
+
+# mark animate classes
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+
+DELETE {
+	?a wno:animacy ?animacy.
+} WHERE {
+	?a wno:animacy ?animacy.
+};
+
+INSERT DATA {
+	wn:100004258-n wno:animacy "animate".			# note that this includes plants
+	wn:100007846-n wno:animacy "human".
+	wn:109213796-n wno:animacy "human".
+	wn:110398111-n wno:animacy "human".
+	wn:114802595-n wno:animacy "human".
+	wn:107958392-n wno:animacy "human".
+	wn:107967506-n wno:animacy "human".
+	wn:107983996-n wno:animacy "human".
+	wn:107984596-n wno:animacy "human".
+	wn:108177175-n wno:animacy "human".
+	wn:108195659-n wno:animacy "human".
+	wn:108197108-n wno:animacy "human".
+	wn:108323595-n wno:animacy "human".
+};
+
+# propagate downwards
+INSERT {
+	?a wno:animacy ?animacy.
+} WHERE {
+	?a wno:part_of_speech wno:noun.
+	FILTER(NOT EXISTS { ?a wno:animacy [] })
+	?a wno:hypernym+/wno:animacy ?animacy.
+};
+
+# mark inanimates (incl. abstracts, i.e., everything else *which has a hypernym*) 
+INSERT {
+	?a wno:animacy "inanimate".
+} WHERE {
+	?a wno:part_of_speech wno:noun.
+	?a wno:hypernym* wn:100003553-n .
+	FILTER(NOT EXISTS{?a wno:animacy [] })
+};
+
+5. check samples (several times, randomly chosing a 25-word result set display), until we have five runs without "errors" per category
+
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+
+select distinct ?bId ?blabel ?path ?instances
+where { 
+  ?b wno:animacy "human".			
+  # also check "human", "animate"
+  BIND(replace(str(?b),'.*/','') AS ?bId)
+  
+  { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?blabel) 
+    WHERE { ?b rdfs:label ?label }
+    GROUP BY ?b ORDER BY ?b ?label
+  }
+  
+  { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?instances) 
+    WHERE { ?e wno:hypernym|wno:instance_hypernym ?b; rdfs:label ?label }
+    GROUP BY ?b ORDER BY ?b ?e ?label
+  }
+
+  { SELECT ?b (GROUP_CONCAT(?hyper; separator=", ") AS ?path)
+    WHERE { ?b wno:hypernym+ ?h. 
+            ?h rdfs:label ?label.
+            BIND(concat(?label,'/',replace(str(?h),'.*/','')) AS ?hyper)
+          }
+    GROUP BY ?b
+  }
+
+} ORDER BY ?instances ?blabel
+
+=> derive list of inanimates to be included in the seed, and disambiguate by giving inanimate priority
+matter/100021007-n, etc., see below
+
+derive disambiguation rules "human", "animate" => "human"
+
+6. iterate
+
+# mark animate classes
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+
+DELETE {
+	?a wno:animacy ?animacy.
+} WHERE {
+	?a wno:animacy ?animacy.
+};
+
+INSERT DATA {
+	wn:100021007-n wno:animacy "inanimate".	# added
+	wn:100004258-n wno:animacy "animate".
+	wn:100007846-n wno:animacy "human".
+	wn:109213796-n wno:animacy "human".
+	wn:110398111-n wno:animacy "human".
+	wn:114802595-n wno:animacy "human".
+	wn:107958392-n wno:animacy "human".
+	wn:107967506-n wno:animacy "human".
+	wn:107983996-n wno:animacy "human".
+	wn:107984596-n wno:animacy "human".
+	wn:108177175-n wno:animacy "human".
+	wn:108195659-n wno:animacy "human".
+	wn:108197108-n wno:animacy "human".
+	wn:108323595-n wno:animacy "human".
+};
+
+# propagate downwards
+INSERT {
+	?a wno:animacy ?animacy.
+} WHERE {
+	?a wno:part_of_speech wno:noun.
+	FILTER(NOT EXISTS { ?a wno:animacy [] })
+	?a wno:hypernym+/wno:animacy ?animacy.
+};
+
+# mark inanimates (incl. abstracts, i.e., everything else *which has a hypernym*) 
+INSERT {
+	?a wno:animacy "inanimate".
+} WHERE {
+	?a wno:part_of_speech wno:noun.
+	?a wno:hypernym* wn:100003553-n .
+	FILTER(NOT EXISTS{?a wno:animacy [] })
+};
+
+# disambiguation rules: inanimate > animate/human, human > animate
+DELETE {
+	?a wno:animacy ?other.
+} INSERT {
+	?a wno:animacy "inanimate".
+} WHERE {
+	?a wno:animacy "inanimate", ?other.
+};
+DELETE {
+	?a wno:animacy ?other.
+} INSERT {
+	?a wno:animacy "human".
+} WHERE {
+	?a wno:animacy "human", ?other.
+};
+
+# the result looks ok
+
+7. now, check unanchored nouns
+
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+
+select distinct ?bId ?blabel ?context ?instances
+where { 
+  ?b wno:part_of_speech wno:noun.
+  FILTER(NOT EXISTS { ?b wno:animacy [] .})
+  ?a ?b ?c.
+  BIND(replace(str(?b),'.*/','') AS ?bId)
+  
+  { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?blabel) 
+    WHERE { ?b rdfs:label ?label }
+    GROUP BY ?b ORDER BY ?b ?label
+  }
+  
+  OPTIONAL 
+    { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?instances) 
+      WHERE { ?e wno:hypernym|wno:instance_hypernym ?b; rdfs:label ?label }
+      GROUP BY ?b ORDER BY ?b ?e ?label
+    }
+
+  { SELECT ?b (GROUP_CONCAT(?hyper; separator=", ") AS ?context)
+    WHERE { ?b ?rel ?h.
+             ?h a wno:Synset.
+            ?h rdfs:label ?label.
+            BIND(concat(replace(str(?rel),'.*/','wno:'),' ',?label,'/',replace(str(?h),'.*/','')) AS ?hyper)
+          }
+    GROUP BY ?b ?rel ?h
+  }
+    
+} ORDER BY ?blabel
+
+# apparently, there are none
+
+8. now, expand into adjectives
+
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+
+select distinct ?adj ?alabel ?animacy ?rel ?blabel ?instances
+where { 
+  ?b wno:animacy ?animacy .
+  ?adj ?rel ?b.							# or ?b ?rel ?adj
+  ?adj wno:part_of_speech wno:adjective.
+  
+  BIND(replace(str(?b),'.*/','') AS ?bId)
+  
+  { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?blabel) 
+    WHERE { ?b rdfs:label ?label }
+    GROUP BY ?b ORDER BY ?b ?label
+  }
+  
+  { SELECT ?adj (GROUP_CONCAT(?label; separator=", ") AS ?alabel) 
+    WHERE { ?adj rdfs:label ?label }
+    GROUP BY ?adj ORDER BY ?adj ?label
+  }
+
+  OPTIONAL 
+    { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?instances) 
+      WHERE { ?e wno:hypernym|wno:instance_hypernym ?b; rdfs:label ?label }
+      GROUP BY ?b ORDER BY ?b ?e ?label
+    }
+
+    
+} ORDER BY ?alabel ?animacy
+=> 
+?b ?rel ?adj
+	only http://wordnet-rdf.princeton.edu/ontology#domain_member_category (results look mostly ok)
+?adj ?rel ?b
+	only <http://wordnet-rdf.princeton.edu/ontology#domain_category> (inverse property)
+	
+47 adjectives
+
+9. extend to more adjectives?
+
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+
+select distinct ?adj2 ?adj ?a2label ?rel2 ?alabel ?animacy ?rel ?blabel ?instances
+where { 
+  ?b wno:animacy ?animacy .
+  ?adj ?rel ?b.								
+  ?adj wno:part_of_speech wno:adjective.
+  ?adj ?rel2 ?adj2.								# or ?adj2 ?rel2 ?adj.
+  ?adj2 wno:part_of_speech wno:adjective.
+
+  BIND(replace(str(?b),'.*/','') AS ?bId)
+  
+  { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?blabel) 
+    WHERE { ?b rdfs:label ?label }
+    GROUP BY ?b ORDER BY ?b ?label
+  }
+  
+  { SELECT ?adj (GROUP_CONCAT(?label; separator=", ") AS ?alabel) 
+    WHERE { ?adj rdfs:label ?label }
+    GROUP BY ?adj ORDER BY ?adj ?label
+  }
+
+  { SELECT ?adj2 (GROUP_CONCAT(?label; separator=", ") AS ?a2label) 
+    WHERE { ?adj2 rdfs:label ?label }
+    GROUP BY ?adj2 ORDER BY ?adj ?label
+  }
+
+  OPTIONAL 
+    { SELECT ?b (GROUP_CONCAT(?label; separator=", ") AS ?instances) 
+      WHERE { ?e wno:hypernym|wno:instance_hypernym ?b; rdfs:label ?label }
+      GROUP BY ?b ORDER BY ?b ?e ?label
+    }
+
+    
+} ORDER BY ?alabel ?animacy
+
+=> <http://wordnet-rdf.princeton.edu/ontology#also> (both directions): looks ok
+
+10. enrich adjectives
+# however, animacy for adjectives is to be taken with a grain of salt
+# an armed robbery, for example, involves a human agent, but this is not the head noun
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+
+insert {
+	?adj wno:animacy ?animacy.
+} where {
+	?adj wno:part_of_speech wno:adjective.
+	?adj wno:also*/wno:domain_category/wno:animacy ?animacy.
+};
+
+# in case of ambiguity, remove animacy annotation for adjectives
+delete {
+	?adj wno:animacy ?a1, ?a2.
+} WHERE {
+	?adj wno:animacy ?a1, ?a2.
+	FILTER(str(?a1)!=str(?s2))
+};
+# => 877 adjectives with (tentative) animacy annotation
+
+11. retrieve a lexeme list with animacy information
+
+PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+PREFIX lemon: <http://lemon-model.net/lemon#>
+SELECT DISTINCT ?form ?pos ?animacy
+WHERE {
+	?lex lemon:sense/lemon:reference/wno:animacy [].
+	?lex lemon:canonicalForm/lemon:writtenRep ?form. 
+
+	{ SELECT ?lex (GROUP_CONCAT(DISTINCT(?a); separator=", ") AS ?animacy)
+	  WHERE {
+    	?lex lemon:canonicalForm/lemon:writtenRep ?form.
+		?lex lemon:sense/lemon:reference/wno:animacy ?a.
+	  } GROUP BY ?lex ORDER BY ?lex ?a
+	}
+	
+	?lex wno:part_of_speech ?pos.
+} LIMIT 10
+
+12. export results
+
+curl -X POST http://localhost:9999/bigdata/namespace/kb/sparql --data-urlencode '
+ --data-urlencode 'format=json'
+
+
+curl -X POST http://localhost:9999/bigdata/sparql --data-urlencode 'query=PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+PREFIX lemon: <http://lemon-model.net/lemon#>
+SELECT DISTINCT ?form ?pos ?animacy
+WHERE {
+	?lex lemon:sense/lemon:reference/wno:animacy [].
+	?lex lemon:canonicalForm/lemon:writtenRep ?form. 
+
+	{ SELECT ?lex (GROUP_CONCAT(DISTINCT(?a); separator=", ") AS ?animacy)
+	  WHERE {
+    	?lex lemon:canonicalForm/lemon:writtenRep ?form.
+		?lex lemon:sense/lemon:reference/wno:animacy ?a.
+	  } GROUP BY ?lex ORDER BY ?lex ?a
+	}
+	
+	?lex wno:part_of_speech ?p .
+	BIND(replace(str(?p),".*#","") AS ?pos)
+}
+' -H 'Accept:text/csv'
+
+
+$ curl -X POST http://localhost:9999/bigdata/sparql --data-urlencode 'query=PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+PREFIX lemon: <http://lemon-model.net/lemon#>
+SELECT DISTINCT ?form ?pos ?animacy
+WHERE {
+?lex lemon:sense/lemon:reference/wno:animacy [].
+?lex lemon:canonicalForm/lemon:writtenRep ?form.
+
+{ SELECT ?lex (GROUP_CONCAT(DISTINCT(?a); separator=", ") AS ?animacy)
+  WHERE {
+    ?lex lemon:canonicalForm/lemon:writtenRep ?form.
+?lex lemon:sense/lemon:reference/wno:animacy ?a.
+  } GROUP BY ?lex ORDER BY ?lex ?a
+}
+
+?lex wno:part_of_speech ?p .
+BIND(replace(str(?p),".*#","") AS ?pos)
+}
+' -H 'Accept:text/csv' > animacy.csv
+
+
+13. (French) translations instead of lexical forms
+
+curl -X POST http://localhost:9999/bigdata/sparql --data-urlencode 'query=PREFIX wno: <http://wordnet-rdf.princeton.edu/ontology#>
+PREFIX wn: <http://wordnet-rdf.princeton.edu/wn31/>
+PREFIX lemon: <http://lemon-model.net/lemon#>
+SELECT DISTINCT ?form ?pos ?animacy
+WHERE {
+?sense wno:animacy [].
+?sense wno:translation ?form.
+?sense wno:part_of_speech ?p.
+FILTER(lang(?form)="fra")
+
+{ SELECT ?form ?p (GROUP_CONCAT(DISTINCT(?a); separator=", ") AS ?animacy)
+  WHERE {
+	?sense wno:translation ?form.
+	?sense wno:part_of_speech ?p.
+	?sense wno:animacy ?a.
+  } GROUP BY ?form ?p ORDER BY ?form ?p ?a
+}
+
+BIND(replace(str(?p),".*#","") AS ?pos)
+}
+' -H 'Accept:text/csv'
+
+(untested)
+
+14. full pipeline
+
+PRE: load German iliIndex into local DB
+
+

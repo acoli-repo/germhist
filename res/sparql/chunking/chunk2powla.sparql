@@ -40,7 +40,8 @@ INSERT {
 	MINUS { ?chunk powla:hasParent [] }
 	{ SELECT ?chunk (SAMPLE(?sentence) AS ?root)
 	  WHERE {
-		?chunk (^powla:hasParent)*/conll:HEAD+ ?sentence.
+	  # FIXME: there is no more conll:HEAD predicate at this point in the data
+		?chunk (^powla:hasParent)*/conll:HEAD+ ?sentence. 
 		MINUS { ?sentence conll:HEAD [] }
 	  } GROUP BY ?chunk
 	}

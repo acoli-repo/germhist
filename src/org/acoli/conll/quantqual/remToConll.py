@@ -32,20 +32,27 @@ import argparse
 import logging
 import re
 import sys
+from chardet.universaldetector import UniversalDetector
 
 logger = logging.getLogger()
 
-def processSrcFile(filePath, outDir):
-    logger.info("processing %s", filePath)
+def processSrcFile(filePath, outDir, fileName):
+    logger.info("processing %s", fileName)
     
-    srcStuff = etree.parse(filePath)
+    if filePath == sys.stdin:
+        etree.parse(sys.stdin)
+    else:
+        srcStuff = etree.parse(path.join(filePath, fileName))
     srcRoot = srcStuff.getroot()
     
-    out = path.join(outDir, re.sub("\.[\w]{2,4}$", ".conll", path.basename(filePath)))
-    makedirs(path.dirname(out), exist_ok=True)
-    if path.isfile(out):
-        open(out, "w").close()
-    f = codecs.open(out, "a", "utf-8")
+    if outDir == sys.stdout:
+        f = outDir
+    else:
+        out = path.join(outDir, re.sub("\.[\w]{2,4}$", ".conll", fileName))
+        makedirs(path.dirname(out), exist_ok=True)
+        if path.isfile(out):
+            open(out, "w").close()
+        f = codecs.open(out, "a", "utf-8")
     sentenceBuffer = []
     
     # tags used below tok_anno
@@ -63,7 +70,7 @@ def processSrcFile(filePath, outDir):
             
             tok_annos = [elem for elem in c.iter() if elem.tag == "tok_anno"]
             if not tok_annos:
-                logger.critical("data structure corrupted at {0} line {1}", filePath, srcRoot.index(c))
+                logger.critical("data structure corrupted at {0} line {1}", fileName, srcRoot.index(c))
                 break
             
             for x in range(len(tok_annos)):      
@@ -105,48 +112,60 @@ def processSrcFile(filePath, outDir):
                         
     f.close()
 
-def initializeLogger(logPath, fileName, loglevelFile = logging.DEBUG, loglevelConsole = logging.INFO):
-    logging.getLogger().setLevel(loglevelFile)
-    logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-7.7s]  %(message)s")
+def initializeLogger(logPath, fileName, loglevelFile = logging.DEBUG, loglevelConsole = logging.INFO, propagate = True):
     rootLogger = logging.getLogger()
-    
-    fileHandler = logging.FileHandler("{0}/{1}.log".format(logPath, fileName))
-    fileHandler.setFormatter(logFormatter)
-    rootLogger.addHandler(fileHandler)
-    
-    consoleHandler = logging.StreamHandler()
-    consoleHandler.setLevel(loglevelConsole)
-    
-    rootLogger.addHandler(consoleHandler)
+    if propagate:
+        rootLogger.setLevel(loglevelFile)
+        logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-7.7s]  %(message)s")
+        
+        fileHandler = logging.FileHandler("{0}/{1}.log".format(logPath, fileName))
+        fileHandler.setFormatter(logFormatter)
+        rootLogger.addHandler(fileHandler)
+        
+        consoleHandler = logging.StreamHandler()
+        consoleHandler.setLevel(loglevelConsole)
+        
+        rootLogger.addHandler(consoleHandler)
+    rootLogger.propagate = propagate
 
 if __name__ == "__main__":
     
-    parser = argparse.ArgumentParser(description="Convert ReM CoraXML to CoNLL format.")
-    parser.add_argument("-dir", default="./", help="set ReM XML files directory (\"./\" default)")
-    parser.add_argument("-files", default="all", help="list of ReM XML file names in ReM XML directory separated by whitespace (all by default) - e.g. \"M001-N1 M002-N1\"")
+    parser = argparse.ArgumentParser(description="Convert ReM CorA-XML to CoNLL format.")
+    parser.add_argument("-mode", default="dirdir", help="set mode for input and output (\"dirdir\" default) - combination of \"stdin\" \"stdout\" or \"dir\" in order input>output")
+    parser.add_argument("-dir", default="./", help="set ReM XML files input directory (\"./\" default)")
+    parser.add_argument("-filename", default="stdin", help="set file name for input via stdin for output into a specific file")
+    parser.add_argument("-files", default="all", help="filter list of ReM XML file names in ReM XML directory separated by whitespace (\"all\" by default) - e.g. \"M001-N1 M002-N1\"")
     parser.add_argument("-dest", default="./", help="set ReM CoNLL files output directory (\"./\" default)")
+    parser.add_argument("-silent", default="False", help="set logging to silent (\"false\" default)")
     if len(sys.argv)==1:
         parser.print_help()
         sys.exit(1)
     args = parser.parse_args()
         
     logPath = "./"
-    fileName = "{0}_{1}".format(path.basename(__file__), str(time())[:9])
-    initializeLogger(logPath, fileName, loglevelFile = logging.DEBUG, loglevelConsole = logging.DEBUG)
+    logFileName = "{0}_{1}".format(path.basename(__file__), str(time())[:9])
+    initializeLogger(logPath, logFileName, loglevelFile = logging.DEBUG, loglevelConsole = logging.DEBUG, propagate = (args.silent == "False"))
     
+    inoutMode = args.mode
     srcDir = args.dir #"../res/rem/data"
     outDir = args.dest #"../res/rem/conll"
-        
+    fileName = args.filename
     
-    if args.files != "all":
-        for f in args.files.split():   
-            if not f.endswith(".xml"):
-                f = f + ".xml"                     
-            processSrcFile(path.join(srcDir, f), outDir)
-    else:
-        for file in listdir(srcDir):  
-            if file.lower().endswith(".xml"):
-                processSrcFile(path.join(srcDir, file), outDir)
-
+    if inoutMode.endswith("stdout"):
+        outDir = sys.stdout
+    if  inoutMode.startswith("stdin"):
+        processSrcFile(sys.stdin, outDir, fileName)
+    elif inoutMode.startswith("dir"):
+        if args.files != "all":
+            for f in args.files.split():   
+                if not f.endswith(".xml"):
+                    f = f + ".xml"                     
+                processSrcFile(srcDir, outDir, f)
+        else:
+            for file in listdir(srcDir):  
+                if file.lower().endswith(".xml"):
+                    processSrcFile(srcDir, outDir, file)
+    else: 
+        logger.critical("mode for input and output not set correctly")
 
     
