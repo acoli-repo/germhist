@@ -87,19 +87,19 @@ function cols {
   done;
   echo $out;
 } 
+colCount=7;
+colCountAnnotated=${colCount};
+if [ -e $dataDirAbs/mhd-koebler.tsv ]; then
+  ((colCountAnnotated++));
+fi;
+if [ -e $dataDirAbs/lexerlemmas_1_to_1.tsv ]; then
+  ((colCountAnnotated++));
+fi;
+if [ -e $dataDirAbs/manual_translit.tsv ]; then
+  ((colCountAnnotated++));
+fi;
 
 for f in $remFiles ; do \
-  colCount=7;
-  colCountAnnotated=${colCount};
-  if [ -e $dataDirAbs/mhd-koebler.tsv ]; then
-    ((colCountAnnotated++));
-  fi;
-  if [ -e $dataDirAbs/lexerlemmas_1_to_1.tsv ]; then
-    ((colCountAnnotated++));
-  fi;
-  if [ -e $dataDirAbs/manual_translit.tsv ]; then
-    ((colCountAnnotated++));
-  fi;
   bare=$(basename $f);
   ttlfile=${bare%.conll}.ttl;
   tuttl=file:///${ttlfile}'/';
