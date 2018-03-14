@@ -79,8 +79,27 @@ fi;
 if [ ! -d $outDir/ttlchunked ]
   then mkdir $outDir/ttlchunked
 fi;
+function cols {
+  out="";
+  b=$((${1}+1));
+  for i in $(seq $b $2); do
+    out="$out $i";
+  done;
+  echo $out;
+} 
 
 for f in $remFiles ; do \
+  colCount=7;
+  colCountAnnotated=${colCount};
+  if [ -e $dataDirAbs/mhd-koebler.tsv ]; then
+    ((colCountAnnotated++));
+  fi;
+  if [ -e $dataDirAbs/lexerlemmas_1_to_1.tsv ]; then
+    ((colCountAnnotated++));
+  fi;
+  if [ -e $dataDirAbs/manual_translit.tsv ]; then
+    ((colCountAnnotated++));
+  fi;
   bare=$(basename $f);
   ttlfile=${bare%.conll}.ttl;
   tuttl=file:///${ttlfile}'/';
@@ -91,12 +110,27 @@ for f in $remFiles ; do \
   # hyperlemmata and animacy #
   ############################
   #
-  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/mhd-koebler.tsv 1 2 4 | \
-  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/lexerlemmas_1_to_1.tsv 2 5 4 | \
-  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/manual_translit.tsv 1 2 4 | \
+  if [ -e $dataDirAbs/mhd-koebler.tsv ]; then
+    java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/mhd-koebler.tsv 1 2 4;
+  else
+    cat;
+  fi | \
+  if [ -e $dataDirAbs/lexerlemmas_1_to_1.tsv ]; then
+    java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/lexerlemmas_1_to_1.tsv 2 5 4;
+  else
+    cat;
+  fi | \
+  if [ -e $dataDirAbs/manual_translit.tsv ]; then
+    java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/manual_translit.tsv 1 2 4;
+  else
+    cat;
+  fi | \
   if $DEBUG; then tee $outDir/transliterated/$bare; else cat; fi | \
-  java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de_manual.csv 4 8 9 10 | \
-  # TODO: fix for animacy from WordNet
+  if [ -e $dataDirAbs/animacy-de.csv ]; then
+    java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de.csv 4 $(cols $colCount $colCountAnnotated);
+  else
+    java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de_manual.csv 4 $(cols $colCount $colCountAnnotated);
+  fi | \
   if $DEBUG; then tee $outDir/animacyannotated/$bare; else cat; fi | \
   #
   ######################################
@@ -197,8 +231,8 @@ for f in $remFiles ; do \
   if $DEBUG; then tee $outDir/ttlfin/$ttlfile; else cat; fi | \
   # conversion to POWLA (interoperable data structures)
   $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates \
-    $chunkingPipelineAbs/chunk2powla.sparql 	\
-    $chunkingPipelineAbs/powla2word.sparql 		| \
+    $chunkingPipelineAbs/chunk2powla.sparql 	| \
+    #$chunkingPipelineAbs/powla2word.sparql 		| \#
   if $DEBUG; then $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar; else $conll2rdfDir/run.sh CoNLLRDFFormatter > $outDir/ttlchunked/$ttlfile; fi;
 done
 

@@ -75,10 +75,10 @@ public class AniImp {
 
 	public static void main(String[] args) throws IOException {
 		System.err.println("synopsis: AniImp [animacySrc posColumn [animacyColumns+]]\n"
-				+ "\tanimacySrc the source file with the lemma pos and animacy\n"
+				+ "\tanimacySrc the source file with the lemma, pos and animacy\n"
 				+ "\tposColumn the column number (which start at 0) for the POS tag\n"
 				+ "\tanimacycolumns+ column numbers to be annotated (whitespace separated)\n"
-				+ "\tlooks up the lemmas given in the animacycolumns in the given animacySrc\n"
+				+ "\tlooks up the lemmas given in stdin in the animacycolumns in the given animacySrc\n"
 				+ "\t(ignores case and looks only for nouns)");
 		File animacySrc = new File(args[0]);
 		int posCol = Integer.parseInt(args[1]);
