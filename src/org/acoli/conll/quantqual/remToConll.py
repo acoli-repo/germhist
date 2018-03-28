@@ -32,7 +32,6 @@ import argparse
 import logging
 import re
 import sys
-from chardet.universaldetector import UniversalDetector
 
 logger = logging.getLogger()
 
@@ -48,7 +47,27 @@ def processSrcFile(filePath, outDir, fileName):
     if outDir == sys.stdout:
         f = outDir
     else:
-        out = path.join(outDir, re.sub("\.[\w]{2,4}$", ".conll", fileName))
+        h = srcRoot.find("header")
+    
+    gen = h.find("genre")
+    s = ""
+    if gen is None or (not(gen.text == "-")) or (not(gen.text != "")) or (gen.text is None):
+        
+        global fileNameTimeGenreFlag
+        if fileNameTimeGenreFlag:
+            s = "None"
+            genstr = gen.text if gen is not None else s
+        
+            #12,2-13,1
+            tim = h.find("time")
+            if (tim is None) or (tim.text == "-") or (tim.text == "") or (tim.text is None):
+                raise Exception("time tag missing or malformed for " + fileName)
+            timstr = tim.text[:4] if len(tim.text) > 2 else (tim.text + ",1")
+            timstr = timstr.replace(",", "-")
+            
+            out = path.join(outDir, re.sub("\.[\w]{2,4}$", "_"+timstr+"_"+genstr+".conll", fileName))
+        else:
+            out = path.join(outDir, re.sub("\.[\w]{2,4}$", ".conll", fileName))
         makedirs(path.dirname(out), exist_ok=True)
         if path.isfile(out):
             open(out, "w").close()
@@ -58,52 +77,49 @@ def processSrcFile(filePath, outDir, fileName):
     # tags used below tok_anno
     tagz = ["norm", "lemma", "pos", "infl", "punc"]
     # column header
-    line = u"#ID\tTID\tWORD\tLEMMA\tPOS\tINFL\tSB"
+    f.write(u"#ID\tTID\tWORD\tLEMMA\tPOS\tINFL\tSB\n")
     
-    sentenceBuffer.append(line)
     sentenceBuffer.append(u"")
     sentenceEndFlag = False
     sentenceInternalTokenID = 1
         
-    for c in srcRoot:
-        if c.tag == "token":
+    for c in srcRoot.findall("token"):            
+        tok_annos = [elem for elem in c.iter() if elem.tag == "tok_anno"]
+        if not tok_annos:
+            logger.critical("data structure corrupted at {0} line {1}", fileName, srcRoot.index(c))
+            break
+        
+        for x in range(len(tok_annos)):      
+            tok_anno = tok_annos[x]
+            punc = tok_anno.find("punc")
+                                            
+            if sentenceEndFlag and (punc is None or not (punc.attrib["tag"].endswith("E") and c.attrib["type"] == "punc")):
+                sentenceBuffer.append(u"\n")
+                f.write(u"\n".join(sentenceBuffer))
+                sentenceBuffer.clear()
+                sentenceEndFlag = False
+                sentenceInternalTokenID = 1
             
-            tok_annos = [elem for elem in c.iter() if elem.tag == "tok_anno"]
-            if not tok_annos:
-                logger.critical("data structure corrupted at {0} line {1}", fileName, srcRoot.index(c))
-                break
+            line = u"" + str(sentenceInternalTokenID)
+            line = line + "\t" + c.attrib["id"] + "_" + "{0:0=3d}".format(x)
+            #line = line + "\t" + d.attrib["ascii"]
+            #line = line + "\t" + d.attrib["trans"]
+            for t in tagz:
+                ct = tok_anno.find(t)
+                cv = "-"
+                if ct is not None:
+                    cv = ct.attrib["tag"]
+                    if cv == "--":
+                        cv = "-"
+                line = line + "\t" + cv.replace(u"#", u"")
+                            
+            sentenceBuffer.append(line)
+            sentenceInternalTokenID = sentenceInternalTokenID + 1
             
-            for x in range(len(tok_annos)):      
-                tok_anno = tok_annos[x]
-                punc = tok_anno.find("punc")
-                                                
-                if sentenceEndFlag and (punc is None or not (punc.attrib["tag"].endswith("E") and c.attrib["type"] == "punc")):
-                    sentenceBuffer.append(u"\n")
-                    f.write(u"\n".join(sentenceBuffer))
-                    sentenceBuffer.clear()
-                    sentenceEndFlag = False
-                    sentenceInternalTokenID = 1
-                
-                line = u"" + str(sentenceInternalTokenID)
-                line = line + "\t" + c.attrib["id"] + "_" + "{0:0=3d}".format(x)
-                #line = line + "\t" + d.attrib["ascii"]
-                #line = line + "\t" + d.attrib["trans"]
-                for t in tagz:
-                    ct = tok_anno.find(t)
-                    cv = "-"
-                    if ct is not None:
-                        cv = ct.attrib["tag"]
-                        if cv == "--":
-                            cv = "-"
-                    line = line + "\t" + cv
-                                
-                sentenceBuffer.append(line)
-                sentenceInternalTokenID = sentenceInternalTokenID + 1
-                
-                if punc is not None:
-                    if punc.attrib["tag"].endswith("E"):
-                        sentenceEndFlag = True
-                                                                
+            if punc is not None:
+                if punc.attrib["tag"].endswith("E"):
+                    sentenceEndFlag = True
+                                                            
     if sentenceEndFlag:
         sentenceBuffer.append(u"\n")
         f.write(u"\n".join(sentenceBuffer))
@@ -134,6 +150,7 @@ if __name__ == "__main__":
     parser.add_argument("-mode", default="dirdir", help="set mode for input and output (\"dirdir\" default) - combination of \"stdin\" \"stdout\" or \"dir\" in order input>output")
     parser.add_argument("-dir", default="./", help="set ReM XML files input directory (\"./\" default)")
     parser.add_argument("-filename", default="stdin", help="set file name for input via stdin for output into a specific file")
+    parser.add_argument("-FtimeGenre", default="False", help="set for marking time and genre of the source document on the file name (\"false\" default)")
     parser.add_argument("-files", default="all", help="filter list of ReM XML file names in ReM XML directory separated by whitespace (\"all\" by default) - e.g. \"M001-N1 M002-N1\"")
     parser.add_argument("-dest", default="./", help="set ReM CoNLL files output directory (\"./\" default)")
     parser.add_argument("-silent", default="False", help="set logging to silent (\"false\" default)")
@@ -150,6 +167,8 @@ if __name__ == "__main__":
     srcDir = args.dir #"../res/rem/data"
     outDir = args.dest #"../res/rem/conll"
     fileName = args.filename
+    global fileNameTimeGenreFlag
+    fileNameTimeGenreFlag = args.FtimeGenre
     
     if inoutMode.endswith("stdout"):
         outDir = sys.stdout
@@ -167,5 +186,4 @@ if __name__ == "__main__":
                     processSrcFile(srcDir, outDir, file)
     else: 
         logger.critical("mode for input and output not set correctly")
-
-    
+        
