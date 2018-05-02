@@ -45,35 +45,35 @@ In addition we provide some convenience scripts and tools to get and convert add
 The pipeline can be configured inside the rem_pipe.sh file (adjust paths, usage of Transliterator, chunking steps, etc).
 
 ### Transliterator
-Synopsis: DICT.TSV [-full] [-keepCase] [-encoding \"ENCODING\"] [ [ [ COL_SRC ] COL_TGT] COL_WORD ]
-				  DICT.TSV            dictionary in tsv format
-				  -full               keep accents and [^a-zA-Z] when comparing WORD and SRC (default: ignore accents and [^a-zA-z]]
-				  -keepCase           keep case when comparing WORD and SRC (default: lowercase)
-				  -encoding \"UTF8\"  encoding for both input files and output - default is UTF8
-				  COL_SRC             source column in DICT.TSV (first column = 1), by default 0
-				  COL_TGT             target column in DICT.TSV (first column = 1), by default 1
-				  COL_WORD            column in the data file that contains the forms that are to be normalized, by default 1
-				read CoNLL file from stdin, with normalize entries from COL_WORD according to DICT.TSV, add this as new column
-				write to stdout
+Synopsis: `DICT.TSV [-full] [-keepCase] [-encoding "ENCODING"] [ [ [ COL_SRC ] COL_TGT] COL_WORD ]`
+				  `DICT.TSV`            dictionary in TSV format
+				  `-full`               keep accents and `[^a-zA-Z]` when comparing `WORD` and `SRC` (default: ignore accents and `[^a-zA-z]`)
+				  `-keepCase`           keep case when comparing `WORD` and `SRC` (default: lowercase)
+				  `-encoding`           encoding for both input files and output (default: `UTF8`)
+				  `COL_SRC`             source column in `DICT.TSV` (first column = 1), (default: `0`)
+				  `COL_TGT`             target column in `DICT.TSV` (first column = 1), (default: `1`)
+				  `COL_WORD`            column in the data file that contains the forms that are to be normalized (default: `1`)
+				read CoNLL file from `stdin`, with normalize entries from `COL_WORD` according to `DICT.TSV`, add this as new column
+				write to `stdout`
 
 ### AniImp
-Synopsis: animacySrc posColumn [animacyColumns+]
-				animacySrc the source file with the lemma, pos and animacy
-				posColumn the column number (which start at 0) for the POS tag
-				animacycolumns+ column numbers to be annotated (whitespace separated)
-				looks up the lemmas given in stdin in the animacycolumns in the given animacySrc
+Synopsis: `animacySrc posColumn [animacyColumns+]`
+				`animacySrc`           the source file with the lemma, POS and animacy
+				`posColumn`            the column number (which start at 0) for the POS tag
+				`animacycolumns+`      column numbers to be annotated (whitespace separated)
+				looks up the lemmas given in `stdin` in the `animacycolumns` in the given `animacySrc`
 				(ignores case and looks only for nouns)
 				
 
 ### remToConll
-Synopsis: [-mode MODE] [-dir DIR] [-filename FILENAME] [-files FILENAME+] [-dest DEST] [-silent True/False]
-    -mode", default="dirdir", help="set mode for input and output ("dirdir" default) - combination of "stdin" "stdout" or "dir" in order input>output
-    -dir", default="./", help="set ReM XML files input directory ("./" default)
-    -filename", default="stdin", help="set file name for input via stdin for output into a specific file
-    -files", default="all", help="filter list of ReM XML file names in ReM XML directory separated by whitespace ("all" by default) - e.g. "M001-N1 M002-N1"
-    -dest", default="./", help="set ReM CoNLL files output directory ("./" default)
-    -silent", default="False", help="set logging to silent ("false" default)
-  convert ReM CorA-XML to CoNLL format
+Synopsis: `[-dir DIR] [-FtimeGenre] [-files FILENAME+] [-dest DEST] [-silent True/False]`
+				`-dir`              set ReM XML files input directory ("./" default)
+				`-FtimeGenre`       marking time and genre of the source document on the file name ("False" default)
+				`-files`            filter list of ReM XML file names in ReM XML directory separated by whitespace 
+				                   ("all" by default) - e.g. "M001-N1 M002-N1"
+				`-dest`             set ReM CoNLL files output directory ("./" default)
+				`-silent`           help="set logging to silent ("False" default)
+				convert ReM CorA-XML to CoNLL format
 
 ## Authors
 
@@ -87,16 +87,50 @@ See also the list of [contributors](https://github.com/acoli-repo/conll-rdf/grap
 
 ## Acknowledgments
 
+The research described in this paper was conducted at the
+Goethe Universitat Frankfurt, Germany, within a project on ¨
+Quantitative and Qualitative Methods in German Historical
+Philology (QuantQual@CEDIFOR), at the Centre for the
+Digital Foundation of Research in the Humanities, Social,
+and Educational Sciences (CEDIFOR), funded by the
+German Ministry of Research and Education (BMBF, first
+phase 2014-2017). We would like to thank Ralf Plate, Arbeitsstelle Mittelhochdeutsches Worterbuch, Trier / Insti- ¨
+tut fur Empirische Sprachwissenschaft, Goethe-Universit ¨ at ¨
+Frankfurt, for the fruitful collaboration within this project.
+Furthermore, we would like to thank Thomas Klein and
+Claudia Wich-Reif for providing us with an access to the
+ReM corpus even before its ultimate publication, as well as
+Thomas Burch and the Trier Center for Digital Humanities, 
+for the access to the digital Lexer dictionary data. We
+would like to thank Margarete Springeth for access to the
+Middle High German Conceptual Database (MHDBDB)
+at the Universitat Salzburg. While not reported here, our ¨
+hyperlemmatization routine was also applied to produce an
+annotation with MHDBDB concepts. Finally, we thank the
+anonymous reviewers for helpful comments and feedback.
+
+* Applied Computational Linguistics ([ACoLi](http://acoli.cs.uni-frankfurt.de))
+* Linked Open Dictionaries ([LiODi](http://www.acoli.informatik.uni-frankfurt.de/liodi/)) - 01UG1631
+* QuantQual@CEDIFOR ([QuantQual](http://acoli.cs.uni-frankfurt.de/projects.html#quantqual)) - 01UG1416A
+* Trier Center for Digital Humanities ([TCDH] (http://kompetenzzentrum.uni-trier.de/de/))
+* Lexer by Trier Center for Digital Humanities ([Lexer] (http://woerterbuchnetz.de/Lexer/))
+* Middle High German Conceptual Database ([MHDBDB] (http://mhdbdb.sbg.ac.at/))
+* Reference Corpus of Middle High German ([ReM] (https://www.linguistics.rub.de/rem/))  
   
 ## Licenses
 
 
-This repository is being published under two licenses. Apache 2.0 is used for code, see [LICENSE.main](LICENSE.main.txt). CC-BY 4.0 for all data from universal dependencies and SPARQL scripts, see [LICENSE.data](LICENSE.data.txt).
+This repository is being published under two licenses. 
+Apache 2.0 is used for code, see [LICENSE.main](LICENSE.main.txt). 
+CC-BY-SA 4.0 for all data from the ReM corpus and SPARQL scripts, see [LICENSE.data](LICENSE.data.txt).
   
 ### LICENCE.main (Apache 2.0)
 ```
 ├── src/  
 ```
 ### LICENCE.data (CC-BY 4.0)
-  
-  
+├── res/  
+│	├── data
+│	├── sh
+│	└── sparql
+

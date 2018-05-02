@@ -27,11 +27,6 @@
 # - if a parsing error cannot be fixed (e.g., because two deterministic rules would be in conflict), add 
 # - production mode: copy this pipeline to rem_pipe.sh to run it on the full corpus or set DEBUG=false (below) for stream processing
 
-# TODO
-# - introduce data structures that can be navigated, following the POWLA vocabulary, with powla:next between siblings, powla:hasParent between child and parent
-# - update test scripts
-# - check if all resources exist before running pipeline
-
 ##########
 # config #
 ##########
@@ -169,27 +164,6 @@ for f in $remFiles ; do \
   # chunking #
   ############
   #
-  # CC: modifications
-  # - FIXED: {*} doesn't seem to work properly => replaced by {10} or higher
-  # - FIXED: step1 didn't work with / URIs
-  # - CHANGED: mi:next *within clauses*, no explicit clauses
-  #            mi:next shall connect only adjacent parse fragments that are otherwise unattached (cf. SHIFT)
-  #            mi:next updates are implemented in stepAUX; BUT for iterative operations, it must be included
-  # - CHANGED: PXs attach to NXs only
-  # - FIXED: removed verb from middle field / revised middle field detection
-  #   alternatively: use "CORE": this term follows Role and Reference Grammar, see
-  #     Van Valin Jr, R. D., & LaPolla, R. J. (1997). Syntax: Structure, meaning, and function. Cambridge University Press, p.500
-  #     we must not claim a firm foundation in RRG, note that Diederich's analysis of German syntax is different, as the CORE there includes the VF, too
-  # - ADDED: prefield, postfield, clausal junction
-  # - CHANGED: during parsing, CHUNKs do not contain a conll:HEAD, added in chunk2word, only
-  # - CHANGED: MFChunk => MF, NChunk => NX, PChunk => PX, VChunk => VX
-  # - CHANGED: map data structures to (modified) POWLA (powla:next between *all* siblings, powla:hasParent for mi:CHUNK)
-  # - TODO: update eval scripts to POWLA
-  # - NOTE: after step 15, we reinitialize mi:next, but now we keep transitions across clause boundaries
-  # - NOTE: regular shift-reduce parsing until 15, clausal attachment requires more heavy machinery (i.e., attach within established phrases)
-  # - TODO: update chunk2word for POWLA data structures
-  # - TODO: rename mi:next => conll:SHIFT and mi:CHUNK => conll:REDUCE
-  # - TODO: coordination, improve fragment resolution, include more samples
   (
   $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates 																		\
 	  \

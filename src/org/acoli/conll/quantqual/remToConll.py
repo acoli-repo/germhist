@@ -111,7 +111,7 @@ def processSrcFile(filePath, outDir, fileName):
                     cv = ct.attrib["tag"]
                     if cv == "--":
                         cv = "-"
-                line = line + "\t" + cv.replace(u"#", u"")
+                line = line + "\t" + cv.replace(u"#", u"-")
                             
             sentenceBuffer.append(line)
             sentenceInternalTokenID = sentenceInternalTokenID + 1
@@ -150,10 +150,10 @@ if __name__ == "__main__":
     parser.add_argument("-mode", default="dirdir", help="set mode for input and output (\"dirdir\" default) - combination of \"stdin\" \"stdout\" or \"dir\" in order input>output")
     parser.add_argument("-dir", default="./", help="set ReM XML files input directory (\"./\" default)")
     parser.add_argument("-filename", default="stdin", help="set file name for input via stdin for output into a specific file")
-    parser.add_argument("-FtimeGenre", default="False", help="set for marking time and genre of the source document on the file name (\"false\" default)")
+    parser.add_argument("-FtimeGenre", default="False", help="set for marking time and genre of the source document on the file name (\"False\" default)")
     parser.add_argument("-files", default="all", help="filter list of ReM XML file names in ReM XML directory separated by whitespace (\"all\" by default) - e.g. \"M001-N1 M002-N1\"")
     parser.add_argument("-dest", default="./", help="set ReM CoNLL files output directory (\"./\" default)")
-    parser.add_argument("-silent", default="False", help="set logging to silent (\"false\" default)")
+    parser.add_argument("-silent", default="False", help="set logging to silent (\"False\" default)")
     if len(sys.argv)==1:
         parser.print_help()
         sys.exit(1)

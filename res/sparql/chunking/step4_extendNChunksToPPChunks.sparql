@@ -16,6 +16,8 @@ insert {
   ?chunkPart conll:REDUCE+ ?chunk .
   ?w2 conll:POS "APPR" .
   ?w2 conll:TID ?tid.
+  optional{?w2 conll:REDUCE ?pxc}
+  filter(!bound(?pxc))
   # like "<file:///M113-G1.ttl#s122_4ii>"
   BIND(IRI(concat(str(?chunk), "i")) AS ?ppchunk)
 }
