@@ -81,7 +81,7 @@ Synopsis: `[-dir DIR] [-FtimeGenre] [-files FILENAME+] [-dest DEST] [-silent Tru
 * **Christian Fäth** - faeth@em.uni-frankfurt.de
 * **Benjamin Kosmehl** - bkosmehl@gmail.com
 
-See also the list of [contributors](https://github.com/acoli-repo/conll-rdf/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/acoli-repo/germhist/graphs/contributors) who participated in this project.
 
 ## Reference
 
