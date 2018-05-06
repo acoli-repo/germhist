@@ -109,10 +109,10 @@ at the Universitat Salzburg.
 * Applied Computational Linguistics ([ACoLi](http://acoli.cs.uni-frankfurt.de))
 * Linked Open Dictionaries ([LiODi](http://www.acoli.informatik.uni-frankfurt.de/liodi/)) - 01UG1631
 * QuantQual@CEDIFOR ([QuantQual](http://acoli.cs.uni-frankfurt.de/projects.html#quantqual)) - 01UG1416A
-* Trier Center for Digital Humanities ([TCDH] (http://kompetenzzentrum.uni-trier.de/de/))
-* Lexer by Trier Center for Digital Humanities ([Lexer] (http://woerterbuchnetz.de/Lexer/))
-* Middle High German Conceptual Database ([MHDBDB] (http://mhdbdb.sbg.ac.at/))
-* Reference Corpus of Middle High German ([ReM] (https://www.linguistics.rub.de/rem/))  
+* Trier Center for Digital Humanities ([TCDH](http://kompetenzzentrum.uni-trier.de/de/))
+* Lexer by Trier Center for Digital Humanities ([Lexer](http://woerterbuchnetz.de/Lexer/))
+* Middle High German Conceptual Database ([MHDBDB](http://mhdbdb.sbg.ac.at/))
+* Reference Corpus of Middle High German ([ReM](https://www.linguistics.rub.de/rem/))  
   
 ## Licenses
 
