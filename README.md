@@ -126,8 +126,10 @@ CC-BY-SA 4.0 for all data from the ReM corpus and SPARQL scripts, see [LICENSE.d
 ├── src/  
 ```
 ### LICENCE.data (CC-BY 4.0)
+```
 ├── res/  
 │	├── data
 │	├── sh
 │	└── sparql
+```
 
