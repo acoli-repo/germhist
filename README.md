@@ -87,7 +87,7 @@ See also the list of [contributors](https://github.com/acoli-repo/conll-rdf/grap
 
 ## Acknowledgments
 
-This project was developed on the 
+This code here was mainly developed on the 
 Goethe Universitat Frankfurt, Germany, within a project on ¨
 Quantitative and Qualitative Methods in German Historical
 Philology (QuantQual@CEDIFOR), at the Centre for the
