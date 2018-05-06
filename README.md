@@ -87,7 +87,7 @@ See also the list of [contributors](https://github.com/acoli-repo/conll-rdf/grap
 
 ## Acknowledgments
 
-The research described in this paper was conducted at the
+This project was developed on the 
 Goethe Universitat Frankfurt, Germany, within a project on ¨
 Quantitative and Qualitative Methods in German Historical
 Philology (QuantQual@CEDIFOR), at the Centre for the
@@ -104,10 +104,7 @@ Thomas Burch and the Trier Center for Digital Humanities,
 for the access to the digital Lexer dictionary data. We
 would like to thank Margarete Springeth for access to the
 Middle High German Conceptual Database (MHDBDB)
-at the Universitat Salzburg. While not reported here, our ¨
-hyperlemmatization routine was also applied to produce an
-annotation with MHDBDB concepts. Finally, we thank the
-anonymous reviewers for helpful comments and feedback.
+at the Universitat Salzburg. 
 
 * Applied Computational Linguistics ([ACoLi](http://acoli.cs.uni-frankfurt.de))
 * Linked Open Dictionaries ([LiODi](http://www.acoli.informatik.uni-frankfurt.de/liodi/)) - 01UG1631
