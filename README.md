@@ -105,8 +105,7 @@ Philology (QuantQual@CEDIFOR), at the Centre for the
 Digital Foundation of Research in the Humanities, Social,
 and Educational Sciences (CEDIFOR), funded by the
 German Ministry of Research and Education (BMBF, first
-phase 2014-2017). We would like to thank Ralf Plate, Arbeitsstelle Mittelhochdeutsches Worterbuch, Trier / Insti- ¨
-tut fur Empirische Sprachwissenschaft, Goethe-Universit ¨ at ¨
+phase 2014-2017). We would like to thank Ralf Plate, Arbeitsstelle Mittelhochdeutsches Worterbuch, Trier / Institut fur Empirische Sprachwissenschaft, Goethe-Universit at
 Frankfurt, for the fruitful collaboration within this project.
 Furthermore, we would like to thank Thomas Klein and
 Claudia Wich-Reif for providing us with an access to the
