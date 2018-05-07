@@ -47,40 +47,42 @@ The pipeline can be configured inside the rem_pipe.sh file (adjust paths, usage 
 ### Transliterator
 
 
-Synopsis: `DICT.TSV [-full] [-keepCase] [-encoding "ENCODING"] [ [ [ COL_SRC ] COL_TGT] COL_WORD ]`
-*				  `DICT.TSV`            dictionary in TSV format
-*				  `-full`               keep accents and `[^a-zA-Z]` when comparing `WORD` and `SRC` (default: ignore accents and `[^a-zA-z]`)
-*				  `-keepCase`           keep case when comparing `WORD` and `SRC` (default: lowercase)
-*				  `-encoding`           encoding for both input files and output (default: `UTF8`)
-*				  `COL_SRC`             source column in `DICT.TSV` (first column = 1), (default: `0`)
-*				  `COL_TGT`             target column in `DICT.TSV` (first column = 1), (default: `1`)
-*				  `COL_WORD`            column in the data file that contains the forms that are to be normalized (default: `1`)
-*				read CoNLL file from `stdin`, with normalize entries from `COL_WORD` according to `DICT.TSV`, add this as new column
-*				write to `stdout`
+Synopsis: ```DICT.TSV [-full] [-keepCase] [-encoding "ENCODING"] [ [ [ COL_SRC ] COL_TGT] COL_WORD ]```
+  * `DICT.TSV`            dictionary in TSV format
+  * `-full`               keep accents and `[^a-zA-Z]` when comparing `WORD` and `SRC` (default: ignore accents and `[^a-zA-z]`)
+  * `-keepCase`           keep case when comparing `WORD` and `SRC` (default: lowercase)
+  * `-encoding`           encoding for both input files and output (default: `UTF8`)
+  * `COL_SRC`             source column in `DICT.TSV` (first column = 1), (default: `0`)
+  * `COL_TGT`             target column in `DICT.TSV` (first column = 1), (default: `1`)
+  * `COL_WORD`            column in the data file that contains the forms that are to be normalized (default: `1`)
+
+    read CoNLL file from `stdin`, with normalize entries from `COL_WORD` according to `DICT.TSV`, add this as new column
+    write to `stdout`
 
 
 ### AniImp
 
 
-Synopsis: `animacySrc posColumn [animacyColumns+]`
-*				`animacySrc`           the source file with the lemma, POS and animacy
-*				`posColumn`            the column number (which start at 0) for the POS tag
-*				`animacycolumns+`      column numbers to be annotated (whitespace separated)
-*				looks up the lemmas given in `stdin` in the `animacycolumns` in the given `animacySrc`
-*				(ignores case and looks only for nouns)
+Synopsis: ```animacySrc posColumn [animacyColumns+]```
+  * `animacySrc`           the source file with the lemma, POS and animacy
+  * ``posColumn`            the column number (which start at 0) for the POS tag
+  * `animacycolumns+`      column numbers to be annotated (whitespace separated)
+
+    looks up the lemmas given in `stdin` in the `animacycolumns` in the given `animacySrc`
+    (ignores case and looks only for nouns)
 				
 
 ### remToConll
 
 
 Synopsis: `[-dir DIR] [-FtimeGenre] [-files FILENAME+] [-dest DEST] [-silent True/False]`
-*				`-dir`              set ReM XML files input directory ("./" default)
-*				`-FtimeGenre`       marking time and genre of the source document on the file name ("False" default)
-*				`-files`            filter list of ReM XML file names in ReM XML directory separated by whitespace 
-*				                   ("all" by default) - e.g. "M001-N1 M002-N1"
-*				`-dest`             set ReM CoNLL files output directory ("./" default)
-*				`-silent`           help="set logging to silent ("False" default)
-*				convert ReM CorA-XML to CoNLL format
+  * `-dir`              set ReM XML files input directory ("./" default)
+  * `-FtimeGenre`       marking time and genre of the source document on the file name ("False" default)
+  * `-files`            filter list of ReM XML file names in ReM XML directory separated by whitespace ("all" by default) - e.g. "M001-N1 M002-N1"
+  * `-dest`             set ReM CoNLL files output directory ("./" default)
+  * `-silent`           help="set logging to silent ("False" default)
+
+    convert ReM CorA-XML to CoNLL format
 
 
 
