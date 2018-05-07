@@ -61,15 +61,16 @@ for f in $remFiles ; do \
   ############################
   #
   java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/lexerlemmas_1_to_1.tsv 2 5 4 | \
+  java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/manual_translit.tsv 1 2 4 | \
   tee $outDir/transliterated/$bare | \
-  java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de_manual.csv 4 8 | \
+  java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de_manual.csv 4 8 9 | \
   tee $outDir/animacyannotated/$bare | \
   #
   ######################################
   # aux: fix URIs to original file name#
   ######################################
   #
-  $conll2rdfDir/run.sh CoNLLStreamExtractor http://ignore.me ID TID WORD LEMMA POS INFL SB BASE LEXERLEMMA ANIMACY | \
+  $conll2rdfDir/run.sh CoNLLStreamExtractor http://ignore.me ID TID WORD LEMMA POS INFL SB BASE LEXERLEMMA MANUALLEMMA ANIMACY | \
   $conll2rdfDir/run.sh CoNLLRDFFormatter | \
   perl -e '
 	$secondLastLine="";

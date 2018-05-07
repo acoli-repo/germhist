@@ -6,46 +6,46 @@
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 :s1_0 a nif:Sentence .
-:s1_1 a nif:Word; conll:WORD "vile"; conll:HEAD :s1_0; conll:ID "1"; conll:LEMMA "vil(e)"; conll:LEXERLEMMA "[feile, vielheit]"; conll:POS "AVD"; conll:REDUCE :s1_2_PreF; conll:TID "t100_000"; nif:nextWord :s1_2 .
+:s1_1 a nif:Word; conll:WORD "vile"; conll:HEAD :s1_0; conll:ID "1"; conll:LEMMA "vil(e)"; conll:LEXERLEMMA "[feile, vielheit]"; conll:MANUALLEMMA "vile"; conll:POS "AVD"; conll:REDUCE :s1_2_PreF; conll:TID "t100_000"; nif:nextWord :s1_2 .
 :s1_1_S terms:CAT "S" .
-:s1_2 a nif:Word; conll:WORD "schiere"; conll:HEAD :s1_0; conll:ID "2"; conll:LEMMA "schière"; conll:LEXERLEMMA "[schnell]"; conll:POS "AVD"; conll:REDUCE :s1_2_PreF; conll:TID "t101_000"; nif:nextWord :s1_3 .
+:s1_2 a nif:Word; conll:WORD "schiere"; conll:HEAD :s1_0; conll:ID "2"; conll:LEMMA "schière"; conll:LEXERLEMMA "[schnell]"; conll:MANUALLEMMA "schiere"; conll:POS "AVD"; conll:REDUCE :s1_2_PreF; conll:TID "t101_000"; nif:nextWord :s1_3 .
 :s1_2_Cl terms:CAT "Cl"; conll:REDUCE :s1_1_S; conll:SHIFT :s1_12i_Cl .
 :s1_2_PreF terms:CAT "PreF"; conll:REDUCE :s1_2_Cl .
-:s1_3 a nif:Word; conll:WORD "wurden"; conll:HEAD :s1_0; conll:ID "3"; conll:INFL "*.Past.Pl.3"; conll:LEMMA "wërden/en-èin<.+"; conll:LEXERLEMMA "werdenenein"; conll:POS "VAFIN"; conll:REDUCE :s1_3i; conll:TID "t102_000"; nif:nextWord :s1_4 .
+:s1_3 a nif:Word; conll:WORD "wurden"; conll:HEAD :s1_0; conll:ID "3"; conll:INFL "*.Past.Pl.3"; conll:LEMMA "wërden/en-èin<.+"; conll:LEXERLEMMA "werdenenein"; conll:MANUALLEMMA "Werdenenein"; conll:POS "VAFIN"; conll:REDUCE :s1_3i; conll:TID "t102_000"; nif:nextWord :s1_4 .
 :s1_3i terms:CAT "VX"; terms:FIN "true"; conll:POS "VAFIN"; conll:REDUCE :s1_3i_LB .
 :s1_3i_LB terms:CAT "LB"; conll:REDUCE :s1_2_Cl .
-:s1_4 a nif:Word; conll:WORD "si"; conll:HEAD :s1_0; conll:ID "4"; conll:INFL "*.Nom.Pl.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s1_4i; conll:TID "t103_000"; nif:nextWord :s1_5 .
+:s1_4 a nif:Word; conll:WORD "si"; conll:HEAD :s1_0; conll:ID "4"; conll:INFL "*.Nom.Pl.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s1_4i; conll:TID "t103_000"; nif:nextWord :s1_5 .
 :s1_4i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Nom.Pl"; conll:REDUCE :s1_4i_MF .
 :s1_4i_MF terms:CAT "MF"; conll:REDUCE :s1_2_Cl .
-:s1_5 a nif:Word; conll:WORD "des"; conll:HEAD :s1_0; conll:ID "5"; conll:INFL "Neut.Gen.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDS"; conll:REDUCE :s1_5i; conll:TID "t104_000"; nif:nextWord :s1_6 .
+:s1_5 a nif:Word; conll:WORD "des"; conll:HEAD :s1_0; conll:ID "5"; conll:INFL "Neut.Gen.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDS"; conll:REDUCE :s1_5i; conll:TID "t104_000"; nif:nextWord :s1_6 .
 :s1_5i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Gen.Sg"; conll:REDUCE :s1_4i .
-:s1_6 a nif:Word; conll:WORD "enein"; conll:HEAD :s1_0; conll:ID "6"; conll:LEMMA "en-èin/<.+wërden"; conll:LEXERLEMMA "eneinwerden"; conll:POS "PTKVZ"; conll:REDUCE :s1_6_RB; conll:SB "S*"; conll:TID "t105_000"; nif:nextWord :s1_7 .
+:s1_6 a nif:Word; conll:WORD "enein"; conll:HEAD :s1_0; conll:ID "6"; conll:LEMMA "en-èin/<.+wërden"; conll:LEXERLEMMA "eneinwerden"; conll:MANUALLEMMA "eneinWerden"; conll:POS "PTKVZ"; conll:REDUCE :s1_6_RB; conll:SB "S*"; conll:TID "t105_000"; nif:nextWord :s1_7 .
 :s1_6_RB terms:CAT "RB"; conll:REDUCE :s1_2_Cl .
 :s1_7 a nif:Word; terms:SB "true"; conll:HEAD :s1_0; conll:ID "7"; conll:POS "$_"; conll:REDUCE :s1_2_Cl; conll:TID "t106_000"; nif:nextWord :s1_8 .
-:s1_8 a nif:Word; conll:WORD "swie"; conll:HEAD :s1_0; conll:ID "8"; conll:LEMMA "swiè"; conll:LEXERLEMMA "[wie]"; conll:POS "AVG"; conll:REDUCE :s1_8_LB; conll:TID "t107_000"; nif:nextWord :s1_9 .
+:s1_8 a nif:Word; conll:WORD "swie"; conll:HEAD :s1_0; conll:ID "8"; conll:LEMMA "swiè"; conll:LEXERLEMMA "[wie]"; conll:MANUALLEMMA "sWie"; conll:POS "AVG"; conll:REDUCE :s1_8_LB; conll:TID "t107_000"; nif:nextWord :s1_9 .
 :s1_8_Cl terms:CAT "Cl"; terms:connector "AVG"; conll:REDUCE :s1_8_Cl_PoF .
 :s1_8_Cl_PoF terms:CAT "PostF"; conll:REDUCE :s1_2_Cl .
 :s1_8_LB terms:CAT "LB"; conll:REDUCE :s1_8_Cl .
-:s1_9 a nif:Word; conll:WORD "daz"; conll:HEAD :s1_0; conll:ID "9"; conll:INFL "Neut.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDS"; conll:REDUCE :s1_9i; conll:TID "t108_000"; nif:nextWord :s1_10 .
+:s1_9 a nif:Word; conll:WORD "daz"; conll:HEAD :s1_0; conll:ID "9"; conll:INFL "Neut.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDS"; conll:REDUCE :s1_9i; conll:TID "t108_000"; nif:nextWord :s1_10 .
 :s1_9i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s1_9i_MF .
 :s1_9i_MF terms:CAT "MF"; conll:REDUCE :s1_8_Cl .
-:s1_10 a nif:Word; conll:WORD "wære"; conll:HEAD :s1_0; conll:ID "10"; conll:INFL "Subj.Past.Sg.3"; conll:LEMMA "wësen"; conll:LEXERLEMMA "[wonen]"; conll:POS "VAFIN"; conll:REDUCE :s1_10i; conll:TID "t109_000"; nif:nextWord :s1_11 .
+:s1_10 a nif:Word; conll:WORD "wære"; conll:HEAD :s1_0; conll:ID "10"; conll:INFL "Subj.Past.Sg.3"; conll:LEMMA "wësen"; conll:LEXERLEMMA "[wonen]"; conll:MANUALLEMMA "[Wesen]"; conll:POS "VAFIN"; conll:REDUCE :s1_10i; conll:TID "t109_000"; nif:nextWord :s1_11 .
 :s1_10i terms:CAT "VX"; terms:FIN "true"; conll:POS "VAFIN"; conll:REDUCE :s1_10i_RB .
 :s1_10i_RB terms:CAT "RB"; conll:REDUCE :s1_8_Cl .
-:s1_11 a nif:Word; conll:WORD "geschehen"; terms:SB "true"; conll:HEAD :s1_0; conll:ID "11"; conll:LEMMA "ge-schëhen"; conll:LEXERLEMMA "[geschehen]"; conll:POS "VVPP"; conll:REDUCE :s1_10i; conll:SB "S*"; conll:TID "t110_000"; nif:nextWord :s1_12 .
+:s1_11 a nif:Word; conll:WORD "geschehen"; terms:SB "true"; conll:HEAD :s1_0; conll:ID "11"; conll:LEMMA "ge-schëhen"; conll:LEXERLEMMA "[geschehen]"; conll:MANUALLEMMA "Geschehen"; conll:POS "VVPP"; conll:REDUCE :s1_10i; conll:SB "S*"; conll:TID "t110_000"; nif:nextWord :s1_12 .
 :s1_11i terms:CAT "VX"; terms:FIN "false"; conll:POS "VVPP"; conll:REDUCE :s1_11i_PoF .
 :s1_11i_PoF terms:CAT "PostF"; conll:REDUCE :s1_8_Cl .
-:s1_12 a nif:Word; conll:WORD "er"; conll:HEAD :s1_0; conll:ID "12"; conll:INFL "Masc.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s1_12i; conll:TID "t111_000"; nif:nextWord :s1_13 .
+:s1_12 a nif:Word; conll:WORD "er"; conll:HEAD :s1_0; conll:ID "12"; conll:INFL "Masc.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s1_12i; conll:TID "t111_000"; nif:nextWord :s1_13 .
 :s1_12i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s1_12i_PreF .
 :s1_12i_Cl terms:CAT "Cl"; conll:REDUCE :s1_1_S .
 :s1_12i_PreF terms:CAT "PreF"; conll:REDUCE :s1_12i_Cl .
-:s1_13 a nif:Word; conll:WORD "hæte"; conll:HEAD :s1_0; conll:ID "13"; conll:INFL "(Subj).Past.Sg.3"; conll:LEMMA "haben"; conll:LEXERLEMMA "[haben, halten]"; conll:POS "VAFIN"; conll:REDUCE :s1_13i; conll:TID "t112_000"; nif:nextWord :s1_14 .
+:s1_13 a nif:Word; conll:WORD "hæte"; conll:HEAD :s1_0; conll:ID "13"; conll:INFL "(Subj).Past.Sg.3"; conll:LEMMA "haben"; conll:LEXERLEMMA "[haben, halten]"; conll:MANUALLEMMA "haben"; conll:POS "VAFIN"; conll:REDUCE :s1_13i; conll:TID "t112_000"; nif:nextWord :s1_14 .
 :s1_13i terms:CAT "VX"; terms:FIN "true"; conll:POS "VAFIN"; conll:REDUCE :s1_13i_LB .
 :s1_13i_LB terms:CAT "LB"; conll:REDUCE :s1_12i_Cl .
-:s1_14 a nif:Word; conll:WORD "wunder"; conll:HEAD :s1_0; conll:ID "14"; conll:INFL "Akk.Pl"; conll:LEMMA "wunter"; conll:LEXERLEMMA "wunter"; conll:POS "NA"; conll:REDUCE :s1_14i; conll:TID "t113_000"; nif:nextWord :s1_15 .
-:s1_14i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Pl"; conll:REDUCE :s1_14i_MF .
+:s1_14 a nif:Word; conll:WORD "wunder"; conll:ANIMACY "[inanimate]"; conll:HEAD :s1_0; conll:ID "14"; conll:INFL "Akk.Pl"; conll:LEMMA "wunter"; conll:LEXERLEMMA "wunter"; conll:MANUALLEMMA "[Wunder]"; conll:POS "NA"; conll:REDUCE :s1_14i; conll:TID "t113_000"; nif:nextWord :s1_15 .
+:s1_14i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate]"; conll:INFL "Akk.Pl"; conll:REDUCE :s1_14i_MF .
 :s1_14i_MF terms:CAT "MF"; conll:REDUCE :s1_12i_Cl .
-:s1_15 a nif:Word; conll:WORD "gesehen"; conll:HEAD :s1_0; conll:ID "15"; conll:LEMMA "sëhen"; conll:LEXERLEMMA "[sehen]"; conll:POS "VVPP"; conll:REDUCE :s1_15i; conll:SB "DE"; conll:TID "t114_000" .
+:s1_15 a nif:Word; conll:WORD "gesehen"; conll:HEAD :s1_0; conll:ID "15"; conll:LEMMA "sëhen"; conll:LEXERLEMMA "[sehen]"; conll:MANUALLEMMA "sehen"; conll:POS "VVPP"; conll:REDUCE :s1_15i; conll:SB "DE"; conll:TID "t114_000" .
 :s1_15i terms:CAT "VX"; terms:FIN "false"; conll:POS "VVPP"; conll:REDUCE :s1_15i_RB .
 :s1_15i_RB terms:CAT "RB"; conll:REDUCE :s1_12i_Cl .
 
@@ -58,111 +58,111 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 :s1_0 nif:nextSentence :s2_0 .
 :s2_0 a nif:Sentence .
-:s2_1 a nif:Word; conll:WORD "dô"; conll:HEAD :s2_0; conll:ID "1"; conll:LEMMA "dô"; conll:LEXERLEMMA "[bisweilen, fragend]"; conll:POS "KOUS"; conll:REDUCE :s2_1_LB; conll:TID "t851_000"; nif:nextWord :s2_2 .
+:s2_1 a nif:Word; conll:WORD "dô"; conll:HEAD :s2_0; conll:ID "1"; conll:LEMMA "dô"; conll:LEXERLEMMA "[bisweilen, fragend]"; conll:MANUALLEMMA "do"; conll:POS "KOUS"; conll:REDUCE :s2_1_LB; conll:TID "t851_000"; nif:nextWord :s2_2 .
 :s2_1_Cl terms:CAT "Cl"; terms:connector "KOUS"; conll:REDUCE :s2_1_S; conll:SHIFT :s2_6_Cl .
 :s2_1_LB terms:CAT "LB"; conll:REDUCE :s2_1_Cl .
 :s2_1_S terms:CAT "S" .
-:s2_2 a nif:Word; conll:WORD "si"; conll:HEAD :s2_0; conll:ID "2"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s2_2i; conll:TID "t852_000"; nif:nextWord :s2_3 .
+:s2_2 a nif:Word; conll:WORD "si"; conll:HEAD :s2_0; conll:ID "2"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s2_2i; conll:TID "t852_000"; nif:nextWord :s2_3 .
 :s2_2i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s2_2i_MF .
 :s2_2i_MF terms:CAT "MF"; conll:REDUCE :s2_1_Cl .
-:s2_3 a nif:Word; conll:WORD "alsô"; conll:HEAD :s2_0; conll:ID "3"; conll:LEMMA "all-sô"; conll:LEXERLEMMA "allso"; conll:POS "AVD"; conll:REDUCE :s2_2i_MF; conll:TID "t853_000"; nif:nextWord :s2_4 .
-:s2_4 a nif:Word; conll:WORD "ruofte"; conll:HEAD :s2_0; conll:ID "4"; conll:INFL "*.Past.Sg.3"; conll:LEMMA "rüèfen"; conll:LEXERLEMMA "[rufen]"; conll:POS "VVFIN"; conll:REDUCE :s2_4i; conll:SB "S*"; conll:TID "t854_000"; nif:nextWord :s2_5 .
+:s2_3 a nif:Word; conll:WORD "alsô"; conll:HEAD :s2_0; conll:ID "3"; conll:LEMMA "all-sô"; conll:LEXERLEMMA "allso"; conll:MANUALLEMMA "allso"; conll:POS "AVD"; conll:REDUCE :s2_2i_MF; conll:TID "t853_000"; nif:nextWord :s2_4 .
+:s2_4 a nif:Word; conll:WORD "ruofte"; conll:HEAD :s2_0; conll:ID "4"; conll:INFL "*.Past.Sg.3"; conll:LEMMA "rüèfen"; conll:LEXERLEMMA "[rufen]"; conll:MANUALLEMMA "ruefen"; conll:POS "VVFIN"; conll:REDUCE :s2_4i; conll:SB "S*"; conll:TID "t854_000"; nif:nextWord :s2_5 .
 :s2_4i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s2_4i_RB .
 :s2_4i_RB terms:CAT "RB"; conll:REDUCE :s2_1_Cl .
 :s2_5 a nif:Word; terms:SB "true"; conll:HEAD :s2_0; conll:ID "5"; conll:POS "$_"; conll:REDUCE :s2_1_Cl; conll:TID "t855_000"; nif:nextWord :s2_6 .
-:s2_6 a nif:Word; conll:WORD "dô"; conll:HEAD :s2_0; conll:ID "6"; conll:LEMMA "dô"; conll:LEXERLEMMA "[bisweilen, fragend]"; conll:POS "AVD"; conll:REDUCE :s2_6_PreF; conll:TID "t856_000"; nif:nextWord :s2_7 .
+:s2_6 a nif:Word; conll:WORD "dô"; conll:HEAD :s2_0; conll:ID "6"; conll:LEMMA "dô"; conll:LEXERLEMMA "[bisweilen, fragend]"; conll:MANUALLEMMA "do"; conll:POS "AVD"; conll:REDUCE :s2_6_PreF; conll:TID "t856_000"; nif:nextWord :s2_7 .
 :s2_6_Cl terms:CAT "Cl"; conll:REDUCE :s2_1_S; conll:SHIFT :s2_18i_Cl .
 :s2_6_PreF terms:CAT "PreF"; conll:REDUCE :s2_6_Cl .
-:s2_7 a nif:Word; conll:WORD "kom"; conll:HEAD :s2_0; conll:ID "7"; conll:INFL "Ind.Past.Sg.3"; conll:LEMMA "komen"; conll:LEXERLEMMA "[oder]"; conll:POS "VVFIN"; conll:REDUCE :s2_7i; conll:TID "t857_000"; nif:nextWord :s2_8 .
+:s2_7 a nif:Word; conll:WORD "kom"; conll:HEAD :s2_0; conll:ID "7"; conll:INFL "Ind.Past.Sg.3"; conll:LEMMA "komen"; conll:LEXERLEMMA "[oder]"; conll:MANUALLEMMA "komen"; conll:POS "VVFIN"; conll:REDUCE :s2_7i; conll:TID "t857_000"; nif:nextWord :s2_8 .
 :s2_7i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s2_7i_LB .
 :s2_7i_LB terms:CAT "LB"; conll:REDUCE :s2_6_Cl .
-:s2_8 a nif:Word; conll:WORD "der"; conll:HEAD :s2_0; conll:ID "8"; conll:INFL "Masc.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s2_9i; conll:TID "t858_000"; nif:nextWord :s2_9 .
-:s2_9 a nif:Word; conll:WORD "küninc"; conll:HEAD :s2_0; conll:ID "9"; conll:INFL "Nom.Sg"; conll:LEMMA "küni(n)g"; conll:LEXERLEMMA "kuning"; conll:POS "NA"; conll:REDUCE :s2_9i; conll:TID "t859_000"; nif:nextWord :s2_10 .
-:s2_9i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s2_9i_MF .
+:s2_8 a nif:Word; conll:WORD "der"; conll:HEAD :s2_0; conll:ID "8"; conll:INFL "Masc.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s2_9i; conll:TID "t858_000"; nif:nextWord :s2_9 .
+:s2_9 a nif:Word; conll:WORD "küninc"; conll:ANIMACY "[inanimate, human]"; conll:HEAD :s2_0; conll:ID "9"; conll:INFL "Nom.Sg"; conll:LEMMA "küni(n)g"; conll:LEXERLEMMA "kuning"; conll:MANUALLEMMA "[König]"; conll:POS "NA"; conll:REDUCE :s2_9i; conll:TID "t859_000"; nif:nextWord :s2_10 .
+:s2_9i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate, human]"; conll:INFL "Nom.Sg"; conll:REDUCE :s2_9i_MF .
 :s2_9i_MF terms:CAT "MF"; conll:REDUCE :s2_6_Cl .
-:s2_10 a nif:Word; conll:WORD "und"; conll:HEAD :s2_0; conll:ID "10"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_9i_MF; conll:TID "t860_000"; nif:nextWord :s2_11 .
-:s2_11 a nif:Word; conll:WORD "sîn"; conll:HEAD :s2_0; conll:ID "11"; conll:INFL "Masc,Neut.Nom.Pl.0"; conll:LEMMA "sîn"; conll:LEXERLEMMA "[sein]"; conll:POS "DPOSA"; conll:REDUCE :s2_12i; conll:TID "t861_000"; nif:nextWord :s2_12 .
-:s2_12 a nif:Word; conll:WORD "liute"; conll:HEAD :s2_0; conll:ID "12"; conll:INFL "Nom.Pl"; conll:LEMMA "liut"; conll:LEXERLEMMA "[leute, volk]"; conll:POS "NA"; conll:REDUCE :s2_12i; conll:SB "S*"; conll:TID "t862_000"; nif:nextWord :s2_13 .
-:s2_12i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Nom.Pl"; conll:REDUCE :s2_9i_MF .
+:s2_10 a nif:Word; conll:WORD "und"; conll:HEAD :s2_0; conll:ID "10"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:MANUALLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_9i_MF; conll:TID "t860_000"; nif:nextWord :s2_11 .
+:s2_11 a nif:Word; conll:WORD "sîn"; conll:HEAD :s2_0; conll:ID "11"; conll:INFL "Masc,Neut.Nom.Pl.0"; conll:LEMMA "sîn"; conll:LEXERLEMMA "[sein]"; conll:MANUALLEMMA "sin"; conll:POS "DPOSA"; conll:REDUCE :s2_12i; conll:TID "t861_000"; nif:nextWord :s2_12 .
+:s2_12 a nif:Word; conll:WORD "liute"; conll:ANIMACY "[human, animate, human]"; conll:HEAD :s2_0; conll:ID "12"; conll:INFL "Nom.Pl"; conll:LEMMA "liut"; conll:LEXERLEMMA "[leute, volk]"; conll:MANUALLEMMA "liut"; conll:POS "NA"; conll:REDUCE :s2_12i; conll:SB "S*"; conll:TID "t862_000"; nif:nextWord :s2_13 .
+:s2_12i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[human, animate, human]"; conll:INFL "Nom.Pl"; conll:REDUCE :s2_9i_MF .
 :s2_13 a nif:Word; terms:SB "true"; conll:HEAD :s2_0; conll:ID "13"; conll:POS "$_"; conll:REDUCE :s2_6_Cl; conll:TID "t863_000"; nif:nextWord :s2_14 .
-:s2_14 a nif:Word; conll:WORD "unde"; conll:HEAD :s2_0; conll:ID "14"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_14_Cl; conll:TID "t864_000"; nif:nextWord :s2_15 .
+:s2_14 a nif:Word; conll:WORD "unde"; conll:HEAD :s2_0; conll:ID "14"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:MANUALLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_14_Cl; conll:TID "t864_000"; nif:nextWord :s2_15 .
 :s2_14_Cl terms:CAT "Frag"; conll:REDUCE :s2_6_Cl .
-:s2_15 a nif:Word; conll:WORD "si"; conll:HEAD :s2_0; conll:ID "15"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s2_15i; conll:TID "t865_000"; nif:nextWord :s2_16 .
+:s2_15 a nif:Word; conll:WORD "si"; conll:HEAD :s2_0; conll:ID "15"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s2_15i; conll:TID "t865_000"; nif:nextWord :s2_16 .
 :s2_15i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s2_15i_PreF .
 :s2_15i_PreF terms:CAT "PreF"; conll:REDUCE :s2_14_Cl .
-:s2_16 a nif:Word; conll:WORD "klagete"; conll:HEAD :s2_0; conll:ID "16"; conll:INFL "*.Past.Sg.3"; conll:LEMMA "klagen"; conll:LEXERLEMMA "[beklagen, klagen, klagend]"; conll:POS "VVFIN"; conll:REDUCE :s2_16i; conll:TID "t866_000"; nif:nextWord :s2_17 .
+:s2_16 a nif:Word; conll:WORD "klagete"; conll:HEAD :s2_0; conll:ID "16"; conll:INFL "*.Past.Sg.3"; conll:LEMMA "klagen"; conll:LEXERLEMMA "[beklagen, klagen, klagend]"; conll:MANUALLEMMA "klaGen"; conll:POS "VVFIN"; conll:REDUCE :s2_16i; conll:TID "t866_000"; nif:nextWord :s2_17 .
 :s2_16i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s2_16i_LB .
 :s2_16i_LB terms:CAT "LB"; conll:REDUCE :s2_14_Cl .
-:s2_17 a nif:Word; conll:WORD "im"; terms:SB "true"; conll:HEAD :s2_0; conll:ID "17"; conll:INFL "Masc.Dat.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s2_17i; conll:SB "S*"; conll:TID "t867_000"; nif:nextWord :s2_18 .
+:s2_17 a nif:Word; conll:WORD "im"; terms:SB "true"; conll:HEAD :s2_0; conll:ID "17"; conll:INFL "Masc.Dat.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s2_17i; conll:SB "S*"; conll:TID "t867_000"; nif:nextWord :s2_18 .
 :s2_17i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Dat.Sg"; conll:REDUCE :s2_17i_MF .
 :s2_17i_MF terms:CAT "MF"; conll:REDUCE :s2_14_Cl .
-:s2_18 a nif:Word; conll:WORD "Josepch"; conll:HEAD :s2_0; conll:ID "18"; conll:INFL "Nom.Sg"; conll:LEMMA "Joseph"; conll:LEXERLEMMA "joseph"; conll:POS "NE"; conll:REDUCE :s2_18i; conll:TID "t868_000"; nif:nextWord :s2_19 .
+:s2_18 a nif:Word; conll:WORD "Josepch"; conll:HEAD :s2_0; conll:ID "18"; conll:INFL "Nom.Sg"; conll:LEMMA "Joseph"; conll:LEXERLEMMA "joseph"; conll:MANUALLEMMA "joseph"; conll:POS "NE"; conll:REDUCE :s2_18i; conll:TID "t868_000"; nif:nextWord :s2_19 .
 :s2_18i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s2_18i_PreF .
 :s2_18i_Cl terms:CAT "Cl"; conll:REDUCE :s2_1_S; conll:SHIFT :s2_36i_Cl .
 :s2_18i_PreF terms:CAT "PreF"; conll:REDUCE :s2_18i_Cl .
-:s2_19 a nif:Word; conll:WORD "wolte"; conll:HEAD :s2_0; conll:ID "19"; conll:INFL "(Subj).Past.Sg.3"; conll:LEMMA "wèllen"; conll:LEXERLEMMA "[rollen, wallen, wollen, wälzen]"; conll:POS "VMFIN"; conll:REDUCE :s2_19i; conll:TID "t869_000"; nif:nextWord :s2_20 .
+:s2_19 a nif:Word; conll:WORD "wolte"; conll:HEAD :s2_0; conll:ID "19"; conll:INFL "(Subj).Past.Sg.3"; conll:LEMMA "wèllen"; conll:LEXERLEMMA "[rollen, wallen, wollen, wälzen]"; conll:MANUALLEMMA "Wellen"; conll:POS "VMFIN"; conll:REDUCE :s2_19i; conll:TID "t869_000"; nif:nextWord :s2_20 .
 :s2_19i terms:CAT "VX"; terms:FIN "true"; conll:POS "VMFIN"; conll:REDUCE :s2_19i_LB .
 :s2_19i_LB terms:CAT "LB"; conll:REDUCE :s2_18i_Cl .
-:s2_20 a nif:Word; conll:WORD "bî"; conll:HEAD :s2_0; conll:ID "20"; conll:LEMMA "bî"; conll:LEXERLEMMA "bi"; conll:POS "APPR"; conll:REDUCE :s2_21ii; conll:TID "t870_000"; nif:nextWord :s2_21 .
-:s2_21 a nif:Word; conll:WORD "ir"; conll:HEAD :s2_0; conll:ID "21"; conll:INFL "Fem.Dat.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s2_21i; conll:TID "t871_000"; nif:nextWord :s2_22 .
+:s2_20 a nif:Word; conll:WORD "bî"; conll:HEAD :s2_0; conll:ID "20"; conll:LEMMA "bî"; conll:LEXERLEMMA "bi"; conll:MANUALLEMMA "bi"; conll:POS "APPR"; conll:REDUCE :s2_21ii; conll:TID "t870_000"; nif:nextWord :s2_21 .
+:s2_21 a nif:Word; conll:WORD "ir"; conll:HEAD :s2_0; conll:ID "21"; conll:INFL "Fem.Dat.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s2_21i; conll:TID "t871_000"; nif:nextWord :s2_22 .
 :s2_21i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Dat.Sg"; conll:REDUCE :s2_21ii .
 :s2_21ii terms:CAT "PPX"; conll:REDUCE :s2_21ii_MF .
 :s2_21ii_MF terms:CAT "MF"; conll:REDUCE :s2_18i_Cl .
-:s2_22 a nif:Word; conll:WORD "gelegen"; conll:HEAD :s2_0; conll:ID "22"; conll:LEMMA "ligen"; conll:LEXERLEMMA "[liegen]"; conll:POS "VVPP"; conll:REDUCE :s2_22i; conll:TID "t872_000"; nif:nextWord :s2_23 .
+:s2_22 a nif:Word; conll:WORD "gelegen"; conll:HEAD :s2_0; conll:ID "22"; conll:LEMMA "ligen"; conll:LEXERLEMMA "[liegen]"; conll:MANUALLEMMA "liGen"; conll:POS "VVPP"; conll:REDUCE :s2_22i; conll:TID "t872_000"; nif:nextWord :s2_23 .
 :s2_22i terms:CAT "VX"; terms:FIN "false"; conll:POS "VVPP"; conll:REDUCE :s2_21ii_MF .
-:s2_23 a nif:Word; conll:WORD "sîn"; conll:HEAD :s2_0; conll:ID "23"; conll:LEMMA "sîn"; conll:LEXERLEMMA "[sein]"; conll:POS "VAINF"; conll:REDUCE :s2_23i; conll:SB "S*"; conll:TID "t873_000"; nif:nextWord :s2_24 .
+:s2_23 a nif:Word; conll:WORD "sîn"; conll:HEAD :s2_0; conll:ID "23"; conll:LEMMA "sîn"; conll:LEXERLEMMA "[sein]"; conll:MANUALLEMMA "sin"; conll:POS "VAINF"; conll:REDUCE :s2_23i; conll:SB "S*"; conll:TID "t873_000"; nif:nextWord :s2_24 .
 :s2_23i terms:CAT "VX"; terms:FIN "false"; conll:POS "VAINF"; conll:REDUCE :s2_21ii_MF .
 :s2_24 a nif:Word; terms:SB "true"; conll:HEAD :s2_0; conll:ID "24"; conll:POS "$_"; conll:REDUCE :s2_18i_Cl; conll:TID "t874_000"; nif:nextWord :s2_25 .
-:s2_25 a nif:Word; conll:WORD "und"; conll:HEAD :s2_0; conll:ID "25"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_25_Cl; conll:TID "t875_000"; nif:nextWord :s2_26 .
+:s2_25 a nif:Word; conll:WORD "und"; conll:HEAD :s2_0; conll:ID "25"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:MANUALLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_25_Cl; conll:TID "t875_000"; nif:nextWord :s2_26 .
 :s2_25_Cl terms:CAT "Frag"; conll:REDUCE :s2_18i_Cl .
 :s2_26 a nif:Word; conll:HEAD :s2_0; conll:ID "26"; conll:LEMMA "[!]"; conll:REDUCE :s2_26_PreF; conll:TID "t876_000"; nif:nextWord :s2_27 .
 :s2_26_PreF terms:CAT "PreF"; conll:REDUCE :s2_25_Cl .
-:s2_27 a nif:Word; conll:WORD "zeigete"; conll:HEAD :s2_0; conll:ID "27"; conll:INFL "*.Past.Sg.3"; conll:LEMMA "zèigen"; conll:LEXERLEMMA "[zeigen]"; conll:POS "VVFIN"; conll:REDUCE :s2_27i; conll:TID "t877_000"; nif:nextWord :s2_28 .
+:s2_27 a nif:Word; conll:WORD "zeigete"; conll:HEAD :s2_0; conll:ID "27"; conll:INFL "*.Past.Sg.3"; conll:LEMMA "zèigen"; conll:LEXERLEMMA "[zeigen]"; conll:MANUALLEMMA "zeiGen"; conll:POS "VVFIN"; conll:REDUCE :s2_27i; conll:TID "t877_000"; nif:nextWord :s2_28 .
 :s2_27i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s2_27i_LB .
 :s2_27i_LB terms:CAT "LB"; conll:REDUCE :s2_25_Cl .
-:s2_28 a nif:Word; conll:WORD "dem"; conll:HEAD :s2_0; conll:ID "28"; conll:INFL "Masc.Dat.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s2_29i; conll:TID "t878_000"; nif:nextWord :s2_29 .
-:s2_29 a nif:Word; conll:WORD "küninge"; conll:HEAD :s2_0; conll:ID "29"; conll:INFL "Dat.Sg"; conll:LEMMA "küni(n)g"; conll:LEXERLEMMA "kuning"; conll:POS "NA"; conll:REDUCE :s2_29i; conll:TID "t879_000"; nif:nextWord :s2_30 .
-:s2_29i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Dat.Sg"; conll:REDUCE :s2_29i_MF .
+:s2_28 a nif:Word; conll:WORD "dem"; conll:HEAD :s2_0; conll:ID "28"; conll:INFL "Masc.Dat.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s2_29i; conll:TID "t878_000"; nif:nextWord :s2_29 .
+:s2_29 a nif:Word; conll:WORD "küninge"; conll:ANIMACY "[inanimate, human]"; conll:HEAD :s2_0; conll:ID "29"; conll:INFL "Dat.Sg"; conll:LEMMA "küni(n)g"; conll:LEXERLEMMA "kuning"; conll:MANUALLEMMA "[König]"; conll:POS "NA"; conll:REDUCE :s2_29i; conll:TID "t879_000"; nif:nextWord :s2_30 .
+:s2_29i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate, human]"; conll:INFL "Dat.Sg"; conll:REDUCE :s2_29i_MF .
 :s2_29i_MF terms:CAT "MF"; conll:REDUCE :s2_25_Cl .
-:s2_30 a nif:Word; conll:WORD "den"; conll:HEAD :s2_0; conll:ID "30"; conll:INFL "Masc.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s2_31i; conll:TID "t880_000"; nif:nextWord :s2_31 .
-:s2_31 a nif:Word; conll:WORD "mandel"; conll:HEAD :s2_0; conll:ID "31"; conll:INFL "Akk.Sg"; conll:LEMMA "mantel"; conll:LEXERLEMMA "[föhre, föhrenwald, mantel]"; conll:POS "NA"; conll:REDUCE :s2_31i; conll:TID "t881_000"; nif:nextWord :s2_32 .
-:s2_31i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s2_29i_MF .
-:s2_32 a nif:Word; conll:WORD "unde"; conll:HEAD :s2_0; conll:ID "32"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_29i_MF; conll:TID "t882_000"; nif:nextWord :s2_33 .
-:s2_33 a nif:Word; conll:WORD "ire"; conll:HEAD :s2_0; conll:ID "33"; conll:INFL "Neut.Akk.Sg.0"; conll:LEMMA "ir(e)"; conll:LEXERLEMMA "ire"; conll:POS "DPOSA"; conll:REDUCE :s2_34i; conll:TID "t883_000"; nif:nextWord :s2_34 .
-:s2_34 a nif:Word; conll:WORD "gewant"; conll:HEAD :s2_0; conll:ID "34"; conll:INFL "Akk.Sg"; conll:LEMMA "ge-want"; conll:LEXERLEMMA "gewant"; conll:POS "NA"; conll:REDUCE :s2_34i; conll:TID "t884_000"; nif:nextWord :s2_35 .
-:s2_34i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s2_29i_MF .
+:s2_30 a nif:Word; conll:WORD "den"; conll:HEAD :s2_0; conll:ID "30"; conll:INFL "Masc.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s2_31i; conll:TID "t880_000"; nif:nextWord :s2_31 .
+:s2_31 a nif:Word; conll:WORD "mandel"; conll:ANIMACY "[animate, inanimate, animate, inanimate, inanimate]"; conll:HEAD :s2_0; conll:ID "31"; conll:INFL "Akk.Sg"; conll:LEMMA "mantel"; conll:LEXERLEMMA "[föhre, föhrenwald, mantel]"; conll:MANUALLEMMA "mantel"; conll:POS "NA"; conll:REDUCE :s2_31i; conll:TID "t881_000"; nif:nextWord :s2_32 .
+:s2_31i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[animate, inanimate, animate, inanimate, inanimate]"; conll:INFL "Akk.Sg"; conll:REDUCE :s2_29i_MF .
+:s2_32 a nif:Word; conll:WORD "unde"; conll:HEAD :s2_0; conll:ID "32"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:MANUALLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_29i_MF; conll:TID "t882_000"; nif:nextWord :s2_33 .
+:s2_33 a nif:Word; conll:WORD "ire"; conll:HEAD :s2_0; conll:ID "33"; conll:INFL "Neut.Akk.Sg.0"; conll:LEMMA "ir(e)"; conll:LEXERLEMMA "ire"; conll:MANUALLEMMA "ire"; conll:POS "DPOSA"; conll:REDUCE :s2_34i; conll:TID "t883_000"; nif:nextWord :s2_34 .
+:s2_34 a nif:Word; conll:WORD "gewant"; conll:ANIMACY "[inanimate]"; conll:HEAD :s2_0; conll:ID "34"; conll:INFL "Akk.Sg"; conll:LEMMA "ge-want"; conll:LEXERLEMMA "gewant"; conll:MANUALLEMMA "[Gewand]"; conll:POS "NA"; conll:REDUCE :s2_34i; conll:TID "t884_000"; nif:nextWord :s2_35 .
+:s2_34i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate]"; conll:INFL "Akk.Sg"; conll:REDUCE :s2_29i_MF .
 :s2_35 a nif:Word; terms:SB "true"; conll:HEAD :s2_0; conll:ID "35"; conll:POS "$_"; conll:REDUCE :s2_25_Cl; conll:TID "t885_000"; nif:nextWord :s2_36 .
-:s2_36 a nif:Word; conll:WORD "daz"; conll:HEAD :s2_0; conll:ID "36"; conll:INFL "Neut.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDS"; conll:REDUCE :s2_36i; conll:TID "t886_000"; nif:nextWord :s2_37 .
+:s2_36 a nif:Word; conll:WORD "daz"; conll:HEAD :s2_0; conll:ID "36"; conll:INFL "Neut.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDS"; conll:REDUCE :s2_36i; conll:TID "t886_000"; nif:nextWord :s2_37 .
 :s2_36i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s2_36i_PreF .
 :s2_36i_Cl terms:CAT "Cl"; conll:REDUCE :s2_1_S; conll:SHIFT :s2_41_Cl .
 :s2_36i_PreF terms:CAT "PreF"; conll:REDUCE :s2_36i_Cl .
-:s2_37 a nif:Word; conll:WORD "hæte"; conll:HEAD :s2_0; conll:ID "37"; conll:INFL "*.Past.Sg.3"; conll:LEMMA "haben"; conll:LEXERLEMMA "[haben, halten]"; conll:POS "VAFIN"; conll:REDUCE :s2_37i; conll:TID "t887_000"; nif:nextWord :s2_38 .
+:s2_37 a nif:Word; conll:WORD "hæte"; conll:HEAD :s2_0; conll:ID "37"; conll:INFL "*.Past.Sg.3"; conll:LEMMA "haben"; conll:LEXERLEMMA "[haben, halten]"; conll:MANUALLEMMA "haben"; conll:POS "VAFIN"; conll:REDUCE :s2_37i; conll:TID "t887_000"; nif:nextWord :s2_38 .
 :s2_37i terms:CAT "VX"; terms:FIN "true"; conll:POS "VAFIN"; conll:REDUCE :s2_37i_LB .
 :s2_37i_LB terms:CAT "LB"; conll:REDUCE :s2_36i_Cl .
-:s2_38 a nif:Word; conll:WORD "si"; conll:HEAD :s2_0; conll:ID "38"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s2_38i; conll:TID "t888_000"; nif:nextWord :s2_39 .
+:s2_38 a nif:Word; conll:WORD "si"; conll:HEAD :s2_0; conll:ID "38"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s2_38i; conll:TID "t888_000"; nif:nextWord :s2_39 .
 :s2_38i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s2_38i_MF .
 :s2_38i_MF terms:CAT "MF"; conll:REDUCE :s2_36i_Cl .
-:s2_39 a nif:Word; conll:WORD "zerzerret"; conll:HEAD :s2_0; conll:ID "39"; conll:LEMMA "zer-zèrren"; conll:LEXERLEMMA "[martern, zerren]"; conll:POS "VVPP"; conll:REDUCE :s2_39i; conll:TID "t889_000"; nif:nextWord :s2_40 .
+:s2_39 a nif:Word; conll:WORD "zerzerret"; conll:HEAD :s2_0; conll:ID "39"; conll:LEMMA "zer-zèrren"; conll:LEXERLEMMA "[martern, zerren]"; conll:MANUALLEMMA "zerzerren"; conll:POS "VVPP"; conll:REDUCE :s2_39i; conll:TID "t889_000"; nif:nextWord :s2_40 .
 :s2_39i terms:CAT "VX"; terms:FIN "false"; conll:POS "VVPP"; conll:REDUCE :s2_39i_RB .
 :s2_39i_RB terms:CAT "RB"; conll:REDUCE :s2_36i_Cl .
 :s2_40 a nif:Word; terms:SB "true"; conll:HEAD :s2_0; conll:ID "40"; conll:POS "$_"; conll:REDUCE :s2_36i_Cl; conll:TID "t890_000"; nif:nextWord :s2_41 .
-:s2_41 a nif:Word; conll:WORD "unde"; conll:HEAD :s2_0; conll:ID "41"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_41_PrePreF; conll:TID "t891_000"; nif:nextWord :s2_42 .
+:s2_41 a nif:Word; conll:WORD "unde"; conll:HEAD :s2_0; conll:ID "41"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:MANUALLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s2_41_PrePreF; conll:TID "t891_000"; nif:nextWord :s2_42 .
 :s2_41_Cl terms:CAT "Cl"; conll:REDUCE :s2_1_S; conll:SHIFT :s2_43i_Cl .
 :s2_41_PrePreF terms:CAT "PrePreF"; conll:REDUCE :s2_41_Cl .
-:s2_42 a nif:Word; conll:WORD "jach"; terms:SB "true"; conll:HEAD :s2_0; conll:ID "42"; conll:INFL "Ind.Past.Sg.3"; conll:LEMMA "jëhen"; conll:LEXERLEMMA "jehen"; conll:POS "VVFIN"; conll:REDUCE :s2_42i; conll:SB "S*"; conll:TID "t892_000"; nif:nextWord :s2_43 .
+:s2_42 a nif:Word; conll:WORD "jach"; terms:SB "true"; conll:HEAD :s2_0; conll:ID "42"; conll:INFL "Ind.Past.Sg.3"; conll:LEMMA "jëhen"; conll:LEXERLEMMA "jehen"; conll:MANUALLEMMA "jehen"; conll:POS "VVFIN"; conll:REDUCE :s2_42i; conll:SB "S*"; conll:TID "t892_000"; nif:nextWord :s2_43 .
 :s2_42i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s2_42i_LB .
 :s2_42i_LB terms:CAT "LB"; conll:REDUCE :s2_41_Cl .
-:s2_43 a nif:Word; conll:WORD "daz"; conll:HEAD :s2_0; conll:ID "43"; conll:INFL "Neut.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDS"; conll:REDUCE :s2_43i; conll:TID "t893_000"; nif:nextWord :s2_44 .
+:s2_43 a nif:Word; conll:WORD "daz"; conll:HEAD :s2_0; conll:ID "43"; conll:INFL "Neut.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDS"; conll:REDUCE :s2_43i; conll:TID "t893_000"; nif:nextWord :s2_44 .
 :s2_43i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s2_43i_PreF .
 :s2_43i_Cl terms:CAT "Cl"; conll:REDUCE :s2_1_S .
 :s2_43i_PreF terms:CAT "PreF"; conll:REDUCE :s2_43i_Cl .
-:s2_44 a nif:Word; conll:WORD "hiete"; conll:HEAD :s2_0; conll:ID "44"; conll:INFL "(Subj).Past.Sg.3"; conll:LEMMA "haben"; conll:LEXERLEMMA "[haben, halten]"; conll:POS "VAFIN"; conll:REDUCE :s2_44i; conll:TID "t894_000"; nif:nextWord :s2_45 .
+:s2_44 a nif:Word; conll:WORD "hiete"; conll:HEAD :s2_0; conll:ID "44"; conll:INFL "(Subj).Past.Sg.3"; conll:LEMMA "haben"; conll:LEXERLEMMA "[haben, halten]"; conll:MANUALLEMMA "haben"; conll:POS "VAFIN"; conll:REDUCE :s2_44i; conll:TID "t894_000"; nif:nextWord :s2_45 .
 :s2_44i terms:CAT "VX"; terms:FIN "true"; conll:POS "VAFIN"; conll:REDUCE :s2_44i_LB .
 :s2_44i_LB terms:CAT "LB"; conll:REDUCE :s2_43i_Cl .
-:s2_45 a nif:Word; conll:WORD "er"; conll:HEAD :s2_0; conll:ID "45"; conll:INFL "Masc.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s2_45i; conll:TID "t895_000"; nif:nextWord :s2_46 .
+:s2_45 a nif:Word; conll:WORD "er"; conll:HEAD :s2_0; conll:ID "45"; conll:INFL "Masc.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s2_45i; conll:TID "t895_000"; nif:nextWord :s2_46 .
 :s2_45i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s2_45i_MF .
 :s2_45i_MF terms:CAT "MF"; conll:REDUCE :s2_43i_Cl .
-:s2_46 a nif:Word; conll:WORD "getân"; conll:HEAD :s2_0; conll:ID "46"; conll:LEMMA "tuon"; conll:LEXERLEMMA "[tun]"; conll:POS "VVPP"; conll:REDUCE :s2_46i; conll:SB "DE"; conll:TID "t896_000"; nif:nextWord :s2_47 .
+:s2_46 a nif:Word; conll:WORD "getân"; conll:HEAD :s2_0; conll:ID "46"; conll:LEMMA "tuon"; conll:LEXERLEMMA "[tun]"; conll:MANUALLEMMA "tuon"; conll:POS "VVPP"; conll:REDUCE :s2_46i; conll:SB "DE"; conll:TID "t896_000"; nif:nextWord :s2_47 .
 :s2_46i terms:CAT "VX"; terms:FIN "false"; conll:POS "VVPP"; conll:REDUCE :s2_46i_RB .
 :s2_46i_RB terms:CAT "RB"; conll:REDUCE :s2_43i_Cl .
 :s2_47 a nif:Word; terms:SB "true"; conll:HEAD :s2_0; conll:ID "47"; conll:POS "$_"; conll:REDUCE :s2_43i_Cl; conll:SB "$E"; conll:TID "t897_000" .
@@ -176,90 +176,90 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 :s2_0 nif:nextSentence :s3_0 .
 :s3_0 a nif:Sentence .
-:s3_1 a nif:Word; conll:WORD "di"; conll:HEAD :s3_0; conll:ID "1"; conll:INFL "Fem.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s3_2i; conll:TID "t14736_000"; nif:nextWord :s3_2 .
+:s3_1 a nif:Word; conll:WORD "di"; conll:HEAD :s3_0; conll:ID "1"; conll:INFL "Fem.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s3_2i; conll:TID "t14736_000"; nif:nextWord :s3_2 .
 :s3_1_S terms:CAT "S" .
-:s3_2 a nif:Word; conll:WORD "genâde"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "2"; conll:INFL "Nom.Sg"; conll:LEMMA "ge-nâde"; conll:LEXERLEMMA "[gnade]"; conll:POS "NA"; conll:REDUCE :s3_2i; conll:TID "t14737_000"; nif:nextWord :s3_3 .
+:s3_2 a nif:Word; conll:WORD "genâde"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "2"; conll:INFL "Nom.Sg"; conll:LEMMA "ge-nâde"; conll:LEXERLEMMA "[gnade]"; conll:MANUALLEMMA "Genade"; conll:POS "NA"; conll:REDUCE :s3_2i; conll:TID "t14737_000"; nif:nextWord :s3_3 .
 :s3_2i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate]"; conll:INFL "Nom.Sg"; conll:REDUCE :s3_2i_PreF .
 :s3_2i_Cl terms:CAT "Cl"; conll:REDUCE :s3_1_S .
 :s3_2i_PreF terms:CAT "PreF"; conll:REDUCE :s3_2i_Cl .
-:s3_3 a nif:Word; conll:WORD "gibet"; conll:HEAD :s3_0; conll:ID "3"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "gëben"; conll:LEXERLEMMA "[geben]"; conll:POS "VVFIN"; conll:REDUCE :s3_3i; conll:TID "t14738_000"; nif:nextWord :s3_4 .
+:s3_3 a nif:Word; conll:WORD "gibet"; conll:HEAD :s3_0; conll:ID "3"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "gëben"; conll:LEXERLEMMA "[geben]"; conll:MANUALLEMMA "Geben"; conll:POS "VVFIN"; conll:REDUCE :s3_3i; conll:TID "t14738_000"; nif:nextWord :s3_4 .
 :s3_3i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s3_3i_LB .
 :s3_3i_LB terms:CAT "LB"; conll:REDUCE :s3_2i_Cl .
 :s3_4 a nif:Word; terms:SB "true"; conll:HEAD :s3_0; conll:ID "4"; conll:POS "$_"; conll:REDUCE :s3_2i_Cl; conll:TID "t14739_000"; nif:nextWord :s3_5 .
-:s3_5 a nif:Word; conll:WORD "ein"; conll:HEAD :s3_0; conll:ID "5"; conll:INFL "Neut.Akk.Sg.0"; conll:LEMMA "èin"; conll:LEXERLEMMA "[ein]"; conll:POS "DIART"; conll:REDUCE :s3_7i; conll:TID "t14740_000"; nif:nextWord :s3_6 .
-:s3_6 a nif:Word; conll:WORD "übernatûrlich"; conll:HEAD :s3_0; conll:ID "6"; conll:INFL "Pos.Neut.Akk.Sg.0"; conll:LEMMA "über-natûr-lich"; conll:LEXERLEMMA "[übernatürlich]"; conll:POS "ADJA"; conll:REDUCE :s3_7i; conll:TID "t14741_000"; nif:nextWord :s3_7 .
-:s3_7 a nif:Word; conll:WORD "wesen"; conll:HEAD :s3_0; conll:ID "7"; conll:INFL "Akk.Sg"; conll:LEMMA "wësen"; conll:LEXERLEMMA "[wonen]"; conll:POS "NA"; conll:REDUCE :s3_7i; conll:TID "t14742_000"; nif:nextWord :s3_8 .
-:s3_7i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_7i_Cl .
+:s3_5 a nif:Word; conll:WORD "ein"; conll:HEAD :s3_0; conll:ID "5"; conll:INFL "Neut.Akk.Sg.0"; conll:LEMMA "èin"; conll:LEXERLEMMA "[ein]"; conll:MANUALLEMMA "ein"; conll:POS "DIART"; conll:REDUCE :s3_7i; conll:TID "t14740_000"; nif:nextWord :s3_6 .
+:s3_6 a nif:Word; conll:WORD "übernatûrlich"; conll:HEAD :s3_0; conll:ID "6"; conll:INFL "Pos.Neut.Akk.Sg.0"; conll:LEMMA "über-natûr-lich"; conll:LEXERLEMMA "[übernatürlich]"; conll:MANUALLEMMA "ubernaturlich"; conll:POS "ADJA"; conll:REDUCE :s3_7i; conll:TID "t14741_000"; nif:nextWord :s3_7 .
+:s3_7 a nif:Word; conll:WORD "wesen"; conll:ANIMACY "[animate, inanimate]"; conll:HEAD :s3_0; conll:ID "7"; conll:INFL "Akk.Sg"; conll:LEMMA "wësen"; conll:LEXERLEMMA "[wonen]"; conll:MANUALLEMMA "[Wesen]"; conll:POS "NA"; conll:REDUCE :s3_7i; conll:TID "t14742_000"; nif:nextWord :s3_8 .
+:s3_7i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[animate, inanimate]"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_7i_Cl .
 :s3_7i_Cl terms:CAT "Frag"; conll:REDUCE :s3_2i_Cl .
-:s3_8 a nif:Word; conll:WORD "der"; conll:HEAD :s3_0; conll:ID "8"; conll:INFL "Fem.Dat.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s3_9i; conll:TID "t14743_000"; nif:nextWord :s3_9 .
-:s3_9 a nif:Word; conll:WORD "sêle"; conll:HEAD :s3_0; conll:ID "9"; conll:INFL "Dat.Sg"; conll:LEMMA "sêle"; conll:LEXERLEMMA "[phoca, seele]"; conll:POS "NA"; conll:REDUCE :s3_9i; conll:SB "S*"; conll:TID "t14744_000"; nif:nextWord :s3_10 .
-:s3_9i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Dat.Sg"; conll:REDUCE :s3_7i_Cl .
+:s3_8 a nif:Word; conll:WORD "der"; conll:HEAD :s3_0; conll:ID "8"; conll:INFL "Fem.Dat.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s3_9i; conll:TID "t14743_000"; nif:nextWord :s3_9 .
+:s3_9 a nif:Word; conll:WORD "sêle"; conll:ANIMACY "[animate, inanimate, human]"; conll:HEAD :s3_0; conll:ID "9"; conll:INFL "Dat.Sg"; conll:LEMMA "sêle"; conll:LEXERLEMMA "[phoca, seele]"; conll:MANUALLEMMA "sele"; conll:POS "NA"; conll:REDUCE :s3_9i; conll:SB "S*"; conll:TID "t14744_000"; nif:nextWord :s3_10 .
+:s3_9i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[animate, inanimate, human]"; conll:INFL "Dat.Sg"; conll:REDUCE :s3_7i_Cl .
 :s3_10 a nif:Word; terms:SB "true"; conll:HEAD :s3_0; conll:ID "10"; conll:POS "$_"; conll:REDUCE :s3_7i_Cl; conll:TID "t14745_000"; nif:nextWord :s3_11 .
-:s3_11 a nif:Word; conll:WORD "unde"; conll:HEAD :s3_0; conll:ID "11"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s3_11_Cl; conll:TID "t14746_000"; nif:nextWord :s3_12 .
+:s3_11 a nif:Word; conll:WORD "unde"; conll:HEAD :s3_0; conll:ID "11"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:MANUALLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s3_11_Cl; conll:TID "t14746_000"; nif:nextWord :s3_12 .
 :s3_11_Cl terms:CAT "Frag"; conll:REDUCE :s3_2i_Cl .
-:s3_12 a nif:Word; conll:WORD "di"; conll:HEAD :s3_0; conll:ID "12"; conll:INFL "Fem.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s3_13i; conll:TID "t14747_000"; nif:nextWord :s3_13 .
-:s3_13 a nif:Word; conll:WORD "genâde"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "13"; conll:INFL "Nom.Sg"; conll:LEMMA "ge-nâde"; conll:LEXERLEMMA "[gnade]"; conll:POS "NA"; conll:REDUCE :s3_13i; conll:TID "t14748_000"; nif:nextWord :s3_14 .
+:s3_12 a nif:Word; conll:WORD "di"; conll:HEAD :s3_0; conll:ID "12"; conll:INFL "Fem.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s3_13i; conll:TID "t14747_000"; nif:nextWord :s3_13 .
+:s3_13 a nif:Word; conll:WORD "genâde"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "13"; conll:INFL "Nom.Sg"; conll:LEMMA "ge-nâde"; conll:LEXERLEMMA "[gnade]"; conll:MANUALLEMMA "Genade"; conll:POS "NA"; conll:REDUCE :s3_13i; conll:TID "t14748_000"; nif:nextWord :s3_14 .
 :s3_13i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate]"; conll:INFL "Nom.Sg"; conll:REDUCE :s3_13i_PreF .
 :s3_13i_PreF terms:CAT "PreF"; conll:REDUCE :s3_11_Cl .
-:s3_14 a nif:Word; conll:WORD "machet"; conll:HEAD :s3_0; conll:ID "14"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "machen"; conll:LEXERLEMMA "[aufmachen, einmachen, gebären, machen]"; conll:POS "VVFIN"; conll:REDUCE :s3_14i; conll:TID "t14749_000"; nif:nextWord :s3_15 .
+:s3_14 a nif:Word; conll:WORD "machet"; conll:HEAD :s3_0; conll:ID "14"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "machen"; conll:LEXERLEMMA "[aufmachen, einmachen, gebären, machen]"; conll:MANUALLEMMA "machen"; conll:POS "VVFIN"; conll:REDUCE :s3_14i; conll:TID "t14749_000"; nif:nextWord :s3_15 .
 :s3_14i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s3_14i_LB .
 :s3_14i_LB terms:CAT "LB"; conll:REDUCE :s3_11_Cl .
-:s3_15 a nif:Word; conll:WORD "allez"; conll:HEAD :s3_0; conll:ID "15"; conll:INFL "Neut.Akk.Sg.st"; conll:LEMMA "all"; conll:LEXERLEMMA "all"; conll:POS "DIA"; conll:REDUCE :s3_15_MF; conll:TID "t14750_000"; nif:nextWord :s3_16 .
+:s3_15 a nif:Word; conll:WORD "allez"; conll:HEAD :s3_0; conll:ID "15"; conll:INFL "Neut.Akk.Sg.st"; conll:LEMMA "all"; conll:LEXERLEMMA "all"; conll:MANUALLEMMA "all"; conll:POS "DIA"; conll:REDUCE :s3_15_MF; conll:TID "t14750_000"; nif:nextWord :s3_16 .
 :s3_15_MF terms:CAT "MF"; conll:REDUCE :s3_11_Cl .
-:s3_16 a nif:Word; conll:WORD "des"; conll:HEAD :s3_0; conll:ID "16"; conll:INFL "Masc.Gen.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s3_17i; conll:TID "t14751_000"; nif:nextWord :s3_17 .
-:s3_17 a nif:Word; conll:WORD "mennischen"; conll:HEAD :s3_0; conll:ID "17"; conll:INFL "Gen.Sg"; conll:LEMMA "mèn(ni)sche"; conll:LEXERLEMMA "mennische"; conll:POS "NA"; conll:REDUCE :s3_17i; conll:TID "t14752_000"; nif:nextWord :s3_18 .
-:s3_17i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Gen.Sg"; conll:REDUCE :s3_15_MF .
-:s3_18 a nif:Word; conll:WORD "werc"; conll:HEAD :s3_0; conll:ID "18"; conll:INFL "Akk.Sg"; conll:LEMMA "wërk"; conll:LEXERLEMMA "werk"; conll:POS "NA"; conll:REDUCE :s3_18i; conll:TID "t14753_000"; nif:nextWord :s3_19 .
-:s3_18i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_15_MF .
-:s3_19 a nif:Word; conll:WORD "annæme"; conll:HEAD :s3_0; conll:ID "19"; conll:INFL "Pos....0"; conll:LEMMA "ane-næme"; conll:LEXERLEMMA "anename"; conll:POS "ADJD"; conll:REDUCE :s3_15_MF; conll:TID "t14754_000"; nif:nextWord :s3_20 .
-:s3_20 a nif:Word; conll:WORD "gote"; conll:HEAD :s3_0; conll:ID "20"; conll:INFL "Dat.Sg"; conll:LEMMA "got"; conll:LEXERLEMMA "got"; conll:POS "NA"; conll:REDUCE :s3_20i; conll:SB "S*"; conll:TID "t14755_000"; nif:nextWord :s3_21 .
-:s3_20i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Dat.Sg"; conll:REDUCE :s3_15_MF .
+:s3_16 a nif:Word; conll:WORD "des"; conll:HEAD :s3_0; conll:ID "16"; conll:INFL "Masc.Gen.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s3_17i; conll:TID "t14751_000"; nif:nextWord :s3_17 .
+:s3_17 a nif:Word; conll:WORD "mennischen"; conll:ANIMACY "[human]"; conll:HEAD :s3_0; conll:ID "17"; conll:INFL "Gen.Sg"; conll:LEMMA "mèn(ni)sche"; conll:LEXERLEMMA "mennische"; conll:MANUALLEMMA "[Menschen]"; conll:POS "NA"; conll:REDUCE :s3_17i; conll:TID "t14752_000"; nif:nextWord :s3_18 .
+:s3_17i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[human]"; conll:INFL "Gen.Sg"; conll:REDUCE :s3_15_MF .
+:s3_18 a nif:Word; conll:WORD "werc"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "18"; conll:INFL "Akk.Sg"; conll:LEMMA "wërk"; conll:LEXERLEMMA "werk"; conll:MANUALLEMMA "[Werk]"; conll:POS "NA"; conll:REDUCE :s3_18i; conll:TID "t14753_000"; nif:nextWord :s3_19 .
+:s3_18i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate]"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_15_MF .
+:s3_19 a nif:Word; conll:WORD "annæme"; conll:HEAD :s3_0; conll:ID "19"; conll:INFL "Pos....0"; conll:LEMMA "ane-næme"; conll:LEXERLEMMA "anename"; conll:MANUALLEMMA "anename"; conll:POS "ADJD"; conll:REDUCE :s3_15_MF; conll:TID "t14754_000"; nif:nextWord :s3_20 .
+:s3_20 a nif:Word; conll:WORD "gote"; conll:ANIMACY "[animate]"; conll:HEAD :s3_0; conll:ID "20"; conll:INFL "Dat.Sg"; conll:LEMMA "got"; conll:LEXERLEMMA "got"; conll:MANUALLEMMA "[Gott]"; conll:POS "NA"; conll:REDUCE :s3_20i; conll:SB "S*"; conll:TID "t14755_000"; nif:nextWord :s3_21 .
+:s3_20i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[animate]"; conll:INFL "Dat.Sg"; conll:REDUCE :s3_15_MF .
 :s3_21 a nif:Word; terms:SB "true"; conll:HEAD :s3_0; conll:ID "21"; conll:POS "$_"; conll:REDUCE :s3_11_Cl; conll:TID "t14756_000"; nif:nextWord :s3_22 .
-:s3_22 a nif:Word; conll:WORD "wanne"; conll:HEAD :s3_0; conll:ID "22"; conll:LEMMA "wante"; conll:LEXERLEMMA "[bis]"; conll:POS "KO*"; conll:REDUCE :s3_22_Cl; conll:TID "t14757_000"; nif:nextWord :s3_23 .
+:s3_22 a nif:Word; conll:WORD "wanne"; conll:HEAD :s3_0; conll:ID "22"; conll:LEMMA "wante"; conll:LEXERLEMMA "[bis]"; conll:MANUALLEMMA "Wante"; conll:POS "KO*"; conll:REDUCE :s3_22_Cl; conll:TID "t14757_000"; nif:nextWord :s3_23 .
 :s3_22_Cl terms:CAT "Frag"; conll:REDUCE :s3_2i_Cl .
-:s3_23 a nif:Word; conll:WORD "si"; conll:HEAD :s3_0; conll:ID "23"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:POS "PPER"; conll:REDUCE :s3_23i; conll:TID "t14758_000"; nif:nextWord :s3_24 .
+:s3_23 a nif:Word; conll:WORD "si"; conll:HEAD :s3_0; conll:ID "23"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:REDUCE :s3_23i; conll:TID "t14758_000"; nif:nextWord :s3_24 .
 :s3_23i terms:CAT "NX"; terms:PN "true"; conll:ANIMACY "none"; conll:INFL "Nom.Sg"; conll:REDUCE :s3_23i_PreF .
 :s3_23i_PreF terms:CAT "PreF"; conll:REDUCE :s3_22_Cl .
-:s3_24 a nif:Word; conll:WORD "überformet"; conll:HEAD :s3_0; conll:ID "24"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "über-formen"; conll:LEXERLEMMA "[transformare]"; conll:POS "VVFIN"; conll:REDUCE :s3_24i; conll:TID "t14759_000"; nif:nextWord :s3_25 .
+:s3_24 a nif:Word; conll:WORD "überformet"; conll:HEAD :s3_0; conll:ID "24"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "über-formen"; conll:LEXERLEMMA "[transformare]"; conll:MANUALLEMMA "uberformen"; conll:POS "VVFIN"; conll:REDUCE :s3_24i; conll:TID "t14759_000"; nif:nextWord :s3_25 .
 :s3_24i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s3_24i_LB .
 :s3_24i_LB terms:CAT "LB"; conll:REDUCE :s3_22_Cl .
-:s3_25 a nif:Word; conll:WORD "den"; conll:HEAD :s3_0; conll:ID "25"; conll:INFL "Masc.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s3_26i; conll:TID "t14760_000"; nif:nextWord :s3_26 .
-:s3_26 a nif:Word; conll:WORD "mennischen"; conll:HEAD :s3_0; conll:ID "26"; conll:INFL "Akk.Sg"; conll:LEMMA "mèn(ni)sche"; conll:LEXERLEMMA "mennische"; conll:POS "NA"; conll:REDUCE :s3_26i; conll:TID "t14761_000"; nif:nextWord :s3_27 .
-:s3_26i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_26i_MF .
+:s3_25 a nif:Word; conll:WORD "den"; conll:HEAD :s3_0; conll:ID "25"; conll:INFL "Masc.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s3_26i; conll:TID "t14760_000"; nif:nextWord :s3_26 .
+:s3_26 a nif:Word; conll:WORD "mennischen"; conll:ANIMACY "[human]"; conll:HEAD :s3_0; conll:ID "26"; conll:INFL "Akk.Sg"; conll:LEMMA "mèn(ni)sche"; conll:LEXERLEMMA "mennische"; conll:MANUALLEMMA "[Menschen]"; conll:POS "NA"; conll:REDUCE :s3_26i; conll:TID "t14761_000"; nif:nextWord :s3_27 .
+:s3_26i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[human]"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_26i_MF .
 :s3_26i_MF terms:CAT "MF"; conll:REDUCE :s3_22_Cl .
-:s3_27 a nif:Word; conll:WORD "in"; conll:HEAD :s3_0; conll:ID "27"; conll:LEMMA "in"; conll:LEXERLEMMA "[gegen, in]"; conll:POS "APPR"; conll:REDUCE :s3_29ii; conll:TID "t14762_000"; nif:nextWord :s3_28 .
-:s3_28 a nif:Word; conll:WORD "gotformige"; conll:HEAD :s3_0; conll:ID "28"; conll:INFL "Pos.Fem.Akk.Sg.st"; conll:LEMMA "got-formig"; conll:LEXERLEMMA "gotformig"; conll:POS "ADJA"; conll:REDUCE :s3_29i; conll:TID "t14763_000"; nif:nextWord :s3_29 .
-:s3_29 a nif:Word; conll:WORD "gelîchheit"; conll:HEAD :s3_0; conll:ID "29"; conll:INFL "Akk.Sg"; conll:LEMMA "ge-lîch-hèit"; conll:LEXERLEMMA "gelichheit"; conll:POS "NA"; conll:REDUCE :s3_29i; conll:SB "S*"; conll:TID "t14764_000"; nif:nextWord :s3_30 .
-:s3_29i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_29ii .
+:s3_27 a nif:Word; conll:WORD "in"; conll:HEAD :s3_0; conll:ID "27"; conll:LEMMA "in"; conll:LEXERLEMMA "[gegen, in]"; conll:MANUALLEMMA "in"; conll:POS "APPR"; conll:REDUCE :s3_29ii; conll:TID "t14762_000"; nif:nextWord :s3_28 .
+:s3_28 a nif:Word; conll:WORD "gotformige"; conll:HEAD :s3_0; conll:ID "28"; conll:INFL "Pos.Fem.Akk.Sg.st"; conll:LEMMA "got-formig"; conll:LEXERLEMMA "gotformig"; conll:MANUALLEMMA "GotformiG"; conll:POS "ADJA"; conll:REDUCE :s3_29i; conll:TID "t14763_000"; nif:nextWord :s3_29 .
+:s3_29 a nif:Word; conll:WORD "gelîchheit"; conll:ANIMACY "[inanimate, inanimate]"; conll:HEAD :s3_0; conll:ID "29"; conll:INFL "Akk.Sg"; conll:LEMMA "ge-lîch-hèit"; conll:LEXERLEMMA "gelichheit"; conll:MANUALLEMMA "[Ebenbild, Gleichheit]"; conll:POS "NA"; conll:REDUCE :s3_29i; conll:SB "S*"; conll:TID "t14764_000"; nif:nextWord :s3_30 .
+:s3_29i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate, inanimate]"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_29ii .
 :s3_29ii terms:CAT "PPX"; conll:REDUCE :s3_26i .
 :s3_30 a nif:Word; terms:SB "true"; conll:HEAD :s3_0; conll:ID "30"; conll:POS "$_"; conll:REDUCE :s3_22_Cl; conll:TID "t14765_000"; nif:nextWord :s3_31 .
-:s3_31 a nif:Word; conll:WORD "unde"; conll:HEAD :s3_0; conll:ID "31"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s3_31_Cl; conll:TID "t14766_000"; nif:nextWord :s3_32 .
+:s3_31 a nif:Word; conll:WORD "unde"; conll:HEAD :s3_0; conll:ID "31"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:MANUALLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s3_31_Cl; conll:TID "t14766_000"; nif:nextWord :s3_32 .
 :s3_31_Cl terms:CAT "Frag"; conll:REDUCE :s3_2i_Cl .
-:s3_32 a nif:Word; conll:WORD "di"; conll:HEAD :s3_0; conll:ID "32"; conll:INFL "Fem.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s3_33i; conll:TID "t14767_000"; nif:nextWord :s3_33 .
-:s3_33 a nif:Word; conll:WORD "genâde"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "33"; conll:INFL "Nom.Sg"; conll:LEMMA "ge-nâde"; conll:LEXERLEMMA "[gnade]"; conll:POS "NA"; conll:REDUCE :s3_33i; conll:TID "t14768_000"; nif:nextWord :s3_34 .
+:s3_32 a nif:Word; conll:WORD "di"; conll:HEAD :s3_0; conll:ID "32"; conll:INFL "Fem.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s3_33i; conll:TID "t14767_000"; nif:nextWord :s3_33 .
+:s3_33 a nif:Word; conll:WORD "genâde"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "33"; conll:INFL "Nom.Sg"; conll:LEMMA "ge-nâde"; conll:LEXERLEMMA "[gnade]"; conll:MANUALLEMMA "Genade"; conll:POS "NA"; conll:REDUCE :s3_33i; conll:TID "t14768_000"; nif:nextWord :s3_34 .
 :s3_33i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate]"; conll:INFL "Nom.Sg"; conll:REDUCE :s3_33i_PreF .
 :s3_33i_PreF terms:CAT "PreF"; conll:REDUCE :s3_31_Cl .
-:s3_34 a nif:Word; conll:WORD "gibet"; conll:HEAD :s3_0; conll:ID "34"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "gëben"; conll:LEXERLEMMA "[geben]"; conll:POS "VVFIN"; conll:REDUCE :s3_34i; conll:TID "t14769_000"; nif:nextWord :s3_35 .
+:s3_34 a nif:Word; conll:WORD "gibet"; conll:HEAD :s3_0; conll:ID "34"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "gëben"; conll:LEXERLEMMA "[geben]"; conll:MANUALLEMMA "Geben"; conll:POS "VVFIN"; conll:REDUCE :s3_34i; conll:TID "t14769_000"; nif:nextWord :s3_35 .
 :s3_34i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVFIN"; conll:REDUCE :s3_34i_LB .
 :s3_34i_LB terms:CAT "LB"; conll:REDUCE :s3_31_Cl .
-:s3_35 a nif:Word; conll:WORD "ein"; conll:HEAD :s3_0; conll:ID "35"; conll:INFL "Neut.Akk.Sg.0"; conll:LEMMA "èin"; conll:LEXERLEMMA "[ein]"; conll:POS "DIART"; conll:REDUCE :s3_37i; conll:TID "t14770_000"; nif:nextWord :s3_36 .
-:s3_36 a nif:Word; conll:WORD "übernatûrlich"; conll:HEAD :s3_0; conll:ID "36"; conll:INFL "Pos.Neut.Akk.Sg.0"; conll:LEMMA "über-natûr-lich"; conll:LEXERLEMMA "[übernatürlich]"; conll:POS "ADJA"; conll:REDUCE :s3_37i; conll:TID "t14771_000"; nif:nextWord :s3_37 .
-:s3_37 a nif:Word; conll:WORD "wirken"; conll:HEAD :s3_0; conll:ID "37"; conll:INFL "Akk.Sg"; conll:LEMMA "wirken"; conll:LEXERLEMMA "[bewirken, stickend, wirken]"; conll:POS "NA"; conll:REDUCE :s3_37i; conll:TID "t14772_000"; nif:nextWord :s3_38 .
-:s3_37i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_37i_MF .
+:s3_35 a nif:Word; conll:WORD "ein"; conll:HEAD :s3_0; conll:ID "35"; conll:INFL "Neut.Akk.Sg.0"; conll:LEMMA "èin"; conll:LEXERLEMMA "[ein]"; conll:MANUALLEMMA "ein"; conll:POS "DIART"; conll:REDUCE :s3_37i; conll:TID "t14770_000"; nif:nextWord :s3_36 .
+:s3_36 a nif:Word; conll:WORD "übernatûrlich"; conll:HEAD :s3_0; conll:ID "36"; conll:INFL "Pos.Neut.Akk.Sg.0"; conll:LEMMA "über-natûr-lich"; conll:LEXERLEMMA "[übernatürlich]"; conll:MANUALLEMMA "ubernaturlich"; conll:POS "ADJA"; conll:REDUCE :s3_37i; conll:TID "t14771_000"; nif:nextWord :s3_37 .
+:s3_37 a nif:Word; conll:WORD "wirken"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "37"; conll:INFL "Akk.Sg"; conll:LEMMA "wirken"; conll:LEXERLEMMA "[bewirken, stickend, wirken]"; conll:MANUALLEMMA "Wirken"; conll:POS "NA"; conll:REDUCE :s3_37i; conll:TID "t14772_000"; nif:nextWord :s3_38 .
+:s3_37i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate]"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_37i_MF .
 :s3_37i_MF terms:CAT "MF"; conll:REDUCE :s3_31_Cl .
-:s3_38 a nif:Word; conll:WORD "deme"; conll:HEAD :s3_0; conll:ID "38"; conll:INFL "Masc.Dat.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s3_39i; conll:TID "t14773_000"; nif:nextWord :s3_39 .
-:s3_39 a nif:Word; conll:WORD "geiste"; conll:HEAD :s3_0; conll:ID "39"; conll:INFL "Dat.Sg"; conll:LEMMA "gèist"; conll:LEXERLEMMA "[geist]"; conll:POS "NA"; conll:REDUCE :s3_39i; conll:TID "t14774_000"; nif:nextWord :s3_40 .
-:s3_39i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Dat.Sg"; conll:REDUCE :s3_37i_MF .
-:s3_40 a nif:Word; conll:WORD "alse"; conll:HEAD :s3_0; conll:ID "40"; conll:LEMMA "all-sô"; conll:LEXERLEMMA "allso"; conll:POS "KO*"; conll:REDUCE :s3_37i_MF; conll:TID "t14775_000"; nif:nextWord :s3_41 .
-:s3_41 a nif:Word; conll:WORD "übernatûrlich"; conll:HEAD :s3_0; conll:ID "41"; conll:INFL "Pos.Neut.Akk.Sg.0"; conll:LEMMA "über-natûr-lich"; conll:LEXERLEMMA "[übernatürlich]"; conll:POS "ADJA"; conll:REDUCE :s3_42i; conll:TID "t14776_000"; nif:nextWord :s3_42 .
-:s3_42 a nif:Word; conll:WORD "bekennen"; conll:HEAD :s3_0; conll:ID "42"; conll:INFL "Akk.Sg"; conll:LEMMA "be-kènnen"; conll:LEXERLEMMA "[erkennen, erkenntnis]"; conll:POS "NA"; conll:REDUCE :s3_42i; conll:TID "t14777_000"; nif:nextWord :s3_43 .
-:s3_42i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_37i_MF .
+:s3_38 a nif:Word; conll:WORD "deme"; conll:HEAD :s3_0; conll:ID "38"; conll:INFL "Masc.Dat.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s3_39i; conll:TID "t14773_000"; nif:nextWord :s3_39 .
+:s3_39 a nif:Word; conll:WORD "geiste"; conll:ANIMACY "[animate, inanimate]"; conll:HEAD :s3_0; conll:ID "39"; conll:INFL "Dat.Sg"; conll:LEMMA "gèist"; conll:LEXERLEMMA "[geist]"; conll:MANUALLEMMA "Geist"; conll:POS "NA"; conll:REDUCE :s3_39i; conll:TID "t14774_000"; nif:nextWord :s3_40 .
+:s3_39i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[animate, inanimate]"; conll:INFL "Dat.Sg"; conll:REDUCE :s3_37i_MF .
+:s3_40 a nif:Word; conll:WORD "alse"; conll:HEAD :s3_0; conll:ID "40"; conll:LEMMA "all-sô"; conll:LEXERLEMMA "allso"; conll:MANUALLEMMA "allso"; conll:POS "KO*"; conll:REDUCE :s3_37i_MF; conll:TID "t14775_000"; nif:nextWord :s3_41 .
+:s3_41 a nif:Word; conll:WORD "übernatûrlich"; conll:HEAD :s3_0; conll:ID "41"; conll:INFL "Pos.Neut.Akk.Sg.0"; conll:LEMMA "über-natûr-lich"; conll:LEXERLEMMA "[übernatürlich]"; conll:MANUALLEMMA "ubernaturlich"; conll:POS "ADJA"; conll:REDUCE :s3_42i; conll:TID "t14776_000"; nif:nextWord :s3_42 .
+:s3_42 a nif:Word; conll:WORD "bekennen"; conll:ANIMACY "[inanimate, inanimate]"; conll:HEAD :s3_0; conll:ID "42"; conll:INFL "Akk.Sg"; conll:LEMMA "be-kènnen"; conll:LEXERLEMMA "[erkennen, erkenntnis]"; conll:MANUALLEMMA "bekennen"; conll:POS "NA"; conll:REDUCE :s3_42i; conll:TID "t14777_000"; nif:nextWord :s3_43 .
+:s3_42i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate, inanimate]"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_37i_MF .
 :s3_43 a nif:Word; terms:SB "true"; conll:HEAD :s3_0; conll:ID "43"; conll:POS "$_"; conll:REDUCE :s3_31_Cl; conll:TID "t14778_000"; nif:nextWord :s3_44 .
-:s3_44 a nif:Word; conll:WORD "unde"; conll:HEAD :s3_0; conll:ID "44"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s3_44_Cl; conll:TID "t14779_000"; nif:nextWord :s3_45 .
+:s3_44 a nif:Word; conll:WORD "unde"; conll:HEAD :s3_0; conll:ID "44"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:MANUALLEMMA "unte"; conll:POS "KON"; conll:REDUCE :s3_44_Cl; conll:TID "t14779_000"; nif:nextWord :s3_45 .
 :s3_44_Cl terms:CAT "Frag"; conll:REDUCE :s3_2i_Cl .
-:s3_45 a nif:Word; conll:WORD "übernatûrliche"; conll:HEAD :s3_0; conll:ID "45"; conll:INFL "Pos.Fem.Akk.Sg.st"; conll:LEMMA "über-natûr-lich"; conll:LEXERLEMMA "[übernatürlich]"; conll:POS "ADJA"; conll:REDUCE :s3_46i; conll:TID "t14780_000"; nif:nextWord :s3_46 .
-:s3_46 a nif:Word; conll:WORD "liebe"; conll:HEAD :s3_0; conll:ID "46"; conll:INFL "Akk.Sg"; conll:LEMMA "lièbe"; conll:LEXERLEMMA "[geliebte, liebe]"; conll:POS "NA"; conll:REDUCE :s3_46i; conll:SB "DE"; conll:TID "t14781_000"; nif:nextWord :s3_47 .
-:s3_46i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_44_Cl .
+:s3_45 a nif:Word; conll:WORD "übernatûrliche"; conll:HEAD :s3_0; conll:ID "45"; conll:INFL "Pos.Fem.Akk.Sg.st"; conll:LEMMA "über-natûr-lich"; conll:LEXERLEMMA "[übernatürlich]"; conll:MANUALLEMMA "ubernaturlich"; conll:POS "ADJA"; conll:REDUCE :s3_46i; conll:TID "t14780_000"; nif:nextWord :s3_46 .
+:s3_46 a nif:Word; conll:WORD "liebe"; conll:ANIMACY "[human, animate, inanimate, human]"; conll:HEAD :s3_0; conll:ID "46"; conll:INFL "Akk.Sg"; conll:LEMMA "lièbe"; conll:LEXERLEMMA "[geliebte, liebe]"; conll:MANUALLEMMA "liebe"; conll:POS "NA"; conll:REDUCE :s3_46i; conll:SB "DE"; conll:TID "t14781_000"; nif:nextWord :s3_47 .
+:s3_46i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[human, animate, inanimate, human]"; conll:INFL "Akk.Sg"; conll:REDUCE :s3_44_Cl .
 :s3_47 a nif:Word; terms:SB "true"; conll:HEAD :s3_0; conll:ID "47"; conll:POS "$_"; conll:REDUCE :s3_44_Cl; conll:SB "$E"; conll:TID "t14782_000" .
 
 # M402-G1 , VIMP - X file:///samples.ttl/
@@ -271,27 +271,27 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 :s3_0 nif:nextSentence :s4_0 .
 :s4_0 a nif:Sentence .
-:s4_1 a nif:Word; conll:WORD "bereitet"; conll:HEAD :s4_0; conll:ID "1"; conll:INFL "Pl.2"; conll:LEMMA "be-rèiten"; conll:LEXERLEMMA "[berechnen, bereite, bezahlen]"; conll:POS "VVIMP"; conll:REDUCE :s4_1i; conll:TID "t1121_000"; nif:nextWord :s4_2 .
+:s4_1 a nif:Word; conll:WORD "bereitet"; conll:HEAD :s4_0; conll:ID "1"; conll:INFL "Pl.2"; conll:LEMMA "be-rèiten"; conll:LEXERLEMMA "[berechnen, bereite, bezahlen]"; conll:MANUALLEMMA "bereiten"; conll:POS "VVIMP"; conll:REDUCE :s4_1i; conll:TID "t1121_000"; nif:nextWord :s4_2 .
 :s4_1_S terms:CAT "S" .
 :s4_1i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVIMP"; conll:REDUCE :s4_1i_LB .
 :s4_1i_Cl terms:CAT "Cl"; conll:REDUCE :s4_1_S; conll:SHIFT :s4_6i_Cl .
 :s4_1i_LB terms:CAT "LB"; conll:REDUCE :s4_1i_Cl .
-:s4_2 a nif:Word; conll:WORD "den"; conll:HEAD :s4_0; conll:ID "2"; conll:INFL "Masc.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s4_3i; conll:TID "t1122_000"; nif:nextWord :s4_3 .
-:s4_3 a nif:Word; conll:WORD "wec"; conll:HEAD :s4_0; conll:ID "3"; conll:INFL "Akk.Sg"; conll:LEMMA "wëg"; conll:LEXERLEMMA "weg"; conll:POS "NA"; conll:REDUCE :s4_3i; conll:TID "t1123_000"; nif:nextWord :s4_4 .
-:s4_3i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Sg"; conll:REDUCE :s4_3i_MF .
+:s4_2 a nif:Word; conll:WORD "den"; conll:HEAD :s4_0; conll:ID "2"; conll:INFL "Masc.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s4_3i; conll:TID "t1122_000"; nif:nextWord :s4_3 .
+:s4_3 a nif:Word; conll:WORD "wec"; conll:ANIMACY "[inanimate]"; conll:HEAD :s4_0; conll:ID "3"; conll:INFL "Akk.Sg"; conll:LEMMA "wëg"; conll:LEXERLEMMA "weg"; conll:MANUALLEMMA "[Weg]"; conll:POS "NA"; conll:REDUCE :s4_3i; conll:TID "t1123_000"; nif:nextWord :s4_4 .
+:s4_3i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate]"; conll:INFL "Akk.Sg"; conll:REDUCE :s4_3i_MF .
 :s4_3i_MF terms:CAT "MF"; conll:REDUCE :s4_1i_Cl .
-:s4_4 a nif:Word; conll:WORD "dem"; conll:HEAD :s4_0; conll:ID "4"; conll:INFL "Masc.Dat.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:POS "DDART"; conll:REDUCE :s4_5i; conll:TID "t1124_000"; nif:nextWord :s4_5 .
-:s4_5 a nif:Word; conll:WORD "hêrren"; terms:SB "true"; conll:HEAD :s4_0; conll:ID "5"; conll:INFL "Dat.Sg"; conll:LEMMA "hêrre"; conll:LEXERLEMMA "[geistlicher, herr]"; conll:POS "NA"; conll:REDUCE :s4_5i; conll:SB "S*"; conll:TID "t1125_000"; nif:nextWord :s4_6 .
-:s4_5i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Dat.Sg"; conll:REDUCE :s4_3i_MF .
-:s4_6 a nif:Word; conll:WORD "machet"; conll:HEAD :s4_0; conll:ID "6"; conll:INFL "Pl.2"; conll:LEMMA "machen"; conll:LEXERLEMMA "[aufmachen, einmachen, gebären, machen]"; conll:POS "VVIMP"; conll:REDUCE :s4_6i; conll:TID "t1126_000"; nif:nextWord :s4_7 .
+:s4_4 a nif:Word; conll:WORD "dem"; conll:HEAD :s4_0; conll:ID "4"; conll:INFL "Masc.Dat.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:REDUCE :s4_5i; conll:TID "t1124_000"; nif:nextWord :s4_5 .
+:s4_5 a nif:Word; conll:WORD "hêrren"; terms:SB "true"; conll:ANIMACY "[human, animate, human]"; conll:HEAD :s4_0; conll:ID "5"; conll:INFL "Dat.Sg"; conll:LEMMA "hêrre"; conll:LEXERLEMMA "[geistlicher, herr]"; conll:MANUALLEMMA "herre"; conll:POS "NA"; conll:REDUCE :s4_5i; conll:SB "S*"; conll:TID "t1125_000"; nif:nextWord :s4_6 .
+:s4_5i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[human, animate, human]"; conll:INFL "Dat.Sg"; conll:REDUCE :s4_3i_MF .
+:s4_6 a nif:Word; conll:WORD "machet"; conll:HEAD :s4_0; conll:ID "6"; conll:INFL "Pl.2"; conll:LEMMA "machen"; conll:LEXERLEMMA "[aufmachen, einmachen, gebären, machen]"; conll:MANUALLEMMA "machen"; conll:POS "VVIMP"; conll:REDUCE :s4_6i; conll:TID "t1126_000"; nif:nextWord :s4_7 .
 :s4_6i terms:CAT "VX"; terms:FIN "true"; conll:POS "VVIMP"; conll:REDUCE :s4_6i_LB .
 :s4_6i_Cl terms:CAT "Cl"; conll:REDUCE :s4_1_S .
 :s4_6i_LB terms:CAT "LB"; conll:REDUCE :s4_6i_Cl .
-:s4_7 a nif:Word; conll:WORD "sîne"; conll:HEAD :s4_0; conll:ID "7"; conll:INFL "Masc.Akk.Pl.st"; conll:LEMMA "sîn"; conll:LEXERLEMMA "[sein]"; conll:POS "DPOSA"; conll:REDUCE :s4_8i; conll:TID "t1127_000"; nif:nextWord :s4_8 .
-:s4_8 a nif:Word; conll:WORD "stîge"; conll:HEAD :s4_0; conll:ID "8"; conll:INFL "Akk.Pl"; conll:LEMMA "stîg"; conll:LEXERLEMMA "stig"; conll:POS "NA"; conll:REDUCE :s4_8i; conll:TID "t1128_000"; nif:nextWord :s4_9 .
-:s4_8i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "none"; conll:INFL "Akk.Pl"; conll:REDUCE :s4_8i_MF .
+:s4_7 a nif:Word; conll:WORD "sîne"; conll:HEAD :s4_0; conll:ID "7"; conll:INFL "Masc.Akk.Pl.st"; conll:LEMMA "sîn"; conll:LEXERLEMMA "[sein]"; conll:MANUALLEMMA "sin"; conll:POS "DPOSA"; conll:REDUCE :s4_8i; conll:TID "t1127_000"; nif:nextWord :s4_8 .
+:s4_8 a nif:Word; conll:WORD "stîge"; conll:ANIMACY "[inanimate, inanimate]"; conll:HEAD :s4_0; conll:ID "8"; conll:INFL "Akk.Pl"; conll:LEMMA "stîg"; conll:LEXERLEMMA "stig"; conll:MANUALLEMMA "[Bürgersteig, Steig]"; conll:POS "NA"; conll:REDUCE :s4_8i; conll:TID "t1128_000"; nif:nextWord :s4_9 .
+:s4_8i terms:CAT "NX"; terms:PN "false"; conll:ANIMACY "[inanimate, inanimate]"; conll:INFL "Akk.Pl"; conll:REDUCE :s4_8i_MF .
 :s4_8i_MF terms:CAT "MF"; conll:REDUCE :s4_6i_Cl .
-:s4_9 a nif:Word; conll:WORD "reht"; conll:HEAD :s4_0; conll:ID "9"; conll:INFL "Pos....0"; conll:LEMMA "rëht"; conll:LEXERLEMMA "[recht, reinigungseid]"; conll:POS "ADJD"; conll:REDUCE :s4_8i_MF; conll:SB "DE"; conll:TID "t1129_000"; nif:nextWord :s4_10 .
+:s4_9 a nif:Word; conll:WORD "reht"; conll:HEAD :s4_0; conll:ID "9"; conll:INFL "Pos....0"; conll:LEMMA "rëht"; conll:LEXERLEMMA "[recht, reinigungseid]"; conll:MANUALLEMMA "reht"; conll:POS "ADJD"; conll:REDUCE :s4_8i_MF; conll:SB "DE"; conll:TID "t1129_000"; nif:nextWord :s4_10 .
 :s4_10 a nif:Word; terms:SB "true"; conll:HEAD :s4_0; conll:ID "10"; conll:POS "$_"; conll:REDUCE :s4_6i_Cl; conll:SB "$E"; conll:TID "t1130_000" .
 
 # # M522-N1 (Ecken Ausfahrt) file:///samples.ttl/ # 1 t460_000 dû dû PPER Nom.Sg.2 - file:///samples.ttl/ # 2 t461_000 bestâst be-stân VVFIN *.Pres.Sg.2 - file:///samples.ttl/ # 3 t462_000 niht niht PTKNEG - - file:///samples.ttl/ # 4 t463_000 mêr mêr(e) AVD Comp - file:///samples.ttl/ # 5 t464_000 decheinen deh-èin DIA Masc.Akk.Sg.st - file:///samples.ttl/ # 6 t465_000 man mann NA Akk.Sg - file:///samples.ttl/ # 7 t466_000 - - $_ - - file:///samples.ttl/ # 8 t467_000 daz dër DDS Neut.Akk.Sg - file:///samples.ttl/ # 9 t468_000 habe haben VAIMP Sg.2 - file:///samples.ttl/ # 10 t469_000 ûf ûf APPR - - file:///samples.ttl/ # 11 t470_000 mîne mîn DPOSA *.Akk.Pl.st - file:///samples.ttl/ # 12 t471_000 triuwe triuwe NA Akk.Pl - file:///samples.ttl/ # 13 t472_000 - - $_ - - file:///samples.ttl/ # 14 t473_000 sît sîd KOUS - - file:///samples.ttl/ # 15 t474_000 dû dû PPER Nom.Sg.2 - file:///samples.ttl/ # 16 t475_000 mir ich PPER Dat.Sg.1 - file:///samples.ttl/ # 17 t476_000 Grînen Grîne NE Akk.Sg - file:///samples.ttl/ # 18 t477_000 hâst haben VAFIN *.Pres.Sg.2 - file:///samples.ttl/ # 19 t478_000 erslagen er-slahen VVPP - DE file:///samples.ttl/ # 20 t479_000 - - $_ - $E file:///samples.ttl/	# M522-N1 (Ecken Ausfahrt) file:///samples.ttl/ # contains a complicated elision: TO FIX (low priority) file:///samples.ttl/ # 1 t549_000 si ër PPER Fem.Nom.Sg.3 - file:///samples.ttl/ # 2 t550_000 lac ligen VVFIN Ind.Past.Sg.3 - file:///samples.ttl/ # 3 t551_000 ob obe AVD - - file:///samples.ttl/ # 4 t552_000 unde unte KON - - file:///samples.ttl/ # 5 t553_000 ich ich PPER Nom.Sg.1 - file:///samples.ttl/ # 6 t554_000 under unter AVD - S* file:///samples.ttl/ # 7 t555_000 - - $_ - - file:///samples.ttl/ # 8 t556_000 unde unte KON - - file:///samples.ttl/ # 9 t557_000 druhte drücken VVFIN *.Past.Sg.3 - file:///samples.ttl/ # 10 t558_000 mich ich PPER Akk.Sg.1 - file:///samples.ttl/ # 11 t559_000 ûf ûf APPR - - file:///samples.ttl/ # 12 t560_000 einem èin DIART Masc.Dat.Sg.st - file:///samples.ttl/ # 13 t561_000 banke bank NA Dat.Sg S* file:///samples.ttl/ # 14 t562_000 - - $_ - - file:///samples.ttl/ # 15 t563_000 daz dazz KOUS - - file:///samples.ttl/ # 16 t564_000 mir ich PPER Dat.Sg.1 - file:///samples.ttl/ # 17 t565_000 daz dër DDART Neut.Nom.Sg - file:///samples.ttl/ # 18 t566_000 rôte rôt ADJA Pos.Neut.Nom.Sg.wk - file:///samples.ttl/ # 19 t567_000 walebluot wal(e)-bluot NA Nom.Sg - file:///samples.ttl/ # 20 t568_000 - - $_ - - file:///samples.ttl/ # 21 t569_000 ze ze APPR - - file:///samples.ttl/ # 22 t570_000 beiden bèide DIA *.Dat.Pl.st - file:///samples.ttl/ # 23 t571_000 ôren ôre NA Dat.Pl - file:///samples.ttl/ # 24 t572_000 ûz ûz/>+dringen PTKVZ - - file:///samples.ttl/ # 25 t573_000 dranc dringen/ûz>+ VVFIN Ind.Past.Sg.3 DE file:///samples.ttl/ # 26 t574_000 - - $_ - $E file:///samples.ttl/	# # M522-N1 (Ecken Ausfahrt) file:///samples.ttl/ # 1 t537_000 daz dër DDS Neut.Nom.Sg - file:///samples.ttl/ # 2 t537_001 was wësen VAFIN Ind.Past.Sg.3 - file:///samples.ttl/ # 3 t538_000 ein èin DIART *.*.*.0 - file:///samples.ttl/ # 4 t539_000 michel michel ADJA Pos.*..0 - file:///samples.ttl/ # 5 t540_000 wunder wunter NA Nom.Sg S* file:///samples.ttl/ # 6 t541_000 - - $_ - - file:///samples.ttl/ # 7 t542_000 daz dazz KOUS - - file:///samples.ttl/ # 8 t543_000 ich ich PPER Nom.Sg.1 - file:///samples.ttl/ # 9 t544_000 vore vor(e) APPR - - file:///samples.ttl/ # 10 t545_000 der dër DDS Fem.Dat.Sg - file:///samples.ttl/ # 11 t546_000 ie iè AVD - - file:///samples.ttl/ # 12 t547_000 genas ge-nësen VVFIN Ind.Past.Sg.1 DE file:///samples.ttl/ # 13 t548_000 - - $_ - $E file:///samples.ttl/	# # M004-N1: NP.NOM NP.AKK (pronominal) file:///samples.ttl/ # 1 t80_000 mit mit APPR - - file:///samples.ttl/ # 2 t81_000 der dër DDART Fem.Dat.Sg - file:///samples.ttl/ # 3 t82_000 hant hant NA Dat.Sg - file:///samples.ttl/ # 4 t83_000 winkete winken VVFIN *.Past.Sg.3 - file:///samples.ttl/ # 5 t84_000 er ër PPER Masc.Nom.Sg.3 - file:///samples.ttl/ # 6 t85_000 den dër DDART *.Dat.Pl - file:///samples.ttl/ # 7 t86_000 liuten liut NA Dat.Pl S* file:///samples.ttl/ # 8 t87_000 - - $_ - - file:///samples.ttl/ # 9 t88_000 er ër PPER Masc.Nom.Sg.3 - file:///samples.ttl/ # 10 t88_001 ne ne PTKNEG - - file:///samples.ttl/ # 11 t89_000 mohte mügen VMFIN *.Past.Sg.3 - file:///samples.ttl/ # 12 t90_000 in ër PPER *.Dat.Pl.3 - file:///samples.ttl/ # 13 t91_000 anderes ander(e)s AVD - - file:///samples.ttl/ # 14 t92_000 niht niht PTKNEG - - file:///samples.ttl/ # 15 t93_000 gediuten ge-diuten VVINF - S* file:///samples.ttl/ # 16 t94_000 - - $_ - - file:///samples.ttl/ # 17 t95_000 daz dazz KOUS - - file:///samples.ttl/ # 18 t96_000 si ër PPER *.Nom.Pl.3 - file:///samples.ttl/ # 19 t97_000 giengen gân VVFIN (Subj).Past.Pl.3 - file:///samples.ttl/ # 20 t98_000 heim hèim AVD - DE file:///samples.ttl/ # 21 t99_000 - - $_ - $E file:///samples.ttl/	# # M004-N1: NP.DAT NP.AKK (relative clause) file:///samples.ttl/ # 1 t595_000 mit mit APPR - - file:///samples.ttl/ # 2 t596_000 im ër PPER Masc.Dat.Sg.3 - file:///samples.ttl/ # 3 t597_000 was wësen VAFIN Ind.Past.Sg.3 - file:///samples.ttl/ # 4 t598_000 diu dër DDART Fem.Nom.Sg - file:///samples.ttl/ # 5 t599_000 gotes got NA Gen.Sg - file:///samples.ttl/ # 6 t600_000 hant hant NA Nom.Sg S* file:///samples.ttl/ # 7 t601_000 - - $_ - - file:///samples.ttl/ # 8 t602_000 der dër DRELS Masc.Nom.Sg - file:///samples.ttl/ # 9 t603_000 in ër PPER Masc.Akk.Sg.3 - file:///samples.ttl/ # 10 t604_000 her hër(e) AVD - - file:///samples.ttl/ # 11 t605_000 hât haben VAFIN Ind.Pres.Sg.3 - file:///samples.ttl/ # 12 t606_000 gesant sènten VVPP - - file:///samples.ttl/ # 13 t607_000 - - $_ - - file:///samples.ttl/ # 14 t608_000 uns wir PPER Dat.Pl.1 - file:///samples.ttl/ # 15 t609_000 allen all DID *.Dat.Pl..=.st - file:///samples.ttl/ # 16 t610_000 ze ze APPR - - file:///samples.ttl/ # 17 t611_000 trôste trôst NA Dat.Sg S* file:///samples.ttl/ # 18 t612_000 - - $_ - - file:///samples.ttl/ # 19 t613_000 daz dazz KOUS - - file:///samples.ttl/ # 20 t614_000 er ër PPER Masc.Nom.Sg.3 - file:///samples.ttl/ # 21 t615_000 sînem sîn DPOSA Masc.Dat.Sg.st - file:///samples.ttl/ # 22 t616_000 vater vater NA Dat.Sg - file:///samples.ttl/ # 23 t617_000 die dër DDART Fem.Akk.Sg - file:///samples.ttl/ # 24 t618_000 zungen zunge NA Akk.Sg - file:///samples.ttl/ # 25 t619_000 erlôste er-loèsen VVFIN *.Past.Sg.3 DE file:///samples.ttl/ # 26 t620_000 - - $_ - $E file:///samples.ttl/	# # M004-N1: NP.DAT NP.AKK (single nouns) file:///samples.ttl/ # 1 t649_000 dô dô AVD - - file:///samples.ttl/ # 2 t650_000 sagete sagen VVFIN *.Past.Sg.3 - file:///samples.ttl/ # 3 t651_000 er ër PPER Masc.Nom.Sg.3 - file:///samples.ttl/ # 4 t652_000 gote got NA Dat.Sg - file:///samples.ttl/ # 5 t653_000 danc dank NA Akk.Sg S* file:///samples.ttl/ # 6 t654_000 - - $_ - - file:///samples.ttl/
