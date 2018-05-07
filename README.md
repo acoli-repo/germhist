@@ -99,7 +99,7 @@ See also the list of [contributors](https://github.com/acoli-repo/germhist/graph
 ## Acknowledgments
 
 This code here was mainly developed on the 
-Goethe Universitat Frankfurt, Germany, within a project on ¨
+Goethe Universitat Frankfurt, Germany, within a project on 
 Quantitative and Qualitative Methods in German Historical
 Philology (QuantQual@CEDIFOR), at the Centre for the
 Digital Foundation of Research in the Humanities, Social,
