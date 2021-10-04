@@ -1,5 +1,7 @@
 # quantqual pipeline
+
 toolset for a rule-based shallow parser based on CoNLL-RDF and SPARQL Update for parsing and an enrichment pipeline with the purpose of quantitative evaluation of a qualitative hypothesis on the corpus Referenzkorpus Mittelhochdeutsch (ReM) of Middle High German (MHG) syntax.
+
 ## Getting Started
 
 The pipeline as such is a shell-based script calling various Java programs.
@@ -14,7 +16,7 @@ Calling the quantqual pipeline contained in the rem_pipe.sh script out-of-the-bo
 
 ## Description
 
-The main file is the rem_pipe.sh containing the pipeline for annotating, converting and parsing the ReM corpus data. 
+The main file is the rem_pipe.sh containing the pipeline for annotating, converting and parsing the ReM corpus data.
 Input for the pipeline are files in the CoNLL format.
 Output are linguistically structured RDF graph data in the Turtle file format.
 The structure of the pipeline is as follows:
@@ -30,6 +32,7 @@ conversion conll into rdf
 In addition we provide some convenience scripts and tools to get and convert additional data not provided here into formats used in the pipeline.
 
 ### Further optional steps for the rem_pipe.sh need additional attention (overview):
+
 The full ReM corpus can be manually downloaded from https://www.linguistics.rub.de/rem/access/index.html (we recommend the version in CorA-XML format).
 For a initial ReM corpus conversion from CorA-XML to CoNLL a simple Python script is provided: remToConll.py (usage described bellow). For which Python (3.x) is required.
 
@@ -42,6 +45,7 @@ Once the animacy data is successfully converted and stored in res/data/animacy-d
 These additional steps can be applied independently.
 
 ### Usage
+
 The pipeline can be configured inside the rem_pipe.sh file (adjust paths, usage of Transliterator, chunking steps, etc).
 
 ### Transliterator
@@ -70,7 +74,7 @@ Synopsis: ```animacySrc posColumn [animacyColumns+]```
 
     looks up the lemmas given in `stdin` in the `animacycolumns` in the given `animacySrc`
     (ignores case and looks only for nouns)
-				
+
 
 ### remToConll
 
@@ -98,8 +102,8 @@ See also the list of [contributors](https://github.com/acoli-repo/germhist/graph
 
 ## Acknowledgments
 
-This code here was mainly developed on the 
-Goethe Universitat Frankfurt, Germany, within a project on 
+This code here was mainly developed on the
+Goethe Universitat Frankfurt, Germany, within a project on
 Quantitative and Qualitative Methods in German Historical
 Philology (QuantQual@CEDIFOR), at the Centre for the
 Digital Foundation of Research in the Humanities, Social,
@@ -110,11 +114,11 @@ Frankfurt, for the fruitful collaboration within this project.
 Furthermore, we would like to thank Thomas Klein and
 Claudia Wich-Reif for providing us with an access to the
 ReM corpus even before its ultimate publication, as well as
-Thomas Burch and the Trier Center for Digital Humanities, 
+Thomas Burch and the Trier Center for Digital Humanities,
 for the access to the digital Lexer dictionary data. We
 would like to thank Margarete Springeth for access to the
 Middle High German Conceptual Database (MHDBDB)
-at the Universitat Salzburg. 
+at the Universitat Salzburg.
 
 * Applied Computational Linguistics ([ACoLi](http://acoli.cs.uni-frankfurt.de))
 * Linked Open Dictionaries ([LiODi](http://www.acoli.informatik.uni-frankfurt.de/liodi/)) - 01UG1631
@@ -123,14 +127,14 @@ at the Universitat Salzburg.
 * Lexer by Trier Center for Digital Humanities ([Lexer](http://woerterbuchnetz.de/Lexer/))
 * Middle High German Conceptual Database ([MHDBDB](http://mhdbdb.sbg.ac.at/))
 * Reference Corpus of Middle High German ([ReM](https://www.linguistics.rub.de/rem/))  
-  
+
 ## Licenses
 
 
-This repository is being published under two licenses. 
-Apache 2.0 is used for code, see [LICENSE.main](LICENSE.main.txt). 
+This repository is being published under two licenses.
+Apache 2.0 is used for code, see [LICENSE.main](LICENSE.main.txt).
 CC-BY-SA 4.0 for all data from the ReM corpus and SPARQL scripts, see [LICENSE.data](LICENSE.data.txt).
-  
+
 ### LICENCE.main (Apache 2.0)
 ```
 ├── src/  
@@ -142,4 +146,3 @@ CC-BY-SA 4.0 for all data from the ReM corpus and SPARQL scripts, see [LICENSE.d
 │	├── sh
 │	└── sparql
 ```
-
