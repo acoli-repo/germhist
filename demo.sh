@@ -6,14 +6,13 @@
 # config and compile #
 ######################
 #
-dataDir=./res/data/
-srcDir=./src/
+
+source config
+
+# override default conf
 outDir=./res/data/demo
-remFiles=${dataDir}/samples.conll
-conll2rdfDir=./conll-rdf/
-chunkingPipeline=./res/sparql/chunking/
-dataDirAbs=$(realpath $dataDir)
-chunkingPipelineAbs=$(realpath $chunkingPipeline)
+remFiles=./res/data/samples.conll
+
 
 set LANG=C.UTF-8;
 if [ $OSTYPE = "cygwin" ]; then
@@ -22,8 +21,8 @@ if [ $OSTYPE = "cygwin" ]; then
   chunkingPipelineAbs=$(cygpath -ma $chunkingPipelineAbs);
 fi;
 (cd $srcDir && \
-  javac -encoding "utf-8" org/acoli/conll/quantqual/Transliterator.java; 
-  javac -encoding "utf-8" org/acoli/conll/quantqual/AniImp.java; 
+  javac -encoding "utf-8" org/acoli/conll/quantqual/Transliterator.java;
+  javac -encoding "utf-8" org/acoli/conll/quantqual/AniImp.java;
 )
 #
 #############################
@@ -147,4 +146,3 @@ for f in $remFiles ; do \
     $chunkingPipelineAbs/powla2word.sparql 		| \
   tee >($conll2rdfDir/run.sh CoNLLRDFFormatter > $outDir/ttlchunked/$ttlfile) | $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar;
 done
-

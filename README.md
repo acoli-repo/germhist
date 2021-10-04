@@ -5,7 +5,7 @@ toolset for a rule-based shallow parser based on CoNLL-RDF and SPARQL Update for
 ## Getting Started
 
 The pipeline as such is a shell-based script calling various Java programs.
-The pipeline is dependent on the CoNLL-RDF package: https://github.com/acoli-repo/conll-rdf (submodule linking included). 
+The pipeline is dependent on the CoNLL-RDF package: https://github.com/acoli-repo/conll-rdf (submodule linking included).
 
 Calling the quantqual pipeline contained in the rem_pipe.sh script out-of-the-box will (CoNLL-RDF and Java required):
 - use the sample ReM corpus files in CoNLL format provided in res/data/remdata
@@ -46,7 +46,21 @@ These additional steps can be applied independently.
 
 ### Usage
 
-The pipeline can be configured inside the rem_pipe.sh file (adjust paths, usage of Transliterator, chunking steps, etc).
+For sample run with human-readable output, run
+
+    $> make demo
+
+For test run on sample corpus, run
+
+    $> make
+
+Requirements:
+- Java
+- xmllint, install using `sudo apt install libxml2` (Ubuntu 20.4)
+- Saxon, check installation parameters in `config`
+- CoNLL-RDF, check installation parameters in `config`
+
+The pipeline can be configured inside the `config` (adjust paths and dependencies). For more advanced changes to the default set up (usage of Transliterator, chunking steps, etc), edit `rem_pipe.sh` 
 
 ### Transliterator
 

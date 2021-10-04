@@ -6,17 +6,8 @@
 # config
 ##########
 
-# set to your local saxon installation or get it from https://sourceforge.net/projects/saxon/ (Open Source) or https://www.saxonica.com/download/java.xml (commercial edition)
-SAXON_JAR=~/tools/saxon/saxon-he-10.6.jar
-
-JAVA=java
-
-#
-# init
-########
-
 MYHOME=`dirname $0`
-SAXON=$JAVA' -classpath '`dirname $SAXON_JAR`/jline-*.jar' -jar '$SAXON_JAR' '
+source $MYHOME/../../config
 
 #
 # processing

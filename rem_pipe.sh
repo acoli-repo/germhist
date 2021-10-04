@@ -1,22 +1,22 @@
 #!/bin/bash
 # read ReM CoNLL, transliterate using koebler and lexer, transform to RDF and apply chunking update scripts -> write to stdout
 
-# the Middle High German chunker actually represents a deterministic parser, with application-specific requirements/simplifications, i.e., 
+# the Middle High German chunker actually represents a deterministic parser, with application-specific requirements/simplifications, i.e.,
 # - we rely on an existing markup of clause breaks
 # - we rely on the ReM/HITS POS annotations (https://www.linguistics.rub.de/rem/documentation/pos.html)
 # - relative clauses attach to the left
 # - low attachment for relative clauses and PPs: these are irrelevant for studying NP word order and in this way, we can query for immediate adjacency
 # - topological fields, where these cannot be reliably identified, a clause will be marked as a Frag
-# 
+#
 # n/v/p chunking implemented in the spirit of a simple SHIFT-REDUCE parser (adjacent pairs only, connecting parse fragments, operate between clause boundaries only)
 # - unattached words/parse fragments are connected by mi:next
 # - mi:next is initialized from nif:nextWord, but then "moved up" when CHUNKS are introduced
 # - attachment is represented by mi:CHUNK
 # - if an element has a mi:CHUNK, its parent node takes over its mi:next, within a mi:CHUNK, there is no mi:next
-# 
+#
 # SPARQL allows to extend beyond these data structures, occasionally, we look further in the context (insertMFChunks: LB/RB, beyond clause boundaries, actually) deeper into previously parsed structures (addCl) or we connect separated clause fragments (addMF)
 # for clausal junction, transitions within the sentence are re-initialized (keep transitions across clause boundaries), and for attachment, we look deeply into parsed fragments
-# 
+#
 # after chunking, the data is transformed to create a human-readable representation using the CoNLL dependency (!) visualization, i.e., pseudo nodes
 
 # this pipeline is primarily intended for rule development
@@ -24,24 +24,15 @@
 # - add a critical example ("from the field") to samples.conll, mark its source
 # - if an example from samples.conll is properly analyzed, comment it out
 # - after rules had to be adjusted to accomodate a new example, uncomment all previous analyses from samples.conll and reanalyze their performance
-# - if a parsing error cannot be fixed (e.g., because two deterministic rules would be in conflict), add 
+# - if a parsing error cannot be fixed (e.g., because two deterministic rules would be in conflict), add
 # - production mode: copy this pipeline to rem_pipe.sh to run it on the full corpus or set DEBUG=false (below) for stream processing
 
 ##########
 # config #
 ##########
 
-# meta parameter
-DEBUG=false;			# set to false for production mode
-
-dataDir=./res/data/
-srcDir=./src/
-outDir=./out
-remFiles=${dataDir}remdata/*
-conll2rdfDir=./conll-rdf/
-chunkingPipeline=./res/sparql/chunking/
-dataDirAbs=$(realpath $dataDir)
-chunkingPipelineAbs=$(realpath $chunkingPipeline)
+MYHOME=`dirname $0`
+source $MYHOME/config
 
 set LANG=C.UTF-8;
 if [ $OSTYPE = "cygwin" ]; then
@@ -50,8 +41,8 @@ if [ $OSTYPE = "cygwin" ]; then
   chunkingPipelineAbs=$(cygpath -ma $chunkingPipelineAbs);
 fi;
 (cd $srcDir && \
-  javac -encoding "utf-8" org/acoli/conll/quantqual/Transliterator.java; 
-  javac -encoding "utf-8" org/acoli/conll/quantqual/AniImp.java; 
+  javac -encoding "utf-8" org/acoli/conll/quantqual/Transliterator.java;
+  javac -encoding "utf-8" org/acoli/conll/quantqual/AniImp.java;
 )
 if [ ! -d $outDir ]
   then mkdir $outDir
@@ -81,7 +72,7 @@ function cols {
     out="$out $i";
   done;
   echo $out;
-} 
+}
 colCount=7;
 colCountAnnotated=${colCount};
 if [ -e $dataDirAbs/mhd-koebler.tsv ]; then
@@ -209,4 +200,3 @@ for f in $remFiles ; do \
     #$chunkingPipelineAbs/powla2word.sparql 		| \#
   if $DEBUG; then $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar; else $conll2rdfDir/run.sh CoNLLRDFFormatter > $outDir/ttlchunked/$ttlfile; fi;
 done
-

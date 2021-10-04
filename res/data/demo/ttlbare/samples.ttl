@@ -1,11 +1,13 @@
 # M004-N1, illustrates VAFIN X VVPP file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix : <file:///samples.ttl/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-:s1_0 a nif:Sentence .
+:s1_0 a nif:Sentence; rdfs:comment " M004-N1, illustrates VAFIN X VVPP\tfile:///samples.ttl/" .
 :s1_1 a nif:Word; conll:WORD "vile"; conll:HEAD :s1_0; conll:ID "1"; conll:LEMMA "vil(e)"; conll:LEXERLEMMA "[feile, vielheit]"; conll:MANUALLEMMA "vile"; conll:POS "AVD"; conll:TID "t100_000"; nif:nextWord :s1_2 .
 :s1_2 a nif:Word; conll:WORD "schiere"; conll:HEAD :s1_0; conll:ID "2"; conll:LEMMA "schière"; conll:LEXERLEMMA "[schnell]"; conll:MANUALLEMMA "schiere"; conll:POS "AVD"; conll:TID "t101_000"; nif:nextWord :s1_3 .
 :s1_3 a nif:Word; conll:WORD "wurden"; conll:HEAD :s1_0; conll:ID "3"; conll:INFL "*.Past.Pl.3"; conll:LEMMA "wërden/en-èin<.+"; conll:LEXERLEMMA "werdenenein"; conll:MANUALLEMMA "Werdenenein"; conll:POS "VAFIN"; conll:TID "t102_000"; nif:nextWord :s1_4 .
@@ -23,14 +25,16 @@
 :s1_15 a nif:Word; conll:WORD "gesehen"; conll:HEAD :s1_0; conll:ID "15"; conll:LEMMA "sëhen"; conll:LEXERLEMMA "[sehen]"; conll:MANUALLEMMA "sehen"; conll:POS "VVPP"; conll:SB "DE"; conll:TID "t114_000" .
 
 # M403-G1 file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <file:///samples.ttl/> .
 :s1_0 nif:nextSentence :s2_0 .
-:s2_0 a nif:Sentence .
+:s2_0 a nif:Sentence; rdfs:comment " M403-G1\tfile:///samples.ttl/" .
 :s2_1 a nif:Word; conll:WORD "dô"; conll:HEAD :s2_0; conll:ID "1"; conll:LEMMA "dô"; conll:LEXERLEMMA "[bisweilen, fragend]"; conll:MANUALLEMMA "do"; conll:POS "KOUS"; conll:TID "t851_000"; nif:nextWord :s2_2 .
 :s2_2 a nif:Word; conll:WORD "si"; conll:HEAD :s2_0; conll:ID "2"; conll:INFL "Fem.Nom.Sg.3"; conll:LEMMA "ër"; conll:LEXERLEMMA "[früher]"; conll:MANUALLEMMA "er"; conll:POS "PPER"; conll:TID "t852_000"; nif:nextWord :s2_3 .
 :s2_3 a nif:Word; conll:WORD "alsô"; conll:HEAD :s2_0; conll:ID "3"; conll:LEMMA "all-sô"; conll:LEXERLEMMA "allso"; conll:MANUALLEMMA "allso"; conll:POS "AVD"; conll:TID "t853_000"; nif:nextWord :s2_4 .
@@ -80,14 +84,16 @@
 :s2_47 a nif:Word; conll:HEAD :s2_0; conll:ID "47"; conll:POS "$_"; conll:SB "$E"; conll:TID "t897_000" .
 
 # M407-G1 file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <file:///samples.ttl/> .
 :s2_0 nif:nextSentence :s3_0 .
-:s3_0 a nif:Sentence .
+:s3_0 a nif:Sentence; rdfs:comment " M407-G1\tfile:///samples.ttl/" .
 :s3_1 a nif:Word; conll:WORD "di"; conll:HEAD :s3_0; conll:ID "1"; conll:INFL "Fem.Nom.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:TID "t14736_000"; nif:nextWord :s3_2 .
 :s3_2 a nif:Word; conll:WORD "genâde"; conll:ANIMACY "[inanimate]"; conll:HEAD :s3_0; conll:ID "2"; conll:INFL "Nom.Sg"; conll:LEMMA "ge-nâde"; conll:LEXERLEMMA "[gnade]"; conll:MANUALLEMMA "Genade"; conll:POS "NA"; conll:TID "t14737_000"; nif:nextWord :s3_3 .
 :s3_3 a nif:Word; conll:WORD "gibet"; conll:HEAD :s3_0; conll:ID "3"; conll:INFL "Ind.Pres.Sg.3"; conll:LEMMA "gëben"; conll:LEXERLEMMA "[geben]"; conll:MANUALLEMMA "Geben"; conll:POS "VVFIN"; conll:TID "t14738_000"; nif:nextWord :s3_4 .
@@ -137,14 +143,16 @@
 :s3_47 a nif:Word; conll:HEAD :s3_0; conll:ID "47"; conll:POS "$_"; conll:SB "$E"; conll:TID "t14782_000" .
 
 # M402-G1 , VIMP - X file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <file:///samples.ttl/> .
 :s3_0 nif:nextSentence :s4_0 .
-:s4_0 a nif:Sentence .
+:s4_0 a nif:Sentence; rdfs:comment " M402-G1 , VIMP - X\tfile:///samples.ttl/" .
 :s4_1 a nif:Word; conll:WORD "bereitet"; conll:HEAD :s4_0; conll:ID "1"; conll:INFL "Pl.2"; conll:LEMMA "be-rèiten"; conll:LEXERLEMMA "[berechnen, bereite, bezahlen]"; conll:MANUALLEMMA "bereiten"; conll:POS "VVIMP"; conll:TID "t1121_000"; nif:nextWord :s4_2 .
 :s4_2 a nif:Word; conll:WORD "den"; conll:HEAD :s4_0; conll:ID "2"; conll:INFL "Masc.Akk.Sg"; conll:LEMMA "dër"; conll:LEXERLEMMA "[der, obgleich]"; conll:MANUALLEMMA "der"; conll:POS "DDART"; conll:TID "t1122_000"; nif:nextWord :s4_3 .
 :s4_3 a nif:Word; conll:WORD "wec"; conll:ANIMACY "[inanimate]"; conll:HEAD :s4_0; conll:ID "3"; conll:INFL "Akk.Sg"; conll:LEMMA "wëg"; conll:LEXERLEMMA "weg"; conll:MANUALLEMMA "[Weg]"; conll:POS "NA"; conll:TID "t1123_000"; nif:nextWord :s4_4 .
@@ -157,39 +165,51 @@
 :s4_10 a nif:Word; conll:HEAD :s4_0; conll:ID "10"; conll:POS "$_"; conll:SB "$E"; conll:TID "t1130_000" .
 
 # # M522-N1 (Ecken Ausfahrt) file:///samples.ttl/	# 1 t460_000 dû dû PPER Nom.Sg.2 - file:///samples.ttl/	# 2 t461_000 bestâst be-stân VVFIN *.Pres.Sg.2 - file:///samples.ttl/	# 3 t462_000 niht niht PTKNEG - - file:///samples.ttl/	# 4 t463_000 mêr mêr(e) AVD Comp - file:///samples.ttl/	# 5 t464_000 decheinen deh-èin DIA Masc.Akk.Sg.st - file:///samples.ttl/	# 6 t465_000 man mann NA Akk.Sg - file:///samples.ttl/	# 7 t466_000 - - $_ - - file:///samples.ttl/	# 8 t467_000 daz dër DDS Neut.Akk.Sg - file:///samples.ttl/	# 9 t468_000 habe haben VAIMP Sg.2 - file:///samples.ttl/	# 10 t469_000 ûf ûf APPR - - file:///samples.ttl/	# 11 t470_000 mîne mîn DPOSA *.Akk.Pl.st - file:///samples.ttl/	# 12 t471_000 triuwe triuwe NA Akk.Pl - file:///samples.ttl/	# 13 t472_000 - - $_ - - file:///samples.ttl/	# 14 t473_000 sît sîd KOUS - - file:///samples.ttl/	# 15 t474_000 dû dû PPER Nom.Sg.2 - file:///samples.ttl/	# 16 t475_000 mir ich PPER Dat.Sg.1 - file:///samples.ttl/	# 17 t476_000 Grînen Grîne NE Akk.Sg - file:///samples.ttl/	# 18 t477_000 hâst haben VAFIN *.Pres.Sg.2 - file:///samples.ttl/	# 19 t478_000 erslagen er-slahen VVPP - DE file:///samples.ttl/	# 20 t479_000 - - $_ - $E file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 # M522-N1 (Ecken Ausfahrt) file:///samples.ttl/	# contains a complicated elision: TO FIX (low priority) file:///samples.ttl/	# 1 t549_000 si ër PPER Fem.Nom.Sg.3 - file:///samples.ttl/	# 2 t550_000 lac ligen VVFIN Ind.Past.Sg.3 - file:///samples.ttl/	# 3 t551_000 ob obe AVD - - file:///samples.ttl/	# 4 t552_000 unde unte KON - - file:///samples.ttl/	# 5 t553_000 ich ich PPER Nom.Sg.1 - file:///samples.ttl/	# 6 t554_000 under unter AVD - S* file:///samples.ttl/	# 7 t555_000 - - $_ - - file:///samples.ttl/	# 8 t556_000 unde unte KON - - file:///samples.ttl/	# 9 t557_000 druhte drücken VVFIN *.Past.Sg.3 - file:///samples.ttl/	# 10 t558_000 mich ich PPER Akk.Sg.1 - file:///samples.ttl/	# 11 t559_000 ûf ûf APPR - - file:///samples.ttl/	# 12 t560_000 einem èin DIART Masc.Dat.Sg.st - file:///samples.ttl/	# 13 t561_000 banke bank NA Dat.Sg S* file:///samples.ttl/	# 14 t562_000 - - $_ - - file:///samples.ttl/	# 15 t563_000 daz dazz KOUS - - file:///samples.ttl/	# 16 t564_000 mir ich PPER Dat.Sg.1 - file:///samples.ttl/	# 17 t565_000 daz dër DDART Neut.Nom.Sg - file:///samples.ttl/	# 18 t566_000 rôte rôt ADJA Pos.Neut.Nom.Sg.wk - file:///samples.ttl/	# 19 t567_000 walebluot wal(e)-bluot NA Nom.Sg - file:///samples.ttl/	# 20 t568_000 - - $_ - - file:///samples.ttl/	# 21 t569_000 ze ze APPR - - file:///samples.ttl/	# 22 t570_000 beiden bèide DIA *.Dat.Pl.st - file:///samples.ttl/	# 23 t571_000 ôren ôre NA Dat.Pl - file:///samples.ttl/	# 24 t572_000 ûz ûz/>+dringen PTKVZ - - file:///samples.ttl/	# 25 t573_000 dranc dringen/ûz>+ VVFIN Ind.Past.Sg.3 DE file:///samples.ttl/	# 26 t574_000 - - $_ - $E file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 # # M522-N1 (Ecken Ausfahrt) file:///samples.ttl/	# 1 t537_000 daz dër DDS Neut.Nom.Sg - file:///samples.ttl/	# 2 t537_001 was wësen VAFIN Ind.Past.Sg.3 - file:///samples.ttl/	# 3 t538_000 ein èin DIART *.*.*.0 - file:///samples.ttl/	# 4 t539_000 michel michel ADJA Pos.*..0 - file:///samples.ttl/	# 5 t540_000 wunder wunter NA Nom.Sg S* file:///samples.ttl/	# 6 t541_000 - - $_ - - file:///samples.ttl/	# 7 t542_000 daz dazz KOUS - - file:///samples.ttl/	# 8 t543_000 ich ich PPER Nom.Sg.1 - file:///samples.ttl/	# 9 t544_000 vore vor(e) APPR - - file:///samples.ttl/	# 10 t545_000 der dër DDS Fem.Dat.Sg - file:///samples.ttl/	# 11 t546_000 ie iè AVD - - file:///samples.ttl/	# 12 t547_000 genas ge-nësen VVFIN Ind.Past.Sg.1 DE file:///samples.ttl/	# 13 t548_000 - - $_ - $E file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 # # M004-N1: NP.NOM NP.AKK (pronominal) file:///samples.ttl/	# 1 t80_000 mit mit APPR - - file:///samples.ttl/	# 2 t81_000 der dër DDART Fem.Dat.Sg - file:///samples.ttl/	# 3 t82_000 hant hant NA Dat.Sg - file:///samples.ttl/	# 4 t83_000 winkete winken VVFIN *.Past.Sg.3 - file:///samples.ttl/	# 5 t84_000 er ër PPER Masc.Nom.Sg.3 - file:///samples.ttl/	# 6 t85_000 den dër DDART *.Dat.Pl - file:///samples.ttl/	# 7 t86_000 liuten liut NA Dat.Pl S* file:///samples.ttl/	# 8 t87_000 - - $_ - - file:///samples.ttl/	# 9 t88_000 er ër PPER Masc.Nom.Sg.3 - file:///samples.ttl/	# 10 t88_001 ne ne PTKNEG - - file:///samples.ttl/	# 11 t89_000 mohte mügen VMFIN *.Past.Sg.3 - file:///samples.ttl/	# 12 t90_000 in ër PPER *.Dat.Pl.3 - file:///samples.ttl/	# 13 t91_000 anderes ander(e)s AVD - - file:///samples.ttl/	# 14 t92_000 niht niht PTKNEG - - file:///samples.ttl/	# 15 t93_000 gediuten ge-diuten VVINF - S* file:///samples.ttl/	# 16 t94_000 - - $_ - - file:///samples.ttl/	# 17 t95_000 daz dazz KOUS - - file:///samples.ttl/	# 18 t96_000 si ër PPER *.Nom.Pl.3 - file:///samples.ttl/	# 19 t97_000 giengen gân VVFIN (Subj).Past.Pl.3 - file:///samples.ttl/	# 20 t98_000 heim hèim AVD - DE file:///samples.ttl/	# 21 t99_000 - - $_ - $E file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 # # M004-N1: NP.DAT NP.AKK (relative clause) file:///samples.ttl/	# 1 t595_000 mit mit APPR - - file:///samples.ttl/	# 2 t596_000 im ër PPER Masc.Dat.Sg.3 - file:///samples.ttl/	# 3 t597_000 was wësen VAFIN Ind.Past.Sg.3 - file:///samples.ttl/	# 4 t598_000 diu dër DDART Fem.Nom.Sg - file:///samples.ttl/	# 5 t599_000 gotes got NA Gen.Sg - file:///samples.ttl/	# 6 t600_000 hant hant NA Nom.Sg S* file:///samples.ttl/	# 7 t601_000 - - $_ - - file:///samples.ttl/	# 8 t602_000 der dër DRELS Masc.Nom.Sg - file:///samples.ttl/	# 9 t603_000 in ër PPER Masc.Akk.Sg.3 - file:///samples.ttl/	# 10 t604_000 her hër(e) AVD - - file:///samples.ttl/	# 11 t605_000 hât haben VAFIN Ind.Pres.Sg.3 - file:///samples.ttl/	# 12 t606_000 gesant sènten VVPP - - file:///samples.ttl/	# 13 t607_000 - - $_ - - file:///samples.ttl/	# 14 t608_000 uns wir PPER Dat.Pl.1 - file:///samples.ttl/	# 15 t609_000 allen all DID *.Dat.Pl..=.st - file:///samples.ttl/	# 16 t610_000 ze ze APPR - - file:///samples.ttl/	# 17 t611_000 trôste trôst NA Dat.Sg S* file:///samples.ttl/	# 18 t612_000 - - $_ - - file:///samples.ttl/	# 19 t613_000 daz dazz KOUS - - file:///samples.ttl/	# 20 t614_000 er ër PPER Masc.Nom.Sg.3 - file:///samples.ttl/	# 21 t615_000 sînem sîn DPOSA Masc.Dat.Sg.st - file:///samples.ttl/	# 22 t616_000 vater vater NA Dat.Sg - file:///samples.ttl/	# 23 t617_000 die dër DDART Fem.Akk.Sg - file:///samples.ttl/	# 24 t618_000 zungen zunge NA Akk.Sg - file:///samples.ttl/	# 25 t619_000 erlôste er-loèsen VVFIN *.Past.Sg.3 DE file:///samples.ttl/	# 26 t620_000 - - $_ - $E file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 # # M004-N1: NP.DAT NP.AKK (single nouns) file:///samples.ttl/	# 1 t649_000 dô dô AVD - - file:///samples.ttl/	# 2 t650_000 sagete sagen VVFIN *.Past.Sg.3 - file:///samples.ttl/	# 3 t651_000 er ër PPER Masc.Nom.Sg.3 - file:///samples.ttl/	# 4 t652_000 gote got NA Dat.Sg - file:///samples.ttl/	# 5 t653_000 danc dank NA Akk.Sg S* file:///samples.ttl/	# 6 t654_000 - - $_ - - file:///samples.ttl/
+@prefix powla: <http://purl.org/powla/powla.owl#> .
 @prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
 @prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 

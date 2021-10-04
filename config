@@ -1,0 +1,61 @@
+# configure system
+# this will be imported into all shell scripts
+
+#
+# configure
+#############
+
+# JAVA
+JAVA=java
+
+# set to your local saxon installation or get it from https://sourceforge.net/projects/saxon/ (Open Source) or https://www.saxonica.com/download/java.xml (commercial edition)
+SAXON_JAR=~/tools/saxon/saxon-he-10.6.jar
+
+# set to your CoNLL-RDF installation or get it from https://github.com/acoli-repo/conll-rdf
+conll2rdfDir=~/conll-rdf/
+
+# ReM pipeline configuration
+dataDir=./res/data/
+srcDir=./src/
+outDir=./out
+remFiles=${dataDir}remdata/*
+chunkingPipeline=./res/sparql/chunking/
+dataDirAbs=$(realpath $dataDir)
+chunkingPipelineAbs=$(realpath $chunkingPipeline)
+
+# ReM meta parameter
+DEBUG=false;			# set to false for production mode
+
+##### DO NOT EDIT BELOW THIS LINE ######
+#    (unless you know what you do)
+
+#
+# init
+########
+# (notational shorthands)
+
+SAXON=$JAVA' -classpath '`dirname $SAXON_JAR`/jline-*.jar' -jar '$SAXON_JAR' '
+
+#
+# get dependencies
+####################
+
+if [ ! -d $conll2rdfDir ]; then
+  git clone https://github.com/acoli-repo/conll-rdf $conll2rdfDir
+fi;
+
+if [ ! -e $SAXON_JAR ]; then
+  SAXON_DIR=`dirname $SAXON_JAR`
+  if [ ! -d $SAXON_DIR ]; then
+    mkdir -p $SAXON_DIR
+  fi
+
+  cd $SAXON_DIR
+  wget -nc https://altushost-swe.dl.sourceforge.net/project/saxon/Saxon-HE/10/Java/SaxonHE10-6J.zip
+  if [ ! -e SaxonHE10-6J.zip ]; then
+    echo Saxon download link failed, please install it manually from https://sourceforge.net/projects/saxon/, put the jar into $SAXON_JAR 1>&2
+    exit 1
+  else
+    unzip SaxonHE10-6J.zip
+  fi
+fi
