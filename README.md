@@ -1,20 +1,59 @@
-# quantqual pipeline
+# QuantQual Parser / Treebank edition of the Referenzkorpus Mittelhochdeutsch  
 
-toolset for a rule-based shallow parser based on CoNLL-RDF and SPARQL Update for parsing and an enrichment pipeline with the purpose of quantitative evaluation of a qualitative hypothesis on the corpus Referenzkorpus Mittelhochdeutsch (ReM) of Middle High German (MHG) syntax.
+The QuantQual@CEDIFOR project (funded by BMBF via the CEDIFOR eHumanities cluster, Feb - Nov 2017) created the first syntactic parser for Middle High German.
+In this repository, we publish the parser pipeline and parsed sample data. A full conversion of the Referenzkorpus Mittelhochdeutsch should be done by the user, as by the end of the project (Nov 2017), the ReM had not been formally released, so that we refrain from publishing incomplete and nonfinal data.
+
+However, note that there are no training data for building a parser. Accordingly, we constructed a rule-based system, based on existing morphosyntactic annotations and using CoNLL-RDF and SPARQL.
+We expect this to serve as a basis for a subsequent semiautomated annotation. Although the annotation will already suffice to conduct search and some quantitative analyses, it should be noted that a full
+evaluation has not been possible due to the lack of gold data. Instead, we performed a qualitative evaluation in cooperation with Ralf Plate, Academy Mainz.
+
+We provide
+- linking ReM with two lexical resources for Middle High German (Lexer and Koebler)
+- dictionary-based annotation for animacy, based on both dictionaries and a manually curated mapping file derived from the GermaNet (German WordNet), values: `_` (undefined), `none`, `inanimate` (incl. abstract nouns), `animate`, `human`. We do not disambiguate, so every lexical match will return all possible animacy features. Duplicate values of the same feature mean that these are retrieved from different modern German hyperlemmas  
+- shallow syntactic parse (chunking), focusing on nominal chunks and topological fields. The annotation is not exhaustive, and constellations not covered by our parser are marked by `Frag` nodes in the parse tree.
+
+Toolset for a rule-based shallow parser based on CoNLL-RDF and SPARQL Update for parsing and an enrichment pipeline with the purpose of quantitative evaluation of a qualitative hypothesis on the corpus Referenzkorpus Mittelhochdeutsch (ReM) of Middle High German (MHG) syntax.
 
 ## Getting Started
 
-The pipeline as such is a shell-based script calling various Java programs.
-The pipeline is dependent on the CoNLL-RDF package: https://github.com/acoli-repo/conll-rdf (submodule linking included).
+For a sample run with human-readable output, run
 
-Calling the quantqual pipeline contained in the rem_pipe.sh script out-of-the-box will (CoNLL-RDF and Java required):
+    $> make demo
+
+For test run on sample corpus, run
+
+    $> make
+
+See Usage below for requirements and technical details.
+
+## Usage
+
+The pipeline as such is a shell-based script calling various Java programs, wrapped into `Makefile`.
+
+### make
+
+For test run on sample corpus, run
+
+    $> make
+
+Requirements:
+- make
+- Java
+- xmllint, install using `sudo apt install libxml2` (Ubuntu 20.4)
+- Saxon, check installation parameters in `config`
+- CoNLL-RDF, check installation parameters in `config`
+
+The pipeline can be configured inside the `config` (adjust paths and dependencies). For more advanced changes to the default set up (usage of Transliterator, chunking steps, etc), edit `rem_pipe.sh`
+
+The build scripts are wrapped into `Makefile`:
 - use the sample ReM corpus files in CoNLL format provided in res/data/remdata
 - annotate Modern German lemma using the Lexer dictionary data provided in res/data/lexerlemmas_1_to_1.tsv
 - data stream based conversion (sentence-by-sentence) from CoNLL into RDF graphs
 - rule-based shallow parsing using SPARQL Update scripts provided in res/sparql/chunking
-- output linguistically structured data in accordance with the POWLA formalism in the Turle format
+- output parsed data in Turtle format (`out/ttlchunked`, using POWLA and CoNLL-RDF)
+- output parsed data in (our) CoNLL format (`out/conll`), columns: ID TID WORD POS LEMMA INFL PARSE ANIMACY
 
-## Description
+### rem_pipe.sh
 
 The main file is the rem_pipe.sh containing the pipeline for annotating, converting and parsing the ReM corpus data.
 Input for the pipeline are files in the CoNLL format.
@@ -44,25 +83,7 @@ Once the animacy data is successfully converted and stored in res/data/animacy-d
 
 These additional steps can be applied independently.
 
-### Usage
-
-For sample run with human-readable output, run
-
-    $> make demo
-
-For test run on sample corpus, run
-
-    $> make
-
-Requirements:
-- Java
-- xmllint, install using `sudo apt install libxml2` (Ubuntu 20.4)
-- Saxon, check installation parameters in `config`
-- CoNLL-RDF, check installation parameters in `config`
-
-The pipeline can be configured inside the `config` (adjust paths and dependencies). For more advanced changes to the default set up (usage of Transliterator, chunking steps, etc), edit `rem_pipe.sh` 
-
-### Transliterator
+### Hyperlemmatization: Transliterator
 
 
 Synopsis: ```DICT.TSV [-full] [-keepCase] [-encoding "ENCODING"] [ [ [ COL_SRC ] COL_TGT] COL_WORD ]```
@@ -78,7 +99,7 @@ Synopsis: ```DICT.TSV [-full] [-keepCase] [-encoding "ENCODING"] [ [ [ COL_SRC ]
     write to `stdout`
 
 
-### AniImp
+### Animacy annotation: AniImp
 
 
 Synopsis: ```animacySrc posColumn [animacyColumns+]```
@@ -90,8 +111,7 @@ Synopsis: ```animacySrc posColumn [animacyColumns+]```
     (ignores case and looks only for nouns)
 
 
-### remToConll
-
+### Data preprocessing: remToConll
 
 Synopsis: `[-dir DIR] [-FtimeGenre] [-files FILENAME+] [-dest DEST] [-silent True/False]`
   * `-dir`              set ReM XML files input directory ("./" default)
@@ -103,7 +123,6 @@ Synopsis: `[-dir DIR] [-FtimeGenre] [-files FILENAME+] [-dest DEST] [-silent Tru
     convert ReM CorA-XML to CoNLL format
 
 
-
 ## Authors
 
 * **Christian Chiarcos** - chiarcos@informatik.uni-frankfurt.de
@@ -111,8 +130,6 @@ Synopsis: `[-dir DIR] [-FtimeGenre] [-files FILENAME+] [-dest DEST] [-silent Tru
 * **Benjamin Kosmehl** - bkosmehl@gmail.com
 
 See also the list of [contributors](https://github.com/acoli-repo/germhist/graphs/contributors) who participated in this project.
-
-## Reference
 
 ## Acknowledgments
 

@@ -1,0 +1,52 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla:<http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+
+INSERT {
+  ?a conll:WORD "-"
+} WHERE {
+  ?a a nif:Word. MINUS { ?a conll:WORD []}
+};
+
+INSERT {
+  ?a conll:PARSE ?parse
+} WHERE {
+  ?a a nif:Word.
+  OPTIONAL {
+    ?a powla:hasParent* ?root.
+    MINUS { ?root powla:hasParent [] }
+    { SELECT ?root ?a (GROUP_CONCAT(?pre; separator=" ") as ?pfx)
+     WHERE {
+      [] powla:hasParent ?root.
+      MINUS { ?root powla:hasParent [] }
+      ?root (^powla:hasParent)* ?node.
+      ?a a nif:Word; powla:hasParent+ ?node.
+      # ?node conll:DEPTH ?d. # for debugging
+      ?node conll:CAT ?cat.
+      BIND(concat("(",
+          if(bound(?cat),?cat,"")
+          ) as ?pre)
+
+      # in Apache Jena, if this is the *last* statement, it doesn't disturb the order
+      MINUS { ?a a nif:Word; powla:hasParent+ ?node.
+              [] powla:hasParent+ ?node; nif:nextWord ?a
+      }
+
+     } GROUP BY ?root ?a
+    }
+  }
+  OPTIONAL {
+    SELECT ?a (GROUP_CONCAT(?post; separator=" ") as ?sfx)
+    WHERE {
+      ?a a nif:Word.
+      ?a powla:hasParent+ ?dep.
+      MINUS { ?a powla:hasParent+ ?dep; nif:nextWord/powla:hasParent+ ?dep }
+      BIND(")" as ?post)
+    } GROUP BY ?a
+  }
+  BIND(concat(
+      if(bound(?pfx),concat(?pfx," "),""),
+      "*",
+      if(bound(?sfx),concat(" ",?sfx),"")
+    ) as ?parse)
+};

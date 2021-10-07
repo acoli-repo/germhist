@@ -47,6 +47,9 @@ fi;
 if [ ! -d $outDir/ttlchunked ]
   then mkdir $outDir/ttlchunked
 fi;
+if [ ! -d $outDir/conll ]
+  then mkdir $outDir/conll
+fi;
 
 for f in $remFiles ; do \
   bare=$(basename $f);
@@ -142,7 +145,7 @@ for f in $remFiles ; do \
   tee $outDir/ttlfin/$ttlfile | \
   # conversion to POWLA (interoperable data structures)
   $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates \
-    $chunkingPipelineAbs/chunk2powla.sparql 	\
-    $chunkingPipelineAbs/powla2word.sparql 		| \
-  tee >($conll2rdfDir/run.sh CoNLLRDFFormatter > $outDir/ttlchunked/$ttlfile) | $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar;
+    $chunkingPipelineAbs/chunk2powla.sparql 	| \
+    #$chunkingPipelineAbs/powla2word.sparql 		| \
+  tee >($conll2rdfDir/run.sh CoNLLRDFFormatter | tee $outDir/ttlchunked/$ttlfile | $shDir/ttl2conll.sh > $outDir/conll/$ttlfile.conll ) | $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar;
 done

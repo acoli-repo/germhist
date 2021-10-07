@@ -65,6 +65,10 @@ fi;
 if [ ! -d $outDir/ttlchunked ]
   then mkdir $outDir/ttlchunked
 fi;
+if [ ! -d $outDir/conll ]
+  then mkdir $outDir/conll
+fi;
+
 function cols {
   out="";
   b=$((${1}+1));
@@ -198,5 +202,9 @@ for f in $remFiles ; do \
   $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates \
     $chunkingPipelineAbs/chunk2powla.sparql 	| \
     #$chunkingPipelineAbs/powla2word.sparql 		| \#
-  if $DEBUG; then $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar; else $conll2rdfDir/run.sh CoNLLRDFFormatter > $outDir/ttlchunked/$ttlfile; fi;
+  if $DEBUG; then
+    $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar;
+  else
+    $conll2rdfDir/run.sh CoNLLRDFFormatter tee $outDir/ttlchunked/$ttlfile | \
+    $shDir/ttl2conll.sh > $outDir/conll/$ttlfile.conll; fi;
 done
