@@ -95,6 +95,9 @@ fi;
 if [ ! -d $outDir/conll ]
   then mkdir $outDir/conll
 fi;
+if [ ! -d $outDir/log ]
+  then mkdir $outDir/log
+fi;
 
 function cols {
   out="";
@@ -119,119 +122,146 @@ fi;
 for f in $remFiles ; do \
   bare=$(basename $f);
   ttlfile=${bare%.conll}.ttl;
-  tuttl=file:///${ttlfile}'/';
-  tuttl=`echo $tuttl | sed s/'\/'/'\\\\\/'/g`;
-  sed s/'^\(.*[^\S].*\)$'/'\1\t'$tuttl/g $f | \
-  #
-  ############################
-  # hyperlemmata and animacy #
-  ############################
-  #
-  if [ -e $dataDirAbs/mhd-koebler.tsv ]; then
-    java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/mhd-koebler.tsv 1 2 4;
+  if [ -s $outDir/conll/$ttlfile.conll ]; then
+    echo $f skipped", found " $outDir/conll/$ttlfile.conll 1>&2
   else
-    cat;
-  fi | \
-  if [ -e $dataDirAbs/lexerlemmas_1_to_1.tsv ]; then
-    java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/lexerlemmas_1_to_1.tsv 2 5 4;
-  else
-    cat;
-  fi | \
-  if [ -e $dataDirAbs/manual_translit.tsv ]; then
-    java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/manual_translit.tsv 1 2 4;
-  else
-    cat;
-  fi | \
-  if $DEBUG; then tee $outDir/transliterated/$bare; else cat; fi | \
-  if [ -e $dataDirAbs/animacy-de.csv ]; then
-    java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de.csv 4 $(cols $colCount $colCountAnnotated);
-  else
-    java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de_manual.csv 4 $(cols $colCount $colCountAnnotated);
-  fi | \
-  if $DEBUG; then tee $outDir/animacyannotated/$bare; else cat; fi | \
-  #
-  ######################################
-  # aux: fix URIs to original file name#
-  ######################################
-  #
-  $conll2rdfDir/run.sh CoNLLStreamExtractor http://ignore.me ID TID WORD LEMMA POS INFL SB BASE KOEBLERLEMMA LEXERLEMMA MANUALLEMMA ANIMACY | \
-  $conll2rdfDir/run.sh CoNLLRDFFormatter | \
-  perl -e '
-	$secondLastLine="";
-	$lastline="";
-	while(<>) {
-		if($_=~m/conll:BASE /) {
-			if(! ($lastline=~m/conll:BASE/)) {
-				if(! ($secondListLine=~m/conll:BASE/)) {
-					my $base=$_;
-					$base=~s/.*conll:BASE "([^"]*)".*/$1/gs;
-					print "\@prefix : <".$base."> .\n";
-				}
-			}
-		}
-		$secondLastLine=~s/; conll:BASE "[^"]*"//g;
-		print $secondLastLine;
-		$secondLastLine=$lastline;
-		$lastline=$_;
-	};
-	$secondLastLine=~s/; conll:BASE "[^"]*"//g;
-	print $secondLastLine;
-	$lastline=~s/; conll:BASE "[^"]*"//g;
-	print $lastline;
-	' | \
-  grep -v 'http://ignore.me' | \
-  if $DEBUG; then tee $outDir/ttlbare/$ttlfile; else cat; fi | \
-  #
-  ############
-  # chunking #
-  ############
-  #
-  (
-  $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates 																		\
-	  \
-	  $chunkingPipelineAbs/step0_initializeNext.sparql 																			\
-	  $chunkingPipelineAbs/step1_insertClauseBoundaries.sparql 																	\
-      \
-	  $chunkingPipelineAbs/step2_insertNChunkHeads.sparql	 				$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-      $chunkingPipelineAbs/step3_extendNChunksITERATE.sparql{u} 																\
-	  $chunkingPipelineAbs/step3.a_attachGenitive.sparql 					$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-      $chunkingPipelineAbs/step3_extendNChunksITERATE.sparql{u} 																\
-      $chunkingPipelineAbs/step4_extendNChunksToPPChunks.sparql 			$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-      $chunkingPipelineAbs/step5_insertVChunks.sparql	 					$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-      $chunkingPipelineAbs/step6_extendVChunksByParticles.sparql	 		$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-      $chunkingPipelineAbs/step7_extendVChunksByPronominalAdverbs.sparql{u} 													\
-      $chunkingPipelineAbs/step8_mergeVChunkComplexes.sparql 				$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-      $chunkingPipelineAbs/step9_mergePPChunksToXChunks.sparql	 			$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-      $chunkingPipelineAbs/step10_joinVChunksOnKONITERATE.sparql{u} 															\
-      \
-	  $chunkingPipelineAbs/step11_addMFBrackets.sparql	 					$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-      $chunkingPipelineAbs/step12_addMF.sparql								$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-	  $chunkingPipelineAbs/step13_addPreF.sparql							$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-	  $chunkingPipelineAbs/step14_addPostF.sparql							$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-	  $chunkingPipelineAbs/step15_addClause.sparql							$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-	  \
-	  $chunkingPipelineAbs/step0_initializeNext.sparql						$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-	  $chunkingPipelineAbs/step16_attachRelClauses.sparql					$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-	  $chunkingPipelineAbs/step17_attachNonClausalFragments.sparql{u} 															\
-	  \
-	  $chunkingPipelineAbs/step0_initializeNext.sparql						$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
-	  $chunkingPipelineAbs/step18_addS.sparql 																					\
-  ) | \
-  #
-  #####################################################
-  # output (RDF formatted, POWLA RDF, human-readable) #
-  #####################################################
-  #
-  # write formatted (original) CoNLL-RDF to stderr
-  $conll2rdfDir/run.sh CoNLLRDFFormatter | \
-  if $DEBUG; then tee $outDir/ttlfin/$ttlfile; else cat; fi | \
-  # conversion to POWLA (interoperable data structures)
-  $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates \
-    $chunkingPipelineAbs/chunk2powla.sparql 	| \
-    #$chunkingPipelineAbs/powla2word.sparql 		| \#
-  if $DEBUG; then
-    $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar;
-  else
-    $conll2rdfDir/run.sh CoNLLRDFFormatter | tee $outDir/ttlchunked/$ttlfile | \
-    $shDir/ttl2conll.sh > $outDir/conll/$ttlfile.conll; fi;
+      echo -n $f '..' 1>&2
+      (
+        tuttl=file:///${ttlfile}'/';
+        tuttl=`echo $tuttl | sed s/'\/'/'\\\\\/'/g`;
+        sed s/'^\(.*[^\S].*\)$'/'\1\t'$tuttl/g $f | \
+        #
+        ############################
+        # hyperlemmata and animacy #
+        ############################
+        #
+        if [ -e $dataDirAbs/mhd-koebler.tsv ]; then
+          java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/mhd-koebler.tsv 1 2 4;
+        else
+          cat;
+        fi | \
+        if [ -e $dataDirAbs/lexerlemmas_1_to_1.tsv ]; then
+          java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/lexerlemmas_1_to_1.tsv 2 5 4;
+        else
+          cat;
+        fi | \
+        if [ -e $dataDirAbs/manual_translit.tsv ]; then
+          java -cp $srcDir org.acoli.conll.quantqual.Transliterator $dataDirAbs/manual_translit.tsv 1 2 4;
+        else
+          cat;
+        fi | \
+        if $DEBUG; then tee $outDir/transliterated/$bare; else cat; fi | \
+        if [ -e $dataDirAbs/animacy-de.csv ]; then
+          java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de.csv 4 $(cols $colCount $colCountAnnotated);
+        else
+          java -cp $srcDir org.acoli.conll.quantqual.AniImp $dataDirAbs/animacy-de_manual.csv 4 $(cols $colCount $colCountAnnotated);
+        fi | \
+        if $DEBUG; then tee $outDir/animacyannotated/$bare; else cat; fi | \
+        #
+        ######################################
+        # aux: fix URIs to original file name#
+        ######################################
+        #
+        $conll2rdfDir/run.sh CoNLLStreamExtractor http://ignore.me ID TID WORD LEMMA POS INFL SB BASE KOEBLERLEMMA LEXERLEMMA MANUALLEMMA ANIMACY | \
+        $conll2rdfDir/run.sh CoNLLRDFFormatter | \
+        perl -e '
+      	$secondLastLine="";
+      	$lastline="";
+      	while(<>) {
+      		if($_=~m/conll:BASE /) {
+      			if(! ($lastline=~m/conll:BASE/)) {
+      				if(! ($secondListLine=~m/conll:BASE/)) {
+      					my $base=$_;
+      					$base=~s/.*conll:BASE "([^"]*)".*/$1/gs;
+      					print "\@prefix : <".$base."> .\n";
+      				}
+      			}
+      		}
+      		$secondLastLine=~s/; conll:BASE "[^"]*"//g;
+      		print $secondLastLine;
+      		$secondLastLine=$lastline;
+      		$lastline=$_;
+      	};
+      	$secondLastLine=~s/; conll:BASE "[^"]*"//g;
+      	print $secondLastLine;
+      	$lastline=~s/; conll:BASE "[^"]*"//g;
+      	print $lastline;
+      	' | \
+        grep -v 'http://ignore.me' | \
+        if $DEBUG; then tee $outDir/ttlbare/$ttlfile; else cat; fi | \
+        #
+        ############
+        # chunking #
+        ############
+        #
+        (
+        $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates 																		\
+      	  \
+      	  $chunkingPipelineAbs/step0_initializeNext.sparql 																			\
+      	  $chunkingPipelineAbs/step1_insertClauseBoundaries.sparql 																	\
+            \
+      	  $chunkingPipelineAbs/step2_insertNChunkHeads.sparql	 				$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+            $chunkingPipelineAbs/step3_extendNChunksITERATE.sparql{u} 																\
+      	  $chunkingPipelineAbs/step3.a_attachGenitive.sparql 					$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+            $chunkingPipelineAbs/step3_extendNChunksITERATE.sparql{u} 																\
+            $chunkingPipelineAbs/step4_extendNChunksToPPChunks.sparql 			$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+            $chunkingPipelineAbs/step5_insertVChunks.sparql	 					$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+            $chunkingPipelineAbs/step6_extendVChunksByParticles.sparql	 		$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+            $chunkingPipelineAbs/step7_extendVChunksByPronominalAdverbs.sparql{u} 													\
+            $chunkingPipelineAbs/step8_mergeVChunkComplexes.sparql 				$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+            $chunkingPipelineAbs/step9_mergePPChunksToXChunks.sparql	 			$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+            $chunkingPipelineAbs/step10_joinVChunksOnKONITERATE.sparql{u} 															\
+            \
+      	  $chunkingPipelineAbs/step11_addMFBrackets.sparql	 					$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+            $chunkingPipelineAbs/step12_addMF.sparql								$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+      	  $chunkingPipelineAbs/step13_addPreF.sparql							$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+      	  $chunkingPipelineAbs/step14_addPostF.sparql							$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+      	  $chunkingPipelineAbs/step15_addClause.sparql							$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+      	  \
+      	  $chunkingPipelineAbs/step0_initializeNext.sparql						$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+      	  $chunkingPipelineAbs/step16_attachRelClauses.sparql					$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+      	  $chunkingPipelineAbs/step17_attachNonClausalFragments.sparql{u} 															\
+      	  \
+      	  $chunkingPipelineAbs/step0_initializeNext.sparql						$chunkingPipelineAbs/stepAUX_repairNext.sparql{u}	\
+      	  $chunkingPipelineAbs/step18_addS.sparql 																					\
+        ) | \
+        #
+        #####################################################
+        # output (RDF formatted, POWLA RDF, human-readable) #
+        #####################################################
+        #
+        # write formatted (original) CoNLL-RDF to stderr
+        $conll2rdfDir/run.sh CoNLLRDFFormatter | \
+        if $DEBUG; then tee $outDir/ttlfin/$ttlfile; else cat; fi | \
+        # conversion to POWLA (interoperable data structures)
+        $conll2rdfDir/run.sh CoNLLRDFUpdater -custom -updates \
+          $chunkingPipelineAbs/chunk2powla.sparql 	| \
+          #$chunkingPipelineAbs/powla2word.sparql 		| \#
+        if $DEBUG; then
+          $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar;
+        else
+          $conll2rdfDir/run.sh CoNLLRDFFormatter | tee $outDir/ttlchunked/$ttlfile | \
+          $shDir/ttl2conll.sh > $outDir/conll/$ttlfile.conll; fi;
+        ) >& $outDir/log/$ttlfile.log &
+
+        # after (up to) 10 min shut it down
+        for iteration in {1..60}; do
+            if [ ! -s $outDir/conll/$ttlfile.conll ]; then
+              sleep 10s
+            fi
+        done
+
+        if [ ! -s $outDir/conll/$ttlfile.conll ]; then
+          kill -9 $!
+        fi;
+
+        if [ ! -s $outDir/conll/$ttlfile.conll ]; then
+          echo failed', see '$outDir/log/$ttlfile.log 1>&2
+          cat $outDir/log/$ttlfile.log | sed s/'^'/'^\t'/g 1>&2
+          echo 1>&2
+        else
+          echo ok 1>&2
+          rm $outDir/log/$ttlfile.log
+        fi;
+      fi;
 done
