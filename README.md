@@ -195,4 +195,4 @@ CC-BY-SA 4.0 for all data from the ReM corpus and SPARQL scripts, see [LICENSE.d
 │	└── sparql
 ```
 
-For licensing information on the Treebank Edition of the ReM corpus, see `full_corpus/Readme.md`.
+For licensing information on the Treebank Edition of the ReM corpus, see [`full_corpus/`](full_corpus/Readme.md).
