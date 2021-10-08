@@ -1,18 +1,29 @@
 # QuantQual Parser / Treebank edition of the Referenzkorpus Mittelhochdeutsch  
 
 The QuantQual@CEDIFOR project (funded by BMBF via the CEDIFOR eHumanities cluster, Feb - Nov 2017) created the first syntactic parser for Middle High German.
-In this repository, we publish the parser pipeline and parsed sample data. A full conversion of the Referenzkorpus Mittelhochdeutsch should be done by the user, as by the end of the project (Nov 2017), the ReM had not been formally released, so that we refrain from publishing incomplete and nonfinal data.
+In this repository, we provide a syntactically and semantically annotated edition of the Referenzkorpus Mittelhochdeutsch (ReM) and the pipeline used to create it from the existing morphosyntactic annotations.
 
-However, note that there are no training data for building a parser. Accordingly, we constructed a rule-based system, based on existing morphosyntactic annotations and using CoNLL-RDF and SPARQL.
-We expect this to serve as a basis for a subsequent semiautomated annotation. Although the annotation will already suffice to conduct search and some quantitative analyses, it should be noted that a full
+To the best of our knowledge, this is the first syntactically annotated corpus for Middle High German.
+
+However, note that our annotations are done in a fully automated way, using
+- a rule-based parser based on CoNLL-RDF and SPARQL Update,
+- transliteration- and lookup-based lemmatization and hyperlemmatization,
+- lookup-based annotation for semantic features (animacy), using a manually curated gazetteer derived from GermaNet
+
+The reason is that there are no training data for building a parser. Accordingly, we constructed a rule-based system, based on existing morphosyntactic annotations and using CoNLL-RDF and SPARQL.
+
+The ReM treebank is built with the purpose of quantitative evaluation of qualitative hypotheses on the origins and the development of nominal word order of postverbal arguments in historical German. For this application, a number of simplifications were feasible. In particular, we apply low PP attachment as a rule, as we focus on accusative and dative arguments.
+
+Although the annotation will already suffice to conduct search and some quantitative analyses, it should be noted that a full
 evaluation has not been possible due to the lack of gold data. Instead, we performed a qualitative evaluation in cooperation with Ralf Plate, Academy Mainz.
+We expect our treebank edition to serve as a basis for a subsequent manual revision.
 
 We provide
 - linking ReM with two lexical resources for Middle High German (Lexer and Koebler)
 - dictionary-based annotation for animacy, based on both dictionaries and a manually curated mapping file derived from the GermaNet (German WordNet), values: `_` (undefined), `none`, `inanimate` (incl. abstract nouns), `animate`, `human`. We do not disambiguate, so every lexical match will return all possible animacy features. Duplicate values of the same feature mean that these are retrieved from different modern German hyperlemmas  
 - shallow syntactic parse (chunking), focusing on nominal chunks and topological fields. The annotation is not exhaustive, and constellations not covered by our parser are marked by `Frag` nodes in the parse tree.
+- tool chain to produce these annotations
 
-Toolset for a rule-based shallow parser based on CoNLL-RDF and SPARQL Update for parsing and an enrichment pipeline with the purpose of quantitative evaluation of a qualitative hypothesis on the corpus Referenzkorpus Mittelhochdeutsch (ReM) of Middle High German (MHG) syntax.
 
 ## Getting Started
 
@@ -32,9 +43,15 @@ The pipeline as such is a shell-based script calling various Java programs, wrap
 
 ### make
 
-For test run on sample corpus, run
+For a test run on sample corpus, run
 
     $> make
+
+For building the complete ReM corpus under `full_corpus`, run
+
+    $> make corpus
+
+Note that
 
 Requirements:
 - make

@@ -23,6 +23,7 @@ outDir=$MYHOME/out
 remFiles=${dataDir}remdata/*
 chunkingPipeline=$MYHOME/res/sparql/chunking/
 dataDirAbs=$(realpath $dataDir)
+outDirAbs=$(realpath $outDir)
 chunkingPipelineAbs=$(realpath $chunkingPipeline)
 shDir=$MYHOME/res/sh/
 

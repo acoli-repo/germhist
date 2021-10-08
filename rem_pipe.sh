@@ -34,6 +34,33 @@
 MYHOME=`dirname $0`
 source $MYHOME/config
 
+##############
+# use config #
+##############
+
+if echo $* | egrep '^(.* )?\-[\-]?[h?]' >&/dev/null; then
+  echo synopsis: $0 "[-h|-?] [-data=dataDir] [-out=outDir]" 1>&2
+  echo '  -h, -?  print this dialog and exit' 1>&2
+  echo '  dataDir directory to read Cora XML files from, defaults to '$dataDirAbs 1>&2
+  echo '  outDir  directory to write CoNLL and TTL files to, defaults to '$outDirAbs 1>&2
+  exit
+fi
+
+if echo $* | egrep '(.* )?\-data[^ ]*=' >&/dev/null ; then
+  remDir=`echo $* | sed s/' '/'\n'/g | egrep -m 1 '^\-data.*=' | sed s/'.*='//`
+  remDirAbs=$(realpath $remDir)
+  remFiles=${remDir}/*
+else
+  remDir=$dataDirAbs
+fi
+
+if echo $* | egrep '^(.* )*\-out[^ ]*=' >&/dev/null; then
+  outDir=`echo $* | sed s/' '/'\n'/g | egrep -m 1 '^\-out.*=' | sed s/'.*='//`
+  outDirAbs=$(realpath $outDir)
+fi
+
+echo running $0 -data $remDirAbs -out $outDirAbs 1>&2
+
 set LANG=C.UTF-8;
 if [ $OSTYPE = "cygwin" ]; then
   srcDir=$(cygpath -ma $srcDir);
@@ -205,6 +232,6 @@ for f in $remFiles ; do \
   if $DEBUG; then
     $conll2rdfDir/run.sh CoNLLRDFFormatter -grammar;
   else
-    $conll2rdfDir/run.sh CoNLLRDFFormatter tee $outDir/ttlchunked/$ttlfile | \
+    $conll2rdfDir/run.sh CoNLLRDFFormatter | tee $outDir/ttlchunked/$ttlfile | \
     $shDir/ttl2conll.sh > $outDir/conll/$ttlfile.conll; fi;
 done

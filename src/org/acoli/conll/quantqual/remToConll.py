@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """
  * Copyright [2017] [ACoLi Lab, Prof. Dr. Chiarcos, Goethe University Frankfurt]
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -37,35 +37,43 @@ logger = logging.getLogger()
 
 def processSrcFile(filePath, outDir, fileName):
     logger.info("processing %s", fileName)
-    
+
     if filePath == sys.stdin:
         etree.parse(sys.stdin)
     else:
         srcStuff = etree.parse(path.join(filePath, fileName))
     srcRoot = srcStuff.getroot()
-    
+
     if outDir == sys.stdout:
         f = outDir
     else:
         h = srcRoot.find("header")
-    
+
     gen = h.find("genre")
     s = ""
     if gen is None or (not(gen.text == "-")) or (not(gen.text != "")) or (gen.text is None):
-        
+
         global fileNameTimeGenreFlag
         if fileNameTimeGenreFlag:
             s = "None"
             genstr = gen.text if gen is not None else s
-        
+
             #12,2-13,1
             tim = h.find("time")
+            timstr="xx-x"
             if (tim is None) or (tim.text == "-") or (tim.text == "") or (tim.text is None):
-                raise Exception("time tag missing or malformed for " + fileName)
-            timstr = tim.text[:4] if len(tim.text) > 2 else (tim.text + ",1")
-            timstr = timstr.replace(",", "-")
-            
-            out = path.join(outDir, re.sub("\.[\w]{2,4}$", "_"+timstr+"_"+genstr+".conll", fileName))
+                try:
+                    tim=tim.text
+                except: pass
+                sys.stderr.write("time tag missing or malformed for " + fileName+": "+str(tim)+"\n")
+                sys.stderr.flush()
+            else:
+                timstr = tim.text[:4] if len(tim.text) > 2 else (tim.text + ",1")
+                timstr = timstr.replace(",", "-")
+
+            if genstr==None:
+                genstr="x"
+            out = path.join(outDir, re.sub("\.[\w]{2,4}$", "_"+str(timstr)+"_"+str(genstr)+".conll", fileName))
         else:
             out = path.join(outDir, re.sub("\.[\w]{2,4}$", ".conll", fileName))
         makedirs(path.dirname(out), exist_ok=True)
@@ -73,33 +81,33 @@ def processSrcFile(filePath, outDir, fileName):
             open(out, "w").close()
         f = codecs.open(out, "a", "utf-8")
     sentenceBuffer = []
-    
+
     # tags used below tok_anno
     tagz = ["norm", "lemma", "pos", "infl", "punc"]
     # column header
     f.write(u"#ID\tTID\tWORD\tLEMMA\tPOS\tINFL\tSB\n")
-    
+
     sentenceBuffer.append(u"")
     sentenceEndFlag = False
     sentenceInternalTokenID = 1
-        
-    for c in srcRoot.findall("token"):            
+
+    for c in srcRoot.findall("token"):
         tok_annos = [elem for elem in c.iter() if elem.tag == "tok_anno"]
         if not tok_annos:
             logger.critical("data structure corrupted at {0} line {1}", fileName, srcRoot.index(c))
             break
-        
-        for x in range(len(tok_annos)):      
+
+        for x in range(len(tok_annos)):
             tok_anno = tok_annos[x]
             punc = tok_anno.find("punc")
-                                            
+
             if sentenceEndFlag and (punc is None or not (punc.attrib["tag"].endswith("E") and c.attrib["type"] == "punc")):
                 sentenceBuffer.append(u"\n")
                 f.write(u"\n".join(sentenceBuffer))
                 sentenceBuffer.clear()
                 sentenceEndFlag = False
                 sentenceInternalTokenID = 1
-            
+
             line = u"" + str(sentenceInternalTokenID)
             line = line + "\t" + c.attrib["id"] + "_" + "{0:0=3d}".format(x)
             #line = line + "\t" + d.attrib["ascii"]
@@ -112,20 +120,20 @@ def processSrcFile(filePath, outDir, fileName):
                     if cv == "--":
                         cv = "-"
                 line = line + "\t" + cv.replace(u"#", u"-")
-                            
+
             sentenceBuffer.append(line)
             sentenceInternalTokenID = sentenceInternalTokenID + 1
-            
+
             if punc is not None:
                 if punc.attrib["tag"].endswith("E"):
                     sentenceEndFlag = True
-                                                            
+
     if sentenceEndFlag:
         sentenceBuffer.append(u"\n")
         f.write(u"\n".join(sentenceBuffer))
         sentenceBuffer.clear()
         sentenceEndFlag = False
-                        
+
     f.close()
 
 def initializeLogger(logPath, fileName, loglevelFile = logging.DEBUG, loglevelConsole = logging.INFO, propagate = True):
@@ -133,19 +141,19 @@ def initializeLogger(logPath, fileName, loglevelFile = logging.DEBUG, loglevelCo
     if propagate:
         rootLogger.setLevel(loglevelFile)
         logFormatter = logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-7.7s]  %(message)s")
-        
+
         fileHandler = logging.FileHandler("{0}/{1}.log".format(logPath, fileName))
         fileHandler.setFormatter(logFormatter)
         rootLogger.addHandler(fileHandler)
-        
+
         consoleHandler = logging.StreamHandler()
         consoleHandler.setLevel(loglevelConsole)
-        
+
         rootLogger.addHandler(consoleHandler)
     rootLogger.propagate = propagate
 
 if __name__ == "__main__":
-    
+
     parser = argparse.ArgumentParser(description="Convert ReM CorA-XML to CoNLL format.")
     parser.add_argument("-mode", default="dirdir", help="set mode for input and output (\"dirdir\" default) - combination of \"stdin\" \"stdout\" or \"dir\" in order input>output")
     parser.add_argument("-dir", default="./", help="set ReM XML files input directory (\"./\" default)")
@@ -158,32 +166,31 @@ if __name__ == "__main__":
         parser.print_help()
         sys.exit(1)
     args = parser.parse_args()
-        
+
     logPath = "./"
     logFileName = "{0}_{1}".format(path.basename(__file__), str(time())[:9])
     initializeLogger(logPath, logFileName, loglevelFile = logging.DEBUG, loglevelConsole = logging.DEBUG, propagate = (args.silent == "False"))
-    
+
     inoutMode = args.mode
     srcDir = args.dir #"../res/rem/data"
     outDir = args.dest #"../res/rem/conll"
     fileName = args.filename
     global fileNameTimeGenreFlag
     fileNameTimeGenreFlag = args.FtimeGenre
-    
+
     if inoutMode.endswith("stdout"):
         outDir = sys.stdout
     if  inoutMode.startswith("stdin"):
         processSrcFile(sys.stdin, outDir, fileName)
     elif inoutMode.startswith("dir"):
         if args.files != "all":
-            for f in args.files.split():   
+            for f in args.files.split():
                 if not f.endswith(".xml"):
-                    f = f + ".xml"                     
+                    f = f + ".xml"
                 processSrcFile(srcDir, outDir, f)
         else:
-            for file in listdir(srcDir):  
+            for file in listdir(srcDir):
                 if file.lower().endswith(".xml"):
                     processSrcFile(srcDir, outDir, file)
-    else: 
+    else:
         logger.critical("mode for input and output not set correctly")
-        
