@@ -1,6 +1,6 @@
 # ReM Treebank / Baumbank Mittelhochdeutsch, Version 0.1
 
-Die ReM Treebank / Baumbank Mittelhochdeutsch ist ein syntaktisch und semantisch annotiertes Korpus, das auf dem Referenzkorpus Mittelhochdeutsch (ReM), Version 1.0, basiert und dieses erweitert. Das ursprüngliche ReM-Korpus bietet lediglich morphosyntaktische Annotationen und kann [auf den Seiten der Ruhr-Universität Bochum](https://www.linguistics.ruhr-uni-bochum.de/rem/) erworben und angefragt werden.
+Die ReM Treebank / Baumbank Mittelhochdeutsch ist ein syntaktisch und semantisch annotiertes Korpus von 2.2 Millionen Tokens, das auf dem Referenzkorpus Mittelhochdeutsch (ReM), Version 1.0, basiert und dieses erweitert. Das ursprüngliche ReM-Korpus bietet lediglich morphosyntaktische Annotationen und kann [auf den Seiten der Ruhr-Universität Bochum](https://www.linguistics.ruhr-uni-bochum.de/rem/) erworben und angefragt werden.
 
 Die Baumbank enthält:
 - [ReM]: sämtliche Texte des ReM, version 1.0, mit deren ursprünglichen Identifikatoren (im Dateinamen)
