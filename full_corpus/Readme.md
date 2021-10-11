@@ -87,18 +87,18 @@ Die Notation der `PARSE`-Spalte folgt einer in den [CoNLL Shared Tasks](https://
 | Label | Bedeutung | Häufigkeit | Anmerkung |
 |--|--|--|--|
 | `S` | Satz | 128.856 (5.6%) | ReM-Satzgliederung | 
-| `Cl` | Klausel (Halbsatz) |  194.770 (8.4%) | beruht `POS`-Annotation `$_` |
+| `Cl` | Klausel (Halbsatz) |  194.770 (8.4%) | beruht `POS`-Annotation (`$_`) |
 | | | | |
-| `PrePreF` | Vor-Vorfeld | 14.965 (0.7%) | beruht auf `Cl` und `PreF` |
+| `PrePreF` | Vor-Vorfeld | 14.965 (0.7%) | beruht auf `Cl`, `PreF` und `POS`-Annotation |
 | `PreF` | Vorfeld | 163.371 (7.1%) | beruht auf `Cl` und `LB` | 
 | `LB` | Linke Satzklammer |  244.483 (10.6%) | beruht auf `VX` und `POS`-Annotation |
 | `MF` | Mittelfeld | 197.226 (8.5%) | beruht auf `LB` und `RB` |
 | `RB` | Rechte Satzklammer |  90.909 (3.9%) | beruht auf `VX` und `POS`-Annotation |
 | `PostF` | Nachfeld | 59.396 (2.6%) | beruht auf `RB` und `Cl` |
 | | | | |
-| `NX` | Nominalphrase | 624.474 (27.1%) | beruht auf `POS`-Annotation `N*`|
-| `PPX` | Präpositionalphrase | 124.951 (5.4%) | beruht auf `NX` und `POS`-Annotation `APP*` |
-| `VX` | Verbphrase | 330.339 (14.3%) | beruht auf `POS`-Annotation `V*` |
+| `NX` | Nominalphrase | 624.474 (27.1%) | beruht auf `POS`/`INFL`-Annotation |
+| `PPX` | Präpositionalphrase | 124.951 (5.4%) | beruht auf `NX` und `POS`/`INFL`-Annotation |
+| `VX` | Verbphrase | 330.339 (14.3%) | beruht auf `POS`/`INFL`-Annotation |
 | | | | |
 | `Frag` | Fragment (Parse unvollständig) |  135.038 (5.9%) | Teilanalysen erfordern manuelle Weiterbearbeitung |
 
