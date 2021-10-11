@@ -1,0 +1,41 @@
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+#ID TID WORD LEMMA POS INFL SB file:///M352-G1_14-1_U.ttl/
+1	t1_000	wir	PPER	wir	Nom.Pl.1	(S (NX * )	_	
+2	t2_000	Salman	NE	Salman	Nom.Sg	(NX * )	_	
+3	t3_000	kamerær	NA	kamerære	Nom.Sg	(NX * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t4_000	-	$_	_	_	(S (Frag *	_	
+2	t5_000	Ruodolv	NE	Ruodolv	Nom.Sg	(NX * ) )	_	
+3	t6_000	schultheize	NA	schuld-hèize	Nom.Sg	(NX * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t7_000	-	$_	_	_	(S *	_	
+2	t8_000	rihtær	NA	rihtære	Nom.Sg	(Frag (NX *	_	
+3	t9_000	Volcmâr	NE	Volk-mâr	Nom.Sg	 * )	_	
+4	t10_000	-	$_	_	_	 * )	_	
+5	t11_000	rihtær	NA	rihtære	Nom.Sg	(Frag (NX *	_	
+6	t12_000	Heinrîch	NE	Hèin-rîch	Nom.Sg	 * )	_	
+7	t13_000	-	$_	_	_	 * )	_	
+8	t14_000	rihtær	NA	rihtære	Nom.Sg	(Frag (NX *	_	
+9	t15_000	Willkîn	NE	Willekîn	Nom.Sg	 * )	_	
+10	t16_000	und	KON	unte	_	 *	_	
+11	t17_000	rihtær	NA	rihtære	Nom.Sg	(NX *	_	
+12	t18_000	Jakop	NE	Jakob	Nom.Sg	 * )	_	
+13	t19_000	-	$_	_	_	 * )	_	
+14	t20_000	werltlîche	ADJA	wër(e)lt-lich	Pos.Masc.Nom.Pl.st	(NX *	_	
+15	t21_000	rihtær	NA	rihtære	Nom.Pl	 *	_	
+16	t22_000	zuo	APPR	ze	_	(PPX *	_	
+17	t23_000	Meinzen	NE	Mègenze	Dat.Sg	(NX * ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 2022178816 bytes for committing reserved memory.
+# /home/chiarcos/germhist/hs_err_pid12307.log
+# An error report file with more information is saved as:
+								
+

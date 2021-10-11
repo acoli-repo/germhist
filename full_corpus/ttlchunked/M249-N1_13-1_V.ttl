@@ -1,0 +1,235 @@
+#ID TID WORD LEMMA POS INFL SB file:///M249-N1_13-1_V.ttl/
+@prefix : <file:///M249-N1_13-1_V.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s1_0 a powla:Root , nif:Sentence .
+:s1_1 a nif:Word; conll:WORD "mache"; powla:hasParent :s1_1i; conll:HEAD :s1_0; conll:ID "1"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "[aufmachen, einmachen, gebären, machen]"; conll:LEMMA "machen"; conll:LEXERLEMMA "machen"; conll:POS "VVIMP"; conll:TID "t1_000"; nif:nextWord :s1_2 .
+:s1_1_S a powla:Node; powla:hasParent :s1_0; conll:CAT "S" .
+:s1_1i a powla:Node; powla:hasParent :s1_1i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s1_1i_Cl a powla:Node; powla:hasParent :s1_1_S; powla:nextNode :s1_5i_Cl; conll:CAT "Cl" .
+:s1_1i_LB a powla:Node; powla:hasParent :s1_1i_Cl; powla:nextNode :s1_2i_MF; conll:CAT "LB" .
+:s1_2 a nif:Word; conll:WORD "dir"; powla:hasParent :s1_2i; conll:HEAD :s1_0; conll:ID "2"; conll:INFL "*.Dat.Sg.st"; conll:KOEBLERLEMMA "du"; conll:LEMMA "dû"; conll:LEXERLEMMA "du"; conll:POS "PRF"; conll:TID "t2_000"; nif:nextWord :s1_3 .
+:s1_2i a powla:Node; powla:hasParent :s1_2i_MF; powla:nextNode :s1_3; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Sg"; conll:PN "true" .
+:s1_2i_MF a powla:Node; powla:hasParent :s1_1i_Cl; conll:CAT "MF" .
+:s1_3 a nif:Word; conll:WORD "niht"; powla:hasParent :s1_2i_MF; powla:nextNode :s1_4i; conll:HEAD :s1_0; conll:ID "3"; conll:KOEBLERLEMMA "[nicht]"; conll:LEMMA "niht"; conll:LEXERLEMMA "niht"; conll:POS "PTKNEG"; conll:TID "t3_000"; nif:nextWord :s1_4 .
+:s1_4 a nif:Word; conll:WORD "apgot"; terms:SB "true"; powla:hasParent :s1_4i; conll:HEAD :s1_0; conll:ID "4"; conll:INFL "Akk.Pl"; conll:KOEBLERLEMMA "[abgott]"; conll:LEMMA "ab-got"; conll:LEXERLEMMA "abGot"; conll:MANUALLEMMA "[animate, inanimate]"; conll:POS "NA"; conll:SB "S*"; conll:TID "t4_000"; nif:nextWord :s1_5 .
+:s1_4i a powla:Node; powla:hasParent :s1_2i_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Akk.Pl"; conll:PN "false" .
+:s1_5 a nif:Word; conll:WORD "minne"; powla:hasParent :s1_5i; conll:HEAD :s1_0; conll:ID "5"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "[beschenken, lieben]"; conll:LEMMA "minnen"; conll:LEXERLEMMA "minnen"; conll:POS "VVIMP"; conll:TID "t5_000"; nif:nextWord :s1_6 .
+:s1_5i a powla:Node; powla:hasParent :s1_5i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s1_5i_Cl a powla:Node; powla:hasParent :s1_1_S; conll:CAT "Cl" .
+:s1_5i_LB a powla:Node; powla:hasParent :s1_5i_Cl; powla:nextNode :s1_8ii_MF; conll:CAT "LB" .
+:s1_6 a nif:Word; conll:WORD "von"; powla:hasParent :s1_8ii; powla:nextNode :s1_8i; conll:HEAD :s1_0; conll:ID "6"; conll:KOEBLERLEMMA "[von]"; conll:LEMMA "von"; conll:LEXERLEMMA "von"; conll:POS "APPR"; conll:TID "t6_000"; nif:nextWord :s1_7 .
+:s1_7 a nif:Word; conll:WORD "allem"; powla:hasParent :s1_8i; powla:nextNode :s1_8; conll:HEAD :s1_0; conll:ID "7"; conll:INFL "Neut.Dat.Sg.st"; conll:KOEBLERLEMMA "all"; conll:LEMMA "all"; conll:LEXERLEMMA "all"; conll:POS "DIA"; conll:TID "t7_000"; nif:nextWord :s1_8 .
+:s1_8 a nif:Word; conll:WORD "herzen"; powla:hasParent :s1_8i; conll:HEAD :s1_0; conll:ID "8"; conll:INFL "Dat.Sg"; conll:KOEBLERLEMMA "[herz]"; conll:LEMMA "hërze"; conll:LEXERLEMMA "herze"; conll:POS "NA"; conll:TID "t8_000"; nif:nextWord :s1_9 .
+:s1_8i a powla:Node; powla:hasParent :s1_8ii; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Sg"; conll:PN "false" .
+:s1_8ii a powla:Node; powla:hasParent :s1_8ii_MF; powla:nextNode :s1_9i; conll:CAT "PPX" .
+:s1_8ii_MF a powla:Node; powla:hasParent :s1_5i_Cl; conll:CAT "MF" .
+:s1_9 a nif:Word; conll:WORD "got"; powla:hasParent :s1_9i; conll:HEAD :s1_0; conll:ID "9"; conll:INFL "Akk.Sg"; conll:KOEBLERLEMMA "got"; conll:LEMMA "got"; conll:LEXERLEMMA "[Gott]"; conll:MANUALLEMMA "[animate]"; conll:POS "NA"; conll:SB "IE"; conll:TID "t9_000" .
+:s1_9i a powla:Node; powla:hasParent :s1_8ii_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Akk.Sg"; conll:PN "false" .
+
+@prefix : <file:///M249-N1_13-1_V.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s1_0 nif:nextSentence :s2_0 .
+:s2_0 a powla:Root , nif:Sentence .
+:s2_1 a nif:Word; conll:WORD "swere"; powla:hasParent :s2_1i; conll:HEAD :s2_0; conll:ID "1"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "sweren"; conll:LEMMA "swèr(e)n"; conll:LEXERLEMMA "sWeren"; conll:POS "VVIMP"; conll:TID "t10_000"; nif:nextWord :s2_2 .
+:s2_1_S a powla:Node; powla:hasParent :s2_0; conll:CAT "S" .
+:s2_1i a powla:Node; powla:hasParent :s2_1i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s2_1i_Cl a powla:Node; powla:hasParent :s2_1_S; powla:nextNode :s2_4i_Cl; conll:CAT "Cl" .
+:s2_1i_LB a powla:Node; powla:hasParent :s2_1i_Cl; powla:nextNode :s2_2_MF; conll:CAT "LB" .
+:s2_2 a nif:Word; conll:WORD "niht"; powla:hasParent :s2_2_MF; powla:nextNode :s2_3i; conll:HEAD :s2_0; conll:ID "2"; conll:KOEBLERLEMMA "[nicht]"; conll:LEMMA "niht"; conll:LEXERLEMMA "niht"; conll:POS "PTKNEG"; conll:TID "t11_000"; nif:nextWord :s2_3 .
+:s2_2_MF a powla:Node; powla:hasParent :s2_1i_Cl; conll:CAT "MF" .
+:s2_3 a nif:Word; conll:WORD "meines"; terms:SB "true"; powla:hasParent :s2_3i; conll:HEAD :s2_0; conll:ID "3"; conll:INFL "Gen.Sg"; conll:KOEBLERLEMMA "[makel, meineid]"; conll:LEMMA "mèin"; conll:LEXERLEMMA "mein"; conll:POS "NA"; conll:SB "N*"; conll:TID "t12_000"; nif:nextWord :s2_4 .
+:s2_3i a powla:Node; powla:hasParent :s2_2_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Gen.Sg"; conll:PN "false" .
+:s2_4 a nif:Word; conll:WORD "daz"; powla:hasParent :s2_4i; conll:HEAD :s2_0; conll:ID "4"; conll:INFL "Neut.Nom.Sg"; conll:KOEBLERLEMMA "[der, obgleich]"; conll:LEMMA "dër"; conll:LEXERLEMMA "der"; conll:POS "DDS"; conll:TID "t13_000"; nif:nextWord :s2_5 .
+:s2_4i a powla:Node; powla:hasParent :s2_4i_PreF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Nom.Sg"; conll:PN "true" .
+:s2_4i_Cl a powla:Node; powla:hasParent :s2_1_S; conll:CAT "Cl" .
+:s2_4i_PreF a powla:Node; powla:hasParent :s2_4i_Cl; powla:nextNode :s2_5i_LB; conll:CAT "PreF" .
+:s2_5 a nif:Word; conll:WORD "ist"; powla:hasParent :s2_5i; conll:HEAD :s2_0; conll:ID "5"; conll:INFL "Ind.Pres.Sg.3"; conll:KOEBLERLEMMA "[sein]"; conll:LEMMA "sîn"; conll:LEXERLEMMA "sin"; conll:POS "VAFIN"; conll:TID "t14_000"; nif:nextWord :s2_6 .
+:s2_5i a powla:Node; powla:hasParent :s2_5i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VAFIN" .
+:s2_5i_LB a powla:Node; powla:hasParent :s2_4i_Cl; powla:nextNode :s2_6_MF; conll:CAT "LB" .
+:s2_6 a nif:Word; conll:WORD "mîn"; powla:hasParent :s2_6_MF; powla:nextNode :s2_7i; conll:HEAD :s2_0; conll:ID "6"; conll:INFL "*.*.*.0"; conll:KOEBLERLEMMA "[mein]"; conll:LEMMA "mîn"; conll:LEXERLEMMA "min"; conll:POS "DPOSA"; conll:TID "t15_000"; nif:nextWord :s2_7 .
+:s2_6_MF a powla:Node; powla:hasParent :s2_4i_Cl; conll:CAT "MF" .
+:s2_7 a nif:Word; conll:WORD "lêre"; powla:hasParent :s2_7i; conll:HEAD :s2_0; conll:ID "7"; conll:INFL "Nom.Sg"; conll:KOEBLERLEMMA "[befehl, lehre]"; conll:LEMMA "lêre"; conll:LEXERLEMMA "lere"; conll:MANUALLEMMA "[inanimate]"; conll:POS "NA"; conll:SB "EE"; conll:TID "t16_000" .
+:s2_7i a powla:Node; powla:hasParent :s2_6_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Nom.Sg"; conll:PN "false" .
+
+@prefix : <file:///M249-N1_13-1_V.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s2_0 nif:nextSentence :s3_0 .
+:s3_0 a powla:Root , nif:Sentence .
+:s3_1 a nif:Word; conll:WORD "den"; powla:hasParent :s3_2i; powla:nextNode :s3_2; conll:HEAD :s3_0; conll:ID "1"; conll:INFL "Masc.Akk.Sg"; conll:KOEBLERLEMMA "[der, obgleich]"; conll:LEMMA "dër"; conll:LEXERLEMMA "der"; conll:POS "DDART"; conll:TID "t17_000"; nif:nextWord :s3_2 .
+:s3_1_S a powla:Node; powla:hasParent :s3_0; conll:CAT "S" .
+:s3_2 a nif:Word; conll:WORD "sunnentac"; powla:hasParent :s3_2i; powla:nextNode :s3_4ii; conll:HEAD :s3_0; conll:ID "2"; conll:INFL "Akk.Sg"; conll:KOEBLERLEMMA "sunnentag"; conll:LEMMA "sunne(n)-tag"; conll:LEXERLEMMA "sunnentaG"; conll:POS "NA"; conll:TID "t18_000"; nif:nextWord :s3_3 .
+:s3_2i a powla:Node; powla:hasParent :s3_2i_PreF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Akk.Sg"; conll:PN "false" .
+:s3_2i_Cl a powla:Node; powla:hasParent :s3_1_S; conll:CAT "Cl" .
+:s3_2i_PreF a powla:Node; powla:hasParent :s3_2i_Cl; powla:nextNode :s3_5i_LB; conll:CAT "PreF" .
+:s3_3 a nif:Word; conll:WORD "mit"; powla:hasParent :s3_4ii; powla:nextNode :s3_4i; conll:HEAD :s3_0; conll:ID "3"; conll:KOEBLERLEMMA "[mit]"; conll:LEMMA "mit"; conll:LEXERLEMMA "mit"; conll:POS "APPR"; conll:TID "t19_000"; nif:nextWord :s3_4 .
+:s3_4 a nif:Word; conll:WORD "vîre"; powla:hasParent :s3_4i; conll:HEAD :s3_0; conll:ID "4"; conll:INFL "Dat.Sg"; conll:KOEBLERLEMMA "[festtag]"; conll:LEMMA "vîre"; conll:LEXERLEMMA "vire"; conll:POS "NA"; conll:TID "t20_000"; nif:nextWord :s3_5 .
+:s3_4i a powla:Node; powla:hasParent :s3_4ii; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Sg"; conll:PN "false" .
+:s3_4ii a powla:Node; powla:hasParent :s3_2i; conll:CAT "PPX" .
+:s3_5 a nif:Word; conll:WORD "êre"; powla:hasParent :s3_5i; conll:HEAD :s3_0; conll:ID "5"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "[ehre, ehren]"; conll:LEMMA "êren"; conll:LEXERLEMMA "eren"; conll:POS "VVIMP"; conll:SB "IE"; conll:TID "t21_000" .
+:s3_5i a powla:Node; powla:hasParent :s3_5i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s3_5i_LB a powla:Node; powla:hasParent :s3_2i_Cl; conll:CAT "LB" .
+
+@prefix : <file:///M249-N1_13-1_V.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s3_0 nif:nextSentence :s4_0 .
+:s4_0 a powla:Root , nif:Sentence .
+:s4_1 a nif:Word; conll:WORD "êre"; powla:hasParent :s4_1i; conll:HEAD :s4_0; conll:ID "1"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "[ehre, ehren]"; conll:LEMMA "êren"; conll:LEXERLEMMA "eren"; conll:POS "VVIMP"; conll:TID "t22_000"; nif:nextWord :s4_2 .
+:s4_1_S a powla:Node; powla:hasParent :s4_0; conll:CAT "S" .
+:s4_1i a powla:Node; powla:hasParent :s4_1i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s4_1i_Cl a powla:Node; powla:hasParent :s4_1_S; conll:CAT "Cl" .
+:s4_1i_LB a powla:Node; powla:hasParent :s4_1i_Cl; powla:nextNode :s4_2i_MF; conll:CAT "LB" .
+:s4_2 a nif:Word; conll:WORD "die"; terms:SB "true"; powla:hasParent :s4_2i; conll:HEAD :s4_0; conll:ID "2"; conll:INFL "*.Akk.Pl"; conll:KOEBLERLEMMA "[der, obgleich]"; conll:LEMMA "dër"; conll:LEXERLEMMA "der"; conll:POS "DDS"; conll:SB "S*"; conll:TID "t23_000"; nif:nextWord :s4_3 .
+:s4_2i a powla:Node; powla:hasParent :s4_2i_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Akk.Pl"; conll:PN "true" .
+:s4_2i_MF a powla:Node; powla:hasParent :s4_1i_Cl; powla:nextNode :s4_4ii_Cl_PoF; conll:CAT "MF" .
+:s4_3 a nif:Word; conll:WORD "von"; powla:hasParent :s4_4ii; powla:nextNode :s4_4i; conll:HEAD :s4_0; conll:ID "3"; conll:KOEBLERLEMMA "[von]"; conll:LEMMA "von"; conll:LEXERLEMMA "von"; conll:POS "APPR"; conll:TID "t24_000"; nif:nextWord :s4_4 .
+:s4_4 a nif:Word; conll:WORD "den"; powla:hasParent :s4_4i; conll:HEAD :s4_0; conll:ID "4"; conll:INFL "*.Dat.Pl"; conll:KOEBLERLEMMA "[der, obgleich]"; conll:LEMMA "dër"; conll:LEXERLEMMA "der"; conll:POS "DRELS"; conll:TID "t25_000"; nif:nextWord :s4_5 .
+:s4_4i a powla:Node; powla:hasParent :s4_4ii; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Pl"; conll:PN "true" .
+:s4_4ii a powla:Node; powla:hasParent :s4_4ii_LB; conll:CAT "PPX" .
+:s4_4ii_Cl a powla:Node; powla:hasParent :s4_4ii_Cl_PoF; conll:CAT "Cl"; conll:connector "DRELS" .
+:s4_4ii_Cl_PoF a powla:Node; powla:hasParent :s4_1i_Cl; conll:CAT "PostF" .
+:s4_4ii_LB a powla:Node; powla:hasParent :s4_4ii_Cl; powla:nextNode :s4_5i_MF; conll:CAT "LB" .
+:s4_5 a nif:Word; conll:WORD "dû"; powla:hasParent :s4_5i; conll:HEAD :s4_0; conll:ID "5"; conll:INFL "Nom.Sg.2"; conll:KOEBLERLEMMA "du"; conll:LEMMA "dû"; conll:LEXERLEMMA "du"; conll:POS "PPER"; conll:TID "t26_000"; nif:nextWord :s4_6 .
+:s4_5i a powla:Node; powla:hasParent :s4_5i_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Nom.Sg"; conll:PN "true" .
+:s4_5i_MF a powla:Node; powla:hasParent :s4_4ii_Cl; powla:nextNode :s4_6i_RB; conll:CAT "MF" .
+:s4_6 a nif:Word; conll:WORD "bist"; powla:hasParent :s4_6i; powla:nextNode :s4_7; conll:HEAD :s4_0; conll:ID "6"; conll:INFL "Ind.Pres.Sg.2"; conll:KOEBLERLEMMA "[sein]"; conll:LEMMA "sîn"; conll:LEXERLEMMA "sin"; conll:POS "VAFIN"; conll:TID "t27_000"; nif:nextWord :s4_7 .
+:s4_6i a powla:Node; powla:hasParent :s4_6i_RB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VAFIN" .
+:s4_6i_RB a powla:Node; powla:hasParent :s4_4ii_Cl; conll:CAT "RB" .
+:s4_7 a nif:Word; conll:WORD "geboren"; powla:hasParent :s4_6i; conll:HEAD :s4_0; conll:ID "7"; conll:KOEBLERLEMMA "geberen"; conll:LEMMA "ge-bër(e)n"; conll:LEXERLEMMA "Geberen"; conll:POS "VVPP"; conll:SB "EE"; conll:TID "t28_000" .
+:s4_7i terms:CAT "VX"; terms:FIN "false"; powla:hasParent :s4_7i_PoF; conll:POS "VVPP" .
+:s4_7i_PoF a powla:Node; powla:hasParent :s4_4ii_Cl; conll:CAT "PostF" .
+
+@prefix : <file:///M249-N1_13-1_V.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s4_0 nif:nextSentence :s5_0 .
+:s5_0 a powla:Root , nif:Sentence .
+:s5_1 a nif:Word; conll:WORD "slach"; powla:hasParent :s5_1i; conll:HEAD :s5_0; conll:ID "1"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "[schlachten, schlagen, schlagend]"; conll:LEMMA "slahen"; conll:LEXERLEMMA "slahen"; conll:POS "VVIMP"; conll:TID "t29_000"; nif:nextWord :s5_2 .
+:s5_1_S a powla:Node; powla:hasParent :s5_0; conll:CAT "S" .
+:s5_1i a powla:Node; powla:hasParent :s5_1i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s5_1i_Cl a powla:Node; powla:hasParent :s5_1_S; conll:CAT "Cl" .
+:s5_1i_LB a powla:Node; powla:hasParent :s5_1i_Cl; powla:nextNode :s5_2_MF; conll:CAT "LB" .
+:s5_2 a nif:Word; conll:WORD "nieman"; powla:hasParent :s5_2_MF; powla:nextNode :s5_5ii; conll:HEAD :s5_0; conll:ID "2"; conll:INFL "*.Akk.Sg.st"; conll:KOEBLERLEMMA "niemann"; conll:LEMMA "niè-mann"; conll:LEXERLEMMA "niemann"; conll:POS "DIA"; conll:TID "t30_000"; nif:nextWord :s5_3 .
+:s5_2_MF a powla:Node; powla:hasParent :s5_1i_Cl; conll:CAT "MF" .
+:s5_3 a nif:Word; conll:WORD "durch"; powla:hasParent :s5_5ii; powla:nextNode :s5_5i; conll:HEAD :s5_0; conll:ID "3"; conll:KOEBLERLEMMA "durh"; conll:LEMMA "durh"; conll:LEXERLEMMA "durh"; conll:POS "APPR"; conll:TID "t31_000"; nif:nextWord :s5_4 .
+:s5_4 a nif:Word; conll:WORD "dînen"; powla:hasParent :s5_5i; powla:nextNode :s5_5; conll:HEAD :s5_0; conll:ID "4"; conll:INFL "Masc.Akk.Sg.st"; conll:KOEBLERLEMMA "[dein]"; conll:LEMMA "dîn"; conll:LEXERLEMMA "din"; conll:POS "DPOSA"; conll:TID "t32_000"; nif:nextWord :s5_5 .
+:s5_5 a nif:Word; conll:WORD "zorn"; powla:hasParent :s5_5i; conll:HEAD :s5_0; conll:ID "5"; conll:INFL "Akk.Sg"; conll:KOEBLERLEMMA "[zorn, zornig]"; conll:LEMMA "zorn"; conll:LEXERLEMMA "zorn"; conll:MANUALLEMMA "[inanimate]"; conll:POS "NA"; conll:SB "IE"; conll:TID "t33_000" .
+:s5_5i a powla:Node; powla:hasParent :s5_5ii; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Akk.Sg"; conll:PN "false" .
+:s5_5ii a powla:Node; powla:hasParent :s5_2_MF; conll:CAT "PPX" .
+
+@prefix : <file:///M249-N1_13-1_V.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s5_0 nif:nextSentence :s6_0 .
+:s6_0 a powla:Root , nif:Sentence .
+:s6_1 a nif:Word; conll:WORD "ze"; powla:hasParent :s6_2ii; powla:nextNode :s6_2i; conll:HEAD :s6_0; conll:ID "1"; conll:KOEBLERLEMMA "ze"; conll:LEMMA "ze"; conll:LEXERLEMMA "ze"; conll:POS "APPR"; conll:TID "t34_000"; nif:nextWord :s6_2 .
+:s6_1_S a powla:Node; powla:hasParent :s6_0; conll:CAT "S" .
+:s6_2 a nif:Word; conll:WORD "huore"; powla:hasParent :s6_2i; conll:HEAD :s6_0; conll:ID "2"; conll:INFL "Dat.Sg"; conll:KOEBLERLEMMA "huor"; conll:LEMMA "huor"; conll:LEXERLEMMA "huor"; conll:POS "NA"; conll:TID "t35_000"; nif:nextWord :s6_3 .
+:s6_2i a powla:Node; powla:hasParent :s6_2ii; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Sg"; conll:PN "false" .
+:s6_2ii a powla:Node; powla:hasParent :s6_2ii_PreF; conll:CAT "PPX" .
+:s6_2ii_Cl a powla:Node; powla:hasParent :s6_1_S; powla:nextNode :s6_6_Cl; conll:CAT "Cl" .
+:s6_2ii_PreF a powla:Node; powla:hasParent :s6_2ii_Cl; powla:nextNode :s6_3i_LB; conll:CAT "PreF" .
+:s6_3 a nif:Word; conll:WORD "habe"; powla:hasParent :s6_3i; conll:HEAD :s6_0; conll:ID "3"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "[haben, halten]"; conll:LEMMA "haben"; conll:LEXERLEMMA "haben"; conll:POS "VAIMP"; conll:TID "t36_000"; nif:nextWord :s6_4 .
+:s6_3i a powla:Node; powla:hasParent :s6_3i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VAIMP" .
+:s6_3i_LB a powla:Node; powla:hasParent :s6_2ii_Cl; powla:nextNode :s6_5i_MF; conll:CAT "LB" .
+:s6_4 a nif:Word; conll:WORD "decheinen"; powla:hasParent :s6_5i; powla:nextNode :s6_5; conll:HEAD :s6_0; conll:ID "4"; conll:INFL "Masc.Akk.Sg.st"; conll:KOEBLERLEMMA "[ein]"; conll:LEMMA "deh-èin"; conll:LEXERLEMMA "dehein"; conll:POS "DIA"; conll:TID "t37_000"; nif:nextWord :s6_5 .
+:s6_5 a nif:Word; conll:WORD "muot"; terms:SB "true"; powla:hasParent :s6_5i; conll:HEAD :s6_0; conll:ID "5"; conll:INFL "Akk.Sg"; conll:KOEBLERLEMMA "[mut]"; conll:LEMMA "muot"; conll:LEXERLEMMA "muot"; conll:POS "NA"; conll:SB "S*"; conll:TID "t38_000"; nif:nextWord :s6_6 .
+:s6_5i a powla:Node; powla:hasParent :s6_5i_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Akk.Sg"; conll:PN "false" .
+:s6_5i_MF a powla:Node; powla:hasParent :s6_2ii_Cl; conll:CAT "MF" .
+:s6_6 a nif:Word; conll:WORD "und"; powla:hasParent :s6_6_PrePreF; conll:HEAD :s6_0; conll:ID "6"; conll:KOEBLERLEMMA "unte"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:TID "t39_000"; nif:nextWord :s6_7 .
+:s6_6_Cl a powla:Node; powla:hasParent :s6_1_S; conll:CAT "Cl" .
+:s6_6_PrePreF a powla:Node; powla:hasParent :s6_6_Cl; powla:nextNode :s6_7i_LB; conll:CAT "PrePreF" .
+:s6_7 a nif:Word; conll:WORD "stil"; powla:hasParent :s6_7i; conll:HEAD :s6_0; conll:ID "7"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "stelen"; conll:LEMMA "stël(e)n"; conll:LEXERLEMMA "stelen"; conll:POS "VVIMP"; conll:TID "t40_000"; nif:nextWord :s6_8 .
+:s6_7i a powla:Node; powla:hasParent :s6_7i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s6_7i_LB a powla:Node; powla:hasParent :s6_6_Cl; powla:nextNode :s6_8_MF; conll:CAT "LB" .
+:s6_8 a nif:Word; conll:WORD "nieman"; powla:hasParent :s6_8_MF; powla:nextNode :s6_9; conll:HEAD :s6_0; conll:ID "8"; conll:INFL "*.Dat.Sg.st"; conll:KOEBLERLEMMA "niemann"; conll:LEMMA "niè-mann"; conll:LEXERLEMMA "niemann"; conll:POS "DIA"; conll:TID "t41_000"; nif:nextWord :s6_9 .
+:s6_8_MF a powla:Node; powla:hasParent :s6_6_Cl; conll:CAT "MF" .
+:s6_9 a nif:Word; conll:WORD "sîn"; powla:hasParent :s6_8_MF; powla:nextNode :s6_10i; conll:HEAD :s6_0; conll:ID "9"; conll:INFL "*.*.*.0"; conll:KOEBLERLEMMA "[sein]"; conll:LEMMA "sîn"; conll:LEXERLEMMA "sin"; conll:POS "DPOSA"; conll:TID "t42_000"; nif:nextWord :s6_10 .
+:s6_10 a nif:Word; conll:WORD "guot"; powla:hasParent :s6_10i; conll:HEAD :s6_0; conll:ID "10"; conll:INFL "Akk.Sg"; conll:KOEBLERLEMMA "[gut, nützlich]"; conll:LEMMA "guot"; conll:LEXERLEMMA "Guot"; conll:POS "NA"; conll:SB "IE"; conll:TID "t43_000" .
+:s6_10i a powla:Node; powla:hasParent :s6_8_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Akk.Sg"; conll:PN "false" .
+
+@prefix : <file:///M249-N1_13-1_V.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s6_0 nif:nextSentence :s7_0 .
+:s7_0 a powla:Root , nif:Sentence .
+:s7_1 a nif:Word; conll:WORD "liuge"; powla:hasParent :s7_1i; conll:HEAD :s7_0; conll:ID "1"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "[belügen, erlügen, lügen]"; conll:LEMMA "liègen"; conll:LEXERLEMMA "lieGen"; conll:POS "VVIMP"; conll:TID "t44_000"; nif:nextWord :s7_2 .
+:s7_1_S a powla:Node; powla:hasParent :s7_0; conll:CAT "S" .
+:s7_1i a powla:Node; powla:hasParent :s7_1i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s7_1i_Cl a powla:Node; powla:hasParent :s7_1_S; powla:nextNode :s7_3_Cl; conll:CAT "Cl" .
+:s7_1i_LB a powla:Node; powla:hasParent :s7_1i_Cl; powla:nextNode :s7_2_MF; conll:CAT "LB" .
+:s7_2 a nif:Word; conll:WORD "niht"; terms:SB "true"; powla:hasParent :s7_2_MF; conll:HEAD :s7_0; conll:ID "2"; conll:KOEBLERLEMMA "[nicht]"; conll:LEMMA "niht"; conll:LEXERLEMMA "niht"; conll:POS "PTKNEG"; conll:SB "S*"; conll:TID "t45_000"; nif:nextWord :s7_3 .
+:s7_2_MF a powla:Node; powla:hasParent :s7_1i_Cl; conll:CAT "MF" .
+:s7_3 a nif:Word; conll:WORD "noch"; powla:hasParent :s7_3_PreF; conll:HEAD :s7_0; conll:ID "3"; conll:KOEBLERLEMMA "noh"; conll:LEMMA "noh"; conll:LEXERLEMMA "noh"; conll:POS "AVD"; conll:TID "t46_000"; nif:nextWord :s7_4 .
+:s7_3_Cl a powla:Node; powla:hasParent :s7_1_S; conll:CAT "Cl" .
+:s7_3_PreF a powla:Node; powla:hasParent :s7_3_Cl; powla:nextNode :s7_4i_LB; conll:CAT "PreF" .
+:s7_4 a nif:Word; conll:WORD "habe"; powla:hasParent :s7_4i; conll:HEAD :s7_0; conll:ID "4"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "[haben, halten]"; conll:LEMMA "haben"; conll:LEXERLEMMA "haben"; conll:POS "VAIMP"; conll:TID "t47_000"; nif:nextWord :s7_5 .
+:s7_4i a powla:Node; powla:hasParent :s7_4i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VAIMP" .
+:s7_4i_LB a powla:Node; powla:hasParent :s7_3_Cl; powla:nextNode :s7_7i_MF; conll:CAT "LB" .
+:s7_5 a nif:Word; conll:WORD "decheinen"; powla:hasParent :s7_7i; powla:nextNode :s7_6; conll:HEAD :s7_0; conll:ID "5"; conll:INFL "Masc.Akk.Sg.st"; conll:KOEBLERLEMMA "[ein]"; conll:LEMMA "deh-èin"; conll:LEXERLEMMA "dehein"; conll:POS "DIA"; conll:TID "t48_000"; nif:nextWord :s7_6 .
+:s7_6 a nif:Word; conll:WORD "valschen"; powla:hasParent :s7_7i; powla:nextNode :s7_7; conll:HEAD :s7_0; conll:ID "6"; conll:INFL "Pos.Masc.Akk.Sg.*"; conll:KOEBLERLEMMA "[falsche]"; conll:LEMMA "valsch"; conll:LEXERLEMMA "valsch"; conll:POS "ADJA"; conll:TID "t49_000"; nif:nextWord :s7_7 .
+:s7_7 a nif:Word; conll:WORD "list"; powla:hasParent :s7_7i; conll:HEAD :s7_0; conll:ID "7"; conll:INFL "Akk.Sg"; conll:KOEBLERLEMMA "[zauberkunst]"; conll:LEMMA "list"; conll:LEXERLEMMA "list"; conll:POS "NA"; conll:SB "IE"; conll:TID "t50_000" .
+:s7_7i a powla:Node; powla:hasParent :s7_7i_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Akk.Sg"; conll:PN "false" .
+:s7_7i_MF a powla:Node; powla:hasParent :s7_3_Cl; conll:CAT "MF" .
+
+@prefix : <file:///M249-N1_13-1_V.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s7_0 nif:nextSentence :s8_0 .
+:s8_0 a powla:Root , nif:Sentence .
+:s8_1 a nif:Word; conll:WORD "ger"; powla:hasParent :s8_1i; conll:HEAD :s8_0; conll:ID "1"; conll:INFL "Sg.2"; conll:KOEBLERLEMMA "geren"; conll:LEMMA "gër(e)n"; conll:LEXERLEMMA "Geren"; conll:POS "VVIMP"; conll:TID "t51_000"; nif:nextWord :s8_2 .
+:s8_1_S a powla:Node; powla:hasParent :s8_0; conll:CAT "S" .
+:s8_1i a powla:Node; powla:hasParent :s8_1i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VVIMP" .
+:s8_1i_Cl a powla:Node; powla:hasParent :s8_1_S; conll:CAT "Cl" .
+:s8_1i_LB a powla:Node; powla:hasParent :s8_1i_Cl; powla:nextNode :s8_3i_MF; conll:CAT "LB" .
+:s8_2 a nif:Word; conll:WORD "decheines"; powla:hasParent :s8_3i; powla:nextNode :s8_3; conll:HEAD :s8_0; conll:ID "2"; conll:INFL "Neut.Gen.Sg.st"; conll:KOEBLERLEMMA "[ein]"; conll:LEMMA "deh-èin"; conll:LEXERLEMMA "dehein"; conll:POS "DIA"; conll:TID "t52_000"; nif:nextWord :s8_3 .
+:s8_3 a nif:Word; conll:WORD "dinges"; powla:hasParent :s8_3i; powla:nextNode :s8_5i; conll:HEAD :s8_0; conll:ID "3"; conll:INFL "Gen.Sg"; conll:KOEBLERLEMMA "ding"; conll:LEMMA "ding"; conll:LEXERLEMMA "dinG"; conll:POS "NA"; conll:TID "t53_000"; nif:nextWord :s8_4 .
+:s8_3i a powla:Node; powla:hasParent :s8_3i_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Gen.Sg"; conll:PN "false" .
+:s8_3i_MF a powla:Node; powla:hasParent :s8_1i_Cl; conll:CAT "MF" .
+:s8_4 a nif:Word; conll:WORD "dînes"; powla:hasParent :s8_5i; powla:nextNode :s8_5; conll:HEAD :s8_0; conll:ID "4"; conll:INFL "Masc.Gen.Sg.st"; conll:KOEBLERLEMMA "[dein]"; conll:LEMMA "dîn"; conll:LEXERLEMMA "din"; conll:POS "DPOSA"; conll:TID "t54_000"; nif:nextWord :s8_5 .
+:s8_5 a nif:Word; conll:WORD "ebenkristes"; powla:hasParent :s8_5i; conll:HEAD :s8_0; conll:ID "5"; conll:INFL "Gen.Sg"; conll:KOEBLERLEMMA "ebenkrist"; conll:LEMMA "ëben-krist"; conll:LEXERLEMMA "ebenkrist"; conll:POS "NA"; conll:SB "IE"; conll:TID "t55_000" .
+:s8_5i a powla:Node; powla:hasParent :s8_3i; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Gen.Sg"; conll:PN "false" .
+

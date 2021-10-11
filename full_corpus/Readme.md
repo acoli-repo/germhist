@@ -47,6 +47,10 @@ Bekannte Artefakte beinhalten:
 - `Frag`-Knoten: Worte oder Phrasen, die nicht in die Satzstruktur integriert werden konnten, sind als `Frag` markiert.
 - low attachment: Attachment von Präpositionalphrasen ist meist ambig zwischen low und high attachment. Für Präpositionalphrasen annotieren *wir* durchweg low attachment, d.h., "Er sah den Mann mit dem Fernglas" wird *immer* als "[den Mann [mit dem Fernglas]]" analysiert, *nie* als "sah [den Mann] [mit dem Fernglas]". Dies ist dem Zweck der automatischen Annotation geschuldet, die auf das Studium von Dativ- und Akkusativ-Argumenten abzielte und für die so eine Verkleinerung des Suchraums erreicht werden konnte.
 
+Die mittelhochdeutsche Baumbank enthält den gesamten Textbestand des ReM, mit Ausnahme von 11 
+Texten (2.8 % des Gesamtkorpus: `M121K-N1_12-1_V`, `M131-N1_12-2_V`, `M157-G1_12-2_P`, `M199A-G1_12-1_V`, `M213-N1_13-1_V`, `M241y-N1_13-1_V`, `M319-G1_xx-x_x`, `M330-G1_13-1_P`, `M503-N1_13-1_V`, `M510-N0_13-2_V`, `M541H1-N_14-1_V`).
+Diese Texte haben TImeouts hervorgerufen, die weiteres Debugging erfordern, möglicherweise jedoch nur Kapazitätsengpässe des Referenzsystems anzeigen.
+
 ## Lizenz und Nutzung
 
 Wie das zugrundeliegende Referenzkorpus Mittelhochdeutsch ist die Mittelhochdeutsche Baumbank lizenziert unter einer Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz.

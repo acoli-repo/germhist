@@ -1,0 +1,987 @@
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+#ID TID WORD LEMMA POS INFL SB file:///M178-N1_12-1_P.ttl/
+1	t1_000	-	_	[!]	_	(S (Cl (PreF * )	_	
+2	t2_000	wære	VAFIN	wësen	Subj.Past.Sg.3	(LB (VX * ) )	_	
+3	t3_000	-	$_	_	_	 * )	_	
+4	t4_000	dô	KOUS	dô	_	(Cl (LB * )	_	
+5	t5_000	daz	DDART	dër	Neut.Nom.Sg	(MF (NX *	_	
+6	t6_000	reht	NA	rëht	Nom.Sg	 * )	_	
+7	t7_000	unser	DPOSA	unser	Masc.Akk.Sg.0	(NX *	_	
+8	t8_000	hêrre	NA	hêrre	Akk.Sg	 * )	_	
+9	t9_000	brechen	VVINF	brëchen	_	(VX * ) )	_	
+10	t10_000	wolte	VMFIN	wèllen	*.Past.Sg.3	(RB (VX * ) ) )	_	
+11	t11_000	dô	AVD	dô	_	(Cl (PreF * )	_	
+12	t12_000	muose	VMFIN	müèzen	*.Past.Sg.3	(LB (VX * ) )	_	
+13	t13_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX *	_	
+14	t14_000	ze	APPR	ze	_	(PPX *	_	
+15	t14_001	einer	DIART	èin	Fem.Dat.Sg.st	(NX *	_	
+16	t15_000	vrist	NA	vrist	Dat.Sg	 * ) ) ) )	_	
+17	t16_000	-	$_	_	_	 * )	_	
+18	t17_000	sînem	DPOSA	sîn	Neut.Dat.Sg.st	(Frag (NX *	_	
+19	t18_000	rehte	NA	rëht	Dat.Sg	 * )	_	
+20	t19_000	entwîchen	VVINF	ent-wîchen	_	(VX * )	_	
+21	t20_000	-	$_	_	_	 * )	_	
+22	t21_000	muose	VMFIN	müèzen	*.Past.Sg.3	(Cl (LB (VX * ) )	_	
+23	t22_000	die	DDART	dër	Fem.Akk.Sg	(MF (NX *	_	
+24	t23_000	mennischheit	NA	mèn(ni)sch-hèit	Akk.Sg	 *	_	
+25	t24_000	durch	APPR	durh	_	(PPX *	_	
+26	t25_000	uns	PPER	wir	Akk.Pl.1	(NX * ) ) ) )	_	
+27	t26_000	entvâhen	VVINF	ent-vâhen	_	(RB (VX * ) )	_	
+28	t27_000	-	$_	_	_	 *	_	
+29	t28_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+30	t29_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * )	_	
+31	t30_000	dem	DDART	dër	Masc.Dat.Sg	(NX *	_	
+32	t31_000	leidigen	ADJA	lèidig	Pos.Masc.Dat.Sg.wk	 *	_	
+33	t32_000	vînde	NA	vîent	Dat.Sg	 * )	_	
+34	t33_000	sînen	DPOSA	sîn	Masc.Akk.Sg.st	(NX *	_	
+35	t34_000	gewalt	NA	ge-walt	Akk.Sg	 *	_	
+36	t35_000	über	APPR	über	_	(PPX *	_	
+37	t36_000	uns	PPER	wir	Akk.Pl.1	(NX * ) ) ) )	_	
+38	t37_000	beneme	VVFIN	be-nëmen	Subj.Pres.Sg.3	(RB (VX * ) )	_	
+39	t38_000	-	$_	_	_	 * ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t39_000	daz	DDS	dër	Neut.Nom.Sg	(S (Cl (PreF (NX * ) )	_	
+2	t40_000	was	VAFIN	wësen	Ind.Past.Sg.3	(LB (VX * ) )	_	
+3	t41_000	ire	DPOSA	ir(e)	Neut.Nom.Sg.0	(MF (NX *	_	
+4	t42_000	gebet	NA	ge-bët	Nom.Sg	 *	_	
+5	t43_000	tagelîches	ADJN	tage-lîches	Pos.Masc.Nom.Sg.st	 * )	_	
+6	t44_000	hin	AVD	hin(e)	_	 *	_	
+7	t44_001	ze	APPR	ze	_	(PPX *	_	
+8	t45_000	unserm	DPOSA	unser	Masc.Dat.Sg.st	(NX *	_	
+9	t46_000	hêrren	NA	hêrre	Dat.Sg	 * ) ) )	_	
+10	t47_000	des	DRELS	dër	Neut.Gen.Sg	(PostF (Cl (LB (NX * ) )	_	
+11	t48_000	gevolget	VVFIN	ge-volgen	Ind.Pres.Sg.3	(RB (VX * ) )	_	
+12	t49_000	ouch	KO*	ouch	_	(PostF *	_	
+13	t50_000	er	PPER	ër	Masc.Nom.Sg.3	(NX * )	_	
+14	t51_000	in	PPER	ër	*.Dat.Pl.3	(NX * )	_	
+15	t52_000	sô	AVD	sô	_	 *	_	
+16	t53_000	verre	AVD	vërre	_	 * )	_	
+17	t54_000	-	$_	_	_	 *	_	
+18	t55_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+19	t56_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX *	_	
+20	t57_000	selbe	DDA	sëlb	Masc.Nom.Sg.wk	 * ) )	_	
+21	t58_000	kom	VVFIN	komen	Ind.Past.Sg.3	(RB (VX * ) ) ) ) ) ) )	_	
+22	t59_000	vienc	VVFIN	vâhen	Ind.Past.Sg.3	(Cl (LB (VX * ) )	_	
+23	t60_000	den	DDART	dër	Masc.Akk.Sg	(MF (NX *	_	
+24	t61_000	siechen	NA	sièche	Akk.Sg	 *	_	
+25	t62_000	bî	APPR	bî	_	(PPX *	_	
+26	t63_000	den	DDART	dër	*.Dat.Pl	(NX *	_	
+27	t64_000	handen	NA	hant	Dat.Pl	 * ) ) ) )	_	
+28	t65_000	-	$_	_	_	 * )	_	
+29	t66_000	vuorte	VVFIN	vüèren	*.Past.Sg.3	(Cl (LB (VX * ) )	_	
+30	t67_000	in	PPER	ër	Masc.Akk.Sg.3	(MF (NX *	_	
+31	t68_000	mit	APPR	mit	_	(PPX *	_	
+32	t69_000	râte	NA	rât	Dat.Sg	(NX *	_	
+33	t70_000	ûz	APPR	ûz	_	(PPX *	_	
+34	t71_000	der	DDART	dër	Fem.Dat.Sg	(NX *	_	
+35	t72_000	menige	NA	mènige	Dat.Sg	 *	_	
+36	t73_000	der	DDART	dër	*.Gen.Pl	(NX *	_	
+37	t74_000	sünden	NA	sünte	Gen.Pl	 * ) ) ) ) ) ) )	_	
+38	t75_000	-	$_	_	_	 * )	_	
+39	t76_000	ruorte	VVFIN	rüèren	*.Past.Sg.3	(Cl (LB (VX * ) )	_	
+40	t77_000	im	PPER	ër	Masc.Dat.Sg.3	(MF (NX *	_	
+41	t78_000	mit	APPR	mit	_	(PPX *	_	
+42	t79_000	dem	DDART	dër	Masc.Dat.Sg	(NX *	_	
+43	t80_000	vinger	NA	vinger	Dat.Sg	 * ) ) )	_	
+44	t81_000	sînen	DPOSA	sîn	Masc.Akk.Sg.st	(NX *	_	
+45	t82_000	munt	NA	mund	Akk.Sg	 * ) )	_	
+46	t83_000	-	$_	_	_	 *	_	
+47	t84_000	und	KON	unte	_	(Frag *	_	
+48	t85_000	sîniu	DPOSA	sîn	Neut.Akk.Pl.st	(NX *	_	
+49	t86_000	ôren	NA	ôre	Akk.Pl	 * )	_	
+50	t87_000	-	$_	_	_	 * ) )	_	
+51	t88_000	gap	VVFIN	gëben	Ind.Past.Sg.3	(Cl (LB (VX * ) )	_	
+52	t89_000	im	PPER	ër	Masc.Dat.Sg.3	(MF (NX *	_	
+53	t90_000	mit	APPR	mit	_	(PPX *	_	
+54	t91_000	der	DDART	dër	Fem.Dat.Sg	(NX *	_	
+55	t92_000	gebe	NA	gëbe	Dat.Sg	 *	_	
+56	t93_000	sînes	DPOSA	sîn	Masc.Gen.Sg.st	(NX *	_	
+57	t94_000	heiligen	ADJA	hèilig	Pos.Masc.Gen.Sg.wk	 *	_	
+58	t95_000	geistes	NA	gèist	Gen.Sg	 * ) ) ) ) )	_	
+59	t96_000	-	$_	_	_	 *	_	
+60	t97_000	rehte	ADJA	rëht	Pos.*.Akk.Pl.st	(Frag (NX *	_	
+61	t98_000	sinne	NA	sinn	Akk.Pl	 * )	_	
+62	t99_000	-	$_	_	_	 *	_	
+63	t100_000	daz	KOUS	dazz	_	(Cl (LB * )	_	
+64	t101_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * )	_	
+65	t102_000	verstên	VVINF	ver-stân	_	(VX (VX * )	_	
+66	t103_000	und	KON	unte	_	 *	_	
+67	t104_000	gesprechen	VVINF	ge-sprëchen	_	(VX * ) ) )	_	
+68	t105_000	kunde	VMFIN	kunnen	*.Past.Sg.3	(RB (VX * ) )	_	
+69	t106_000	sîne	DPOSA	sîn	Fem.Akk.Sg.st	(PostF (NX *	_	
+70	t107_000	heilige	ADJA	hèilig	Pos.Fem.Akk.Sg.st	 *	_	
+71	t108_000	lêre	NA	lêre	Akk.Sg	 * ) ) ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t109_000	-	$_	_	_	(S *	_	
+2	t110_000	brâhte	VVFIN	bringen	Ind.Past.Sg.3	(Cl (LB (VX * ) )	_	
+3	t111_000	in	PPER	ër	Masc.Akk.Sg.3	(MF (NX * )	_	
+4	t112_000	sô	AVD	sô	_	 *	_	
+5	t113_000	wider	AVD	wider(e)	_	 *	_	
+6	t114_000	ze	APPR	ze	_	(PPX *	_	
+7	t114_001	sînen	DPOSA	sîn	*.Dat.Pl.st	(NX *	_	
+8	t115_000	alten	ADJA	alt	Pos.*.Dat.Pl.*	 *	_	
+9	t116_000	kreften	NA	kraft	Dat.Pl	 * ) ) )	_	
+10	t117_000	-	$_	_	_	 *	_	
+11	t118_000	die	DRELS	dër	*.Akk.Pl	(PostF (Cl (LB (NX * ) )	_	
+12	t119_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * ) )	_	
+13	t120_000	hæte	VAFIN	haben	*.Past.Sg.3	(RB (VX * ) )	_	
+14	t121_000	êr	KOUS	êr	_	(PostF (Cl (LB * )	_	
+15	t122_000	-	$_	_	_	(MF *	_	
+16	t123_000	er	PPER	ër	Masc.Nom.Sg.3	(NX * )	_	
+17	t124_000	unsern	DPOSA	unser	Masc.Akk.Sg.st	(NX *	_	
+18	t125_000	hêrren	NA	hêrre	Akk.Sg	 *	_	
+19	t126_000	mit	APPR	mit	_	(PPX *	_	
+20	t127_000	der	DDART	dër	Fem.Dat.Sg	(NX *	_	
+21	t128_000	ungehôrsame	NA	un-ge-hôr-sam(e)	Dat.Sg	 * ) ) ) )	_	
+22	t129_000	vermanet	VVFIN	ver-manen	Ind.Pres.Sg.3	(RB (VX * ) )	_	
+23	t130_000	-	$_	_	_	 * ) ) ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t131_000	mit	APPR	mit	_	(S (Cl (PreF (PPX *	_	
+2	t132_000	dem	DDART	dër	Masc.Dat.Sg	(NX *	_	
+3	t133_000	siechen	NA	sièche	Dat.Sg	 * ) ) )	_	
+4	t134_000	werden	VAFIN	wërden	*.Pres.Pl.1	(LB (VX * ) )	_	
+5	t135_000	wir	PPER	wir	Nom.Pl.1	(MF (NX *	_	
+6	t136_000	alle	DIA	all	*.Nom.Pl.st	 *	_	
+7	t137_000	von	APPR	von	_	(PPX *	_	
+8	t138_000	unserm	DPOSA	unser	Masc.Dat.Sg.st	(NX *	_	
+9	t139_000	siechtuome	NA	sièch-tuom	Dat.Sg	 * ) ) )	_	
+10	t140_000	wole	AVD	wol(e)	_	 * )	_	
+11	t141_000	beruocht	VVPP	be-ruochen	_	(RB (VX * ) )	_	
+12	t142_000	-	$_	_	_	 *	_	
+13	t143_000	ob	KOUS	obe	_	(PostF (Cl (LB * )	_	
+14	t144_000	wir	PPER	wir	Nom.Pl.1	(MF (NX * )	_	
+15	t145_000	iz	PPER	ër	Neut.Akk.Sg.3	(NX *	_	
+16	t146_000	mit	APPR	mit	_	(PPX *	_	
+17	t147_000	inniclîchem	ADJA	innig-lich	Pos.Neut.Dat.Sg.st	(NX *	_	
+18	t148_000	herzen	NA	hërze	Dat.Sg	 * ) ) )	_	
+19	t149_000	dâ	AVD	dâr	_	 *	_	
+20	t149_001	ze	APPR	ze	_	(PPX *	_	
+21	t150_000	gote	NA	got	Dat.Sg	(NX * ) ) )	_	
+22	t151_000	suochen	VVFIN	suochen	*.Pres.Pl.1	(RB (VX * ) )	_	
+23	t152_000	-	$_	_	_	 * ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t153_000	er	PPER	ër	Masc.Nom.Sg.3	(S (Cl (PreF (NX * ) )	_	
+2	t154_000	schol	VMFIN	sol(e)n	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+3	t155_000	uns	PPER	wir	Akk.Pl.1	(MF (NX * ) )	_	
+4	t156_000	beruochen	VVINF	be-ruochen	_	(RB (VX * ) )	_	
+5	t157_000	ze	APPR	ze	_	(PostF (PPX *	_	
+6	t158_000	dem	DDART	dër	Masc.Dat.Sg	(NX *	_	
+7	t159_000	siechtuome	NA	sièch-tuom	Dat.Sg	 *	_	
+8	t160_000	der	DDART	dër	Fem.Gen.Sg	(NX *	_	
+9	t161_000	sêle	NA	sêle	Gen.Sg	 * ) ) ) )	_	
+10	t162_000	-	$_	_	_	 * )	_	
+11	t163_000	wan	KO*	wante	_	(Frag *	_	
+12	t164_000	er	PPER	ër	Masc.Nom.Sg.3	(NX *	_	
+13	t165_000	in	APPR	in	_	(PPX *	_	
+14	t165_001	dise	DDA	dise	Fem.Akk.Sg	(NX *	_	
+15	t166_000	werlte	NA	wër(e)lt	Akk.Sg	 * ) ) )	_	
+16	t167_000	uns	PPER	wir	Dat.Pl.1	(NX * )	_	
+17	t168_000	komen	VVPP	komen	_	(VX *	_	
+18	t169_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	 * )	_	
+19	t170_000	ze	APPR	ze	_	(PPX *	_	
+20	t170_001	einem	DIART	èin	Neut.Dat.Sg.st	(NX *	_	
+21	t171_000	heile	NA	hèile	Dat.Sg	 * ) )	_	
+22	t172_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t173_000	haben	VAFIN	haben	*.Pres.Pl.1	(S (Cl (LB (VX * ) )	_	
+2	t174_000	wir	PPER	wir	Nom.Pl.1	(PreF (MF (NX * )	_	
+3	t175_000	niht	PTKNEG	niht	_	 *	_	
+4	t176_000	die	DDART	dër	*.Akk.Pl	(NX *	_	
+5	t177_000	werbære	NA	wër-bære	Akk.Pl	 * ) ) )	_	
+6	t178_000	die	DRELS	dër	*.Nom.Pl	(LB (NX *	_	
+7	t179_000	umbe	APPR	umbe	_	(PPX *	_	
+8	t180_000	uns	PPER	wir	Akk.Pl.1	(NX * ) ) ) )	_	
+9	t181_000	biten	VVFIN	biten	*.Pres.Pl.3	(RB (VX * ) )	_	
+10	t182_000	-	$_	_	_	 * )	_	
+11	t183_000	sô	AVD	sô	_	(Cl (PreF * )	_	
+12	t184_000	schulen	VMFIN	sol(e)n	*.Pres.Pl.1	(LB (VX * ) )	_	
+13	t185_000	wir	PPER	wir	Nom.Pl.1	(MF (NX *	_	
+14	t186_000	mit	APPR	mit	_	(PPX *	_	
+15	t187_000	lîbe	NA	lîb	Dat.Sg	(NX * ) ) )	_	
+16	t188_000	und	KON	unte	_	 *	_	
+17	t189_000	mit	APPR	mit	_	(PPX *	_	
+18	t190_000	sêle	NA	sêle	Dat.Sg	(NX * ) )	_	
+19	t191_000	uns	PRF	wir	*.Akk.Pl.st	(NX *	_	
+20	t192_000	selbe	DDD	sëlb	*.Akk.Pl..=.st	 * )	_	
+21	t193_000	dâr	AVD	dâr	_	 * )	_	
+22	t194_000	erbieten	VVINF	er-bièten	_	(RB (VX * ) )	_	
+23	t195_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t196_000	er	PPER	ër	Masc.Nom.Sg.3	(S (Cl (PreF (NX * ) )	_	
+2	t197_000	hât	VAFIN	haben	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+3	t198_000	uns	PPER	wir	Dat.Pl.1	(MF (NX * ) )	_	
+4	t199_000	gegeben	VVPP	gëben	_	(RB (VX * ) )	_	
+5	t200_000	manlîche	ADJA	mann-lich	Pos.*.Akk.Pl.st	(PostF (NX *	_	
+6	t201_000	sinne	NA	sinn	Akk.Pl	 * ) )	_	
+7	t202_000	-	$_	_	_	 *	_	
+8	t203_000	mit	APPR	mit	_	(PostF (Cl (LB (PPX *	_	
+9	t204_000	den	DRELS	dër	*.Dat.Pl	(NX * ) ) )	_	
+10	t205_000	wir	PPER	wir	Nom.Pl.1	(MF (NX * )	_	
+11	t206_000	unser	DPOSA	unser	*.Akk.Sg.0	(NX *	_	
+12	t207_000	dinc	NA	ding	Akk.Sg	 * )	_	
+13	t208_000	wole	AVD	wol(e)	_	 *	_	
+14	t209_000	gewerben	VVINF	ge-wërben	_	(VX * )	_	
+15	t210_000	-	$_	_	_	 * )	_	
+16	t211_000	kunnen	VMFIN	kunnen	*.Pres.Pl.1	(RB (VX * ) )	_	
+17	t212_000	-	$_	_	_	 * ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t213_000	swie	AVG	swiè	_	(S (Cl (LB * )	_	
+2	t214_000	williclîchen	AVD	willig-lîche	_	(MF *	_	
+3	t215_000	er	PPER	ër	Masc.Nom.Sg.3	(NX * )	_	
+4	t216_000	uns	PPER	wir	Dat.Pl.1	(NX * )	_	
+5	t217_000	komen	VVPP	komen	_	(VX * )	_	
+6	t218_000	-	$_	_	_	 * )	_	
+7	t219_000	sî	VAFIN	sîn	Subj.Pres.Sg.3	(RB (VX * ) )	_	
+8	t220_000	-	$_	_	_	 *	_	
+9	t221_000	swie	AVG	swiè	_	(PostF (Cl (LB * )	_	
+10	t222_000	volliclîchen	AVD	vollig-lîche	_	(MF *	_	
+11	t223_000	wir	PPER	wir	Nom.Pl.1	(NX *	_	
+12	t224_000	von	APPR	von	_	(PPX *	_	
+13	t225_000	im	PPER	ër	Masc.Dat.Sg.3	(NX * ) ) ) )	_	
+14	t226_000	beruocht	VVPP	be-ruochen	_	(RB (VX *	_	
+15	t227_000	sîn	VAFIN	sîn	*.Pres.Pl.1	 * ) )	_	
+16	t228_000	-	$_	_	_	 * ) ) )	_	
+17	t229_000	sînen	DPOSA	sîn	Masc.Akk.Sg.st	(Cl (PreF (NX *	_	
+18	t230_000	guoten	ADJA	guot	Pos.Masc.Akk.Sg.*	 *	_	
+19	t231_000	willen	NA	wille	Akk.Sg	 * ) )	_	
+20	t232_000	wile	VMFIN	wèllen	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+21	t233_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * ) )	_	
+22	t234_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+23	t235_000	wir	PPER	wir	Nom.Pl.1	(MF (NX * )	_	
+24	t236_000	dâ	AVD	dâr	_	 *	_	
+25	t236_001	ze	APPR	ze	_	(PPX *	_	
+26	t237_000	im	PPER	ër	Masc.Dat.Sg.3	(NX * ) ) )	_	
+27	t238_000	werben	VVFIN	wërben	*.Pres.Pl.1	(RB (VX * ) ) ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t239_000	haben	VAFIN	haben	*.Pres.Pl.1	(S (Cl (LB (VX * ) )	_	
+2	t240_000	wir	PPER	wir	Nom.Pl.1	(PreF (MF (NX * )	_	
+3	t241_000	die	DDS	dër	Fem.Akk.Sg	(NX * )	_	
+4	t242_000	uns	PPER	wir	Akk.Pl.1	(NX * ) ) )	_	
+5	t243_000	verwesen	VVFIN	ver-wësen	*.Pres.Pl.3	(LB (VX * ) )	_	
+6	t244_000	der	DDART	dër	*.Gen.Pl	(MF (NX *	_	
+7	t245_000	werbære	NA	wër-bære	Gen.Pl	 * )	_	
+8	t246_000	niht	PTKNEG	niht	_	 * )	_	
+9	t247_000	-	$_	_	_	 * )	_	
+10	t248_000	sô	AVD	sô	_	(Cl (PreF * )	_	
+11	t249_000	werben	VVFIN	wërben	*.Pres.Pl.1	(LB (VX * ) )	_	
+12	t250_000	selbe	DDA	sëlb	Masc.Nom.Sg.wk	(MF *	_	
+13	t251_000	umbe	APPR	umbe	_	(PPX *	_	
+14	t252_000	unser	DPOSA	unser	Neut.Akk.Sg.0	(NX *	_	
+15	t253_000	dinc	NA	ding	Akk.Sg	 * ) ) )	_	
+16	t254_000	-	$_	_	_	 * )	_	
+17	t255_000	und	KON	unte	_	(Cl (PrePreF * )	_	
+18	t256_000	sûmen	VVFIN	sûmen	*.Pres.Pl.1	(LB (VX * ) )	_	
+19	t257_000	uns	PRF	wir	*.Akk.Pl.st	(MF (NX * )	_	
+20	t258_000	dâr	PAVD	dâr/.+ane	_	 *	_	
+21	t259_000	an	PAVAP	ane/dâr.+	_	 *	_	
+22	t260_000	niht	PTKNEG	niht	_	 * )	_	
+23	t261_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t262_000	dâ	AVD	dâr	_	(S (Frag *	_	
+2	t263_000	stêt	VVFIN	stân	Ind.Pres.Sg.3	(VX *	_	
+3	t264_000	geschriben	VVPP	schrîben	_	 * )	_	
+4	t265_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t266_000	-	FM	[!]	_	(S (Frag *	_	
+2	t267_000	-	FM	[!]	_	 *	_	
+3	t268_000	-	FM	[!]	_	 *	_	
+4	t269_000	-	$_	_	_	 * )	_	
+5	t270_000	-	FM	[!]	_	(Frag *	_	
+6	t271_000	-	FM	[!]	_	 *	_	
+7	t272_000	-	FM	[!]	_	 *	_	
+8	t273_000	-	FM	[!]	_	 *	_	
+9	t274_000	-	$_	_	_	 * )	_	
+10	t275_000	sîn	DPOSA	sîn	Masc.Nom.Sg.0	(Cl (PreF (NX *	_	
+11	t276_000	guot	ADJA	guot	Pos.Masc.Nom.Sg.0	 *	_	
+12	t277_000	wille	NA	wille	Nom.Sg	 * ) )	_	
+13	t278_000	schol	VMFIN	sol(e)n	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+14	t279_000	komen	VVINF	komen	_	(RB (VX * ) )	_	
+15	t280_000	von	APPR	von	_	(PostF (PPX *	_	
+16	t281_000	unser	DPOSA	unser	*.Dat.Pl.0	(NX *	_	
+17	t282_000	guoten	ADJA	guot	Pos.*.Dat.Pl.*	 *	_	
+18	t283_000	gearneden	NA	ge-arnede	Dat.Pl	 * ) ) )	_	
+19	t284_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t285_000	von	APPR	von	_	(S (Frag (PPX *	_	
+2	t286_000	welichen	DWA	wèl(i)ch	*.Dat.Pl.st	(NX *	_	
+3	t287_000	unsern	DPOSA	unser	*.Dat.Pl.st	 *	_	
+4	t288_000	gearneden	NA	ge-arnede	Dat.Pl	 * ) )	_	
+5	t289_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t290_000	daz	KOUS	dazz	_	(S (Cl (LB * )	_	
+2	t291_000	wir	PPER	wir	Nom.Pl.1	(MF (NX * ) )	_	
+3	t292_000	tuon	VVFIN	tuon	*.Pres.Pl.1	(RB (VX * ) ) )	_	
+4	t293_000	alsô	KO*	all-sô	_	(Frag *	_	
+5	t294_000	wir	PPER	wir	Nom.Pl.1	(NX *	_	
+6	t295_000	an	APPR	ane	_	(PPX *	_	
+7	t295_001	dem	DDART	dër	Neut.Dat.Sg	(NX *	_	
+8	t296_000	evangelioe	NA	evangelio	Dat.Sg	 * ) ) )	_	
+9	t297_000	vernomen	VVPP	ver-nëmen	_	(VX * )	_	
+10	t298_000	haben	VAINF	haben	_	(VX * )	_	
+11	t299_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t300_000	dâ	AVD	dâr	_	(S (Frag *	_	
+2	t301_000	stêt	VVFIN	stân	Ind.Pres.Sg.3	(VX *	_	
+3	t302_000	geschriben	VVPP	schrîben	_	 * )	_	
+4	t303_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t304_000	-	FM	[!]	_	(S (Frag *	_	
+2	t305_000	-	FM	[!]	_	 *	_	
+3	t306_000	-	FM	[!]	_	 *	_	
+4	t307_000	-	FM	[!]	_	 *	_	
+5	t308_000	-	FM	[!]	_	 *	_	
+6	t309_000	-	FM	[!]	_	 *	_	
+7	t310_000	-	FM	[!]	_	 *	_	
+8	t311_000	-	$_	_	_	 *	_	
+9	t312_000	den	DDART	dër	*.Dat.Pl	(Cl (PreF (NX *	_	
+10	t313_000	liuten	NA	liut	Dat.Pl	 * ) )	_	
+11	t314_000	die	DRELS	dër	*.Nom.Pl	(LB (NX * ) )	_	
+12	t315_000	dâ	AVD	dâr	_	(MF *	_	
+13	t316_000	in	APPR	in	_	(PPX *	_	
+14	t317_000	antwart	NA	ant-wart	Akk.Sg	(NX * ) ) )	_	
+15	t318_000	wâren	VAFIN	wësen	Ind.Past.Pl.3	(RB (VX * ) )	_	
+16	t319_000	-	$_	_	_	 * ) )	_	
+17	t320_000	verbôt	VVFIN	ver-bièten	Ind.Past.Sg.3	(Cl (LB (VX * ) )	_	
+18	t321_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * ) )	_	
+19	t322_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+20	t323_000	si	PPER	ër	*.Nom.Pl.3	(MF (NX *	_	
+21	t324_000	des	DDART	dër	Neut.Gen.Sg	(NX *	_	
+22	t325_000	zeichenes	NA	zèichen	Gen.Sg	 * ) )	_	
+23	t326_000	iht	AVD	iht	_	 * )	_	
+24	t327_000	gewüegen	VVFIN	ge-wüègen	*.Pres.Pl.3	(RB (VX * ) )	_	
+25	t328_000	-	$_	_	_	 * ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t329_000	sô	KO*	sô	_	(S (Frag *	_	
+2	t330_000	er	PPER	ër	Masc.Nom.Sg.3	(NX * )	_	
+3	t331_000	in	PPER	ër	*.Dat.Pl.3	(NX * )	_	
+4	t331_001	ez	PPER	ër	Neut.Akk.Sg.3	(NX * )	_	
+5	t332_000	ie	AVD	iè	_	(PreF *	_	
+6	t333_000	harter	ADJD	hart	Pos....0	 * )	_	
+7	t334_000	verbôt	VVFIN	ver-bièten	Ind.Past.Sg.3	(LB (VX * ) )	_	
+8	t335_000	-	$_	_	_	 * )	_	
+9	t336_000	sô	KO*	sô	_	(Frag *	_	
+10	t336_001	si	PPER	ër	*.Nom.Pl.3	(NX * )	_	
+11	t336_002	in	PPER	ër	Masc.Akk.Sg.3	(NX * )	_	
+12	t337_000	ie	AVD	iè	_	(PreF *	_	
+13	t338_000	mêrer	AVD	mêr(e)	Comp	 * )	_	
+14	t339_000	lobeten	VVFIN	loben	*.Past.Pl.3	(LB (VX * ) )	_	
+15	t340_000	-	$_	_	_	 * )	_	
+16	t341_000	unde	KON	unte	_	(Cl (PrePreF * )	_	
+17	t342_000	tâten	VVFIN	tuon	Ind.Past.Pl.3	(LB (VX * ) )	_	
+18	t343_000	uns	PPER	wir	Dat.Pl.1	(MF (NX * )	_	
+19	t344_000	daz	DDS	dër	Neut.Akk.Sg	(NX *	_	
+20	t345_000	ze	APPR	ze	_	(PPX *	_	
+21	t346_000	einem	DIART	èin	Neut.Dat.Sg.st	(NX *	_	
+22	t347_000	bilede	NA	bil(e)de	Dat.Sg	 * ) ) ) ) )	_	
+23	t348_000	wande	KO*	wante	_	(Frag *	_	
+24	t349_000	ouch	KO*	ouch	_	 *	_	
+25	t350_000	wir	PPER	wir	Nom.Pl.1	(NX *	_	
+26	t351_000	mit	APPR	mit	_	(PPX *	_	
+27	t352_000	dem	DDART	dër	Masc.Dat.Sg	(NX *	_	
+28	t353_000	siechen	NA	sièche	Dat.Sg	 * ) ) )	_	
+29	t354_000	sîn	VAFIN	sîn	*.Pres.Pl.1	(VX *	_	
+30	t355_000	gemerket	VVPP	ge-mèrken	_	 * )	_	
+31	t356_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t357_000	den	DDART	dër	Masc.Akk.Sg	(S (Cl (LB (NX *	_	
+2	t358_000	siechtuom	NA	sièch-tuom	Akk.Sg	 *	_	
+3	t359_000	den	DRELS	dër	Masc.Akk.Sg	 * ) )	_	
+4	t360_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * ) )	_	
+5	t361_000	hæte	VAFIN	haben	*.Past.Sg.3	(RB (VX * ) )	_	
+6	t362_000	an	APPR	ane	_	(PostF (PPX *	_	
+7	t362_001	dem	DDART	dër	Masc.Dat.Sg	(NX *	_	
+8	t363_000	lîbe	NA	lîb	Dat.Sg	 * ) ) )	_	
+9	t364_000	-	$_	_	_	 * )	_	
+10	t365_000	hæte	VAFIN	haben	*.Past.Sg.3	(Cl (LB (VX * ) )	_	
+11	t366_000	wir	PPER	wir	Nom.Pl.1	(MF (NX *	_	
+12	t367_000	an	APPR	ane	_	(PPX *	_	
+13	t367_001	dem	DDART	dër	Neut.Dat.Sg	(NX *	_	
+14	t368_000	gemüete	NA	ge-müète	Dat.Sg	 * ) ) ) )	_	
+15	t369_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t370_000	wir	PPER	wir	Nom.Pl.1	(S (Cl (PreF (NX * ) )	_	
+2	t371_000	hæten	VAFIN	haben	*.Past.Pl.1	(LB (VX * ) )	_	
+3	t372_000	in	PPER	ër	Masc.Akk.Sg.3	(MF (NX *	_	
+4	t373_000	von	APPR	von	_	(PPX *	_	
+5	t374_000	muotwillen	NA	muot-wille	Dat.Sg	(NX * ) ) ) )	_	
+6	t375_000	-	$_	_	_	 * )	_	
+7	t376_000	hæten	VAFIN	haben	*.Past.Pl.1	(Cl (LB (VX * ) )	_	
+8	t377_000	in	PPER	ër	Masc.Akk.Sg.3	(MF (NX * )	_	
+9	t378_000	niht	PTKNEG	niht	_	 *	_	
+10	t379_000	von	APPR	von	_	(PPX *	_	
+11	t380_000	decheinen	DIA	deh-èin	*.Dat.Pl.st	(NX *	_	
+12	t381_000	noeten	NA	nôt	Dat.Pl	 * ) ) )	_	
+13	t382_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t383_000	wir	PPER	wir	Nom.Pl.1	(S (Frag (NX * )	_	
+2	t384_000	wâren	VAFIN	wësen	Ind.Past.Pl.1	(VX *	_	
+3	t385_000	ertôrt	VVPP	er-toèren	_	 * )	_	
+4	t386_000	und	KON	unte	_	 *	_	
+5	t387_000	erstumbet	VVPP	er-stumben	_	(VX * )	_	
+6	t388_000	sô	KO*	sô	_	(Cl (PreF * )	_	
+7	t389_000	daz	KOUS	dazz	_	(LB * )	_	
+8	t390_000	wir	PPER	wir	Nom.Pl.1	(MF (NX *	_	
+9	t391_000	von	APPR	von	_	(PPX *	_	
+10	t392_000	gote	NA	got	Dat.Sg	(NX * ) ) )	_	
+11	t393_000	niht	PTKNEG	niht	_	 *	_	
+12	t394_000	guotes	NA	guot	Gen.Sg	(NX * )	_	
+13	t395_000	gehoeren	VVINF	ge-hoèren	_	(VX * )	_	
+14	t396_000	noch	AVD	noh	_	 *	_	
+15	t397_000	gesprechen	VVINF	ge-sprëchen	_	(VX * ) )	_	
+16	t398_000	kunden	VMFIN	kunnen	*.Past.Pl.1	(RB (VX * ) )	_	
+17	t399_000	-	$_	_	_	 * ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t400_000	den	DDART	dër	Masc.Akk.Sg	(S (Cl (PreF (NX *	_	
+2	t401_000	siechtuom	NA	sièch-tuom	Akk.Sg	 * ) )	_	
+3	t402_000	hât	VAFIN	haben	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+4	t403_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * )	_	
+5	t404_000	uns	PPER	wir	Dat.Pl.1	(NX * ) )	_	
+6	t405_000	benomen	VVPP	be-nëmen	_	(RB (VX * ) )	_	
+7	t406_000	-	$_	_	_	 * )	_	
+8	t407_000	der	DDART	dër	Fem.Gen.Sg	(Cl (PreF (NX *	_	
+9	t408_000	genâden	NA	ge-nâde	Gen.Sg	 * ) )	_	
+10	t409_000	sî	VAFIN	sîn	Subj.Pres.Sg.3	(LB (VX * ) )	_	
+11	t410_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * ) )	_	
+12	t411_000	gelobet	VVPP	loben	_	(RB (VX (VX * )	_	
+13	t412_000	und	KON	unte	_	 *	_	
+14	t413_000	geêrt	VVPP	êren	_	(VX * ) ) )	_	
+15	t414_000	-	$_	_	_	 *	_	
+16	t415_000	und	KON	unte	_	(PostF (Cl (PrePreF * )	_	
+17	t416_000	swâ	AVG	swâr	_	(LB * )	_	
+18	t417_000	wir	PPER	wir	Nom.Pl.1	(MF (NX * )	_	
+19	t418_000	noch	AVD	noh	_	 * )	_	
+20	t419_000	haben	VAFIN	haben	*.Pres.Pl.1	(RB (VX * ) )	_	
+21	t420_000	decheinen	DIA	deh-èin	Masc.Akk.Sg.st	(PostF (NX *	_	
+22	t421_000	gebresten	NA	ge-brësten	Akk.Sg	 * ) )	_	
+23	t422_000	-	$_	_	_	 * ) ) )	_	
+24	t423_000	den	DDS	dër	Masc.Akk.Sg	(Cl (PreF (NX * ) )	_	
+25	t424_000	werben	VVFIN	wërben	*.Pres.Pl.1	(LB (VX * ) ) )	_	
+26	t425_000	daz	KOUS	dazz	_	(Cl (LB * )	_	
+27	t426_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX *	_	
+28	t427_000	an	APPR	ane	_	(PPX *	_	
+29	t427_001	uns	PPER	wir	Dat.Pl.1	(NX * ) ) ) )	_	
+30	t428_000	geruoche	VVFIN	ge-ruochen	Subj.Pres.Sg.3	(RB (VX * ) )	_	
+31	t429_000	ze	PTKA	ze	_	(PostF *	_	
+32	t429_001	verwandeln	VVINF	ver-wantel(e)n	_	(VX * ) )	_	
+33	t430_000	-	$_	_	_	 *	_	
+34	t431_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+35	t432_000	wir	PPER	wir	Nom.Pl.1	(MF (NX * )	_	
+36	t433_000	nû	AVD	nû	_	 *	_	
+37	t434_000	hine	AVD	hin(e)	_	 * )	_	
+38	t434_001	vuoren	VVFIN	var(e)n	*.Past.Pl.1	(RB (VX * ) )	_	
+39	t435_000	in	APPR	in	_	(PostF (PPX *	_	
+40	t435_001	sînem	DPOSA	sîn	Masc.Dat.Sg.st	(NX *	_	
+41	t436_000	lobe	NA	lob	Dat.Sg	 * ) )	_	
+42	t437_000	und	KON	unte	_	 *	_	
+43	t438_000	in	APPR	in	_	(PPX *	_	
+44	t438_001	sînen	DPOSA	sîn	*.Dat.Pl.st	(NX *	_	
+45	t439_000	êren	NA	êre	Dat.Pl	 * ) )	_	
+46	t440_000	sô	AVD	sô	_	(PreF *	_	
+47	t441_000	geleben	VVINF	ge-lëben	_	(VX * ) )	_	
+48	t442_000	müezen	VMFIN	müèzen	*.Pres.Pl.1	(LB (VX * ) ) )	_	
+49	t443_000	-	$_	_	_	 *	_	
+50	t444_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+51	t445_000	wir	PPER	wir	Nom.Pl.1	(MF (NX *	_	
+52	t446_000	mit	APPR	mit	_	(PPX *	_	
+53	t447_000	dem	DDART	dër	Masc.Dat.Sg	(NX *	_	
+54	t448_000	lebene	NA	lëben	Dat.Sg	 * ) ) )	_	
+55	t449_000	sîne	DPOSA	sîn	Fem.Akk.Sg.st	(NX *	_	
+56	t450_000	hulde	NA	hulde	Akk.Sg	 * )	_	
+57	t451_000	verdienen	VVINF	ver-diènen	_	(VX * ) )	_	
+58	t452_000	müezen	VMFIN	müèzen	*.Pres.Pl.1	(RB (VX * ) )	_	
+59	t453_000	-	$_	_	_	 * ) ) ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t454_000	-	FM	[!]	_	(S (Frag *	_	
+2	t455_000	-	FM	[!]	_	 *	_	
+3	t456_000	-	FM	[!]	_	 *	_	
+4	t457_000	-	$_	_	_	 * )	_	
+5	t458_000	-	FM	[!]	_	(Frag *	_	
+6	t459_000	-	$_	_	_	 * )	_	
+7	t460_000	-	FM	[!]	_	(Frag *	_	
+8	t461_000	-	FM	[!]	_	 *	_	
+9	t462_000	-	$_	_	_	 * )	_	
+10	t463_000	-	FM	[!]	_	(Frag *	_	
+11	t464_000	-	$_	_	_	 * )	_	
+12	t465_000	-	FM	[!]	_	(Frag *	_	
+13	t466_000	-	FM	[!]	_	 *	_	
+14	t467_000	-	FM	[!]	_	 *	_	
+15	t468_000	-	FM	[!]	_	 *	_	
+16	t469_000	-	FM	[!]	_	 *	_	
+17	t470_000	-	FM	[!]	_	 *	_	
+18	t471_000	-	$_	_	_	 * )	_	
+19	t472_000	-	FM	[!]	_	(Frag *	_	
+20	t472_001	-	FM	[!]	_	 *	_	
+21	t473_000	-	FM	[!]	_	 *	_	
+22	t473_001	hunc	_	hunc	_	 *	_	
+23	t474_000	-	FM	[!]	_	 *	_	
+24	t475_000	-	FM	[!]	_	 *	_	
+25	t476_000	-	$_	_	_	 * )	_	
+26	t477_000	-	FM	[!]	_	(Frag *	_	
+27	t478_000	-	FM	[!]	_	 *	_	
+28	t479_000	-	FM	[!]	_	 *	_	
+29	t480_000	-	FM	[!]	_	 *	_	
+30	t481_000	-	FM	[!]	_	 *	_	
+31	t482_000	-	FM	[!]	_	 *	_	
+32	t483_000	-	FM	[!]	_	 *	_	
+33	t484_000	-	FM	[!]	_	 *	_	
+34	t485_000	-	FM	[!]	_	 *	_	
+35	t486_000	-	FM	[!]	_	 *	_	
+36	t487_000	-	$_	_	_	 * )	_	
+37	t488_000	ze	APPR	ze	_	(Cl (PreF (PPX *	_	
+38	t488_001	einem	DIART	èin	Neut.Dat.Sg.st	(NX *	_	
+39	t489_000	gerihte	NA	ge-riht(e)	Dat.Sg	 * ) ) )	_	
+40	t490_000	quît	VVFIN	quëden	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+41	t491_000	unser	DPOSA	unser	*.Nom.Sg.0	(MF (NX *	_	
+42	t492_000	hêrre	NA	hêrre	Nom.Sg	 * ) )	_	
+43	t493_000	-	$_	_	_	 *	_	
+44	t494_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+45	t495_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX *	_	
+46	t496_000	in	APPR	in	_	(PPX *	_	
+47	t496_001	dise	DDA	dise	Fem.Akk.Sg	(NX *	_	
+48	t497_000	werlte	NA	wër(e)lt	Akk.Sg	 * ) ) )	_	
+49	t498_000	-	$_	_	_	 * )	_	
+50	t499_000	komen	VVPP	komen	_	(Frag (RB (VX *	_	
+51	t500_000	sî	VAFIN	sîn	Subj.Pres.Sg.3	 * ) )	_	
+52	t501_000	-	$_	_	_	 * ) ) )	_	
+53	t502_000	daz	KOUS	dazz	_	(Cl (LB * )	_	
+54	t503_000	blinde	ADJA	blint	Pos.Neut.Nom.Pl.st	(MF (NX *	_	
+55	t504_000	liute	NA	liut	Nom.Pl	 * ) )	_	
+56	t505_000	gesehente	VVPS	ge-sëhen	_	(RB (VX *	_	
+57	t506_000	werden	VAFIN	wërden	*.Pres.Pl.3	 * ) )	_	
+58	t507_000	-	$_	_	_	 * ) )	_	
+59	t508_000	und	KON	unte	_	(Frag *	_	
+60	t509_000	gesehente	VVPS	ge-sëhen	_	(VX * )	_	
+61	t510_000	liute	NA	liut	Nom.Pl	(NX * )	_	
+62	t511_000	blint	ADJD	blint	Pos....0	(PreF * )	_	
+63	t512_000	werden	VAFIN	wërden	*.Pres.Pl.3	(LB (VX * ) )	_	
+64	t513_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t514_000	er	PPER	ër	Masc.Nom.Sg.3	(S (Cl (PreF (NX * ) )	_	
+2	t515_000	sprichet	VVFIN	sprëchen	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+3	t516_000	an	APPR	ane	_	(MF (PPX *	_	
+4	t517_000	disem	DDA	dise	Neut.Dat.Sg	(NX *	_	
+5	t518_000	evangelio	NA	evangelium	Dat.Sg	 * ) ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t519_000	diu	DDART	dër	Neut.Nom.Pl	(S (Cl (PreF (NX *	_	
+2	t520_000	ougen	NA	ouge	Nom.Pl	 * ) )	_	
+3	t521_000	sîn	VAFIN	sîn	*.Pres.Pl.3	(LB (VX * ) )	_	
+4	t522_000	sælic	ADJD	sælig	Pos....0	(MF * )	_	
+5	t523_000	diu	DRELS	dër	Neut.Nom.Pl	(PostF (Cl (LB (NX * ) )	_	
+6	t524_000	sehen	VVFIN	sëhen	*.Pres.Pl.3	(RB (VX * ) )	_	
+7	t525_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+8	t526_000	sîne	DPOSA	sîn	*.Nom.Pl.st	(MF (NX *	_	
+9	t527_000	junger	NA	junger(e)	Nom.Pl	 * ) )	_	
+10	t528_000	gesehen	VVPP	sëhen	_	(RB (VX *	_	
+11	t529_000	haben	VAFIN	haben	*.Pres.Pl.3	 * ) )	_	
+12	t530_000	-	$_	_	_	 * ) ) ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t531_000	diu	DDART	dër	Neut.Nom.Pl	(S (Cl (PreF (NX *	_	
+2	t532_000	ôren	NA	ôre	Nom.Pl	 * ) )	_	
+3	t533_000	sîn	VAFIN	sîn	*.Pres.Pl.3	(LB (VX * ) )	_	
+4	t534_000	sælic	ADJD	sælig	Pos....0	(MF * )	_	
+5	t535_000	diu	DRELS	dër	Neut.Nom.Pl	(PostF (Cl (LB (NX * ) )	_	
+6	t536_000	hoeren	VVFIN	hoèren	*.Pres.Pl.3	(RB (VX * ) )	_	
+7	t537_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+8	t538_000	sîn	DPOSA	sîn	*.Nom.Pl.0	(MF (NX *	_	
+9	t539_000	junger	NA	junger(e)	Nom.Pl	 * ) )	_	
+10	t540_000	gehoeret	VVPP	hoèren	_	(RB (VX *	_	
+11	t541_000	haben	VAFIN	haben	*.Pres.Pl.3	 * ) )	_	
+12	t542_000	-	$_	_	_	 * ) ) ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t543_000	nû	KOUS	nû	_	(S (Cl (LB * )	_	
+2	t544_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX *	_	
+3	t545_000	ze	APPR	ze	_	(PPX *	_	
+4	t545_001	sumelîcher	DIA	sume-lich	*.Gen.Pl.st	(NX *	_	
+5	t546_000	liute	NA	liut	Gen.Pl	 * ) ) )	_	
+6	t547_000	blintheit	NA	blint-hèit	Dat.Sg	(NX *	_	
+7	t548_000	in	APPR	in	_	(PPX *	_	
+8	t548_001	dise	DDA	dise	Fem.Akk.Sg	(NX *	_	
+9	t549_000	werlt	NA	wër(e)lt	Akk.Sg	 * ) ) ) )	_	
+10	t550_000	komen	VVPP	komen	_	(RB (VX *	_	
+11	t551_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	 * ) )	_	
+12	t552_000	-	$_	_	_	 * )	_	
+13	t553_000	wâr	AVD	wâr	_	(Cl (PreF *	_	
+14	t554_000	umbe	AVD	umbe	_	 * )	_	
+15	t555_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+16	t556_000	disiu	DDA	dise	Fem.Nom.Sg	(MF (NX *	_	
+17	t557_000	sælde	NA	sæl(e)de	Nom.Sg	 * )	_	
+18	t558_000	allen	DIA	all	*.Dat.Pl.st	(NX *	_	
+19	t559_000	liuten	NA	liut	Dat.Pl	 * )	_	
+20	t560_000	niht	PTKNEG	niht	_	 *	_	
+21	t561_000	gemeine	ADJD	ge-mèine	Pos....0	 * )	_	
+22	t562_000	-	$_	_	_	 *	_	
+23	t563_000	die	DRELS	dër	Fem.Akk.Sg	(PostF (Cl (LB (NX * ) )	_	
+24	t564_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * )	_	
+25	t565_000	den	DDART	dër	*.Dat.Pl	(NX *	_	
+26	t566_000	liuten	NA	liut	Dat.Pl	 * ) )	_	
+27	t567_000	geheizen	VVPP	hèizen	_	(RB (VX *	_	
+28	t568_000	hât	VAFIN	haben	Ind.Pres.Sg.3	 * ) )	_	
+29	t569_000	die	DRELS	dër	*.Nom.Pl	(PostF (Frag (NX * )	_	
+30	t570_000	in	PPER	ër	Masc.Akk.Sg.3	(NX *	_	
+31	t571_000	mit	APPR	mit	_	(PPX *	_	
+32	t572_000	geloubigem	ADJA	ge-loubig	Pos.Neut.Dat.Sg.st	(NX *	_	
+33	t573_000	herzen	NA	hërze	Dat.Sg	 * ) ) )	_	
+34	t574_000	bazzer	AVD	bazz	Comp	 *	_	
+35	t575_000	denne	AVD-KO*	danne	_	 *	_	
+36	t576_000	anderiu	DIA	ander	Neut.Akk.Pl.st	(NX *	_	
+37	t577_000	liute	NA	liut	Akk.Pl	 * )	_	
+38	t578_000	-	$_	_	_	 * ) ) ) ) )	_	
+39	t579_000	gesehen	VVPP	sëhen	_	(Frag (VX *	_	
+40	t580_000	habent	VAFIN	haben	Ind.Pres.Pl.3	 * )	_	
+41	t581_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t582_000	die	DDART	dër	Fem.Nom.Sg	(S (Cl (PreF (NX *	_	
+2	t583_000	sælde	NA	sæl(e)de	Nom.Sg	 * ) )	_	
+3	t584_000	understêt	VVFIN	unter-stân	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+4	t585_000	-	$_	_	_	 *	_	
+5	t586_000	mennischlîch	ADJA	mèn(ni)sch-lich	Pos.*.Dat.Sg.st	(Frag (NX *	_	
+6	t587_000	gemüete	NA	ge-müète	Dat.Sg	 * )	_	
+7	t588_000	und	KON	unte	_	(PrePreF * )	_	
+8	t589_000	daz	KOUS	dazz	_	(LB * )	_	
+9	t590_000	wir	PPER	wir	Nom.Pl.1	(MF (NX * )	_	
+10	t591_000	dâ	AVD	dâr	_	 *	_	
+11	t592_000	ze	APPR	ze	_	(PPX *	_	
+12	t593_000	im	PPER	ër	Masc.Dat.Sg.3	(NX * ) ) )	_	
+13	t594_000	vinden	VVFIN	vinden	*.Pres.Pl.1	(RB (VX * ) )	_	
+14	t595_000	daz	KOUS	dazz	_	(Cl (LB * )	_	
+15	t596_000	im	PPER	ër	Masc.Dat.Sg.3	(MF (NX * )	_	
+16	t597_000	eigenlich	ADJD	èigen-lich	Pos....0	 * )	_	
+17	t598_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	(RB (VX * ) )	_	
+18	t599_000	gotelich	ADJA	gote-lich	Pos.*.Nom.Sg.0	(PostF (NX *	_	
+19	t600_000	reht	NA	rëht	Nom.Sg	 * ) )	_	
+20	t601_000	-	$_	_	_	 *	_	
+21	t602_000	daz	KOUS	dazz	_	(PostF (Cl (LB * )	_	
+22	t603_000	rehtez	ADJA	rëht	Pos.Neut.Nom.Sg.st	(MF (NX *	_	
+23	t604_000	geriht	NA	ge-riht(e)	Nom.Sg	 *	_	
+24	t605_000	ze	APPR	ze	_	(PPX *	_	
+25	t606_000	allem	DIA	all	Neut.Dat.Sg.st	(NX *	_	
+26	t607_000	zîte	NA	zît	Dat.Sg	 * ) ) ) )	_	
+27	t608_000	vüeret	VVFIN	vüèren	Ind.Pres.Sg.3	(RB (VX * ) )	_	
+28	t609_000	dâr	PAVD	dâr/+nâh	_	(PostF *	_	
+29	t610_000	nâch	PAVAP	nâh/dâr+	_	 *	_	
+30	t611_000	und	KON	unte	_	 *	_	
+31	t612_000	iz	PPER	ër	Neut.Nom.Sg.3	(NX * )	_	
+32	t613_000	daz	DDART	dër	Neut.Akk.Sg	(PreF (NX *	_	
+33	t614_000	gemüete	NA	ge-müète	Akk.Sg	 *	_	
+34	t615_000	der	DDART	dër	*.Gen.Pl	(NX *	_	
+35	t616_000	liute	NA	liut	Gen.Pl	 * ) ) )	_	
+36	t617_000	vindet	VVFIN	vinden	Ind.Pres.Sg.3	(LB (VX * ) ) )	_	
+37	t618_000	-	$_	_	_	 * ) ) ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t619_000	er	PPER	ër	Masc.Nom.Sg.3	(S (Cl (PreF (NX * ) )	_	
+2	t620_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+3	t621_000	daz	DDART	dër	Neut.Nom.Sg	(MF (NX *	_	
+4	t622_000	reht	NA	rëht	Nom.Sg	 * ) )	_	
+5	t623_000	-	$_	_	_	 *	_	
+6	t624_000	mit	APPR	mit	_	(Frag (PPX *	_	
+7	t625_000	der	DDART	dër	Fem.Dat.Sg	(NX *	_	
+8	t626_000	genâde	NA	ge-nâde	Dat.Sg	 * ) )	_	
+9	t627_000	-	$_	_	_	 * ) )	_	
+10	t628_000	er	PPER	ër	Masc.Nom.Sg.3	(Cl (PreF (NX * ) )	_	
+11	t629_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+12	t630_000	ouch	KO*	ouch	_	(MF *	_	
+13	t631_000	daz	DDART	dër	Neut.Nom.Sg	(NX *	_	
+14	t632_000	reht	NA	rëht	Nom.Sg	 *	_	
+15	t633_000	ane	APPR	ane	_	(PPX *	_	
+16	t634_000	genâde	NA	ge-nâde	Akk.Sg	(NX * ) ) ) )	_	
+17	t635_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t636_000	daz	DDART	dër	Neut.Nom.Sg	(S (Frag (NX *	_	
+2	t637_000	reht	NA	rëht	Nom.Sg	 *	_	
+3	t638_000	mit	APPR	mit	_	(PPX *	_	
+4	t639_000	der	DDART	dër	Fem.Dat.Sg	(NX *	_	
+5	t640_000	genâde	NA	ge-nâde	Dat.Sg	 * ) ) )	_	
+6	t641_000	-	$_	_	_	 * )	_	
+7	t642_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	(Cl (LB (VX * ) )	_	
+8	t643_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * )	_	
+9	t644_000	sînen	DPOSA	sîn	*.Dat.Pl.st	(NX *	_	
+10	t645_000	vriunden	NA	vriunt	Dat.Pl	 * ) )	_	
+11	t646_000	-	$_	_	_	 *	_	
+12	t647_000	daz	DDART	dër	Neut.Nom.Sg	(Frag (NX *	_	
+13	t648_000	reht	NA	rëht	Nom.Sg	 *	_	
+14	t649_000	ane	APPR	ane	_	(PPX *	_	
+15	t650_000	genâde	NA	ge-nâde	Akk.Sg	(NX * ) ) )	_	
+16	t651_000	-	$_	_	_	 * ) )	_	
+17	t652_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	(Cl (LB (VX * ) )	_	
+18	t653_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * )	_	
+19	t654_000	sînen	DPOSA	sîn	*.Dat.Pl.st	(NX *	_	
+20	t655_000	vînden	NA	vîent	Dat.Pl	 * ) )	_	
+21	t656_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t657_000	wan	KO*	wante	_	(S (Frag *	_	
+2	t658_000	er	PPER	ër	Masc.Nom.Sg.3	(NX * )	_	
+3	t659_000	reht	NA	rëht	Akk.Sg	(PreF (NX * ) )	_	
+4	t660_000	dâ	PAVD	dâr/.+zuo	_	(LB (VX *	_	
+5	t661_000	zuo	PAVAP	zuo/dâr.+	_	 *	_	
+6	t662_000	hât	VAFIN	haben	Ind.Pres.Sg.3	 * ) )	_	
+7	t663_000	daz	KOUS	dazz	_	(Cl (LB * )	_	
+8	t664_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * )	_	
+9	t665_000	iegelîchem	DIS	iè-ge-lich	Masc.Dat.Sg.st	(NX * ) )	_	
+10	t666_000	lône	VVFIN	lônen	*.Pres.Sg.3	(RB (VX * ) )	_	
+11	t667_000	nâch	APPR	nâh	_	(PostF (PPX *	_	
+12	t668_000	sînen	DPOSA	sîn	*.Dat.Pl.st	(NX *	_	
+13	t669_000	gearneden	NA	ge-arnede	Dat.Pl	 * ) ) )	_	
+14	t670_000	-	$_	_	_	 * ) )	_	
+15	t671_000	sînen	DPOSA	sîn	*.Dat.Pl.st	(NX *	_	
+16	t672_000	vriunden	NA	vriunt	Dat.Pl	 *	_	
+17	t673_000	ze	APPR	ze	_	(PPX *	_	
+18	t673_001	genâden	NA	ge-nâde	Dat.Pl	(NX * ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t674_000	-	$_	_	_	(S *	_	
+2	t675_000	sînen	DPOSA	sîn	*.Dat.Pl.st	(Frag (NX *	_	
+3	t676_000	vînden	NA	vîent	Dat.Pl	 *	_	
+4	t677_000	ze	APPR	ze	_	(PPX *	_	
+5	t677_001	ungenâden	NA	un-ge-nâde	Dat.Pl	(NX * ) ) )	_	
+6	t678_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t679_000	iz	PPER	ër	Neut.Nom.Sg.3	(S (Cl (PreF (NX * ) )	_	
+2	t680_000	was	VAFIN	wësen	Ind.Past.Sg.3	(LB (VX * ) )	_	
+3	t681_000	hier	AVD	hièr	_	(MF *	_	
+4	t681_001	vore	AVD	vor(e)	_	 *	_	
+5	t682_000	allez	DIA	all	Neut.Nom.Sg.st	(NX *	_	
+6	t683_000	ein	DIART	èin	Fem.Nom.Sg.0	 *	_	
+7	t684_000	genâde	NA	ge-nâde	Nom.Sg	 * ) )	_	
+8	t685_000	-	$_	_	_	 *	_	
+9	t686_000	unze	KOUS	unz(e)	_	(PostF (Cl (LB * )	_	
+10	t687_000	wir	PPER	wir	Nom.Pl.1	(MF (NX * )	_	
+11	t688_000	die	DDART	dër	Fem.Akk.Sg	(NX *	_	
+12	t689_000	genâde	NA	ge-nâde	Akk.Sg	 *	_	
+13	t690_000	mit	APPR	mit	_	(PPX *	_	
+14	t691_000	die	DDART	dër	Fem.Dat.Sg	(NX *	_	
+15	t692_000	ungehôrsame	NA	un-ge-hôr-sam(e)	Dat.Sg	 * ) ) ) )	_	
+16	t693_000	verworhten	VVFIN	ver-wirken	*.Past.Pl.1	(RB (VX * ) )	_	
+17	t694_000	-	$_	_	_	 * ) ) )	_	
+18	t695_000	dâ	AVD	dâr	_	(Cl (PreF * )	_	
+19	t696_000	geriet	VVFIN	ge-râten	Ind.Past.Sg.3	(LB (VX * ) )	_	
+20	t697_000	iz	PPER	ër	Neut.Nom.Sg.3	(MF (NX *	_	
+21	t698_000	ze	APPR	ze	_	(PPX *	_	
+22	t699_000	einem	DIART	èin	Neut.Dat.Sg.st	(NX *	_	
+23	t700_000	rehte	NA	rëht	Dat.Sg	 * ) ) ) )	_	
+24	t701_000	-	$_	_	_	 * )	_	
+25	t702_000	swederhalben	AVD	swëder-halb(en)	_	(Cl (PreF *	_	
+26	t703_000	iz	PPER	ër	Neut.Nom.Sg.3	(NX * ) )	_	
+27	t704_000	geviele	VVFIN	ge-vallen	Subj.Past.Sg.3	(LB (VX * ) )	_	
+28	t705_000	-	$_	_	_	 *	_	
+29	t706_000	ze	APPR	ze	_	(Frag (PPX *	_	
+30	t706_001	genâden	NA	ge-nâde	Dat.Pl	(NX * ) )	_	
+31	t707_000	oder	KON	oder	_	 *	_	
+32	t708_000	ze	APPR	ze	_	(PPX *	_	
+33	t708_001	ungenâden	NA	un-ge-nâde	Dat.Pl	(NX * ) )	_	
+34	t709_000	-	$_	_	_	 * ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t710_000	sîne	DPOSA	sîn	Masc.Nom.Pl.st	(S (Cl (PreF (NX *	_	
+2	t711_000	vriunt	NA	vriunt	Nom.Pl	 * ) )	_	
+3	t712_000	sint	VAFIN	sîn	Ind.Pres.Pl.3	(LB (VX * ) )	_	
+4	t713_000	alle	DIS	all	*.Nom.Pl.st	(MF (NX *	_	
+5	t714_000	die	DRELS	dër	*.Nom.Pl	(Cl (LB (NX * ) )	_	
+6	t715_000	sîne	DPOSA	sîn	Fem.Akk.Sg.st	(MF (NX *	_	
+7	t716_000	mennischheit	NA	mèn(ni)sch-hèit	Akk.Sg	 * ) )	_	
+8	t717_000	sehent	VVFIN	sëhen	Ind.Pres.Pl.3	(RB (VX * ) )	_	
+9	t718_000	-	$_	_	_	 * ) ) )	_	
+10	t719_000	und	KON	unte	_	(Frag *	_	
+11	t720_000	sîne	DPOSA	sîn	Fem.Akk.Sg.st	(NX *	_	
+12	t721_000	goteheit	NA	gote-hèit	Akk.Sg	 * )	_	
+13	t722_000	innerwertes	AVD	inner-wërtes	_	(PreF *	_	
+14	t723_000	mit	APPR	mit	_	(PPX *	_	
+15	t724_000	dem	DDART	dër	Neut.Dat.Sg	(NX *	_	
+16	t725_000	ougen	NA	ouge	Dat.Sg	 *	_	
+17	t726_000	des	DDART	dër	Neut.Gen.Sg	(NX *	_	
+18	t727_000	herzen	NA	hërze	Gen.Sg	 * ) ) ) )	_	
+19	t728_000	erkennent	VVFIN	er-kènnen	Ind.Pres.Pl.3	(LB (VX * ) )	_	
+20	t729_000	-	$_	_	_	 * ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t730_000	sîne	DPOSA	sîn	Masc.Nom.Pl.st	(S (Cl (PreF (NX *	_	
+2	t731_000	vînde	NA	vîent	Nom.Pl	 * ) )	_	
+3	t732_000	sint	VAFIN	sîn	Ind.Pres.Pl.3	(LB (VX * ) )	_	
+4	t733_000	alle	DIA	all	*.Nom.Pl.st	(MF * )	_	
+5	t734_000	die	DRELS	dër	*.Nom.Pl	(PostF (Frag (NX * )	_	
+6	t735_000	sîne	DPOSA	sîn	Fem.Akk.Sg.st	(NX *	_	
+7	t736_000	mennischheit	NA	mèn(ni)sch-hèit	Akk.Sg	 * )	_	
+8	t737_000	-	$_	_	_	 * ) ) )	_	
+9	t738_000	erkennent	VVFIN	er-kènnen	Ind.Pres.Pl.3	(Cl (LB (VX * ) )	_	
+10	t739_000	-	$_	_	_	 *	_	
+11	t740_000	und	KON	unte	_	(Frag *	_	
+12	t741_000	sîne	DPOSA	sîn	Fem.Akk.Sg.st	(NX *	_	
+13	t742_000	goteheit	NA	gote-hèit	Akk.Sg	 * )	_	
+14	t743_000	-	FM	[!]	_	 *	_	
+15	t744_000	-	FM	[!]	_	 *	_	
+16	t745_000	-	FM	[!]	_	 *	_	
+17	t746_000	-	$_	_	_	 *	_	
+18	t747_000	diu	DRELS	dër	Fem.Nom.Sg	(Cl (LB (NX * ) )	_	
+19	t748_000	innerwertes	AVD	inner-wërtes	_	(MF * )	_	
+20	t749_000	verholen	VVPP	ver-hël(e)n	_	(RB (VX *	_	
+21	t750_000	ist	VAFIN	sîn	Ind.Pres.Sg.3	 * ) )	_	
+22	t751_000	-	$_	_	_	 * ) ) )	_	
+23	t752_000	vrevellîchen	AVD	vrèvel-lîche	_	(Cl (PreF * )	_	
+24	t753_000	vermanet	VVFIN	ver-manen	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+25	t754_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t755_000	von	APPR	von	_	(S (Cl (PreF (PPX *	_	
+2	t756_000	den	DDS	dër	*.Dat.Pl	(NX * ) ) )	_	
+3	t757_000	wîssaget	VVFIN	wîssagen	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+4	t758_000	der	DDART	dër	Masc.Nom.Sg	(MF (NX *	_	
+5	t759_000	hêrre	NA	hêrre	Nom.Sg	 *	_	
+6	t760_000	Simeon	NE	Simeon	Nom.Sg	 * ) )	_	
+7	t761_000	-	$_	_	_	 *	_	
+8	t762_000	dô	KOUS	dô	_	(PostF (Cl (LB * )	_	
+9	t763_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX * )	_	
+10	t764_000	sîne	DPOSA	sîn	Fem.Akk.Sg.st	(NX *	_	
+11	t765_000	mennischheit	NA	mèn(ni)sch-hèit	Akk.Sg	 *	_	
+12	t766_000	in	APPR	in	_	(PPX *	_	
+13	t767_000	dem	DDART	dër	Neut.Dat.Sg	(NX *	_	
+14	t768_000	temploe	NA	templo	Dat.Sg	 * ) ) ) )	_	
+15	t769_000	truoc	VVFIN	tragen	Ind.Past.Sg.3	(RB (VX * ) )	_	
+16	t770_000	an	APPR	ane	_	(PostF *	_	
+17	t771_000	sînen	DPOSA	sîn	*.Akk.Pl.wk	 *	_	
+18	t772_000	armen	ADJA	arm	Pos.*.Akk.Pl..%.wk	 * )	_	
+19	t773_000	-	$_	_	_	 * ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t774_000	er	PPER	ër	Masc.Nom.Sg.3	(S (Cl (PreF (NX * ) )	_	
+2	t775_000	quat	VVFIN	quëden	Ind.Past.Sg.3	(LB (VX * ) )	_	
+3	t776_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t777_000	-	FM	[!]	_	(S (Frag *	_	
+2	t778_000	-	FM	[!]	_	 *	_	
+3	t779_000	-	FM	[!]	_	 *	_	
+4	t780_000	-	FM	[!]	_	 *	_	
+5	t781_000	-	FM	[!]	_	 *	_	
+6	t782_000	-	FM	[!]	_	 *	_	
+7	t783_000	-	FM	[!]	_	 *	_	
+8	t784_000	-	FM	[!]	_	 *	_	
+9	t785_000	-	$_	_	_	 * )	_	
+10	t786_000	er	PPER	ër	Masc.Nom.Sg.3	(Frag (NX * )	_	
+11	t787_000	wære	VAFIN	wësen	Subj.Past.Sg.3	(VX *	_	
+12	t788_000	komen	VVPP	komen	_	 * )	_	
+13	t789_000	ze	APPR	ze	_	(PPX *	_	
+14	t790_000	einem	DIART	èin	Masc.Dat.Sg.st	(NX *	_	
+15	t791_000	valle	NA	vall	Dat.Sg	 * ) )	_	
+16	t792_000	-	$_	_	_	 * )	_	
+17	t793_000	und	KON	unte	_	(Frag *	_	
+18	t794_000	ze	APPR	ze	_	(PPX *	_	
+19	t794_001	einer	DIART	èin	Fem.Dat.Sg.st	(NX *	_	
+20	t795_000	urstende	NA	ur-stènte	Dat.Sg	 * ) )	_	
+21	t796_000	vile	AVD	vil(e)	_	 *	_	
+22	t797_000	lûte	ADJD	lût	Pos....0	 *	_	
+23	t798_000	in	APPR	in	_	(PPX *	_	
+24	t798_001	dise	DDA	dise	Fem.Akk.Sg	(NX *	_	
+25	t799_000	werlte	NA	wër(e)lt	Akk.Sg	 * ) )	_	
+26	t800_000	-	$_	_	_	 * )	_	
+27	t801_000	und	KON	unte	_	(Frag *	_	
+28	t802_000	ze	APPR	ze	_	(PPX *	_	
+29	t803_000	einem	DIART	èin	Neut.Dat.Sg.st	(NX *	_	
+30	t804_000	zeichene	NA	zèichen	Dat.Sg	 * ) )	_	
+31	t805_000	daz	KOUS	dazz	_	(Cl (LB * )	_	
+32	t806_000	von	APPR	von	_	(MF (PPX *	_	
+33	t807_000	sînen	DPOSA	sîn	*.Dat.Pl.st	(NX *	_	
+34	t808_000	vînden	NA	vîent	Dat.Pl	 * ) ) )	_	
+35	t809_000	wirdet	VAFIN	wërden	Ind.Pres.Sg.3	(RB (VX *	_	
+36	t810_000	versprochen	VVPP	ver-sprëchen	_	 * ) )	_	
+37	t811_000	-	$_	_	_	 * ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t812_000	zeichenlîchen	AVD	zèichen-lîche	_	(S (Cl (PreF * )	_	
+2	t813_000	kom	VVFIN	komen	Ind.Past.Sg.3	(LB (VX * ) )	_	
+3	t814_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX *	_	
+4	t815_000	in	APPR	in	_	(PPX *	_	
+5	t815_001	dise	DDA	dise	Fem.Akk.Sg	(NX *	_	
+6	t816_000	werlte	NA	wër(e)lt	Akk.Sg	 * ) ) ) )	_	
+7	t817_000	-	$_	_	_	 * )	_	
+8	t818_000	zeichenlîchen	AVD	zèichen-lîche	_	(Cl (PreF * )	_	
+9	t819_000	was	VAFIN	wësen	Ind.Past.Sg.3	(LB (VX * ) )	_	
+10	t820_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX *	_	
+11	t821_000	in	APPR	in	_	(PPX *	_	
+12	t822_000	dirre	DDA	dise	Fem.Dat.Sg	(NX *	_	
+13	t823_000	werlte	NA	wër(e)lt	Dat.Sg	 * ) ) ) )	_	
+14	t824_000	-	$_	_	_	 * )	_	
+15	t825_000	zeichenlîchen	AVD	zèichen-lîche	_	(Cl (PreF * )	_	
+16	t826_000	vuor	VVFIN	var(e)n	Ind.Past.Sg.3	(LB (VX * ) )	_	
+17	t827_000	er	PPER	ër	Masc.Nom.Sg.3	(MF (NX *	_	
+18	t828_000	von	APPR	von	_	(PPX *	_	
+19	t829_000	dirre	DDA	dise	Fem.Dat.Sg	(NX *	_	
+20	t830_000	werlte	NA	wër(e)lt	Dat.Sg	 * ) ) ) )	_	
+21	t831_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t832_000	daz	DDS	dër	Neut.Nom.Sg	(S (Cl (PreF (NX * ) )	_	
+2	t833_000	geloubeten	VVFIN	ge-louben	*.Past.Pl.3	(LB (VX * ) )	_	
+3	t834_000	sîne	DPOSA	sîn	*.Nom.Pl.st	(MF (NX *	_	
+4	t835_000	vriunde	NA	vriunt	Nom.Pl	 * ) )	_	
+5	t836_000	-	$_	_	_	 * )	_	
+6	t837_000	widerredeten	VVFIN	wider-rèden	*.Past.Pl.3	(Cl (LB (VX * ) )	_	
+7	t838_000	sîne	DPOSA	sîn	*.Nom.Pl.st	(MF (NX *	_	
+8	t839_000	vînde	NA	vîent	Nom.Pl	 * ) )	_	
+9	t840_000	-	$_	_	_	 * ) ) )	_
+	
+

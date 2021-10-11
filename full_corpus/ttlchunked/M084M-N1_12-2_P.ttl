@@ -1,0 +1,41 @@
+#ID TID WORD LEMMA POS INFL SB file:///M084M-N1_12-2_P.ttl/
+@prefix : <file:///M084M-N1_12-2_P.ttl/> .
+@prefix powla: <http://purl.org/powla/powla.owl#> .
+@prefix terms: <http://purl.org/acoli/open-ie/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#> .
+@prefix x: <http://purl.org/acoli/conll-rdf/xml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+:s1_0 a powla:Root , nif:Sentence .
+:s1_1 a nif:Word; conll:WORD "dirre"; powla:hasParent :s1_2i; powla:nextNode :s1_2; conll:HEAD :s1_0; conll:ID "1"; conll:INFL "Masc.Nom.Sg"; conll:KOEBLERLEMMA "dise"; conll:LEMMA "dise"; conll:LEXERLEMMA "dise"; conll:POS "DDA"; conll:TID "t1_000"; nif:nextWord :s1_2 .
+:s1_1_S a powla:Node; powla:hasParent :s1_0; conll:CAT "S" .
+:s1_2 a nif:Word; conll:WORD "salme"; powla:hasParent :s1_2i; conll:HEAD :s1_0; conll:ID "2"; conll:INFL "Nom.Sg"; conll:KOEBLERLEMMA "[busspsalmen, psalm, salm]"; conll:LEMMA "salm(e)"; conll:LEXERLEMMA "salme"; conll:MANUALLEMMA "[inanimate]"; conll:POS "NA"; conll:TID "t2_000"; nif:nextWord :s1_3 .
+:s1_2i a powla:Node; powla:hasParent :s1_2i_PreF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Nom.Sg"; conll:PN "false" .
+:s1_2i_Cl a powla:Node; powla:hasParent :s1_1_S; conll:CAT "Cl" .
+:s1_2i_PreF a powla:Node; powla:hasParent :s1_2i_Cl; powla:nextNode :s1_3i_LB; conll:CAT "PreF" .
+:s1_3 a nif:Word; conll:WORD "ist"; powla:hasParent :s1_3i; conll:HEAD :s1_0; conll:ID "3"; conll:INFL "Ind.Pres.Sg.3"; conll:KOEBLERLEMMA "[sein]"; conll:LEMMA "sîn"; conll:LEXERLEMMA "sin"; conll:POS "VAFIN"; conll:TID "t3_000"; nif:nextWord :s1_4 .
+:s1_3i a powla:Node; powla:hasParent :s1_3i_LB; conll:CAT "VX"; conll:FIN "true"; conll:POS "VAFIN" .
+:s1_3i_LB a powla:Node; powla:hasParent :s1_2i_Cl; powla:nextNode :s1_4_MF; conll:CAT "LB" .
+:s1_4 a nif:Word; conll:WORD "nütze"; powla:hasParent :s1_4_MF; powla:nextNode :s1_5i; conll:HEAD :s1_0; conll:ID "4"; conll:KOEBLERLEMMA "[nütze, nützliche]"; conll:LEMMA "nütze"; conll:LEXERLEMMA "nutze"; conll:POS "AVD"; conll:TID "t4_000"; nif:nextWord :s1_5 .
+:s1_4_MF a powla:Node; powla:hasParent :s1_2i_Cl; powla:nextNode :s1_8; conll:CAT "MF" .
+:s1_5 a nif:Word; conll:WORD "wîben"; powla:hasParent :s1_5i; conll:HEAD :s1_0; conll:ID "5"; conll:INFL "Dat.Pl"; conll:KOEBLERLEMMA "wib"; conll:LEMMA "wîb"; conll:LEXERLEMMA "Wib"; conll:POS "NA"; conll:TID "t5_000"; nif:nextWord :s1_6 .
+:s1_5i a powla:Node; powla:hasParent :s1_4_MF; powla:nextNode :s1_6; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Pl"; conll:PN "false" .
+:s1_6 a nif:Word; conll:WORD "und"; powla:hasParent :s1_4_MF; powla:nextNode :s1_7i; conll:HEAD :s1_0; conll:ID "6"; conll:KOEBLERLEMMA "unte"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:TID "t6_000"; nif:nextWord :s1_7 .
+:s1_7 a nif:Word; conll:WORD "mannen"; powla:hasParent :s1_7i; conll:HEAD :s1_0; conll:ID "7"; conll:INFL "Dat.Pl"; conll:KOEBLERLEMMA "mann"; conll:LEMMA "mann"; conll:LEXERLEMMA "mann"; conll:POS "NA"; conll:TID "t7_000"; nif:nextWord :s1_8 .
+:s1_7i a powla:Node; powla:hasParent :s1_4_MF; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Pl"; conll:PN "false" .
+:s1_8 a nif:Word; terms:SB "true"; powla:hasParent :s1_2i_Cl; powla:nextNode :s1_11ii_Cl; conll:HEAD :s1_0; conll:ID "8"; conll:POS "$_"; conll:TID "t8_000"; nif:nextWord :s1_9 .
+:s1_9 a nif:Word; conll:WORD "an"; powla:hasParent :s1_11ii; powla:nextNode :s1_11i; conll:HEAD :s1_0; conll:ID "9"; conll:KOEBLERLEMMA "[an, ausser, grossmutter, grossvater, nach, ohne]"; conll:LEMMA "ane"; conll:LEXERLEMMA "ane"; conll:POS "APPR"; conll:TID "t9_000"; nif:nextWord :s1_10 .
+:s1_10 a nif:Word; conll:WORD "der"; powla:hasParent :s1_11i; powla:nextNode :s1_11; conll:HEAD :s1_0; conll:ID "10"; conll:INFL "Fem.Dat.Sg"; conll:KOEBLERLEMMA "[der, obgleich]"; conll:LEMMA "dër"; conll:LEXERLEMMA "der"; conll:POS "DDART"; conll:TID "t9_001"; nif:nextWord :s1_11 .
+:s1_11 a nif:Word; conll:WORD "sêle"; powla:hasParent :s1_11i; conll:HEAD :s1_0; conll:ID "11"; conll:INFL "Dat.Sg"; conll:KOEBLERLEMMA "[phoca, seele]"; conll:LEMMA "sêle"; conll:LEXERLEMMA "sele"; conll:MANUALLEMMA "[animate, inanimate, human]"; conll:POS "NA"; conll:TID "t10_000"; nif:nextWord :s1_12 .
+:s1_11i a powla:Node; powla:hasParent :s1_11ii; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Sg"; conll:PN "false" .
+:s1_11ii a powla:Node; powla:hasParent :s1_11ii_Cl; powla:nextNode :s1_12; conll:CAT "PPX" .
+:s1_11ii_Cl a powla:Node; powla:hasParent :s1_2i_Cl; conll:CAT "Frag" .
+:s1_12 a nif:Word; conll:WORD "und"; powla:hasParent :s1_11ii_Cl; powla:nextNode :s1_15ii; conll:HEAD :s1_0; conll:ID "12"; conll:KOEBLERLEMMA "unte"; conll:LEMMA "unte"; conll:LEXERLEMMA "unte"; conll:POS "KON"; conll:TID "t11_000"; nif:nextWord :s1_13 .
+:s1_13 a nif:Word; conll:WORD "an"; powla:hasParent :s1_15ii; powla:nextNode :s1_15i; conll:HEAD :s1_0; conll:ID "13"; conll:KOEBLERLEMMA "[an, ausser, grossmutter, grossvater, nach, ohne]"; conll:LEMMA "ane"; conll:LEXERLEMMA "ane"; conll:POS "APPR"; conll:TID "t11_001"; nif:nextWord :s1_14 .
+:s1_14 a nif:Word; conll:WORD "dem"; powla:hasParent :s1_15i; powla:nextNode :s1_15; conll:HEAD :s1_0; conll:ID "14"; conll:INFL "Masc.Dat.Sg"; conll:KOEBLERLEMMA "[der, obgleich]"; conll:LEMMA "dër"; conll:LEXERLEMMA "der"; conll:POS "DDART"; conll:TID "t11_002"; nif:nextWord :s1_15 .
+:s1_15 a nif:Word; conll:WORD "lîbe"; powla:hasParent :s1_15i; conll:HEAD :s1_0; conll:ID "15"; conll:INFL "Dat.Sg"; conll:KOEBLERLEMMA "lib"; conll:LEMMA "lîb"; conll:LEXERLEMMA "lib"; conll:POS "NA"; conll:SB "DE"; conll:TID "t12_000"; nif:nextWord :s1_16 .
+:s1_15i a powla:Node; powla:hasParent :s1_15ii; conll:ANIMACY "none"; conll:CAT "NX"; conll:INFL "Dat.Sg"; conll:PN "false" .
+:s1_15ii a powla:Node; powla:hasParent :s1_11ii_Cl; powla:nextNode :s1_16; conll:CAT "PPX" .
+:s1_16 a nif:Word; terms:SB "true"; powla:hasParent :s1_11ii_Cl; conll:HEAD :s1_0; conll:ID "16"; conll:POS "$_"; conll:SB "$E"; conll:TID "t13_000" .
+

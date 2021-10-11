@@ -1,0 +1,43 @@
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+#ID TID WORD LEMMA POS INFL SB file:///M041-N1_11-1_P.ttl/
+1	t1_000	-	FM	explicit	_	(S (Frag *	_	
+2	t2_000	-	$_	_	_	 * )	_	
+3	t3_000	-	FM	liber	_	(Frag *	_	
+4	t4_000	-	$_	_	_	 * )	_	
+5	t5_000	-	FM	tertius	_	(Frag *	_	
+6	t6_000	-	$_	_	_	 *	_	
+7	t7_000	-	FM	dialogus	_	 *	_	
+8	t8_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t9_000	daz	DDS	dër	Neut.Nom.Sg	(S (Cl (PreF (NX * ) )	_	
+2	t10_000	quît	VVFIN	quëden	Ind.Pres.Sg.3	(LB (VX * ) ) ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t11_000	-	NA	sermo	Nom.Sg	(S (Frag (NX *	_	
+2	t12_000	-	CARDS	duo	*.Gen.Pl	(NX * ) )	_	
+3	t13_000	-	$_	_	_	 * )	_	
+4	t14_000	wande	KO*	wante	_	(Frag *	_	
+5	t15_000	zwêne	CARDA	zwêne	Masc.Nom.Pl.st	(PreF * )	_	
+6	t16_000	kôsen	VVFIN	kôsen	Subj.Pres.Pl.3	(LB (VX * ) )	_	
+7	t17_000	diz	DDA	dise	Neut.Akk.Sg	(MF * )	_	
+8	t18_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t19_000	ich	PPER	ich	Nom.Sg.1	(S (Cl (PreF (NX * ) )	_	
+2	t20_000	meine	VVFIN	mèinen	Ind.Pres.Sg.1	(LB (VX * ) )	_	
+3	t21_000	-	$_	_	_	 * ) ) )	_
+	
+
+# global.columns = ID TID WORD POS LEMMA INFL PARSE ANIMACY
+1	t22_000	einer	CARDS	èin	Masc.Nom.Sg.st	(S (Cl (PreF (NX * ) )	_	
+2	t23_000	vrâget	VVFIN	vrâgen	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+3	t24_000	-	$_	_	_	 * )	_	
+4	t25_000	anderer	DIS	ander	Masc.Nom.Sg.st	(Cl (PreF (NX * ) )	_	
+5	t25_001	antwürtet	VVFIN	ant-würten	Ind.Pres.Sg.3	(LB (VX * ) )	_	
+6	t26_000	-	$_	_	_	 * ) ) )	_
+	
+
