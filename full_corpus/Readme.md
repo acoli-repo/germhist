@@ -9,6 +9,7 @@ Die **ReM Treebank** / **Baumbank Mittelhochdeutsch** ist ein syntaktisch und se
     + [Tabellenformat](#tabellenformat)
     + [Beispiel](#beispiel)
     + [Syntax](#syntax)
+    + [Semantik](#semantik)
   * [Status und Versionsgeschichte](#status-und-versionsgeschichte)
   * [Lizenz, Nutzung, Referenzen](#lizenz--nutzung--referenzen)
 
