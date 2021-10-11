@@ -102,6 +102,8 @@ Die Notation der `PARSE`-Spalte folgt einer in den [CoNLL Shared Tasks](https://
 | | | | |
 | `Frag` | Fragment (Parse unvollständig) |  135.038 (5.9%) | Teilanalysen erfordern manuelle Weiterbearbeitung |
 
+Der Parser geht über Chunking darin hinaus, dass er die Ko(sub)ordination von Konstituenten voraussagt. Bei Ambiguitäten im Attachment wird dabei low attachment angenommen.
+
 ## Status und Versionsgeschichte
 
 - Mittelhochdeutsche Baumbank, Version 0.1 (Chiarcos et al., 2018)
