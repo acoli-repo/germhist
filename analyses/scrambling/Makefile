@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv
+all: rem.tsv ref.tsv germanc.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -42,3 +42,20 @@ ref.tsv: tiger-rdf conll-rdf
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 		echo;\
 	done | tee ref.tsv
+
+germanc.tsv: conll-rdf
+		cd ../../GerManC;\
+		make;
+		for file in ../../GerManC/LING-COL/*txt; do \
+			genre=`basename $$file | sed s/'_.*'//;`;\
+			year=`basename $$file |  sed s/'.*\([0-9][0-9][0-9][0-9]\)_[A-Z][^_]*.txt'/'\1'/g;`;\
+			c=`echo $$year / 100 + 1 | bc`;\
+			h=`echo $$year % 100 / 50 + 1 | bc`;\
+			#echo $$file $$year $$c $$h $$genre;\
+			cat $$file | \
+			conll-rdf/run.sh CoNLLStreamExtractor '#' ID WORD NORM POS LEMMA INFL EDGE HEAD 2>/dev/null| \
+			conll-rdf/run.sh CoNLLRDFFormatter -query germanc.sparql 2>/dev/null|\
+			egrep '.' | grep -v '^#' | \
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+			echo;\
+		done | tee germanc.tsv

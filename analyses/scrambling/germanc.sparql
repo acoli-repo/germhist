@@ -1,0 +1,38 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT
+  DISTINCT ?sentence ?verb ?vfin ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+WHERE {
+  ?sentence a nif:Sentence.
+  ?vfin conll:HEAD+ ?sentence.
+
+  ?vfin conll:LEMMA ?vlemma.
+  OPTIONAL {
+    ?vfin ^conll:HEAD ?rk.
+    ?rk conll:EDGE "OC".
+    ?vv conll:HEAD* ?rk; conll:POS ?vvpos; conll:LEMMA ?vvlemma.
+    FILTER(strstarts(?vvpos,"VV"))
+  }
+  BIND(if(bound(?vvlemma), ?vvlemma, ?vlemma) as ?verb)
+
+  ?acc conll:EDGE "OA"; conll:HEAD ?vfin; conll:POS ?accPos.
+  ?dat conll:EDGE "DA"; conll:HEAD ?vfin; conll:POS ?datPos.
+
+  OPTIONAL { [] conll:HEAD ?acc; conll:EDGE "NK"; conll:POS "ART"; conll:LEMMA ?aDL. BIND(concat("ART.",?aDL) as ?accDet) }
+  OPTIONAL { [] conll:HEAD ?acc; conll:EDGE "NK"; conll:POS ?accDet FILTER(strends(?accDet,"AT")) MINUS { [conll:POS "ART"] conll:HEAD ?acc } }
+
+  OPTIONAL { [] conll:HEAD ?dat; conll:EDGE "NK"; conll:POS "ART"; conll:LEMMA ?aDL. BIND(concat("ART.",?aDL) as ?datDet) }
+  OPTIONAL { [] conll:HEAD ?dat; conll:EDGE "NK"; conll:POS ?datDet FILTER(strends(?datDet,"AT")) MINUS { [conll:POS "ART"] conll:HEAD ?dat }}
+
+  ?vfin nif:nextWord+ ?acc, ?dat.
+
+  OPTIONAL { ?acc nif:nextWord+ ?dat. BIND("ACC>DAT" as ?order)}
+  OPTIONAL { ?dat nif:nextWord+ ?acc. BIND("DAT>ACC" as ?order)}
+
+  OPTIONAL { ?verb conll:HEAD ?deep. ?deep conll:HEAD+ ?sentence. }
+  BIND(if(bound(?deep),"depOrCoord","main") as ?embedding)
+}
