@@ -1,0 +1,42 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla:<http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# input is the bracket representation
+# we map every powla:Node to a tiger:Nonterminal
+# we map every rdf:value of a powla:Node to a tiger:cat property
+# we generate tiger:id properties
+# we expect tiger-compliant URIs for tokens and sentences (i.e., canonical CoNLL-RDF URIs)
+# TIGER-compliant node IDs?
+# we do not validate
+
+DELETE {
+  ?node a conll:PARSE; rdf:value ?value.
+} INSERT {
+  ?node a tiger:Nonterminal; tiger:cat ?value; tiger:id ?tid.
+} WHERE {
+  ?node a conll:PARSE.
+  MINUS { ?node a nif:Word . }
+  OPTIONAL { ?node rdf:value ?value }
+
+  # ID
+  { SELECT ?node (SAMPLE(?snr) as ?sid)
+    WHERE {
+      ?word a nif:Word; powla:hasParent+ ?node.
+      BIND(replace(str(?word),'^.*[#/](s[0-9])[^0-9][^#/]*$','$1') AS ?snr)
+    } GROUP BY ?node
+  }
+
+  OPTIONAL { SELECT ?node (COUNT(distinct ?pre) as ?nr)
+    WHERE {
+      ?node a powla:Node.
+      ?node (powla:hasParent*/(^powla:next/(^powla:hasParent)*)*)? ?pre.
+    } GROUP BY ?node
+  }
+  BIND(
+    concat(?sid,"_",
+      if(bound(?nr),str(500+?nr+1), "501"))
+    as ?tid)
+};

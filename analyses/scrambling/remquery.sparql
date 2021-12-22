@@ -1,0 +1,68 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla:<http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT
+  DISTINCT ?sentence ?verb ?mf ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+WHERE {
+  ?mf tiger:cat "MF".
+
+  ?accNP powla:hasParent ?mf; tiger:cat "NX"; ^powla:hasParent ?acc.
+  ?acc conll:INFL ?accInfl. FILTER(contains(?accInfl, "Akk"))
+  ?acc conll:POS ?accPos.   FILTER(?accPos in ("NA","NE","PPER"))
+  OPTIONAL { [] powla:hasParent ?accNP; conll:POS ?accDet. FILTER(?accDet in ("DDART","DIART", "DPOSA")) }
+
+  ?datNP powla:hasParent ?mf; tiger:cat "NX"; ^powla:hasParent ?dat.
+  FILTER(?accNP != ?datNP)
+  ?dat conll:INFL ?datInfl.FILTER(contains(?datInfl, "Dat"))
+  ?dat conll:POS ?datPos.  FILTER(?datPos in ("NA","NE","PPER"))
+  OPTIONAL { [] powla:hasParent ?datNP; conll:POS ?datDet. FILTER(?datDet in ("DDART","DIART", "DPOSA")) }
+
+  OPTIONAL { ?acc nif:nextWord+ ?dat. BIND("ACC>DAT" as ?order)}
+  OPTIONAL { ?dat nif:nextWord+ ?acc. BIND("DAT>ACC" as ?order)}
+
+  ?acc conll:HEAD+ ?sentence.
+  ?sentence a nif:Sentence.
+
+  OPTIONAL { ?frag tiger:cat "FRAG". ?mf powla:hasParent+ ?frag }
+  OPTIONAL { ?mf powla:hasParent ?cl. ?cl powla:hasParent ?s. ?s powla:hasParent ?deep }
+  BIND(IF(BOUND(?frag),"frag",if(!BOUND(?deep),"main","depOrCoord")) as ?embedding)
+
+  OPTIONAL {
+    SELECT ?mf (GROUP_CONCAT(distinct ?lemma; separator=" ") as ?vlemma)
+    WHERE {
+      ?mf powla:next|^powla:next ?k.
+      ?k tiger:cat ?kcat.                        #FILTER(?kcat in ("LK","RK"))
+      ?verb powla:hasParent/powla:hasParent/powla:hasParent? ?k; conll:POS ?vpos. FILTER(strstarts(?vpos,"VV"))
+      ?verb conll:LEMMA ?lemma.
+    } GROUP BY ?mf
+  }
+
+  OPTIONAL {
+    SELECT ?mf (SAMPLE (?lemma) as ?vlemma2)
+    WHERE {
+      ?mf powla:next ?k.
+      ?k tiger:cat "RK".
+      ?verb powla:hasParent+ ?k.
+      ?verb conll:LEMMA ?lemma. FILTER(strstarts(?lemma,"V"))
+      MINUS { ?verb (^nif:nextWord)+ [^powla:hasParent ?k; conll:LEMMA ?tmp] FILTER(strstarts(?tmp,"V"))}
+    } GROUP BY ?mf
+  }
+
+  OPTIONAL {
+    SELECT ?mf (SAMPLE(?lemma) as ?vlemma3)
+    WHERE {
+      ?mf powla:next ?k.
+      ?k tiger:cat "LK".
+      ?verb powla:hasParent+ ?k.
+      ?verb conll:LEMMA ?lemma. FILTER(strstarts(?lemma,"V"))
+      MINUS { ?verb (^nif:nextWord)+ [^powla:hasParent ?k; conll:LEMMA ?tmp] FILTER(strstarts(?tmp,"V"))}
+    } GROUP BY ?mf
+  }
+
+
+  BIND(if(BOUND(?vlemma), ?vlemma, if(BOUND(?vlemma2), ?vlemma2, ?vlemma3)) as ?verb)
+
+}

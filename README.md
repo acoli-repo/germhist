@@ -1,22 +1,36 @@
-# Syntactically annotated corpora of historical German
+# Syntactic analysis of historical German
 
-At the moment, we provide the following corpora. All of these build on existing corpora, with a layer of syntactic annotation added.
+In this repository, we provide a number of corpora of historical German as well as example workflows
+for their evaluation for designated research questions.
 
-- [`ReM/full_corpus/`](ReM): ReM Treebank / Baumbank Mittelhochdeutsch
+Data directly provided via this repository (e.g., for Middle High German), includes annotations produced by the ACoLi lab.
+For external data, we provide build scripts to retrieve the necessary data.
+
+## [`ReM/full_corpus/`](ReM): ReM Treebank / Baumbank Mittelhochdeutsch
+
   - Middle High German, 1050-1350
   - 2.2 million tokens
   - annotation layers:
-    - POS/LEMMA/FEATS: manually annotation from Referenzkorpus Mittelhochdeutsch v.1.0
+    - POS/LEMMA/FEATS: manually annotation from Referenzkorpus Mittelhochdeutsch v.1.0 (external)
     - PARSE: phrase structure parse automatically produced by ACoLi (QuantQual project, 2017)
-    - ANIMACY: automatically annotated by ACoLi (Quant)
-    - TODO: EDGE/HEAD: UD-style dependency parse extrapolated from PARSE
 
-- ReF: ReF Treebank
+## [`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch (external)
+
   - Early Modern High German, 1350-1650
+  - 3.6 million tokens
   - annotation layers:
-    - POS/LEMMA/FEATS: manual annotation in ReF
-    - PARSE: phrase structure parse automatically produced by the ReF project
-    - TODO: EDGE/HEAD: UD-style dependency parse extrapolated from PARSE
+    - POS/LEMMA/FEATS: manual annotation
+    - PARSE: automatically produced phrase structure parse ([600.000 token subcorpus](ReF/ReF-v1.0.2/ref-up))
+
+## [`analyses/`](analyses): Case studies over that data
+
+We demonstrate the application of [Fintan](https://github.com/Pret-a-LLOD/Fintan)
+(resp., [CoNLL-RDF](https://github.com/acoli-repo/conll-rdf) and related technologies integrated in Fintan)
+for complex search and retrieval tasks in real-world research questions in linguistics and the philologies.
+
+- [`analyses/scrambling`](analyses/scrambling): Study diachronic word order of post-verbal oblique arguments
+
+## Upcoming attractions
 
 - ENHG Treebank
   - Early Modern High German, Eastern Central (Saxonian), 1522
