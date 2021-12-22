@@ -1,0 +1,14 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# transform tiger edges to datatype properties, pointing from head to dependent
+INSERT {
+  ?parent ?rel ?dep
+} WHERE {
+  [] powla:hasSource ?dep; powla:hasTarget ?parent; tiger:label ?label.
+  BIND(URI(concat("https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#",
+  encode_for_uri(?label))) as ?rel)
+};

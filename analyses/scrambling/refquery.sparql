@@ -1,0 +1,78 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT
+  DISTINCT ?sentence ?verb ?cl ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+WHERE {
+  ?cl tiger:cat "S". # VP is RK plus dependents
+
+  # verb
+  # no lemmas in this corpus
+  ?cl tiger:HD+ ?lk.
+  ?lk conll:WORD ?vfin.
+  OPTIONAL {
+    ?cl  tiger:OC/(tiger:HD|tiger:PD)* [ conll:WORD ?vv; conll:POS ?tmp ] .
+    FILTER(strstarts(?tmp,'VV'))
+  }
+  BIND(if(bound(?vv), ?vv,?vfin) as ?verb)
+
+  ?cl tiger:OA ?accNP.
+  ?accNP tiger:NK* ?acc.
+  ?acc conll:POS ?accPos.
+  FILTER(?accPos in ("NA","PPER","NE","PDEM","PRF"))
+  MINUS {
+    ?accNP conll:NK* ?acc,?tmp.
+    ?acc conll:POS ?accPos.
+    FILTER(?accPos in ("NA","PPER","NE","PDEM","PRF"))
+    ?acc nif:nextWord+ ?tmp.
+    ?tmp conll:POS ?tmpPos.
+    FILTER(?tmpPos in ("NA","PPER","NE","PDEM","PRF"))
+  }
+
+  OPTIONAL {
+    ?accNP tiger:NK [ conll:POS ?accDet ]
+    FILTER(contains(?accDet,"ART") || ?accDet="DPOS")
+    FILTER(?accDet!=?accPos)
+  }
+
+  ?lk nif:nextWord+ ?acc.
+
+  ?cl tiger:DA ?datNP.
+  ?datNP tiger:NK* ?dat.
+  ?dat conll:POS ?datPos.
+  FILTER(?datPos in ("NA","PPER","NE","PDEM","PRF"))
+  MINUS {
+    ?datNP conll:NK* ?dat,?tmp.
+    ?dat conll:POS ?datPos.
+    FILTER(?datPos in ("NA","PPER","NE","PDEM","PRF"))
+    ?dat nif:nextWord+ ?tmp.
+    ?tmp conll:POS ?tmpPos.
+    FILTER(?tmpPos in ("NA","PPER","NE","PDEM","PRF"))
+  }
+
+  OPTIONAL {
+    ?datNP tiger:NK [ conll:POS ?datDet ]
+    FILTER(contains(?datDet,"ART") || ?datDet="DPOS")
+    FILTER(?datDet!=?datPos)
+  }
+
+  ?lk nif:nextWord+ ?dat.
+
+  OPTIONAL { ?dat nif:nextWord+ ?acc. BIND("DAT>ACC" as ?order) }
+  OPTIONAL { ?acc nif:nextWord+ ?dat. BIND("ACC>DAT" as ?order) }
+
+  ?acc powla:hasParent+ ?cl.
+  ?acc a nif:Word.
+  ?acc conll:HEAD+ ?sentence.
+  ?sentence a nif:Sentence.
+
+  OPTIONAL {
+    ?cl powla:hasParent ?deep.
+  }
+
+  BIND(if(bound(?deep),"depOrCoord","main") as ?embedding)
+
+}
