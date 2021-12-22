@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -59,3 +59,24 @@ germanc.tsv: conll-rdf
 			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 			echo;\
 		done | tee germanc.tsv
+
+ud.tsv: conll-rdf
+	cd ../../UD;\
+	make;
+	for dir in ../../UD/*/; do \
+		genre=`basename $$dir | sed s/'.*[\-_]'//g;`;\
+		c=xx; h=x;\
+		if echo $$dir | egrep 'HDT' 1>&2; then c=20; h=2; fi; \
+		if echo $$dir | egrep 'GSD' 1>&2; then c=21; h=1; fi; \
+		if echo $$dir | egrep 'LIT' 1>&2; then c=18; h=2; fi; \
+		echo $$dir $$c $$h; \
+		for file in $$dir/*conllu; do cat $$file; echo; echo; done | \
+		# skip multi-word expressions\
+		egrep '^\s*$|^[0-9][0-9]*\s' | sed s/'^1\s'/'\n&'/g | \
+		#cat; echo | \
+		conll-rdf/run.sh CoNLLStreamExtractor '#' ID WORD LEMMA UPOS XPOS FEATS HEAD EDGE | \
+		conll-rdf/run.sh CoNLLRDFFormatter -query ud.sparql |\
+		egrep '.' | grep -v '^#' | \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+		echo;\
+	done; #| tee ud.tsv

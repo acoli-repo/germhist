@@ -1,0 +1,45 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT
+  DISTINCT ?sentence ?verb ?pred ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+WHERE {
+  ?sentence a nif:Sentence.
+  ?pred conll:HEAD+ ?sentence; conll:LEMMA ?verb.
+
+  ?vfin conll:HEAD? ?pred; conll:EDGE ?ev; conll:XPOS ?xv; conll:UPOS ?uv.
+  FILTER((strstarts(?xv,"V") || strstarts(?uv,"V")) && (?ev in ("cop","aux") || ?vfin=?pred))
+
+  ?acc conll:EDGE ?accEdge; conll:HEAD ?pred; conll:UPOS ?accPos.
+  FILTER(strstarts(?accEdge,"obj"))
+  MINUS { [] conll:case ?acc } # exclude prepositional objects
+  { ?acc conll:FEATS ?af FILTER(contains(?af, "Acc")) } UNION { ?acc a nif:Word. MINUS { ?acc conll:FEATS [] } }
+
+  ?dat conll:EDGE ?datEdge; conll:HEAD ?pred; conll:UPOS ?datPos
+  FILTER(contains(?datEdge,"iobj"))
+  MINUS { [] conll:case ?dat } # exclude prepositional objects
+  { ?dat conll:FEATS ?df FILTER(contains(?df, "Dat")) } UNION { ?dat a nif:Word. MINUS { ?dat conll:FEATS [] } }
+
+  OPTIONAL {
+    [] conll:HEAD ?acc; conll:EDGE ?ae; conll:LEMMA ?al; conll:XPOS ?ax.
+    FILTER(strstarts(?ae,'det'))
+    BIND(concat(?ax,".",?lemma) as ?accDet)
+  }
+
+  OPTIONAL {
+    [] conll:HEAD ?dat; conll:EDGE ?de; conll:LEMMA ?dl; conll:XPOS ?dx.
+    FILTER(strstarts(?de,'det'))
+    BIND(concat(?dx,".",?lemma) as ?datDet)
+  }
+
+  ?vfin nif:nextWord+ ?acc, ?dat.
+
+  OPTIONAL { ?acc nif:nextWord+ ?dat. BIND("ACC>DAT" as ?order)}
+  OPTIONAL { ?dat nif:nextWord+ ?acc. BIND("DAT>ACC" as ?order)}
+
+  OPTIONAL { ?verb conll:HEAD ?deep. ?deep conll:HEAD+ ?sentence. }
+  BIND(if(bound(?deep),"depOrCoord","main") as ?embedding)
+}

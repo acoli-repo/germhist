@@ -36,6 +36,8 @@ For external data, we provide build scripts to retrieve the necessary data.
 
 ### [`UD/`](UD): UD corpora
 
+  Note that none of these corpora are balanced.
+
   - HDT: Hamburg Dependency Treebank
     - Modern High German, 1996-2001
     - 3.8 million tokens (news)
