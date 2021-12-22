@@ -11,7 +11,7 @@ For external data, we provide build scripts to retrieve the necessary data.
 ### [`ReM/full_corpus/`](ReM): ReM Treebank / Baumbank Mittelhochdeutsch
 
   - Middle High German, 1050-1350
-  - 2.2 million tokens
+  - 2.2 million tokens (balanced)
   - annotation layers:
     - POS/LEMMA/FEATS: manually annotation from Referenzkorpus Mittelhochdeutsch v.1.0 (external)
     - PARSE: phrase structure parse automatically produced by ACoLi (QuantQual project, 2017)
@@ -21,7 +21,7 @@ For external data, we provide build scripts to retrieve the necessary data.
 ### [`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch
 
   - Early Modern High German, 1350-1650
-  - 3.6 million tokens (0.6 million tokens with syntax)
+  - 3.6 million tokens (0.6 million tokens with syntax) (balanced)
   - annotation layers:
     - POS: manual annotation (no LEMMA)
     - PARSE: automatically produced phrase structure parse ([600.000 token subcorpus](ReF/ReF-v1.0.2/ref-up))
@@ -29,12 +29,34 @@ For external data, we provide build scripts to retrieve the necessary data.
 ### [`GerManC/`](GerManC): GerManC corpus
 
   - Modern High German, 1650-1800
-  - 0.8 million tokens
+  - 0.8 million tokens (balanced)
   - annotation layers:
     - POS/LEMMA/FEATS: manual annotation
     - HEAD/EDGE: MATE/TIGER-style (not UD-style!) dependencies
 
+### [`UD/`](UD): UD corpora
+
+  - HDT: Hamburg Dependency Treebank
+    - Modern High German, 1996-2001
+    - 3.8 million tokens (news)
+    - annotation layers:
+      - POS/LEMMA/FEATS: tbc: manual or automated?
+      - HEAD/EDGE: CoNLL-U dependencies, automatically converted
+
+  - GSD: German legacy treebank
+    - Modern High German, 1990s-2010s
+    - 0.3 million tokens (news + online reviews)
+    - annotation layers:
+      - POS/LEMMA/FEATS: automated
+      - HEAD/EDGE: CoNLL-U dependencies, automatically converted
+
+  - LIT: German literary history
+    - Modern High German, end of 18th c.
+    - 40.000 tokens
+    - provenance of annotation is unclear. semiautomated?
+
 ## Analyses
+-
 
 [`analyses/`](analyses): Case studies over that data
 
