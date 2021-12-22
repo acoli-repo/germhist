@@ -6,7 +6,9 @@ for their evaluation for designated research questions.
 Data directly provided via this repository (e.g., for Middle High German), includes annotations produced by the ACoLi lab.
 For external data, we provide build scripts to retrieve the necessary data.
 
-## [`ReM/full_corpus/`](ReM): ReM Treebank / Baumbank Mittelhochdeutsch
+## ACoLi corpora
+
+### [`ReM/full_corpus/`](ReM): ReM Treebank / Baumbank Mittelhochdeutsch
 
   - Middle High German, 1050-1350
   - 2.2 million tokens
@@ -14,15 +16,27 @@ For external data, we provide build scripts to retrieve the necessary data.
     - POS/LEMMA/FEATS: manually annotation from Referenzkorpus Mittelhochdeutsch v.1.0 (external)
     - PARSE: phrase structure parse automatically produced by ACoLi (QuantQual project, 2017)
 
-## [`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch (external)
+## External corpora
+
+### [`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch
 
   - Early Modern High German, 1350-1650
-  - 3.6 million tokens
+  - 3.6 million tokens (0.6 million tokens with syntax)
   - annotation layers:
-    - POS/LEMMA/FEATS: manual annotation
+    - POS: manual annotation (no LEMMA)
     - PARSE: automatically produced phrase structure parse ([600.000 token subcorpus](ReF/ReF-v1.0.2/ref-up))
 
-## [`analyses/`](analyses): Case studies over that data
+### [`GerManC/`](GerManC): GerManC corpus
+
+  - Modern High German, 1650-1800
+  - 0.8 million tokens
+  - annotation layers:
+    - POS/LEMMA/FEATS: manual annotation
+    - HEAD/EDGE: MATE/TIGER-style (not UD-style!) dependencies
+
+## Analyses
+
+[`analyses/`](analyses): Case studies over that data
 
 We demonstrate the application of [Fintan](https://github.com/Pret-a-LLOD/Fintan)
 (resp., [CoNLL-RDF](https://github.com/acoli-repo/conll-rdf) and related technologies integrated in Fintan)
