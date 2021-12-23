@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -15,13 +15,18 @@ rem.tsv: conll-rdf
 		for h in 1 2 x; do \
 			for genre in P PV V P; do \
 				echo ReM $$c $$h $$genre 1>&2;\
-				cat ../../ReM/full_corpus/conll/*_$${c}-$${h}_$${genre}*conll | \
-				conll-rdf/run.sh CoNLLBrackets2RDF '#' ID TID WORD POS LEMMA INFL PARSE ANIMACY | \
-				conll-rdf/run.sh CoNLLRDFUpdater -custom -updates rem2tiger.sparql | \
-				conll-rdf/run.sh CoNLLRDFFormatter -query remquery.sparql | \
-				egrep '.' | grep -v '^#' | \
-				sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
-				echo;\
+				for file in ../../ReM/full_corpus/conll/*_$${c}-$${h}_$${genre}*conll; do \
+					if [ -e $$file ]; then \
+						echo '# '$$file;\
+						cat $$file | \
+						timeout 30 conll-rdf/run.sh CoNLLBrackets2RDF '#' ID TID WORD POS LEMMA INFL PARSE ANIMACY | \
+						timeout 30 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates rem2tiger.sparql | \
+						timeout 30 conll-rdf/run.sh CoNLLRDFFormatter -query remquery.sparql | \
+						egrep '.' | grep -v '^#' | \
+						sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+						echo;\
+					fi;\
+				done;\
 			done;\
 		done;\
 	done | tee rem.tsv
@@ -34,14 +39,14 @@ ref.tsv: tiger-rdf conll-rdf
 		c=`echo $$time | sed s/'\s.*'//;`;\
 		h=`echo $$time | sed s/'.*\s'//;`;\
 		genre=`egrep -m 1 '<genre>' $$file | sed -e s/'<[^>]*>'//g -e s/'\s'//g -e s/','/'\t'/;`;\
-		python3 -u tiger-rdf/tiger/tiger2rdf.py $$file | \
+		timeout 180 python3 -u tiger-rdf/tiger/tiger2rdf.py $$file | \
 		# some errors in the following arise from " in WORD \
-		conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql 2>/dev/null | \
-		conll-rdf/run.sh CoNLLRDFFormatter -query refquery.sparql |\
+		timeout 180 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql 2>/dev/null | \
+		timeout 180 CoNLLRDFFormatter -query refquery.sparql |\
 		egrep '.' | grep -v '^#' | \
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 		echo;\
-	done | tee ref.tsv
+	done |  tee ref.tsv
 
 germanc.tsv: conll-rdf
 		cd ../../GerManC;\
@@ -79,4 +84,28 @@ ud.tsv: conll-rdf
 		egrep '.' | grep -v '^#' | \
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 		echo;\
-	done; #| tee ud.tsv
+	done | tee ud.tsv
+
+enhg.tsv: conll-rdf
+	cd ../../ENHG;\
+	make;
+	c=16; h=1; genre=BIB; \
+	for file in ../../ENHG/*ref; do \
+		cat $$file | \
+		# one line per sentence \
+		perl -pe 's/[ \t]+/ /g; s/([^\n])\n/\1 /;' |\
+		# keep proper sentences only \
+		egrep '^[(]' | \
+		# one line per token \
+		perl -pe 's/\n/\n\n/; s/([^\n]*)\((ID[^\)]+)\)/# \2\n\1/; s/(\)[ \)]*)([^\)\s])/\1\n\2/g; ' | \
+		# split into columns WORD POS PARSE \
+		perl -pe 's/^(.*)\(([^\(\) ]+) +([^\(\)]+)\)/\3\t\2\t\1*/;' | \
+		# convert to CoNLL-RDF with tree extensions \
+		conll-rdf/run.sh CoNLLBrackets2RDF '#' WORD POS PARSE | \
+		# extrapolate edge labels \
+		conll-rdf/run.sh CoNLLRDFUpdater -custom -updates enhgprep.sparql 2>/dev/null |\
+		conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql | \
+		egrep '.' | grep -v '^#' | \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
+		echo;\
+	done | tee enhg.tsv;

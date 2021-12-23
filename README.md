@@ -26,6 +26,13 @@ For external data, we provide build scripts to retrieve the necessary data.
     - POS: manual annotation (no LEMMA)
     - PARSE: automatically produced phrase structure parse ([600.000 token subcorpus](ReF/ReF-v1.0.2/ref-up))
 
+### [`ENHG/`](ENHG): Early New High German Treebank by Caitlin Light
+
+  - Early Modern High German (Saxonian), 1522
+  - 0.1 million tokens
+  - annotation layers:
+    - POS, PARSE: semiautomatically (no LEMMA)
+
 ### [`GerManC/`](GerManC): GerManC corpus
 
   - Modern High German, 1650-1800

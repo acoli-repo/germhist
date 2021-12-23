@@ -19,7 +19,7 @@ WHERE {
   }
   BIND(if(bound(?vv), ?vv,?vfin) as ?verb)
 
-  ?cl tiger:OA ?accNP.
+  ?cl tiger:OA/(tiger:RE|tiger:CJ)* ?accNP.
   ?accNP tiger:NK* ?acc.
   ?acc conll:POS ?accPos.
   FILTER(?accPos in ("NA","PPER","NE","PDEM","PRF"))
@@ -40,7 +40,7 @@ WHERE {
 
   ?lk nif:nextWord+ ?acc.
 
-  ?cl tiger:DA ?datNP.
+  ?cl tiger:DA/(tiger:RE|tiger:CJ)* ?datNP.
   ?datNP tiger:NK* ?dat.
   ?dat conll:POS ?datPos.
   FILTER(?datPos in ("NA","PPER","NE","PDEM","PRF"))

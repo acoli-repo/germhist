@@ -1,0 +1,98 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT
+  DISTINCT ?sentence ?verb ?ip ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+WHERE {
+# IP contains LK, MF, RK, NF
+  ?ip a tiger:Nonterminal; tiger:cat "IP".
+  OPTIONAL {
+   ?vv powla:hasParent ?ip; conll:POS ?vvpos; conll:WORD ?verb.
+   FILTER(strstarts(?vvpos,"V"))
+     MINUS { [ powla:hasParent ?ip ] conll:POS ?tmppos ; nif:nextWord+ ?vv
+            FILTER (strstarts(?tmppos,"V"))
+     } # ?vv is the *first* lexical verb
+   }
+
+   ?ip tiger:ACC ?accNp.
+   ?acc powla:hasParent ?accNp; conll:POS ?accPos; conll:WORD ?accWord.
+   FILTER(!contains(?accWord,'*')) # no traces!
+   FILTER(strstarts(?accPos,'N') || strends(?accPos, 'PRO'))
+   FILTER(?accPos!="NEG")
+   OPTIONAL { [ conll:WORD ?accDet; conll:POS "D" ] powla:hasParent ?accNp }
+
+   MINUS { # acc must be the last (pro)noun
+     ?acc powla:hasParent ?accNp; conll:POS ?accPos; conll:WORD ?accWord.
+     FILTER(!contains(?accWord,'*')) # no traces!
+     FILTER(strstarts(?accPos,'N') || strends(?accPos, 'PRO'))
+     FILTER(?accPos!="NEG")
+     ?accTmp powla:hasParent ?accNp; conll:POS ?tmpPos; conll:WORD ?tmpWord.
+     FILTER(!contains(?tmpWord,'*')) # no traces!
+     FILTER(strstarts(?tmpPos,'N') || strends(?tmpPos, 'PRO'))
+     FILTER(?tmpPos!="NEG")
+     ?acc powla:hasParent ?accNp.
+     ?acc nif:nextWord+ ?accTmp.
+   }
+
+   ?ip tiger:DAT ?datNp.
+   ?dat powla:hasParent ?datNp; conll:POS ?datPos; conll:WORD ?datWord.
+   FILTER(!contains(?datWord,'*')) # no traces!
+   FILTER(strstarts(?datPos,'N') || strends(?datPos, 'PRO'))
+   FILTER(?datPos!="NEG")
+   OPTIONAL { [ conll:WORD ?datDet; conll:POS "D" ] powla:hasParent ?datNp }
+
+   MINUS { # dat must be the last (pro)noun
+     ?dat powla:hasParent ?datNp; conll:POS ?datPos; conll:WORD ?datWord.
+     FILTER(!contains(?datWord,'*')) # no traces!
+     FILTER(strstarts(?datPos,'N') || strends(?datPos, 'PRO'))
+     FILTER(?datPos!="NEG")
+     ?datTmp powla:hasParent ?datNp; conll:POS ?datTmpPos; conll:WORD ?datTmpWord.
+     FILTER(!contains(?datTmpWord,'*')) # no traces!
+     FILTER(strstarts(?datTmpPos,'N') || strends(?datTmpPos, 'PRO'))
+     FILTER(?datTmpPos!="NEG")
+     ?dat powla:hasParent ?datNp.
+     ?dat nif:nextWord+ ?datTmp.
+   }
+
+   # we determine the position of both arguments relative to the finite verb: both follow the finite verb in main clause,
+   # both precede the finite verb in relative clause
+   # fronting does not affect both constituents, so constraining the position of both arguments rules that out
+   # post-field positioning could occur, though, as post-field is included here in the IP and we cannot reliably retrieve
+   # the right bracket unless it contains the main verb
+   ?first_verb powla:hasParent ?ip; conll:POS ?fvPos.
+   FILTER(strstarts(?fvPos,"BE") || strstarts(?fvPos,"V") || strstarts(?fvPos,"HV") || strstarts(?fvPos,"RD"))
+   MINUS {
+     [] powla:hasParent ?ip; conll:POS ?fvTmpPos; nif:nextWord+ ?first_verb.
+     FILTER(strstarts(?fvTmpPos,"BE") || strstarts(?fvTmpPos,"V") || strstarts(?fvTmpPos,"HV") || strstarts(?fvTmpPos,"RD"))
+    }
+
+   {   # main clause
+        ?first_verb nif:nextWord+ ?acc, ?dat.
+        BIND("main" as ?embedding )
+    } UNION {
+       # relative clause (pre-field cannot hold both arguments)
+      ?acc nif:nextWord+ ?first_verb.
+      ?dat nif:nextWord+ ?first_verb.
+      BIND("dep" as ?embedding )
+   }
+
+   OPTIONAL { ?acc nif:nextWord+ ?dat BIND("ACC>DAT" as ?order) }
+   OPTIONAL { ?dat nif:nextWord+ ?acc BIND("DAT>ACC" as ?order) }
+
+   ?acc conll:HEAD+ ?sentence.
+   ?sentence a nif:Sentence.
+
+#  determined from word order
+#   OPTIONAL{
+#     [] tiger:SUB ?ip.
+#     BIND("dep" as ?dep)
+#   }
+#   OPTIONAL{
+#     [] tiger:MAT ?ip.
+#     BIND("main" as ?dep)
+#   }
+#   BIND(if(bound(?dep),?dep,"?") as ?embedding)
+}
