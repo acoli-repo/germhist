@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -47,6 +47,26 @@ ref.tsv: tiger-rdf conll-rdf
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 		echo;\
 	done |  tee ref.tsv
+
+mercurius.tsv: tiger-rdf conll-rdf
+		cd ../../Mercurius;\
+		make;
+		for file in ../../Mercurius/tiger-xml/*.xml; do \
+			genre=NEWS;\
+			year=1667;\
+			if echo $$file | grep 'Annus' >/dev/null; then year=1597; fi; \
+			c=`echo $$year / 100 + 1 | bc`;\
+			h=`echo $$year % 100 / 50 + 1 | bc`;\
+			# echo $$file $$year $$c $$h $$genre; \
+			# 10 min timeouts \
+			timeout 600 python3 -u tiger-rdf/tiger/tiger2rdf.py $$file | \
+			timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql 2>/dev/null | \
+			timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query refquery.sparql |\
+			egrep '.' | grep -v '^#' | \
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+			echo;\
+		done
+
 
 germanc.tsv: conll-rdf
 		cd ../../GerManC;\

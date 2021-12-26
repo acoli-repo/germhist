@@ -26,16 +26,17 @@ For external data, we provide build scripts to retrieve the necessary data.
     - POS: manual annotation (no LEMMA)
     - PARSE: automatically produced phrase structure parse ([600.000 token subcorpus](ReF/ReF-v1.0.2/ref-up))
 
-### [`ENHG/`](ENHG): ENHG Treebank / Early New High German Treebank by Caitlin Light
+### [`ENHG/`](ENHG): Early New High German Treebank by Caitlin Light
 
-  - Early Modern High German, Eastern Central (Saxonian), 1522
+  - Early Modern High German (Saxonian), 1522
   - 0.1 million tokens
   - annotation layers:
-    - POS/PARSE: semiautomatically annotation by Caitlin Light (no FEATS, no LEMMA)
+    - POS, PARSE: semiautomatically (no LEMMA)
 
 ### [`Mercurius/`](Mercurius): Mercurius Treebank
 
   - Early Modern High German, 1597/1667
+  - 0.2 million tokens
   - annotation layers:
     - POS, PARSE: semiautomatically (no LEMMA, no MORPH)
 
@@ -81,6 +82,13 @@ for complex search and retrieval tasks in real-world research questions in lingu
 - [`analyses/scrambling`](analyses/scrambling): Study diachronic word order of post-verbal oblique arguments
 
 ## Upcoming attractions
+
+- ENHG Treebank
+  - Early Modern High German, Eastern Central (Saxonian), 1522
+  - annotation layers:
+    - POS/LEMMA/FEATS: manual annotation by Caitlin Light
+    - PARSE: semiautomate (?) annotation by Caitlin Light
+    - TODO: EDGE/HEAD: UD-style dependency parse extrapolated from PARSE
 
 - Old Saxon corpus
   - Old Saxon (Old Low German), 750-1150
