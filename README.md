@@ -33,6 +33,12 @@ For external data, we provide build scripts to retrieve the necessary data.
   - annotation layers:
     - POS, PARSE: semiautomatically (no LEMMA)
 
+### [`Mercurius/`](Mercurius): Mercurius Treebank
+
+  - Early Modern High German, 1597/1667
+  - annotation layers:
+    - POS, PARSE: semiautomatically (no LEMMA, no MORPH)
+
 ### [`GerManC/`](GerManC): GerManC corpus
 
   - Modern High German, 1650-1800
@@ -65,7 +71,6 @@ For external data, we provide build scripts to retrieve the necessary data.
     - provenance of annotation is unclear. semiautomated?
 
 ## Analyses
--
 
 [`analyses/`](analyses): Case studies over that data
 
