@@ -1,0 +1,75 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT
+    DISTINCT ?sentence ?verb ?clause ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+    # we do not allocate determiners, as determiner grammaticalization is still ongoing in OHG
+#  DISTINCT ?verb ?do ?io ?order ?accPos ?datPos
+WHERE {
+  ?clause a tiger:Nonterminal; tiger:cat "CL".
+
+  # EXM clauses are non-recursive ;)
+  ?clause powla:hasParent ?sentence. ?sentence a nif:Sentence.
+
+  ?vphrase powla:hasParent ?clause.
+  [ tiger:label ?vlabel ] powla:hasSource ?clause; powla:hasTarget ?vphrase.
+  FILTER(strstarts(?vlabel,"V"))
+
+  { SELECT ?vphrase (GROUP_CONCAT(?word; separator=" ") as ?verb)
+    WHERE {
+      [] powla:hasTarget ?vphrase.
+      ?vphrase (^powla:hasParent)* ?v.
+      ?v conll:WORD ?word.
+    } GROUP BY ?vphrase
+  }
+
+  # post-verbal direct and indirect objects (no case annotation!)
+  [ tiger:label "DO" ] powla:hasSource ?clause; powla:hasTarget ?do.
+  [ tiger:label "IO" ] powla:hasSource ?clause; powla:hasTarget ?io.
+
+  { ?acc conll:POS ?accPos FILTER(strstarts(?accPos,"N")). ?acc powla:hasParent* ?do.
+    MINUS { ?acc conll:POS ?accPos FILTER(strstarts(?accPos,"N")). ?acc powla:hasParent* ?do.
+            ?accTmp nif:nextWord+ ?acc.
+            ?accTmp conll:POS ?accTmpPos FILTER(strstarts(?accTmpPos,"N")). ?accTmp powla:hasParent* ?do }
+  } UNION {
+    ?acc conll:POS ?accPos FILTER(strstarts(?accPos,"PRON")). ?acc powla:hasParent* ?do.
+    MINUS { ?accTmp conll:POS ?accTmpPos FILTER(strstarts(?accTmpPos,"N")). ?accTmp powla:hasParent* ?do }
+    MINUS { ?acc conll:POS ?accPos FILTER(strstarts(?accPos,"PRON")). ?acc powla:hasParent* ?do.
+            ?accTmp2 nif:nextWord+ ?acc.
+            ?accTmp2 conll:POS ?accTmp2Pos FILTER(strstarts(?accTmp2Pos,"PRON")). ?accTmp2 powla:hasParent* ?do }
+  }
+
+  { ?dat conll:POS ?datPos FILTER(strstarts(?datPos,"N")). ?dat powla:hasParent* ?io.
+    MINUS { ?dat conll:POS ?datPos FILTER(strstarts(?datPos,"N")). ?dat powla:hasParent* ?io.
+            ?datTmp nif:nextWord+ ?dat.
+            ?datTmp conll:POS ?datTmpPos FILTER(strstarts(?datTmpPos,"N")). ?datTmp powla:hasParent* ?io }
+  } UNION {
+    ?dat conll:POS ?datPos FILTER(strstarts(?datPos,"PRON")). ?dat powla:hasParent* ?io.
+    MINUS { ?datTmp conll:POS ?datTmpPos FILTER(strstarts(?datTmpPos,"N")). ?datTmp powla:hasParent* ?io }
+    MINUS { ?dat conll:POS ?datPos FILTER(strstarts(?datPos,"PRON")). ?dat powla:hasParent* ?io.
+            ?datTmp2 nif:nextWord+ ?dat.
+            ?datTmp2 conll:POS ?datTmp2Pos FILTER(strstarts(?datTmp2Pos,"PRON")). ?datTmp2 powla:hasParent* ?io }
+  }
+
+  #[ powla:hasParent* ?vphrase] nif:nextWord+  [powla:hasParent* ?do], [powla:hasParent* ?io].
+  [ powla:hasParent* ?vphrase] nif:nextWord+ ?dat,?acc.
+
+  OPTIONAL {
+    ?dat nif:nextWord+ ?acc.
+    BIND("DAT>ACC" as ?order)
+  }
+  OPTIONAL {
+    ?acc nif:nextWord+ ?dat.
+    BIND("ACC>DAT" as ?order)
+  }
+
+   OPTIONAL{
+      [ tiger:label ?rel ] powla:hasTarget ?clause.
+      BIND(if(contains(?rel,"MAIN"),"main",
+           if(contains(?rel,"REL") || contains(?rel,"SUB"),"dep",
+           if(contains(?rel,"CAUSAL"), "?", ?rel))) as ?embedding)
+   }
+}

@@ -1,12 +1,20 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
 	git clone https://github.com/acoli-repo/conll-rdf
 
+conll-merge:
+	@# replace with symlink if already installed
+	git clone https://github.com/acoli-repo/conll-merge
+
 tiger-rdf:
 	@# replace with symlink if already installed
 	git clone https://github.com/acoli-repo/tiger-rdf
+
+LLODifier:
+	@# replace with symlink if already installed
+	git clone https://github.com/acoli-repo/LLODifier
 
 rem.tsv: conll-rdf
 	cd ../../ReM;\
@@ -58,10 +66,10 @@ mercurius.tsv: tiger-rdf conll-rdf
 			c=`echo $$year / 100 + 1 | bc`;\
 			h=`echo $$year % 100 / 50 + 1 | bc`;\
 			# echo $$file $$year $$c $$h $$genre; \
-			# 10 min timeouts \
-			timeout 600 python3 -u tiger-rdf/tiger/tiger2rdf.py $$file | \
+			python3 -u tiger-rdf/tiger/tiger2rdf.py $$file | \
 			timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql 2>/dev/null | \
-			timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query refquery.sparql |\
+			timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query tigerXplore.sparql | #-query refquery.sparql |\
+			cat; echo | \
 			egrep '.' | grep -v '^#' | \
 			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 			echo;\
@@ -129,3 +137,19 @@ enhg.tsv: conll-rdf
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
 		echo;\
 	done | tee enhg.tsv;
+
+tcodex.tsv: conll-merge conll-rdf
+	cd ../../TCodex;\
+	make;
+	c=9; h=1; genre=BIB;\
+	(for file in ../../TCodex/*/*xml; do \
+		echo '# doc: '$$file;\
+		xsltproc conll-merge/cmd/exm2conll.xsl $$file;\
+		echo ; \
+	done | \
+	conll-rdf/run.sh CoNLLStreamExtractor '#' ID LAT WORD ALIGN POS CAT CLAUSE GF _ GIVEN TOPIC ABOUTNESS POSITION _ DEFINITENESS FOCUS _ _ _ _ | \
+	# cat; echo | \
+	conll-rdf/run.sh CoNLLRDFUpdater -custom -updates exmprep.sparql |\
+	conll-rdf/run.sh CoNLLRDFFormatter -query exmquery.sparql | \
+	egrep '.' | grep -v '^#' | \
+	sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;) | tee tcodex.tsv

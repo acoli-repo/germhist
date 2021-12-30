@@ -1,0 +1,130 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX apf: <http://jena.apache.org/ARQ/property#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# pruning
+DELETE {
+  ?w ?prop ?val
+} WHERE {
+  ?w ?prop ?val.
+  FILTER(?prop in (conll:_,rdfs:comment))
+};
+
+# transform CoNLL-RDF data structures for Examaralda to TIGER-compliant data structures
+# this is highly specific to the TCodex corpus
+
+# establish phrases, clauses and sentences
+INSERT {
+  # we bind the parents independently, because there are no guarantees that all layers are occupied
+  ?w powla:hasParent ?wParent.
+  ?phrase powla:hasParent ?pParent.
+  ?clause powla:hasParent ?s.
+
+  ?phrase a powla:Node, tiger:Nonterminal; tiger:cat ?cat.
+  ?clause a powla:Node, tiger:Nonterminal; tiger:cat "CL".
+  ?s a powla:Node, tiger:Nonterminal; tiger:cat "S". # here: same node as nif:Sentence
+
+  ?clRel a powla:Relation; powla:hasSource ?s; powla:hasTarget ?clause; tiger:label ?type.
+  ?gfRel a powla:Relation; powla:hasSource ?clause; powla:hasTarget ?gfNode; tiger:label ?gf.
+} WHERE {
+  ?w a nif:Word.
+  OPTIONAL {
+    SELECT ?w ?phrase ?cat
+    WHERE {
+        ?first conll:CAT ?iobcat.
+        FILTER(strstarts(?iobcat,'S-') || strstarts(?iobcat,'B-'))
+        BIND(replace(?iobcat,"^.-","") as ?cat)
+        BIND(uri(concat(str(?first),"_",?cat)) as ?phrase)
+        ?first nif:nextWord* ?w.
+        ?w conll:CAT ?wCat.
+        filter(?w = ?first || ?wCat in (concat("I-",?cat), concat("E-",?cat)))
+        MINUS {
+          ?first conll:CAT ?iobcat.
+          FILTER(strstarts(?iobcat,'S-') || strstarts(?iobcat,'B-'))
+          BIND(replace(?iobcat,"^.-","") as ?cat)
+          ?first nif:nextWord+ ?tmp.
+          OPTIONAL { ?tmp conll:CAT ?tmpCat. }
+          filter(!bound(?tmpCat) || !(?tmpCat in (concat("I-",?cat), concat("E-",?cat))))
+          ?tmp nif:nextWord+ ?w.
+          ?w conll:CAT ?wCat.
+          filter(?wCat in (concat("I-",?cat), concat("E-",?cat)))
+        }
+      }
+    }
+  OPTIONAL {
+    SELECT ?w ?clause ?type ?clRel
+    WHERE {
+      ?first conll:CLAUSE ?iobcat.
+      FILTER(strstarts(?iobcat,'S-') || strstarts(?iobcat,'B-'))
+      BIND(replace(?iobcat,"^.-","") as ?cat)
+      BIND(?cat as ?type)
+      BIND(uri(concat(str(?first),"_",?cat)) as ?clause)
+      BIND(uri(concat(str(?first),"_",?cat,"_rel")) as ?clRel)
+      ?first nif:nextWord* ?w.
+      ?w conll:CLAUSE ?wCat.
+      filter(?w = ?first || ?wCat in (concat("I-",?cat), concat("E-",?cat)))
+      MINUS {
+        ?first conll:CLAUSE ?iobcat.
+        FILTER(strstarts(?iobcat,'S-') || strstarts(?iobcat,'B-'))
+        BIND(replace(?iobcat,"^.-","") as ?cat)
+        ?first nif:nextWord+ ?tmp.
+        OPTIONAL { ?tmp conll:CLAUSE ?tmpCat. }
+        filter(!bound(?tmpCat) || !(?tmpCat in (concat("I-",?cat), concat("E-",?cat))))
+        ?tmp nif:nextWord+ ?w.
+        ?w conll:CLAUSE ?wCat.
+        filter(?wCat in (concat("I-",?cat), concat("E-",?cat)))
+      }
+    }
+  }
+
+  ?w conll:HEAD+ ?s.
+  ?s a nif:Sentence.
+
+  BIND(
+    if(bound(?phrase), ?phrase,
+    if(bound(?clause), ?clause,
+    ?s)) as ?wParent)
+
+  BIND(
+    if(!bound(?phrase),?empty,
+    if(bound(?clause), ?clause,
+    ?s)) as ?pParent)
+
+  OPTIONAL {
+    ?w conll:GF ?iobGf.
+    BIND(replace(?iobGf,"^[IOBES]-","") as ?gf)
+    BIND(if(bound(?phrase), ?phrase, ?w) as ?gfNode)
+    bind(uri(concat(str(?gfNode),"_gf")) as ?gfRel)
+  }
+};
+
+# pruning
+DELETE {
+  ?w ?prop ?val
+} WHERE {
+  ?w ?prop ?val.
+  FILTER(?prop in (conll:CAT,conll:GF,conll:CLAUSE))
+};
+
+# delete split words
+DELETE {
+  ?w conll:WORD ?old
+} WHERE {
+  ?w conll:WORD ?old.
+  FILTER(regex(?old,"^[IOE]-.*"))
+};
+
+# eliminate IOBES encoding
+DELETE {
+  ?w ?prop ?iobes
+} INSERT {
+  ?w ?prop ?base
+} WHERE {
+  ?w a nif:Word; ?prop ?iobes.
+  FILTER(regex(?iobes,"^[IOBES]-.*",""))
+  BIND(replace(?iobes,"^[IOBES]-","") as ?base)
+};

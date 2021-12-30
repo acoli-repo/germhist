@@ -18,6 +18,14 @@ For external data, we provide build scripts to retrieve the necessary data.
 
 ## External corpora
 
+### [`TCodex/`](TCodex): Tatian Corpus of Deviating Examples
+
+  - Old High German, 830 (presumably literal translation from Latin, filtered for sentences with deviations in word order)
+  - 13.000 tokens (Latin and Old High German)
+  - annotation layers:
+    - POS, MORPH, LEMMA:  manually
+    - PARSE: shallow (non-recursive) phrase structure parse, manually 
+
 ### [`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch
 
   - Early Modern High German, 1350-1650
