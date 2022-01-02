@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -68,13 +68,13 @@ mercurius.tsv: tiger-rdf conll-rdf
 			# echo $$file $$year $$c $$h $$genre; \
 			python3 -u tiger-rdf/tiger/tiger2rdf.py $$file | \
 			timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql 2>/dev/null | \
-			timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query tigerXplore.sparql | #-query refquery.sparql |\
-			cat; echo | \
+			#timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query tigerXplore.sparql | # to get the schema \
+			timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query mercquery.sparql |\
+#			cat; echo | \
 			egrep '.' | grep -v '^#' | \
 			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 			echo;\
-		done
-
+		done | tee mercurius.tsv
 
 germanc.tsv: conll-rdf
 		cd ../../GerManC;\
@@ -153,3 +153,34 @@ tcodex.tsv: conll-merge conll-rdf
 	conll-rdf/run.sh CoNLLRDFFormatter -query exmquery.sparql | \
 	egrep '.' | grep -v '^#' | \
 	sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;) | tee tcodex.tsv
+
+fuerstinnen.tsv: conll-merge conll-rdf
+	cd ../../fuerstinnen;\
+	make;
+	-(for file in ../../fuerstinnen/exb/*.exb; do \
+		year=`basename $$file | sed s/'.*\([0-9x][0-9x][0-9x][0-9x]\).*'/'\1'/g;`;\
+		c=`echo $$year | sed s/'^\(..\).*'/'\1 + 1'/ | bc`;\
+		h=`echo $$year | sed s/'^..'/'\1 \/ 50 + 1 '/ | bc`;\
+		genre=LET;\
+		(echo '# doc: '$$file;\
+		xsltproc conll-merge/cmd/exm2conll.xsl $$file;\
+		echo ) | \
+		# extract columns: id text    lemma   pos     morph   grfunct s_grfunct       clause-st \
+		# note that we skip original IDs, as these follow creation order, but not chronological or otherwise \
+		grep -v '^#' | cut -f 1,2,5-10 | \
+		\
+		# clause splitting (before and after annotated clauses -- annotation is incomplete!)\
+		# note that we split for clauses instead of sentences because sentences from this time can be exceedingly long \
+		sed -e s/'.*\s[BS]-[^_\-]*$$'/'\n&'/ \
+			  -e s/'.*\s[ES]-[^_\-]*$$'/'&\n'/ | \
+		# # ALTERNATIVE, SLOW: sentence splitting, using $$. \
+		# sed -e s/'.*\$$\..*$$/&\n/g;' | \
+		\
+		#tee fuerstinnen.conll | # for debugging \
+		# conversion to tiger-rdf, not clear what the difference between grfunct and s_grfunct is, only the first are being processed \
+		timeout 600 conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD LEMMA POS MORPH GF S_GF CLAUSE 2>/dev/null| \
+		timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates fstprep.sparql 2>/dev/null |\
+		timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query fstquery.sparql | \
+		egrep '.' | grep -v '^#' | \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+	done) | tee fuerstinnen.tsv

@@ -1,0 +1,29 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# spellout hierarchical structure of a tiger file
+# this can be used to bootstrap the annotation schema
+
+SELECT ?w (GROUP_CONCAT(?label; separator="/") as ?path) #(COUNT(distinct(?pre)) as ?id)
+    WHERE {
+        ?w a nif:Word.
+        #?pre nif:nextWord* ?w.
+        ?w powla:hasParent* ?dep.
+        OPTIONAL { ?dep conll:POS ?pos }
+        OPTIONAL { ?dep tiger:cat ?cat }
+        OPTIONAL {
+          ?dep powla:hasParent ?p.
+          [ tiger:label ?edge ] powla:hasSource ?dep; powla:hasTarget ?p
+        }
+        BIND(
+          concat(
+            if(bound(?pos), ?pos, ""),
+            if(bound(?cat), ?cat, ""),
+            if(bound(?edge), concat("-",?edge), "")
+          ) as ?label)
+        BIND(xsd:int(replace(str(?w),".*_","")) as ?nr)
+    } GROUP BY ?w #ORDER BY asc(?id) ?w

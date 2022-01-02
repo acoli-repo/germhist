@@ -24,7 +24,7 @@ For external data, we provide build scripts to retrieve the necessary data.
   - 13.000 tokens (Latin and Old High German)
   - annotation layers:
     - POS, MORPH, LEMMA:  manually
-    - PARSE: shallow (non-recursive) phrase structure parse, manually 
+    - PARSE: shallow (non-recursive) phrase structure parse, manually
 
 ### [`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch
 
@@ -47,6 +47,15 @@ For external data, we provide build scripts to retrieve the necessary data.
   - 0.2 million tokens
   - annotation layers:
     - POS, PARSE: semiautomatically (no LEMMA, no MORPH)
+  - note: the schema is supposed to be identical to ReF, but it uses VP instead of CL. As VP excludes the pre-field, this allows us to skip tests for word order. This means that we also retrieve results from middle fields of relative clauses, so the total number of matches is higher than from ReF.
+
+### [`fuerstinnen/`](fuestinnen): Fuerstinnenkorrespondenz 1.1
+
+  - Early Modern High German/Modern High German, 1546-1756
+  - 0.2 million tokens (letters)
+  - annotation layers:
+    - POS/LEMMA/FEATS: manual annotation
+    - shallow (non-recursive) phrase structure parse, manually
 
 ### [`GerManC/`](GerManC): GerManC corpus
 

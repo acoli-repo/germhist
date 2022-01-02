@@ -1,0 +1,110 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT
+    DISTINCT ?sentence ?verb ?clause ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+#    DISTINCT ?sentence ?clause ?verb ?do ?io
+WHERE {
+  ?clause a tiger:Nonterminal; tiger:cat "CL".
+
+  # EXM clauses are non-recursive ;)
+  ?clause powla:hasParent ?sentence. ?sentence a nif:Sentence.
+
+  # post-verbal direct and indirect objects
+  [ tiger:label "acc-o" ] powla:hasSource ?clause; powla:hasTarget ?do.
+  [ tiger:label "dat-o" ] powla:hasSource ?clause; powla:hasTarget ?io.
+  ?vfin powla:hasParent+ ?clause; conll:POS ?vfinPos.
+  FILTER(strends(?vfinPos,"FIN"))
+  ?vfin nif:nextWord+/powla:hasParent* ?do, ?io.
+
+  OPTIONAL {
+    { SELECT ?clause (GROUP_CONCAT(DISTINCT ?word; separator=" ") as ?verbRaw)
+      WHERE {
+        [ tiger:label ?vlabel ] powla:hasSource ?clause; powla:hasTarget [ conll:LEMMA ?word; conll:POS ?vpos ]
+        FILTER(strstarts(?vlabel,"pr"))
+        FILTER(strstarts(?vpos,"V"))
+      } GROUP BY ?clause
+    }
+
+    # remove auxiliaries and modal verbs
+    BIND(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(
+        concat(" ",?verbRaw," "),
+        " haben "," "),
+        " sein "," "),
+        " werden "," "),
+        " wollen ", " "),
+        " müssen "," "),
+        " sollen "," "),
+        " dürfen "," "),
+        " können "," "),
+        " mögen "," "),
+        "^ *([^ ].*) *$","$1") as ?verbShort)
+    BIND(if(regex(?verbShort,".*[a-zA-Z].*"), ?verbShort, ?verbRaw) as ?verb)
+  }
+
+   { ?acc conll:POS ?accPos FILTER(strstarts(?accPos,"N")). ?acc powla:hasParent* ?do.
+     MINUS { ?acc conll:POS ?accPos FILTER(strstarts(?accPos,"N")). ?acc powla:hasParent* ?do.
+             ?accTmp nif:nextWord+ ?acc.
+             ?accTmp conll:POS ?accTmpPos FILTER(strstarts(?accTmpPos,"N")). ?accTmp powla:hasParent* ?do }
+   } UNION {
+     ?acc conll:POS ?accPos FILTER(strstarts(?accPos,"PRON")). ?acc powla:hasParent* ?do.
+     MINUS { ?accTmp conll:POS ?accTmpPos FILTER(strstarts(?accTmpPos,"N")). ?accTmp powla:hasParent* ?do }
+     MINUS { ?acc conll:POS ?accPos FILTER(strstarts(?accPos,"PRON")). ?acc powla:hasParent* ?do.
+             ?accTmp2 nif:nextWord+ ?acc.
+             ?accTmp2 conll:POS ?accTmp2Pos FILTER(strstarts(?accTmp2Pos,"PRON")). ?accTmp2 powla:hasParent* ?do }
+   }
+
+   { ?dat conll:POS ?datPos FILTER(strstarts(?datPos,"N")). ?dat powla:hasParent* ?io.
+     MINUS { ?dat conll:POS ?datPos FILTER(strstarts(?datPos,"N")). ?dat powla:hasParent* ?io.
+             ?datTmp nif:nextWord+ ?dat.
+             ?datTmp conll:POS ?datTmpPos FILTER(strstarts(?datTmpPos,"N")). ?datTmp powla:hasParent* ?io }
+   } UNION {
+     ?dat conll:POS ?datPos FILTER(strstarts(?datPos,"PRON")). ?dat powla:hasParent* ?io.
+     MINUS { ?datTmp conll:POS ?datTmpPos FILTER(strstarts(?datTmpPos,"N")). ?datTmp powla:hasParent* ?io }
+     MINUS { ?dat conll:POS ?datPos FILTER(strstarts(?datPos,"PRON")). ?dat powla:hasParent* ?io.
+             ?datTmp2 nif:nextWord+ ?dat.
+             ?datTmp2 conll:POS ?datTmp2Pos FILTER(strstarts(?datTmp2Pos,"PRON")). ?datTmp2 powla:hasParent* ?io }
+   }
+
+   OPTIONAL {
+    ?accDetURI powla:hasParent ?do; conll:POS "ART"; conll:LEMMA ?accDet.
+    MINUS { ?accDetURI conll:POS "ART"; nif:nextWord+ [ conll:POS "ART"; powla:hasParent/^powla:hasParent ?accDetURI ] }
+   }
+   OPTIONAL {
+    ?accDetURI powla:hasParent ?do; conll:POS ?accDet. FILTER(strends(?accDet,"AT") || strends(?accDet,"ART"))
+    MINUS { ?accDetURI nif:nextWord+ [ conll:POS "ART"; powla:hasParent/^powla:hasParent ?accDetURI ] }
+    MINUS { ?accDetURI powla:hasParent ?do; conll:POS ?accDet. FILTER(strends(?accDet,"AT") || strends(?accDet,"ART"))
+            ?accDetURI nif:nextWord+ [ powla:hasParent ?do; conll:POS ?accTmpPos ] FILTER(strends(?accDet,"AT") || strends(?accDet,"ART"))
+          }
+   }
+
+   OPTIONAL {
+    ?datDetURI powla:hasParent ?do; conll:POS "ART"; conll:LEMMA ?datDet.
+    MINUS { ?datDetURI conll:POS "ART"; nif:nextWord+ [ conll:POS "ART"; powla:hasParent/^powla:hasParent ?datDetURI ] }
+   }
+   OPTIONAL {
+    ?datDetURI powla:hasParent ?io; conll:POS ?datDet. FILTER(strends(?datDet,"AT") || strends(?datDet,"ART"))
+    MINUS { ?datDetURI nif:nextWord+ [ conll:POS "ART"; powla:hasParent/^powla:hasParent ?datDetURI ] }
+    MINUS { ?datDetURI powla:hasParent ?do; conll:POS ?datDet. FILTER(strends(?datDet,"AT") || strends(?datDet,"ART"))
+            ?datDetURI nif:nextWord+ [ powla:hasParent ?do; conll:POS ?datTmpPos ] FILTER(strends(?datDet,"AT") || strends(?datDet,"ART"))
+          }
+   }
+
+   OPTIONAL {
+     ?dat nif:nextWord+ ?acc.
+     BIND("DAT>ACC" as ?order)
+   }
+   OPTIONAL {
+     ?acc nif:nextWord+ ?dat.
+     BIND("ACC>DAT" as ?order)
+   }
+
+   OPTIONAL{
+       [ tiger:label ?rel ] powla:hasTarget ?clause.
+       BIND(if(contains(?rel,"decl"),"main",
+            if(contains(?rel,"rel"),"dep", "?")) as ?embedding)
+    }
+}
