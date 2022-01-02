@@ -98,17 +98,16 @@ for complex search and retrieval tasks in real-world research questions in lingu
 
 - [`analyses/scrambling`](analyses/scrambling): Study diachronic word order of post-verbal oblique arguments
 
-## Upcoming attractions
-
-- ENHG Treebank
-  - Early Modern High German, Eastern Central (Saxonian), 1522
-  - annotation layers:
-    - POS/LEMMA/FEATS: manual annotation by Caitlin Light
-    - PARSE: semiautomate (?) annotation by Caitlin Light
-    - TODO: EDGE/HEAD: UD-style dependency parse extrapolated from PARSE
+## Other candidate corpora
 
 - Old Saxon corpus
   - Old Saxon (Old Low German), 750-1150
+  - corpus is upcoming and built in-house
   - annotation layers:
     - POS/LEMMA/FEATS: manual annotation from DDD corpus and HeliPaD corpus
     - EDGE/HEAD: UD-style dependency parse extrapolated from DDD (partial, phrasal, manual) and HeliPaD (complete, phrasal, semiautomated)
+
+- DDB corpus, see [`DDB/`](DDB)
+  - Old High German (TIGER), only 2800 tokens
+  - Early Modern High German and Middle High German data are corrupt. Instead of TIGER, this contains partially annotated Exmaralda, only
+  - MHG and ENHG data lacks provenance and dating information. Not usable for our purposes.

@@ -160,7 +160,7 @@ fuerstinnen.tsv: conll-merge conll-rdf
 	-(for file in ../../fuerstinnen/exb/*.exb; do \
 		year=`basename $$file | sed s/'.*\([0-9x][0-9x][0-9x][0-9x]\).*'/'\1'/g;`;\
 		c=`echo $$year | sed s/'^\(..\).*'/'\1 + 1'/ | bc`;\
-		h=`echo $$year | sed s/'^..'/'\1 \/ 50 + 1 '/ | bc`;\
+		h=`echo $$year | sed s/'^..\(..\)$$'/'\1 \/ 50 + 1 '/ | bc`;\
 		genre=LET;\
 		(echo '# doc: '$$file;\
 		xsltproc conll-merge/cmd/exm2conll.xsl $$file;\
