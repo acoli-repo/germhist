@@ -309,4 +309,4 @@ iswoc.tsv: conll-rdf
 		egrep '.' | grep -v '^#' | \
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 		echo;\
-	done
+	done | tee iswoc.tsv
