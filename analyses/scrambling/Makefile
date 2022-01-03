@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -239,3 +239,42 @@ helipad.tsv: conll-rdf
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
 		echo;\
 	done | tee helipad.tsv
+
+icepahc.tsv: conll-rdf
+	@# slightly extended HeliPaD workflow, note that we exclude material from 16th c. onwards, so that our subset represents Old Icelandic
+	cd ../../icepahc;\
+	make;
+	for file in `find ../../icepahc/ | grep '\.psd$$'`; do \
+		year=`basename $$file | sed s/'\..*'//;`;\
+		c=`echo $$year | sed s/'^\(..\).*'/'\1 + 1'/ | bc`;\
+		h=`echo $$year | sed s/'^..\(..\)$$'/'\1 \/ 50 + 1 '/ | bc`;\
+		\
+		# only texts before 1500 \
+		if test $$c -lt 16  ; then \
+			echo '# doc: '$$file;\
+			cat $$file | \
+			# one line per sentence \
+			perl -pe 's/^\(/\n\n\(/g; s/^[ \t]+/ /g; s/([^\n])\n/\1 /;' |\
+			# keep proper sentences only \
+			egrep '^[(]' | \
+			# one line per token \
+			perl -pe 's/\n/\n\n/; s/([^\n]*)\((ID[^\)]+)\)/# \2\n\1/; s/(\)[ \)]*)([^\)\s])/\1\n\2/g; ' | \
+			# split into columns WORD LEMMA POS MORPH PARSE \
+			perl -pe 's/^(.*)\(([^\(\) ]+) +([^\(\)]+)\)/\3\t\2\t\1*/; 			# initial columns: WORD POS PARSE \
+								s/^([^\t]+)\t(([^\t\^\-]+)([\^\-][^\t]*)?)\t/\1\t\3\t\2\t/; # split POS => columns WORD POS MORPH PARSE \
+								# we preserve the HeliPaD splitter symbol ^ but also support the IcePaHC splitter symbol - \
+								# split WORD => columns WORD LEMMA POS MORPH PARSE \
+							  s/^([^\s\-]+)\t/\1\t_\t/g; 				# for rows without lemma, add an empty lemma \
+								s/^([^\s\-]*)\-([^\s]*)/\1\t\2/g; # split WORD and LEMMA at - \
+			' | \
+			# tee icepahc.conll | # for debugging \
+			# convert to CoNLL-RDF with tree extensions \
+			timeout 600 conll-rdf/run.sh CoNLLBrackets2RDF file:`realpath $$file`'#' WORD LEMMA POS MORPH PARSE | \
+			# extrapolate edge labels \
+			timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates enhgprep.sparql 2>/dev/null |\
+			timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql 2>/dev/null| \
+			egrep '.' | grep -v '^#' | \
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
+			echo;\
+		fi;\
+	done | tee icepahc.tsv

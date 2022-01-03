@@ -110,6 +110,16 @@ Note that for legal reasons, we provide neither the corpus nor a build script, b
     - POS: semiautomated (?)
     - PARSE: semiautomated (?), annotations and extraction corresponds to those of ENHG
 
+### [`icepahc/`](icepahc): IcePaHC v.0.9
+
+A corpus of historical Icelandic, in analysis, we operate with the Old Icelandic subset (texts prior to 1500):
+
+    - Old Norse (Old Icelandic), (12th-16th c.)
+    - 0.4 million tokens (balanced)
+    - annotation layers:
+      - POS: semiautomated (?)
+      - PARSE: semiautomated (?), annotations and extraction corresponds to those of ENHG
+
 ## Analyses
 
 [`analyses/`](analyses): Case studies over that data
