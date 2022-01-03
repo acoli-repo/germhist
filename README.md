@@ -3,8 +3,12 @@
 In this repository, we provide a number of corpora of historical German as well as example workflows for their evaluation for designated research questions.
 To compensate the lack of annotated data for Old High German, corpora from other older Germanic languages (Old English, Old Saxon, Gothic, Old Norse) are included here, too.
 
-Data directly provided via this repository (e.g., for Middle High German), includes annotations produced by the ACoLi lab.
-For external data, we provide build scripts to retrieve the necessary data.
+Primary contributions are:
+- Annotations provided by the ACoLi Lab, natively distributed from this repository (e.g., for Middle High German)
+- Build and retrieval script to acquire and preprocess external data into a unified RDF representation (see [`analyses/`](analyses))
+- Evaluation scripts for a large-scale study of scrambling in historical German ([`analyses/scrambling`](analyses/scrambling))
+
+## Table of Contents
 
   * [ACoLi corpora](#acoli-corpora)
     + [ReM Treebank / Baumbank Mittelhochdeutsch](#--rem-full-corpus----rem---rem-treebank---baumbank-mittelhochdeutsch)
