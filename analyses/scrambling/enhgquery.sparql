@@ -4,6 +4,10 @@ prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
 PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
+# query originally developed for ENHG corpus
+# applied to YCOE corpus (determiner extraction fails)
+# slightly extended for HeliPaD corpus
+
 SELECT
   DISTINCT ?sentence ?verb ?ip ?order ?accDet ?accPos ?datDet ?datPos ?embedding
 WHERE {
@@ -17,7 +21,7 @@ WHERE {
      } # ?vv is the *first* lexical verb
    }
 
-   ?ip tiger:ACC ?accNp.
+   ?ip (tiger:ACC|tiger:OB1) ?accNp. # tiger:ACC in ENHG and YCOE, tiger:OB1 in HeliPaD
    ?acc powla:hasParent ?accNp; conll:POS ?accPos; conll:WORD ?accWord.
    FILTER(!contains(?accWord,'*')) # no traces!
    FILTER(strstarts(?accPos,'N') || strends(?accPos, 'PRO'))
@@ -37,7 +41,7 @@ WHERE {
      ?acc nif:nextWord+ ?accTmp.
    }
 
-   ?ip tiger:DAT ?datNp.
+   ?ip (tiger:DAT|tiger:OB2) ?datNp. # tiger:DAT in ENHG and YCOE, tiger:OB2 in HeliPaD
    ?dat powla:hasParent ?datNp; conll:POS ?datPos; conll:WORD ?datWord.
    FILTER(!contains(?datWord,'*')) # no traces!
    FILTER(strstarts(?datPos,'N') || strends(?datPos, 'PRO'))

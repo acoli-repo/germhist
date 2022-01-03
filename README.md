@@ -88,6 +88,17 @@ For external data, we provide build scripts to retrieve the necessary data.
     - 40.000 tokens
     - provenance of annotation is unclear. semiautomated?
 
+### [`helipad/`](helipad): HeliPaD corpus
+
+This is a corpus of Old Saxon (Old Low German), not historical (High) German, but it has been included as external data.
+This is a single text, only, the Heliand, main witness of the Old Saxon language.
+
+  - Old Saxon (830), poetry
+  - 48.000 tokens (BIB)
+  - annotation layers:
+    - POS: semiautomated
+    - PARSE: semiautomated, annotations and extraction corresponds to those of ENHG and YCOE, but uses OB1 (instead of ACC) for direct object and OB2 (instead of DAT) for indirect object.
+
 ### [`YCOE/`](YCOE): The York-Toronto-Helsinki Parsed Corpus of Old English prose (YCOE)
 
 This is a corpus of Old English, not historical German, but it has been included in analysis workflows as external data.
