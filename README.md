@@ -120,6 +120,16 @@ A corpus of historical Icelandic, in analysis, we operate with the Old Icelandic
       - POS: semiautomated (?)
       - PARSE: semiautomated (?), annotations and extraction corresponds to those of ENHG
 
+### [`proiel/`](proiel): Proiel corpus, Gothic
+
+Syntactically annotated edition of the Wulfila Bible.
+
+    - Gothic (second half of the 4th c.)
+    - 56.000 tokens (biblical, but translated from Greek)
+    - annotation layers:
+      - POS, INFL, LEMMA: semiautomated (?)
+      - HEAD/EDGE: semiautomated, according to the PROIEL/ISWOC schema
+
 ## Analyses
 
 [`analyses/`](analyses): Case studies over that data

@@ -278,3 +278,18 @@ icepahc.tsv: conll-rdf
 			echo;\
 		fi;\
 	done | tee icepahc.tsv
+
+proiel.tsv: conll-rdf
+		cd ../../proiel;\
+		make;
+		for file in ../../proiel/*gothic*conll; do \
+			genre=BIB;\
+			c=4; h=2;\
+			cat $$file | \
+			sed s/'([^\t]*)'//g | # occurs in dependency labels, this can break the extractor \
+			conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD LEMMA POS FINE_POS INFL HEAD EDGE | \
+			conll-rdf/run.sh CoNLLRDFFormatter -query proiel.sparql |\
+			egrep '.' | grep -v '^#' | \
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+			echo;\
+		done | tee proiel.tsv

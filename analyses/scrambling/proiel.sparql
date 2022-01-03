@@ -1,0 +1,35 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# for Gothic Proiel corpus, note that we did not extract determiners
+SELECT
+  DISTINCT ?sentence ?verb ?vfin ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+  #DISTINCT ?vfin
+WHERE {
+  ?sentence a nif:Sentence.
+  ?vfin conll:POS "V"; conll:HEAD+ ?sentence.
+  ?vfin conll:INFL ?vfeats.
+  FILTER(contains(?vfeats,"PERS")) # must contain person information, i.e., inflected
+
+  ?vfin conll:LEMMA ?verb.
+
+  ?acc conll:EDGE "obj"; conll:HEAD ?vfin; conll:POS ?accPos; conll:INFL ?accInfl.
+  FILTER(contains(?accInfl, "CASEa"))
+
+  # dative objects are not explicitly annotated, so we take any dative argument that is a direct dependent from the verb
+  # when filtered against POS, this rules out prepositional phrases
+  ?dat conll:HEAD ?vfin; conll:POS ?datPos; conll:INFL ?datInfl; conll:POS ?datPos.
+  FILTER(contains(?datInfl, "CASEd"))
+  FILTER(?datPos in ("N","P","C")) # nouns, pronouns, conjunctions
+
+  ?vfin nif:nextWord+ ?acc, ?dat.
+
+  OPTIONAL { ?acc nif:nextWord+ ?dat. BIND("ACC>DAT" as ?order)}
+  OPTIONAL { ?dat nif:nextWord+ ?acc. BIND("DAT>ACC" as ?order)}
+
+  OPTIONAL { ?verb conll:HEAD ?deep. ?deep conll:HEAD+ ?sentence. }
+  BIND(if(bound(?deep),"depOrCoord","main") as ?embedding)
+}
