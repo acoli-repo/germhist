@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv proiel.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -293,3 +293,20 @@ proiel.tsv: conll-rdf
 			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 			echo;\
 		done | tee proiel.tsv
+
+iswoc.tsv: conll-rdf
+	@# identical to proiel workflow
+	cd ../../iswoc;\
+	make;
+	# we use þ to identify OE data \
+	for file in `egrep -i 'þ' -l $$(find ../../iswoc/ | grep '\.conll$$')`; do \
+		echo $$file; \
+		c=xx; h=x;\
+		cat $$file | \
+		sed s/'([^\t]*)'//g | # occurs in dependency labels, this can break the extractor \
+		conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD LEMMA POS FINE_POS INFL HEAD EDGE | \
+		conll-rdf/run.sh CoNLLRDFFormatter -query proiel.sparql |\
+		egrep '.' | grep -v '^#' | \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+		echo;\
+	done

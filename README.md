@@ -1,7 +1,7 @@
 # Syntactic analysis of historical German
 
-In this repository, we provide a number of corpora of historical German as well as example workflows
-for their evaluation for designated research questions.
+In this repository, we provide a number of corpora of historical German as well as example workflows for their evaluation for designated research questions.
+To compensate the lack of annotated data for Old High German, corpora from other older Germanic languages (Old English, Old Saxon, Gothic, Old Norse) are included here, too.
 
 Data directly provided via this repository (e.g., for Middle High German), includes annotations produced by the ACoLi lab.
 For external data, we provide build scripts to retrieve the necessary data.
@@ -16,7 +16,7 @@ For external data, we provide build scripts to retrieve the necessary data.
     - POS/LEMMA/FEATS: manually annotation from Referenzkorpus Mittelhochdeutsch v.1.0 (external)
     - PARSE: phrase structure parse automatically produced by ACoLi (QuantQual project, 2017)
 
-## External corpora
+## External corpora of historical German
 
 ### [`TCodex/`](TCodex): Tatian Corpus of Deviating Examples
 
@@ -88,10 +88,13 @@ For external data, we provide build scripts to retrieve the necessary data.
     - 40.000 tokens
     - provenance of annotation is unclear. semiautomated?
 
+## Corpora of other older Germanic languages
+
+This is external data that helps to illuminate the syntax of older West Germanic. Unfortunately, syntactically annotated corpora for Old High German are too sparse, and the witnesses themselves are heavily influenced by (i.e., often literal translations of) Latin, so that external evidence from related language varieties is needed to confirm observations over the sparse OHG data.
+
 ### [`helipad/`](helipad): HeliPaD corpus
 
-This is a corpus of Old Saxon (Old Low German), not historical (High) German, but it has been included as external data.
-This is a single text, only, the Heliand, main witness of the Old Saxon language.
+This is a corpus of Old Saxon (Old Low German), based on a single text, only, the Heliand, main witness of the Old Saxon language.
 
   - Old Saxon (830), poetry
   - 48.000 tokens (BIB)
@@ -101,14 +104,23 @@ This is a single text, only, the Heliand, main witness of the Old Saxon language
 
 ### [`YCOE/`](YCOE): The York-Toronto-Helsinki Parsed Corpus of Old English prose (YCOE)
 
-This is a corpus of Old English, not historical German, but it has been included in analysis workflows as external data.
-Note that for legal reasons, we provide neither the corpus nor a build script, but an analysis workflow.
+Note that for legal reasons, we provide neither the corpus nor a build script, but an analysis workflow only, as well as its results. For replication, please acquire the corpus.
 
   - Old English (600-1150), prose
   - 1.5 million tokens (multiple genres)
   - annotation layers:
     - POS: semiautomated (?)
     - PARSE: semiautomated (?), annotations and extraction corresponds to those of ENHG
+
+### [`iswoc/`](iswoc): ISWOC corpus, Old English subcorpus
+
+Syntactically annotated open source edition of 5 major OE texts. Overlaps with YCOE, but uses a different schema. Pipeline and query identical to PROIEL.
+
+    - Old English
+    - 28.000 tokens (different genres)
+    - annotation layers:
+      - POS, INFL, LEMMA: semiautomated (?)
+      - HEAD/EDGE: semiautomated, according to the PROIEL/ISWOC schema
 
 ### [`icepahc/`](icepahc): IcePaHC v.0.9
 
@@ -120,7 +132,7 @@ A corpus of historical Icelandic, in analysis, we operate with the Old Icelandic
       - POS: semiautomated (?)
       - PARSE: semiautomated (?), annotations and extraction corresponds to those of ENHG
 
-### [`proiel/`](proiel): Proiel corpus, Gothic
+### [`proiel/`](proiel): PROIEL, Gothic subcorpus
 
 Syntactically annotated edition of the Wulfila Bible.
 
