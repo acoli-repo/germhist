@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -208,3 +208,29 @@ ycoe.tsv: conll-rdf
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
 		echo;\
 	done | tee ycoe.tsv
+
+helipad.tsv: conll-rdf
+	@# note that this is just a copy of the ENHG workflow
+	cd ../../helipad;\
+	make;
+	c=9; h=1; genre=BIB; \
+	for file in `find ../../helipad/ | grep '.psd$$'`; do \
+		cat $$file | \
+		# one line per sentence \
+		perl -pe 's/^\(/\n\n\(/g; s/^[ \t]+/ /g; s/([^\n])\n/\1 /;' |\
+		# keep proper sentences only \
+		egrep '^[(]' | \
+		# one line per token \
+		perl -pe 's/\n/\n\n/; s/([^\n]*)\((ID[^\)]+)\)/# \2\n\1/; s/(\)[ \)]*)([^\)\s])/\1\n\2/g; ' | \
+		# split into columns WORD POS PARSE \
+		perl -pe 's/^(.*)\(([^\(\) ]+) +([^\(\)]+)\)/\3\t\2\t\1*/;' | \
+		# convert to CoNLL-RDF with tree extensions \
+		timeout 600 conll-rdf/run.sh CoNLLBrackets2RDF file:`realpath $$file`'#' WORD POS PARSE | \
+		# extrapolate edge labels \
+		timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates enhgprep.sparql 2>/dev/null |\
+		timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql 2>/dev/null| \
+		#cat; echo | \
+		egrep '.' | grep -v '^#' | \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
+		echo;\
+	done #| tee helipad.tsv

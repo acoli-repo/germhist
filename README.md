@@ -93,6 +93,12 @@ For external data, we provide build scripts to retrieve the necessary data.
 This is a corpus of Old English, not historical German, but it has been included in analysis workflows as external data.
 Note that for legal reasons, we provide neither the corpus nor a build script, but an analysis workflow.
 
+  - Old English (600-1150), prose
+  - 1.5 million tokens (multiple genres)
+  - annotation layers:
+    - POS: semiautomated (?)
+    - PARSE: semiautomated (?), annotations and extraction corresponds to those of ENHG
+
 ## Analyses
 
 [`analyses/`](analyses): Case studies over that data
