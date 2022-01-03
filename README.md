@@ -6,6 +6,25 @@ To compensate the lack of annotated data for Old High German, corpora from other
 Data directly provided via this repository (e.g., for Middle High German), includes annotations produced by the ACoLi lab.
 For external data, we provide build scripts to retrieve the necessary data.
 
+  * [ACoLi corpora](#acoli-corpora)
+    + [[`ReM/full_corpus/`](ReM): ReM Treebank / Baumbank Mittelhochdeutsch](#--rem-full-corpus----rem---rem-treebank---baumbank-mittelhochdeutsch)
+  * [External corpora](#external-corpora)
+    + [[`TCodex/`](TCodex): Tatian Corpus of Deviating Examples](#--tcodex----tcodex---tatian-corpus-of-deviating-examples)
+    + [[`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch](#--ref----ref---ref-treebank---referenzkorpus-fr-hneuhochdeutsch)
+    + [[`ENHG/`](ENHG): Early New High German Treebank by Caitlin Light](#--enhg----enhg---early-new-high-german-treebank-by-caitlin-light)
+    + [[`Mercurius/`](Mercurius): Mercurius Treebank](#--mercurius----mercurius---mercurius-treebank)
+    + [[`fuerstinnen/`](fuestinnen): Fuerstinnenkorrespondenz 1.1](#--fuerstinnen----fuestinnen---fuerstinnenkorrespondenz-11)
+    + [[`GerManC/`](GerManC): GerManC corpus](#--germanc----germanc---germanc-corpus)
+    + [[`UD/`](UD): UD corpora](#--ud----ud---ud-corpora)
+  * [Corpora of other older Germanic languages](#corpora-of-other-older-germanic-languages)
+    + [[`helipad/`](helipad): HeliPaD corpus](#--helipad----helipad---helipad-corpus)
+    + [[`YCOE/`](YCOE): The York-Toronto-Helsinki Parsed Corpus of Old English prose (YCOE)](#--ycoe----ycoe---the-york-toronto-helsinki-parsed-corpus-of-old-english-prose--ycoe-)
+    + [[`iswoc/`](iswoc): ISWOC corpus, Old English subcorpus](#--iswoc----iswoc---iswoc-corpus--old-english-subcorpus)
+    + [[`icepahc/`](icepahc): IcePaHC v.0.9](#--icepahc----icepahc---icepahc-v09)
+    + [[`proiel/`](proiel): PROIEL, Gothic subcorpus](#--proiel----proiel---proiel--gothic-subcorpus)
+  * [Analyses](#analyses)
+  * [Other candidate corpora](#other-candidate-corpora)
+
 ## ACoLi corpora
 
 ### [`ReM/full_corpus/`](ReM): ReM Treebank / Baumbank Mittelhochdeutsch
@@ -16,7 +35,7 @@ For external data, we provide build scripts to retrieve the necessary data.
     - POS/LEMMA/FEATS: manually annotation from Referenzkorpus Mittelhochdeutsch v.1.0 (external)
     - PARSE: phrase structure parse automatically produced by ACoLi (QuantQual project, 2017)
 
-## External corpora of historical German
+## External corpora
 
 ### [`TCodex/`](TCodex): Tatian Corpus of Deviating Examples
 
