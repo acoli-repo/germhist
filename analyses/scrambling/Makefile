@@ -27,7 +27,7 @@ rem.tsv: conll-rdf
 					if [ -e $$file ]; then \
 						echo '# '$$file;\
 						cat $$file | \
-						timeout 30 conll-rdf/run.sh CoNLLBrackets2RDF '#' ID TID WORD POS LEMMA INFL PARSE ANIMACY | \
+						timeout 30 conll-rdf/run.sh CoNLLBrackets2RDF file:`realpath $$file`'#' ID TID WORD POS LEMMA INFL PARSE ANIMACY | \
 						timeout 30 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates rem2tiger.sparql | \
 						timeout 30 conll-rdf/run.sh CoNLLRDFFormatter -query remquery.sparql | \
 						egrep '.' | grep -v '^#' | \
@@ -86,7 +86,7 @@ germanc.tsv: conll-rdf
 			h=`echo $$year % 100 / 50 + 1 | bc`;\
 			#echo $$file $$year $$c $$h $$genre;\
 			cat $$file | \
-			conll-rdf/run.sh CoNLLStreamExtractor '#' ID WORD NORM POS LEMMA INFL EDGE HEAD 2>/dev/null| \
+			conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD NORM POS LEMMA INFL EDGE HEAD 2>/dev/null| \
 			conll-rdf/run.sh CoNLLRDFFormatter -query germanc.sparql 2>/dev/null|\
 			egrep '.' | grep -v '^#' | \
 			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
@@ -107,7 +107,7 @@ ud.tsv: conll-rdf
 		# skip multi-word expressions\
 		egrep '^\s*$|^[0-9][0-9]*\s' | sed s/'^1\s'/'\n&'/g | \
 		#cat; echo | \
-		conll-rdf/run.sh CoNLLStreamExtractor '#' ID WORD LEMMA UPOS XPOS FEATS HEAD EDGE | \
+		conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$dir`'#' ID WORD LEMMA UPOS XPOS FEATS HEAD EDGE | \
 		conll-rdf/run.sh CoNLLRDFFormatter -query ud.sparql |\
 		egrep '.' | grep -v '^#' | \
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
@@ -129,7 +129,7 @@ enhg.tsv: conll-rdf
 		# split into columns WORD POS PARSE \
 		perl -pe 's/^(.*)\(([^\(\) ]+) +([^\(\)]+)\)/\3\t\2\t\1*/;' | \
 		# convert to CoNLL-RDF with tree extensions \
-		conll-rdf/run.sh CoNLLBrackets2RDF '#' WORD POS PARSE | \
+		conll-rdf/run.sh CoNLLBrackets2RDF file:`realpath $$file`'#' WORD POS PARSE | \
 		# extrapolate edge labels \
 		conll-rdf/run.sh CoNLLRDFUpdater -custom -updates enhgprep.sparql 2>/dev/null |\
 		conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql | \
