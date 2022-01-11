@@ -1,0 +1,69 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# for processing Tueba-D/Z, Tueba-PP in TIGER XML format
+
+SELECT
+ DISTINCT ?sentence ?verb ?mf ?order ?accDet ?accPos ?datDet ?datPos ?embedding
+WHERE {
+ ?mf tiger:cat "MF". # explicit middle field annotations
+
+# verb
+ ?mf powla:hasParent ?cl.
+   { # from right bracket
+     [ tiger:cat "VC "] powla:hasParent ?cl; tiger:HD+/conll:LEMMA ?verb
+   } UNION {
+     # from finite verb, if no RK (verb complex) is found
+     [ tiger:cat "LK"] powla:hasParent ?cl; tiger:HD+/conll:LEMMA ?verb.
+     MINUS { [tiger:cat "VC"] powla:hasParent ?cl }
+   }
+
+   ?mf tiger:OA ?accNP.
+   ?accNP tiger:HD* ?acc.
+   ?acc conll:POS ?accPos.
+
+   OPTIONAL { # definite or indef article
+     [conll:POS ?accDetPos; conll:LEMMA ?accDet ] powla:hasParent ?accNP.
+     FILTER(contains(?accDetPos,"ART"))
+   }
+   OPTIONAL { # attributive pronouns, but only if no article is found
+     [conll:POS ?accDet ] powla:hasParent ?accNP.
+     FILTER(strends(?accPos,"AT"))
+     MINUS {
+       [conll:POS ?accDetPos ] powla:hasParent ?accNP.
+       FILTER(contains(?accDetPos,"ART"))
+     }
+   }
+
+   ?mf tiger:OD ?datNP.
+   ?datNP tiger:HD* ?dat.
+   ?dat conll:POS ?datPos.
+
+   OPTIONAL { # definite or indef article
+     [conll:POS ?datDetPos; conll:LEMMA ?datDet ] powla:hasParent ?datNP.
+     FILTER(contains(?datDetPos,"ART"))
+   }
+   OPTIONAL { # attributive pronouns, but only if no article is found
+     [conll:POS ?datDet ] powla:hasParent ?datNP.
+     FILTER(strends(?datPos,"AT"))
+     MINUS {
+       [conll:POS ?datDetPos ] powla:hasParent ?datNP.
+       FILTER(contains(?datDetPos,"ART"))
+     }
+   }
+
+
+   OPTIONAL { ?dat nif:nextWord+ ?acc. BIND("DAT>ACC" as ?order) }
+   OPTIONAL { ?acc nif:nextWord+ ?dat. BIND("ACC>DAT" as ?order) }
+
+   ?acc a nif:Word.
+   ?acc conll:HEAD+ ?sentence.
+   ?sentence a nif:Sentence.
+
+  ?cl tiger:cat ?cltype.
+
+   BIND(if(?cltype="SIMPX","main","dep") as ?embedding)
+}

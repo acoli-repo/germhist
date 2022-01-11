@@ -111,6 +111,15 @@ Primary contributions are:
     - 40.000 tokens
     - provenance of annotation is unclear. semiautomated?
 
+### [`tuebadz/`](tuebadz): Tueba-D/Z
+
+  - Modern High German, late 20th c.
+  - 1.4 million tokens (news)
+  - relevant annotation layers:
+    - POS/LEMMA/FEATS
+    - PARSE: phrase structure grammar plus topological fields plus syntactic heads
+  - Corpus access requires registration, so we do not provide the data, but retrieval and build instructions as well as the result table `analysis/scrambling`. 
+
 ## Corpora of other older Germanic languages
 
 This is external data that helps to illuminate the syntax of older West Germanic. Unfortunately, syntactically annotated corpora for Old High German are too sparse, and the witnesses themselves are heavily influenced by (i.e., often literal translations of) Latin, so that external evidence from related language varieties is needed to confirm observations over the sparse OHG data.

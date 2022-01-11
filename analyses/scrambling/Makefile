@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv proiel.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv proiel.tsv tuebadz.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -310,3 +310,17 @@ iswoc.tsv: conll-rdf
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 		echo;\
 	done | tee iswoc.tsv
+
+tuebadz.tsv: tiger-rdf conll-rdf
+	@# same preprocessing as ReF
+	# see ../../tuebadz/Readme.md for instructions how to acquire and build ../../tuebadz/tiger.xml
+	c=20;\
+	h=2;\
+	genre=NEWS;\
+	python3 -u tiger-rdf/tiger/tiger2rdf.py ../../tuebadz/tiger.xml | \
+	# some malformed sentences \
+		conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql  2>/dev/null | \
+		conll-rdf/run.sh CoNLLRDFFormatter -query tueba.sparql |\
+		egrep '.' | grep -v '^#' | \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/ | \
+	tee tuebadz.tsv
