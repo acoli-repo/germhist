@@ -147,6 +147,7 @@ tcodex.tsv: conll-merge conll-rdf
 		xsltproc conll-merge/cmd/exm2conll.xsl $$file;\
 		echo ; \
 	done | \
+	tee tcodex.conll | \
 	conll-rdf/run.sh CoNLLStreamExtractor '#' ID LAT WORD ALIGN POS CAT CLAUSE GF _ GIVEN TOPIC ABOUTNESS POSITION _ DEFINITENESS FOCUS _ _ _ _ | \
 	# cat; echo | \
 	conll-rdf/run.sh CoNLLRDFUpdater -custom -updates exmprep.sparql |\
