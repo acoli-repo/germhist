@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv proiel.tsv tuebadz.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv proiel.tsv tuebadz.tsv ddb.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -15,6 +15,10 @@ tiger-rdf:
 LLODifier:
 	@# replace with symlink if already installed
 	git clone https://github.com/acoli-repo/LLODifier
+
+powla:
+	@# replace with symlink if already installed
+	git clone https://github.com/acoli-repo/powla
 
 rem.tsv: conll-rdf
 	cd ../../ReM;\
@@ -50,7 +54,7 @@ ref.tsv: tiger-rdf conll-rdf
 		timeout 180 python3 -u tiger-rdf/tiger/tiger2rdf.py $$file | \
 		# some errors in the following arise from " in WORD \
 		timeout 180 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql 2>/dev/null | \
-		timeout 180 CoNLLRDFFormatter -query refquery.sparql |\
+		timeout 180 conll-rdf/run.sh CoNLLRDFFormatter -query refquery.sparql |\
 		egrep '.' | grep -v '^#' | \
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 		echo;\
@@ -325,3 +329,36 @@ tuebadz.tsv: tiger-rdf conll-rdf
 		egrep '.' | grep -v '^#' | \
 		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/ | \
 	tee tuebadz.tsv
+
+ddb.tsv: powla conll-rdf
+	cd ../../DDB;\
+	make;
+	for dir in ../../DDB/paula/*/; do # ../../DDB/paula/HenchI/; do \
+		tgt=`basename $$dir`; \
+		c=`egrep -m 1 $$tgt ../../DDB/meta.tsv | cut -f 2 `;\
+		h=`egrep -m 1 $$tgt ../../DDB/meta.tsv | cut -f 3 `;\
+		region=`egrep -m 1 $$tgt ../../DDB/meta.tsv | cut -f 4`;\
+		cols="ID WORD MORPH POS PARSE";\
+		if [ $$c -eq 9 ]; then \
+			cols="ID WORD LEMMA MORPH POS PARSE";\
+		fi;\
+		echo '#' ddb.$$tgt.conll; \
+		if [ ! -e ddb.$$tgt.conll ]; then \
+			echo $$dir '>' ddb.$$tgt.conll 1>&2;\
+			powla/experimental/paula/paula2conll.sh -split `dirname $$dir`/`basename $$dir` | \
+			 tee ddb.$$tgt.conll;\
+		else \
+			cat ddb.$$tgt.conll; \
+		fi | \
+		grep -v '^#' | \
+		sed s/'^\([0-9].*[^\s\t ]\)[\s\t ]*$$'/'\1\t'$$c'\t'$$h'\t'$$region/ | \
+		conll-rdf/run.sh CoNLLBrackets2RDF '#' $$cols CENT HALF REGION 2>/dev/null ;\
+		echo; \
+	done | \
+	conll-rdf/run.sh CoNLLRDFUpdater -custom -updates paulaprep.sparql 2>/dev/null | \
+	tee ddb.ttl | \
+	conll-rdf/run.sh CoNLLRDFFormatter -query ddbquery.sparql 2>/dev/null|\
+#			cat; echo | \
+	egrep '.' | grep -v '^#' | \
+	sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/ | \
+	tee ddb.tsv

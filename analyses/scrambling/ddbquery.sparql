@@ -1,0 +1,138 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# based on Mercurius, extended to provide provenance (included in annotation here)
+
+SELECT
+  DISTINCT ?sentence ?verb ?vp ?order ?accDet ?accPos ?datDet ?datPos ?embedding ?empty ?century ?half ?region
+  #DISTINCT ?verb ?vp ?accDet ?accPos ?datDet ?datPos
+WHERE {
+  # not sure how well VP corresponds to middle field (+ postfield), esp. in combination with OC, so we only check for post-verbal word order
+
+  ?vp tiger:cat ?cat.
+  ?vp tiger:OC*/tiger:DA ?da.
+  ?vp tiger:OC*/tiger:OA ?oa.
+
+   OPTIONAL {
+      SELECT ?vp (GROUP_CONCAT(?form; separator=" ") as ?verb)
+       WHERE {
+         # in the PAULA conversion, we loose some token-level relations ...
+         ?vp (tiger:OC|tiger:PD|tiger:HD)*/^powla:hasParent ?v.
+         ?v conll:POS ?pos.
+         FILTER(strstarts(?pos,"V"))
+         #?vp ?prop ?v.
+         #BIND("." as ?form)
+         { ?v conll:LEMMA ?form } UNION
+         { ?v conll:WORD ?form MINUS { ?v conll:LEMMA [] }}
+       } GROUP BY ?vp
+     }
+     # this is to constrain context to single clause
+     FILTER(! contains(?verb," "))
+
+  # head of dat NP
+    # core elements are linked by NK, this includes adjectives and determiners
+    { # assume head is the last nominal NK element
+      ?da (tiger:NK*/^powla:hasParent)? ?dat.
+      ?dat conll:POS ?datPos. FILTER(strstarts(?datPos,"N"))
+      MINUS { ?da (tiger:NK*/^powla:hasParent)? ?dat, ?tmp.
+        ?dat conll:POS ?datPos. FILTER(strstarts(?datPos,"N"))
+        ?tmp conll:POS ?tmpPos. FILTER(strstarts(?tmpPos,"N"))
+        ?dat nif:nextWord+ ?tmp.
+      }
+    } UNION {
+      # if no nominal element is found, head is the last pronominal NK element
+      ?da (tiger:NK*/^powla:hasParent)? ?dat.
+      ?dat conll:POS ?datPos. FILTER(strstarts(?datPos,"P"))
+      MINUS { ?da (tiger:NK*/^powla:hasParent)? ?tmp. ?tmp conll:POS ?pos. FILTER(strstarts(?pos,"N")) }
+      MINUS { ?da (tiger:NK*/^powla:hasParent)? ?dat, ?tmp.
+        ?dat conll:POS ?datPos. FILTER(strstarts(?datPos,"P"))
+        ?tmp conll:POS ?tmpPos. FILTER(strstarts(?tmpPos,"P"))
+        ?dat nif:nextWord+ ?tmp.
+      }
+    }
+
+    # determiner is ART or ends in AT, return the first
+    OPTIONAL {
+      { ?da (tiger:NK*/^powla:hasParent)? ?datDetURI.
+        ?datDetURI conll:WORD ?datDet; conll:POS "ART"
+      } UNION {
+        ?da (tiger:NK*/^powla:hasParent)? ?datDetURI.
+        ?datDetURI conll:POS ?datDet. FILTER(strends(?datDet,"ART") || strends(?datDet,"AT")) FILTER(?datDet!="ART")
+      }
+
+      MINUS {
+          ?da (tiger:NK*/^powla:hasParent)? ?datDetURI, ?datDetTmp.
+          ?datDetTmp nif:nextWord+ ?datDetURI.
+          ?datDetURI conll:POS ?datDetPos. FILTER(strends(?datDetPos,"ART") || strends(?datDetPos,"AT"))
+          ?datDetTmp conll:POS ?datTmpPos. FILTER(strends(?datTmpPos,"ART") || strends(?datTmpPos,"AT"))
+      }
+    }
+
+    # accusative argument
+
+     # head of acc NP
+     # core elements are linked by NK, this includes adjectives and determiners
+     { # assume head is the last nominal NK element
+       ?oa (tiger:NK*/^powla:hasParent)? ?acc.
+       ?acc conll:POS ?accPos. FILTER(strstarts(?accPos,"N"))
+       MINUS { ?oa (tiger:NK*/^powla:hasParent)? ?acc, ?tmp.
+         ?acc conll:POS ?accPos. FILTER(strstarts(?accPos,"N"))
+         ?tmp conll:POS ?tmpPos. FILTER(strstarts(?tmpPos,"N"))
+         ?acc nif:nextWord+ ?tmp.
+       }
+     } UNION {
+       # if no nominal element is found, head is the last pronominal NK element
+       ?oa (tiger:NK*/^powla:hasParent)? ?acc.
+       ?acc conll:POS ?accPos. FILTER(strstarts(?accPos,"P"))
+       MINUS { ?oa (tiger:NK*/^powla:hasParent)? ?tmp. ?tmp conll:POS ?pos. FILTER(strstarts(?pos,"N")) }
+       MINUS { ?oa (tiger:NK*/^powla:hasParent)? ?acc, ?tmp.
+         ?acc conll:POS ?accPos. FILTER(strstarts(?accPos,"P"))
+         ?tmp conll:POS ?tmpPos. FILTER(strstarts(?tmpPos,"P"))
+         ?acc nif:nextWord+ ?tmp.
+       }
+     }
+
+     # determiner is ART or ends in AT, return the first
+     OPTIONAL {
+       { ?oa (tiger:NK*/^powla:hasParent)? ?accDetURI.
+         ?accDetURI conll:WORD ?accDet; conll:POS "ART"
+       } UNION {
+         ?oa (tiger:NK*/^powla:hasParent)? ?accDetURI.
+         ?accDetURI conll:POS ?accDet. FILTER(strends(?accDet,"ART") || strends(?accDet,"AT")) FILTER(?accDet!="ART")
+       }
+
+       MINUS {
+           ?oa (tiger:NK*/^powla:hasParent)? ?accDetURI, ?accDetTmp.
+           ?accDetTmp nif:nextWord+ ?accDetURI.
+           ?accDetURI conll:POS ?accDetPos. FILTER(strends(?accDetPos,"ART") || strends(?accDetPos,"AT"))
+           ?accDetTmp conll:POS ?accTmpPos. FILTER(strends(?accTmpPos,"ART") || strends(?accTmpPos,"AT"))
+       }
+     }
+
+
+
+    # check postverbal position
+    ?vp (tiger:HD|tiger:OC|tiger:PD)*/^powla:hasParent ?vfin.
+    ?vfin conll:POS ?vfinPos.
+    FILTER(contains(?vfinPos,"FIN"))
+    ?vfin nif:nextWord+ ?acc, ?dat.
+
+    OPTIONAL { ?dat nif:nextWord+ ?acc. BIND("DAT>ACC" as ?order) }
+    OPTIONAL { ?acc nif:nextWord+ ?dat. BIND("ACC>DAT" as ?order) }
+
+    OPTIONAL {
+      ?deep tiger:cat "S".
+      [tiger:cat "S"] powla:hasParent+ ?deep; (^powla:hasParent)+ ?vp
+    }
+
+    BIND(if(bound(?deep),"depOrCoord","main") as ?embedding)
+
+    ?acc conll:HEAD+ ?sentence.
+    ?sentence a nif:Sentence.
+
+    # here, metadata is directly stored at tokens
+    ?acc conll:CENT ?century; conll:HALF ?half; conll:REGION ?region.
+}

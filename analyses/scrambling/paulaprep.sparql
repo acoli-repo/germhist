@@ -1,0 +1,49 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla: <http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX apf: <http://jena.apache.org/ARQ/property#>
+
+# transform CoNLL data generated from POWLA structs with paula2conll.sh
+# warning: custom Apache Jena function!
+
+
+# transform CoNLL-RDF data structures to tiger-compliant data structures
+# note: we generate multiple labels here
+DELETE {
+  ?n rdf:value ?value, ?anno; a conll:PARSE
+} INSERT {
+  ?n a tiger:Nonterminal; ?feat ?val.
+} WHERE {
+    ?n a powla:Node, conll:PARSE.
+      { ?n rdf:value ?value.
+        ?anno apf:strSplit (?value "\\|").
+      } UNION {
+        ?n rdf:value ?anno.
+        FILTER(!contains(?anno,"|"))
+      }
+      BIND(uri(concat("https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#",strbefore(?anno,"="))) as ?feat)
+      BIND(strafter(?anno,"=") as ?val)
+};
+
+# create relations
+DELETE {
+  ?n tiger:func ?feat; tiger:type ?type
+} INSERT {
+  ?r a powla:Relation; powla:hasSource ?n; powla:hasTarget ?p; tiger:label ?feat; tiger:type ?type.
+} WHERE {
+  ?n powla:hasParent ?p.
+  ?n tiger:func ?feat.
+  OPTIONAL { ?n tiger:type ?type }
+  BIND(uri(concat(str(?n),"_",replace(str(?p),'.*[#/]',''))) as ?r)
+};
+
+# simplify relations
+INSERT {
+  ?parent ?rel ?dep
+} WHERE {
+  [] powla:hasSource ?dep; powla:hasTarget ?parent; tiger:label ?label.
+  BIND(URI(concat("https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#",
+  encode_for_uri(?label))) as ?rel)
+};

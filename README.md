@@ -14,6 +14,7 @@ Primary contributions are:
     + [ReM Treebank / Baumbank Mittelhochdeutsch](#--rem-full-corpus----rem---rem-treebank---baumbank-mittelhochdeutsch)
   * [External corpora](#external-corpora)
     + [Tatian Corpus of Deviating Examples](#--tcodex----tcodex---tatian-corpus-of-deviating-examples)
+    + [Deutsche Diachrone Baumbank](#--ddb----ddb---deutsche-diachrone-baumbank)
     + [ReF Treebank / Referenzkorpus Frühneuhochdeutsch](#--ref----ref---ref-treebank---referenzkorpus-fr-hneuhochdeutsch)
     + [Early New High German Treebank](#--enhg----enhg---early-new-high-german-treebank-by-caitlin-light)
     + [Mercurius](#--mercurius----mercurius---mercurius-treebank)
@@ -49,6 +50,15 @@ Primary contributions are:
     - POS, MORPH, LEMMA:  manually
     - PARSE: shallow (non-recursive) phrase structure parse, manually
 
+### [`DDB/`](DDB): Deutsche Diachrone Baumbank
+    - Old High German (9th c.), Middle High German (13th c.), Early Modern High German (16th c.)
+    - 8500 tokens *in total*
+    - annotation layers:
+      - POS, PARSE, MORPH: manually
+      - LEMMA: manually (OHG only)
+    - note: the data is marginal in size and the technical quality is poor (TIGER export for MHG and ENHG is broken -- instead, this is Exmaralda; PAULA export is ok for original TIGER data [all languages], but merging failed [original Exmaralda files point to inexistent token file, however, these contain lemmatization only])
+    - from the scrambling evaluation, the data is excluded as it contains only two examples of ditransitive verbs with postverbal nominal arguments
+
 ### [`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch
 
   - Early Modern High German, 1350-1650
@@ -72,7 +82,7 @@ Primary contributions are:
     - POS, PARSE: semiautomatically (no LEMMA, no MORPH)
   - note: the schema is supposed to be identical to ReF, but it uses VP instead of CL. As VP excludes the pre-field, this allows us to skip tests for word order. This means that we also retrieve results from middle fields of relative clauses, so the total number of matches is higher than from ReF.
 
-### [`fuerstinnen/`](fuestinnen): Fuerstinnenkorrespondenz 1.1
+### [`fuerstinnen/`](fuerstinnen): Fuerstinnenkorrespondenz 1.1
 
   - Early Modern High German/Modern High German, 1546-1756
   - 0.2 million tokens (letters)
@@ -118,7 +128,7 @@ Primary contributions are:
   - relevant annotation layers:
     - POS/LEMMA/FEATS
     - PARSE: phrase structure grammar plus topological fields plus syntactic heads
-  - Corpus access requires registration, so we do not provide the data, but retrieval and build instructions as well as the result table `analysis/scrambling`. 
+  - Corpus access requires registration, so we do not provide the data, but retrieval and build instructions as well as the result table `analysis/scrambling`.
 
 ## Corpora of other older Germanic languages
 
@@ -192,8 +202,3 @@ for complex search and retrieval tasks in real-world research questions in lingu
   - annotation layers:
     - POS/LEMMA/FEATS: manual annotation from DDD corpus and HeliPaD corpus
     - EDGE/HEAD: UD-style dependency parse extrapolated from DDD (partial, phrasal, manual) and HeliPaD (complete, phrasal, semiautomated)
-
-- DDB corpus, see [`DDB/`](DDB)
-  - Old High German (TIGER), only 2800 tokens
-  - Early Modern High German and Middle High German data are corrupt. Instead of TIGER, this contains partially annotated Exmaralda, only
-  - MHG and ENHG data lacks provenance and dating information. Not usable for our purposes.
