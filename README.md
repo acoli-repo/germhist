@@ -56,7 +56,7 @@ Primary contributions are:
     - annotation layers:
       - POS, PARSE, MORPH: manually
       - LEMMA: manually (OHG only)
-    - note: the data is marginal in size and the technical quality is poor (TIGER export for MHG and ENHG is broken -- instead, this is Exmaralda; PAULA export is ok for original TIGER data [all languages], but merging failed [original Exmaralda files point to inexistent token file, however, these contain lemmatization only])
+    - note: the data is marginal in size and the technical quality is poor (TIGER export for MHG and ENHG is broken -- instead, this is an Exmaralda file without syntax annotation; PAULA export is ok for original TIGER data [all languages], but merging failed [original Exmaralda files point to inexistent token file, however, these contain lemmatization only])
     - from the scrambling evaluation, the data is excluded as it contains only two examples of ditransitive verbs with postverbal nominal arguments
 
 ### [`ReF/`](ReF): ReF Treebank / Referenzkorpus Frühneuhochdeutsch
@@ -184,6 +184,8 @@ Syntactically annotated edition of the Wulfila Bible.
       - POS, INFL, LEMMA: semiautomated (?)
       - HEAD/EDGE: semiautomated, according to the PROIEL/ISWOC schema
 
+We provide the workflow for Gothic in `analysis/scrambling`, but we excluded its results: Its word order preferences are identical to that of the Greek NT (that we studied for comparison). For postverbal nominal accusative and dative arguments, both show exactly the same preference for ACC>DAT (75.6%=34:11 Greek NT, 76.9%=20:6 Gothic NT; difference may be because the Gothic NT is incomplete).
+
 ## Analyses
 
 [`analyses/`](analyses): Case studies over that data
@@ -195,6 +197,19 @@ for complex search and retrieval tasks in real-world research questions in lingu
 - [`analyses/scrambling`](analyses/scrambling): Study diachronic word order of post-verbal oblique arguments
 
 ## Other candidate corpora
+
+- [HIPKON: Historisches Predigtenkorpus zum Nachfeld](https://www.laudatio-repository.org/browse/corpus/yiTKCnMB7CArCQ9CxLhJ/corpora)
+  - annotations similar to Fuerstinnenkorpus and TCodex, i.e., shallow, span-based annotations, but with marking for grammatical roles
+  - 92.500 tokens, Old High German, Middle High German, Early Modern High German, Modern High German
+  - annotation is incomplete, covering only main clauses with complex verbal complex and post-field
+
+- [Muspilli](https://www.laudatio-repository.org/browse/corpus/HiTACXMB7CArCQ9CDy3m/corpora)
+  - Old High German, annotations corresponding to TCodex, but only 900 tokens
+
+- [Historische Syntax des Jiddischen, Version 1.0](https://www.laudatio-repository.org/browse/corpus/8CRGCnMB7CArCQ9CUXL0/corpora)
+  - Old and Middle Yiddish, shallow, span-based annotations in accordance with DDD plus marking of grammatical roles
+  - 40k tokens
+  - Except for the writing system, Old Yiddish was very similar to Middle High German, with increasing divergencies after the mid-14th c. only.
 
 - Old Saxon corpus
   - Old Saxon (Old Low German), 750-1150

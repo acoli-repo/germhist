@@ -1,4 +1,4 @@
-all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv proiel.tsv tuebadz.tsv ddb.tsv
+all: rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv proiel.tsv greek.tsv tuebadz.tsv ddb.tsv
 
 conll-rdf:
 	@# replace with symlink if already installed
@@ -298,6 +298,23 @@ proiel.tsv: conll-rdf
 			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
 			echo;\
 		done | tee proiel.tsv
+
+greek.tsv: conll-rdf
+		@# identical with proiel, for comparison with Greek NT
+		cd ../../proiel;\
+		make;
+		for file in ../../proiel/*greek*conll; do \
+			genre=BIB;\
+			c=Greek;\
+			cat $$file | \
+			sed s/'([^\t]*)'//g | # occurs in dependency labels, this can break the extractor \
+			conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD LEMMA POS FINE_POS INFL HEAD EDGE | \
+			conll-rdf/run.sh CoNLLRDFFormatter -query proiel.sparql |\
+			egrep '.' | grep -v '^#' | \
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+			echo;\
+		done | tee greek.tsv
+
 
 iswoc.tsv: conll-rdf
 	@# identical to proiel workflow
