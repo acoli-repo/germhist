@@ -217,3 +217,7 @@ for complex search and retrieval tasks in real-world research questions in lingu
   - annotation layers:
     - POS/LEMMA/FEATS: manual annotation from DDD corpus and HeliPaD corpus
     - EDGE/HEAD: UD-style dependency parse extrapolated from DDD (partial, phrasal, manual) and HeliPaD (complete, phrasal, semiautomated)
+
+- [Old Swedish Corpora of Sprakbanken](sprakbanken)
+  - Old Swedish, 13th - 16th c.
+  - We began processing these corpora, but at the moment, their annotation with dependency syntax has not been concluded yet (all files of the older strata have `deprel=""` or `deprel="__UNDEF__"`). To be revisited.
