@@ -16,6 +16,7 @@ corpus:
 		cd full_corpus/orig/; \
 		tar -xvf rem-corralled-20161222.tar.xz; \
 	fi
+	@if [ ! -e metadata.json ]; then bash -e ./get_metadata.sh > metadata.json; fi;
 	@if [ ! -d full_corpus/conll ]; then mkdir full_corpus/conll; fi
 	@if [ ! -d full_corpus/ttlchunked ]; then mkdir full_corpus/ttlchunked; fi
 
