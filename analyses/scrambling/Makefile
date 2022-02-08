@@ -29,13 +29,25 @@ rem.tsv: conll-rdf
 				echo ReM $$c $$h $$genre 1>&2;\
 				for file in ../../ReM/full_corpus/conll/*_$${c}-$${h}_$${genre}*conll; do \
 					if [ -e $$file ]; then \
+						id=`basename $$file | sed s/'_.*'//`;\
+						orig_region=`cat ../../ReM/metadata.json | jq '.[] | ."'$$id'>" | ."language-region"' | grep -m 1 '"' | sed s/'"'//g`;\
+						region=`echo $$orig_region | \
+								sed -e s/'westmitteldeutsch'/'WMD'/g \
+										-e s/'o[st]*mitteldeutsch'/'OMD'/g \
+										-e s/'[a-z]*mitteldeutsch'/'MD'/g \
+										-e s/'ostoberdeutsch'/'OOD'/g \
+										-e s/'westoberdeutsch'/'WOD'/g \
+										-e s/'[a-z]*oberdeutsch'/'OD'/g \
+										-e s/'[a-z]*niederdeutsch'/'ND'/g \
+										-e s/'[a-z][a-z]*'/'_'/g`;\
+						echo ReM $$c $$h $$genre $$orig_region $$region 1>&2;\
 						echo '# '$$file;\
 						cat $$file | \
 						timeout 30 conll-rdf/run.sh CoNLLBrackets2RDF file:`realpath $$file`'#' ID TID WORD POS LEMMA INFL PARSE ANIMACY | \
 						timeout 30 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates rem2tiger.sparql | \
 						timeout 30 conll-rdf/run.sh CoNLLRDFFormatter -query remquery.sparql | \
 						egrep '.' | grep -v '^#' | \
-						sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+						sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;\
 						echo;\
 					fi;\
 				done;\
@@ -47,16 +59,28 @@ ref.tsv: tiger-rdf conll-rdf
 	cd ../../ReF;\
 	make;
 	for file in ../../ReF/*/ref-up/*.xml; do \
+		id=`basename $$file | sed s/'\..*'//`;\
+		orig_region=`cat ../../ReF/metadata.json | jq '.[] | ."'$$id'" | ."language-region"' | grep -m 1 '"' | sed s/'"'//g`;\
+		region=`echo $$orig_region | \
+				sed -e s/'westmitteldeutsch'/'WMD'/g \
+						-e s/'o[st]*mitteldeutsch'/'OMD'/g \
+						-e s/'[a-z]*mitteldeutsch'/'MD'/g \
+						-e s/'ostoberdeutsch'/'OOD'/g \
+						-e s/'westoberdeutsch'/'WOD'/g \
+						-e s/'[a-z]*oberdeutsch'/'OD'/g \
+						-e s/'[a-z]*niederdeutsch'/'ND'/g \
+						-e s/'[a-z][a-z]*'/'_'/g`;\
 		time=`egrep -m 1 '<time>' $$file | sed -e s/'<[^>]*>'//g -e s/'\s'//g -e s/','/'\\t'/;`;\
 		c=`echo $$time | sed s/'\s.*'//;`;\
 		h=`echo $$time | sed s/'.*\s'//;`;\
 		genre=`egrep -m 1 '<genre>' $$file | sed -e s/'<[^>]*>'//g -e s/'\s'//g -e s/','/'\t'/;`;\
+		echo ReF $$id $$c $$h $$genre $$orig_region $$region 1>&2;\
 		timeout 180 python3 -u tiger-rdf/tiger/tiger2rdf.py $$file | \
 		# some errors in the following arise from " in WORD \
 		timeout 180 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql 2>/dev/null | \
 		timeout 180 conll-rdf/run.sh CoNLLRDFFormatter -query refquery.sparql |\
 		egrep '.' | grep -v '^#' | \
-		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;\
 		echo;\
 	done |  tee ref.tsv
 
@@ -66,7 +90,8 @@ mercurius.tsv: tiger-rdf conll-rdf
 		for file in ../../Mercurius/tiger-xml/*.xml; do \
 			genre=NEWS;\
 			year=1667;\
-			if echo $$file | grep 'Annus' >/dev/null; then year=1597; fi; \
+			region=WOD;\
+			if echo $$file | grep 'Annus' >/dev/null; then year=1597; region=ND; fi; \
 			c=`echo $$year / 100 + 1 | bc`;\
 			h=`echo $$year % 100 / 50 + 1 | bc`;\
 			# echo $$file $$year $$c $$h $$genre; \
@@ -76,7 +101,7 @@ mercurius.tsv: tiger-rdf conll-rdf
 			timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query mercquery.sparql |\
 #			cat; echo | \
 			egrep '.' | grep -v '^#' | \
-			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;\
 			echo;\
 		done | tee mercurius.tsv
 
@@ -88,12 +113,13 @@ germanc.tsv: conll-rdf
 			year=`basename $$file |  sed s/'.*\([0-9][0-9][0-9][0-9]\)_[A-Z][^_]*.txt'/'\1'/g;`;\
 			c=`echo $$year / 100 + 1 | bc`;\
 			h=`echo $$year % 100 / 50 + 1 | bc`;\
+			region=`basename $$file | cut -f 3 -d '_' | sed s/'NoD'/'ND'/g;`;\
 			#echo $$file $$year $$c $$h $$genre;\
 			cat $$file | \
 			conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD NORM POS LEMMA INFL EDGE HEAD 2>/dev/null| \
 			conll-rdf/run.sh CoNLLRDFFormatter -query germanc.sparql 2>/dev/null|\
 			egrep '.' | grep -v '^#' | \
-			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;\
 			echo;\
 		done | tee germanc.tsv
 
@@ -103,6 +129,7 @@ ud.tsv: conll-rdf
 	for dir in ../../UD/*/; do \
 		genre=`basename $$dir | sed s/'.*[\-_]'//g;`;\
 		c=xx; h=x;\
+		region=SD;\
 		if echo $$dir | egrep 'HDT' 1>&2; then c=20; h=2; fi; \
 		if echo $$dir | egrep 'GSD' 1>&2; then c=21; h=1; fi; \
 		if echo $$dir | egrep 'LIT' 1>&2; then c=18; h=2; fi; \
@@ -114,14 +141,14 @@ ud.tsv: conll-rdf
 		conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$dir`'#' ID WORD LEMMA UPOS XPOS FEATS HEAD EDGE | \
 		conll-rdf/run.sh CoNLLRDFFormatter -query ud.sparql |\
 		egrep '.' | grep -v '^#' | \
-		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;\
 		echo;\
 	done | tee ud.tsv
 
 enhg.tsv: conll-rdf
 	cd ../../ENHG;\
 	make;
-	c=16; h=1; genre=BIB; \
+	c=16; h=1; genre=BIB; region=OMD;\
 	for file in ../../ENHG/*ref; do \
 		cat $$file | \
 		# one line per sentence \
@@ -138,14 +165,14 @@ enhg.tsv: conll-rdf
 		conll-rdf/run.sh CoNLLRDFUpdater -custom -updates enhgprep.sparql 2>/dev/null |\
 		conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql | \
 		egrep '.' | grep -v '^#' | \
-		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/; \
 		echo;\
 	done | tee enhg.tsv;
 
 tcodex.tsv: conll-merge conll-rdf
 	cd ../../TCodex;\
 	make;
-	c=9; h=1; genre=BIB;\
+	c=9; h=1; genre=BIB; region=WMD; # franconian \
 	(for file in ../../TCodex/*/*xml; do \
 		echo '# doc: '$$file;\
 		xsltproc conll-merge/cmd/exm2conll.xsl $$file;\
@@ -157,7 +184,7 @@ tcodex.tsv: conll-merge conll-rdf
 	conll-rdf/run.sh CoNLLRDFUpdater -custom -updates exmprep.sparql |\
 	conll-rdf/run.sh CoNLLRDFFormatter -query exmquery.sparql | \
 	egrep '.' | grep -v '^#' | \
-	sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;) | tee tcodex.tsv
+	sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;) | tee tcodex.tsv
 
 fuerstinnen.tsv: conll-merge conll-rdf
 	cd ../../fuerstinnen;\
@@ -167,6 +194,7 @@ fuerstinnen.tsv: conll-merge conll-rdf
 		c=`echo $$year | sed s/'^\(..\).*'/'\1 + 1'/ | bc`;\
 		h=`echo $$year | sed s/'^..\(..\)$$'/'\1 \/ 50 + 1 '/ | bc`;\
 		genre=LET;\
+		region=OMD;\
 		(echo '# doc: '$$file;\
 		xsltproc conll-merge/cmd/exm2conll.xsl $$file;\
 		echo ) | \
@@ -187,12 +215,12 @@ fuerstinnen.tsv: conll-merge conll-rdf
 		timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates fstprep.sparql 2>/dev/null |\
 		timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query fstquery.sparql | \
 		egrep '.' | grep -v '^#' | \
-		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;\
 	done) | tee fuerstinnen.tsv
 
 ycoe.tsv: conll-rdf
 	@# note that this is just a copy of the ENHG workflow
-	c=xx; h=x; \
+	c=xx; h=x; region=OE;\
 	for file in `find ../../YCOE/*/ | grep '.psd$$'`; do \
 		cat $$file | \
 		# one line per sentence \
@@ -210,7 +238,7 @@ ycoe.tsv: conll-rdf
 		timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql 2>/dev/null| \
 		#cat; echo | \
 		egrep '.' | grep -v '^#' | \
-		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/; \
 		echo;\
 	done | tee ycoe.tsv
 
@@ -218,7 +246,7 @@ helipad.tsv: conll-rdf
 	@# slightly extended ENHG workflow: LEMMA and MORPH columns
 	cd ../../helipad;\
 	make;
-	c=9; h=1; genre=BIB; \
+	c=9; h=1; genre=BIB; region=ND;\
 	for file in `find ../../helipad/ | grep '.psd$$'`; do \
 		cat $$file | \
 		# one line per sentence \
@@ -241,7 +269,7 @@ helipad.tsv: conll-rdf
 		timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates enhgprep.sparql 2>/dev/null |\
 		timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql 2>/dev/null| \
 		egrep '.' | grep -v '^#' | \
-		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/; \
 		echo;\
 	done | tee helipad.tsv
 
@@ -253,6 +281,7 @@ icepahc.tsv: conll-rdf
 		year=`basename $$file | sed s/'\..*'//;`;\
 		c=`echo $$year | sed s/'^\(..\).*'/'\1 + 1'/ | bc`;\
 		h=`echo $$year | sed s/'^..\(..\)$$'/'\1 \/ 50 + 1 '/ | bc`;\
+		region=IS;\
 		\
 		# only texts before 1500 \
 		if test $$c -lt 16  ; then \
@@ -279,7 +308,7 @@ icepahc.tsv: conll-rdf
 			timeout 600 conll-rdf/run.sh CoNLLRDFUpdater -custom -updates enhgprep.sparql 2>/dev/null |\
 			timeout 600 conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql 2>/dev/null| \
 			egrep '.' | grep -v '^#' | \
-			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/; \
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/; \
 			echo;\
 		fi;\
 	done | tee icepahc.tsv
@@ -290,12 +319,13 @@ proiel.tsv: conll-rdf
 		for file in ../../proiel/*gothic*conll; do \
 			genre=BIB;\
 			c=4; h=2;\
+			region=GOTH;\
 			cat $$file | \
 			sed s/'([^\t]*)'//g | # occurs in dependency labels, this can break the extractor \
 			conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD LEMMA POS FINE_POS INFL HEAD EDGE | \
 			conll-rdf/run.sh CoNLLRDFFormatter -query proiel.sparql |\
 			egrep '.' | grep -v '^#' | \
-			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;\
 			echo;\
 		done | tee proiel.tsv
 
@@ -311,7 +341,7 @@ greek.tsv: conll-rdf
 			conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD LEMMA POS FINE_POS INFL HEAD EDGE | \
 			conll-rdf/run.sh CoNLLRDFFormatter -query proiel.sparql |\
 			egrep '.' | grep -v '^#' | \
-			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'GK/;\
 			echo;\
 		done | tee greek.tsv
 
@@ -329,7 +359,7 @@ iswoc.tsv: conll-rdf
 		conll-rdf/run.sh CoNLLStreamExtractor file:`realpath $$file`'#' ID WORD LEMMA POS FINE_POS INFL HEAD EDGE | \
 		conll-rdf/run.sh CoNLLRDFFormatter -query proiel.sparql |\
 		egrep '.' | grep -v '^#' | \
-		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/;\
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'OE/;\
 		echo;\
 	done | tee iswoc.tsv
 
@@ -339,12 +369,13 @@ tuebadz.tsv: tiger-rdf conll-rdf
 	c=20;\
 	h=2;\
 	genre=NEWS;\
+	region=SD;\
 	python3 -u tiger-rdf/tiger/tiger2rdf.py ../../tuebadz/tiger.xml | \
 	# some malformed sentences \
 		conll-rdf/run.sh CoNLLRDFUpdater -custom -updates refprep.sparql  2>/dev/null | \
 		conll-rdf/run.sh CoNLLRDFFormatter -query tueba.sparql |\
 		egrep '.' | grep -v '^#' | \
-		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/ | \
+		sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\ŧ'$$region/ | \
 	tee tuebadz.tsv
 
 ddb.tsv: powla conll-rdf
