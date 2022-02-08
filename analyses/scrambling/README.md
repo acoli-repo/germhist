@@ -35,3 +35,15 @@ Column structure of TSV files:
 10. empty
 11. century
 12. first or second half of century
+13. genre
+14. region
+
+Genre is corpus-specific, region encoding follows roughly the GerManC corpus, with five principal regions:
+- OD: Oberdeutsch
+  - WOD (Westoberdeutsch: Alemannic)
+  - OOD (Ostoberdeutsch: Bavarian, Upper Franconian)
+- MD: Mitteldeutsch
+  - WMD (Westmitteldeutsch: Ripuarian, Central Franconian, Hessian; for the Old High German period, this is Franconian)
+  - OMD (Ostmitteldeutsch: Saxonian, Thuringian, Silesian, Upper Prussian)
+- ND (Norddeutsch: for the Old High German period, this is Old Saxon, for Middle High German, this is Middle High German text with Low German elements; for later periods, this is High German text written in Northern Germany)
+  - note that the GerManC abbreviation has been NoD, not ND

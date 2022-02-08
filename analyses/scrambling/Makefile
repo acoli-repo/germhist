@@ -408,5 +408,5 @@ ddb.tsv: powla conll-rdf
 	conll-rdf/run.sh CoNLLRDFFormatter -query ddbquery.sparql 2>/dev/null|\
 #			cat; echo | \
 	egrep '.' | grep -v '^#' | \
-	sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre/ | \
+	sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'OOD/ | \
 	tee ddb.tsv
