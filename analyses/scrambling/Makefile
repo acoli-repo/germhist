@@ -159,6 +159,7 @@ enhg.tsv: conll-rdf
 		perl -pe 's/\n/\n\n/; s/([^\n]*)\((ID[^\)]+)\)/# \2\n\1/; s/(\)[ \)]*)([^\)\s])/\1\n\2/g; ' | \
 		# split into columns WORD POS PARSE \
 		perl -pe 's/^(.*)\(([^\(\) ]+) +([^\(\)]+)\)/\3\t\2\t\1*/;' | \
+		tee enhg.`basename $$file`.conll | \
 		# convert to CoNLL-RDF with tree extensions \
 		conll-rdf/run.sh CoNLLBrackets2RDF file:`realpath $$file`'#' WORD POS PARSE | \
 		# extrapolate edge labels \
