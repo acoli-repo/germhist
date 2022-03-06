@@ -6,11 +6,11 @@ In this repository, we provide a syntactically and semantically annotated editio
 To the best of our knowledge, this is the first syntactically annotated corpus for Middle High German.
 
 However, note that our annotations are done in a fully automated way, using
-- a rule-based parser based on CoNLL-RDF and SPARQL Update,
+- a rule-based parser based on SPARQL Update,
 - transliteration- and lookup-based lemmatization and hyperlemmatization,
 - lookup-based annotation for semantic features (animacy), using a manually curated gazetteer derived from GermaNet
 
-The reason is that there are no training data for building a parser. Accordingly, we constructed a rule-based system, based on existing morphosyntactic annotations and using CoNLL-RDF and SPARQL.
+The reason is that there are no training data for building a parser. Accordingly, we constructed a rule-based system, based on existing morphosyntactic annotations and the application of SPARQL Updates by means of the (CoNLL-RDF)[http://github.com/acoli-repo/conll-rdf]/(Fintan)[https://github.com/Pret-a-LLOD/Fintan] stack.
 
 The ReM treebank is built with the purpose of quantitative evaluation of qualitative hypotheses on the origins and the development of nominal word order of postverbal arguments in historical German. For this application, a number of simplifications were feasible. In particular, we apply low PP attachment as a rule, as we focus on accusative and dative arguments.
 
