@@ -143,6 +143,6 @@ Wenn Sie die Baumbank verwenden, zitieren Sie die Publikation zur Syntaxannotati
 
 Sofern Publikationen eine ISLRN erfordern, kann die Ressource selbst auch wie folgt zitiert werden:
 
-   Christian Chiarcos, Maria Sukhareva, Benjamin Kosmehl (2018). Middle High German Treebank / Baumbank Mittelhochdeutsch, Version 0.1, https://github.com/acoli-repo/germhist/edit/master/ReM/full_corpus. ISLRN 557-678-923-277-5
+* Christian Chiarcos, Maria Sukhareva, Benjamin Kosmehl (2018). Middle High German Treebank / Baumbank Mittelhochdeutsch, Version 0.1, https://github.com/acoli-repo/germhist/edit/master/ReM/full_corpus. ISLRN 557-678-923-277-5
    
 Bitte zu beachten, dass die URL in dieser Referenz nur eine vorläufige ist und für kommende Versionen vorr. durch eine persistente URL ersetzt wird.
