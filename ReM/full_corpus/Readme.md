@@ -141,3 +141,8 @@ Wenn Sie die Baumbank verwenden, zitieren Sie die Publikation zur Syntaxannotati
     (2016). Referenzkorpus Mittelhochdeutsch (1050–1350), Version 1.0, https://
     www.linguistics.ruhr-uni-bochum.de/rem/. ISLRN 332-536-136-099-5.
 
+Sofern Publikationen eine ISLRN erfordern, kann die Ressource selbst auch wie folgt zitiert werden:
+
+   Christian Chiarcos, Maria Sukhareva, Benjamin Kosmehl (2018). Middle High German Treebank / Baumbank Mittelhochdeutsch, Version 0.1, https://github.com/acoli-repo/germhist/edit/master/ReM/full_corpus. ISLRN 557-678-923-277-5
+   
+Bitte zu beachten, dass die URL in dieser Referenz nur eine vorläufige ist und für kommende Versionen vorr. durch eine persistente URL ersetzt wird.
