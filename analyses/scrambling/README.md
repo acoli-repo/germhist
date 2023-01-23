@@ -1,3 +1,4 @@
+
 # Scrambling in historical German
 
 We extracted post-verbal (or, if defined, middle field) accusative (direct object) and dative (indirect object) arguments.
@@ -9,17 +10,17 @@ as well as various factors (genre, period, determiner, part of speech, clause ty
 
 To reproduce table generation, run
 
-  $> make
+	 $> make
 
 The resulting TSV tables can be statistically evaluated processed with external tools, e.g., statistics software or R.
 (You might want to filter out comments that we kept to preserve document metadata)
 
 As an example, counting and filtering can be done with common command line tools:
 
-  $> cat ycoe.tsv |   # for some Old English data \
-     egrep -v '\tP' | # no pronouns \
-     cut -f 4,11 |    # get columns with order and century  \
-     sort | uniq -c   # count all combinations of orders and centuries
+	  $> cat ycoe.tsv |   # for some Old English data \
+	     egrep -v '\tP' | # no pronouns \
+	     cut -f 4,11 |    # get columns with order and century  \
+	     sort | uniq -c   # count all combinations of orders and centuries
 
 Column structure of TSV files:
 
