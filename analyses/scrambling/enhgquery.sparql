@@ -41,7 +41,7 @@ WHERE {
      ?acc nif:nextWord+ ?accTmp.
    }
 
-   ?ip (tiger:DAT|tiger:OB2) ?datNp. # tiger:DAT in ENHG and YCOE, tiger:OB2 in HeliPaD
+   ?ip (tiger:DAT|tiger:OB2|tiger:DTV) ?datNp. # tiger:DAT in ENHG and YCOE, tiger:OB2 in HeliPaD, tiger:DTV in PPHYC
    ?dat powla:hasParent ?datNp; conll:POS ?datPos; conll:WORD ?datWord.
    FILTER(!contains(?datWord,'*')) # no traces!
    FILTER(strstarts(?datPos,'N') || strends(?datPos, 'PRO'))
