@@ -1,5 +1,36 @@
 all: ppchy.tsv ipchg.tsv rem.tsv ref.tsv germanc.tsv ud.tsv enhg.tsv mercurius.tsv tcodex.tsv fuerstinnen.tsv ycoe.tsv helipad.tsv icepahc.tsv proiel.tsv greek.tsv tuebadz.tsv ddb.tsv
 
+chlg.tsv: conll-rdf
+	cd ../../CHLG;\
+	make;
+	genre=P; region=ND;\
+	for c in ../../CHLG/structured/*/*; do \
+		c=`basename $$c`;\
+		for h in ../../CHLG/structured/*/$$c/*; do \
+			h=`basename $$h`; \
+			for file in ../../CHLG/structured/*/$$c/$$h/*psd; do \
+				cat $$file | \
+		 		# one line per sentence \
+				perl -pe 's/\s+/ /g; s/\(ID[^\)]*\)\)\s*/)\n/;' |\
+				# one line per token \
+				perl -pe 's/\n/\n\n/; s/([^\n]*)\((ID[^\)]+)\)/# \2\n\1/; s/(\)[ \)]*)([^\)\s])/\1\n\2/g; ' | \
+				# split into columns WORD POS PARSE \
+				perl -pe 's/^(.*)\(([^\(\) ]+) +([^\(\)]+)\)/\3\t\2\t\1*/;' | \
+				# convert to CoNLL-RDF with tree extensions \
+				tee chlg.1.tmp| \
+				conll-rdf/run.sh CoNLLBrackets2RDF file:`realpath $$file`'#' WORD POS PARSE | \
+				tee chlg.2.ttl| \
+				# extrapolate edge labels \
+				conll-rdf/run.sh CoNLLRDFUpdater -custom -updates enhgprep.sparql |\
+				tee chlg.3.ttl| \
+				conll-rdf/run.sh CoNLLRDFFormatter -query enhgquery.sparql | \
+				egrep '.' | grep -v '^#' | \
+				sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/;\
+				exit;\
+			done;\
+		done;\
+	done | tee chlg.tsv
+
 ppchy.tsv: conll-rdf
 	cd ../../ppchy; \
 	make;
@@ -28,7 +59,6 @@ ppchy.tsv: conll-rdf
 			sed s/'$$'/'\t'$$c'\t'$$h'\t'$$genre'\t'$$region/; \
 		fi;\
 	done > ppchy.tsv;
-
 
 ipchg.tsv: conll-rdf
 	cd ../../ipchg;\
