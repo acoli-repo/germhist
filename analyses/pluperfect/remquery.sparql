@@ -1,0 +1,64 @@
+prefix conll: <http://ufal.mff.cuni.cz/conll2009-st/task-description.html#>
+prefix powla:<http://purl.org/powla/powla.owl#>
+prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#>
+PREFIX tiger: <https://www.ims.uni-stuttgart.de/documents/ressourcen/werkzeuge/tigersearch/doc/html/TigerXML.html#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# note that we directly operate over the original TTL files, this saves us some time ;)
+
+# ?pp_token contains the original file name
+# we return the paths from the verbs to their respective clause. 
+# use this to filter out pairs that aren't pluperfects (this should be those whose va_path is other than VX>RB|LB>*, everything other than VX>RB|LB>Cl is potentially suspicious)
+# we also include the full text of the match
+# the Makefile adds additional metadata about time, genre and region
+# the performance is actually decent, but looping over files and metadata lookup in the Makefile makes it slow
+SELECT ?pp_token ?pp_tid ?pp_word ?pp_path ?va_word ?va_infl ?va_lemma ?va_path ?text
+WHERE {
+
+    # constraints
+    ?pp_token conll:POS 'VVPP' .
+    ?pp_token powla:hasParent+ ?rk.
+    ?rk conll:CAT "RB".             # right bracket
+    ?rk powla:hasParent ?clause.    # this may actually be a fragment
+    ?va_token powla:hasParent+ ?clause.
+    ?va_token conll:POS ?va_pos.
+    FILTER(strstarts(?va_pos,'VA'))
+    ?va_token conll:LEMMA ?va_lemma.
+    FILTER(?va_lemma in ("haben","sîn","wësen"))
+
+    # you get the full path from both tokens to the clause, so you see the clause structure
+    { SELECT ?pp_token ?clause (GROUP_CONCAT(?pp_cat; separator=">") as ?pp_path)
+      WHERE {
+        ?pp_token powla:hasParent+ ?tmp. 
+        ?tmp conll:CAT ?pp_cat.
+        ?tmp powla:hasParent* ?clause.
+      } GROUP BY ?pp_token ?clause
+    }
+
+    # you get the full path from both tokens to the clause, so you see the clause structure
+    { SELECT ?va_token ?clause (GROUP_CONCAT(?va_cat; separator=">") as ?va_path)
+      WHERE {
+        ?va_token powla:hasParent+ ?tmp.
+        ?tmp conll:CAT ?va_cat.
+        ?tmp powla:hasParent* ?clause.
+      } GROUP BY ?va_token ?clause
+    }
+
+    # you actually get the full clause, too ;)
+    { SELECT ?clause (GROUP_CONCAT(?word; separator=" ") as ?text)
+      WHERE {
+        ?first powla:hasParent+ ?clause.
+        MINUS { [] nif:nextWord+ ?first; powla:hasParent+ ?clause }
+        ?first nif:nextWord* ?w.
+        ?w a nif:Word; powla:hasParent+ ?clause.
+        ?w conll:WORD ?word
+      } GROUP BY ?clause
+    }
+
+    # results
+    ?pp_token conll:TID ?pp_tid .
+    ?pp_token conll:WORD ?pp_word .
+          
+     ?va_token conll:WORD ?va_word .
+     ?va_token conll:INFL ?va_infl .       
+} 
