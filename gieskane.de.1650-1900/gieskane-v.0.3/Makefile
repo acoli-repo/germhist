@@ -1,4 +1,4 @@
-all: annis-export.conll
+all: annis-export.conll annis-export.tree.tsv annis-export.roles.tsv
 
 annis-export.csv.gz:
 	if [ ! -e annis-export.csv.gz ]; then \
@@ -18,6 +18,7 @@ annis-export.tree.csv.gz:
 		exit 1;\
 	fi;
 
+# token-level annotations
 annis-export.conll: annis-export.csv.gz
 	@gunzip -c annis-export.csv.gz \
 	| python3 tsv2jsonl.py -g 2_id -s 1_id \
@@ -25,10 +26,27 @@ annis-export.conll: annis-export.csv.gz
 	| python3 jsonl2conll.py conll-config.jsonl -s 'POS=$$.' 'LEMMA=\.' -n \
 	> annis-export.conll
 
-
+# tree annotations
 annis-export.tree.tsv: annis-export.tree.csv.gz
 	@gunzip -c annis-export.tree.csv.gz \
 	| python3 tsv2jsonl.py -g 2_id  \
 	| tee annis-export.tree.jsonl \
 	| python3 jsonl2conll.py tree-config.jsonl \
 	> annis-export.tree.tsv
+
+# grammatical role annotations
+annis-export.roles.tsv:
+	for file in *.csv.gz; do \
+		if [ -e $$file ]; then \
+			if basename $$file | grep -v annis-export >/dev/null; then \
+				label=`basename $$file | cut -f 1 -d '.'`;\
+				echo $$label 1>&2;\
+				gunzip -c $$file \
+				| sed s/"'NULL'"//g \
+				| sed s/'\t.*\(salt:\)'/'\t\1'/g \
+				| cut -f 1,2 \
+				| sed s/'$$'/'\t'$$label/;\
+			fi;\
+		fi;\
+	done\
+	> annis-export.roles.tsv
