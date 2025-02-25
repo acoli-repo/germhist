@@ -25,3 +25,10 @@ annis-export.conll: annis-export.csv.gz
 	| python3 jsonl2conll.py conll-config.jsonl -s 'POS=$$.' 'LEMMA=\.' -n \
 	> annis-export.conll
 
+
+annis-export.tree.tsv: annis-export.tree.csv.gz
+	@gunzip -c annis-export.tree.csv.gz \
+	| python3 tsv2jsonl.py -g 2_id  \
+	| tee annis-export.tree.jsonl \
+	| python3 jsonl2conll.py tree-config.jsonl \
+	> annis-export.tree.tsv
