@@ -48,3 +48,22 @@ Genre is corpus-specific, region encoding follows roughly the GerManC corpus, wi
   - OMD (Ostmitteldeutsch: Saxonian, Thuringian, Silesian, Upper Prussian)
 - ND (Norddeutsch: for the Old High German period, this is Old Saxon, for Middle High German, this is Middle High German text with Low German elements; for later periods, this is High German text written in Northern Germany)
   - note that the GerManC abbreviation has been NoD, not ND
+
+
+# GiesKaNe
+
+Corpus covering 17th-19th c., cannot be accessed as data.
+Using ANNIS-QL, it can be queried, and even though the the time slices don't match, the tendency is confirmed.
+
+	  node >[tree=‎/ob_akk.*‎/] node &		
+	    #1 >[tree=‎/ob_dat.*‎/] node &		
+	    #3 .* #2 &		
+	    #2 _i_ DTA_stts=‎/N.*‎/ &		
+	    #3 _i_ DTA_stts=‎/N.*‎/ &		
+	    #1 @* zeit=‎/19.*‎/		
+			
+| 			| 19	| 18	| 17  |
+| ----	| --- | --- | --- | 
+DAT > AKK	| 137	| 344 | 200 | 
+AKK > DAT	| 25	| 84	| 79 |
+| 	0.182481751824818	| 0.244186046511628	| 0.395 |

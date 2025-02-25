@@ -21,8 +21,27 @@ The corpus is built over DTA, the added value in comparison to DTA is marginal. 
    - **FAILED** search for "orthsatz", then "export" and export via GridExporter (set preceding and following context to 0) results in file with sentence numbers, only
    - **FAILED** search for "tok", GridExporter, +-1 token, results in list of numbers (no annotations whatsoever)
    - **FAILED** search for "tok", CSVExporter, nur plain text export
-   - search for `node & tok & #1 _i_ #2`, CSVExporter. we loose the function labels ... and this is a **huge** dump (650MB), from which word-level annotation can be recovered
-- note that this export is limited to token-level annotations, so we loose all span annotations
+   - **PARTIAL** (TOK only) search for `node & tok & #1 _i_ #2`, CSVExporter. we loose the function labels ... and this is a **huge** dump (650MB), from which word-level annotation can be recovered
+      - note that this export is limited to token-level annotations, so we loose all span annotations
+      - to be stored as `annis-export.csv.gz`
+   - **PARTIAL** (TREE only, no grammatical roles), retrieved by the query `node > node`, CSVExporter and stored as `annis-export.tree.csv.gz`
+   - **SIMPLIFIED** export of grammatical relations
+      - pred.csv.gz: `node >[tree=/(frprä|prädi).*/] node` => frprä, prädi_vk, prädi_pdg, prädi_idi, prädi_fvg
+      - sbj.csv.gz: `node >[tree=/sub.*/] node` => sub
+      - oacc.csv.gz: `node >[tree=/ob_akk.*/] node`  => ob_akk
+      - odat.csv.gz: `node >[tree=/ob_dat.*/] node`  => ob_dat
+      - obj.csv.gz: `node >[tree=/ob.*/] node`  => ob_gen, ob_p, ob_unsp; ALSO: ob_akk, ob_dat
+        - TIMEOUT: ooth.csv: `node >[tree=/ob([^_]|_[^ad]).*/] node`  => ob_gen, ob_p, ob_unsp
+      - advmod.csv.gz: `node >[tree=/(adv|kom|dirum|kor).*/] node`  => dirum, kom_ber, kom_wert, kom_gelt, kom_neg, adv_add, adv_ads, adv_begl, adv_bene, adv_dila, adv_fin, adv_freq, adv_inst, adv_irr, adv_kaus, adv_komi, adv_kond, adv_kons, adv_konz, adv_lok, adv_mod, adv_rest, adv_sbst, adv_temp, adv_verm, kor
+      - expl.csv.gz: `node >[tree=/ph.*/] node` => ph
+      - acl.csv.gz: `node >[tree=/wf.*/] node` => wf
+      > Note that we provide these exports for convenience, but they are not sufficient to restore the full corpus, which may be reconstructed (in simplified form) from it. For a local build, you need to acquire `annis-export.tree.csv.gz` and `annis-export.csv.gz` yourself. Without them, it is not possible to reconstruct text or annotation. Note that GiesKaNe may get out of sync with the exports provided for grammatical relations without any notion. Then, you need to re-build these from scratch. 
 
-TODO:
-- check whether `node & tok & #2 _i_ #1` retrieves a larger dump. Then, the order of `_i_` was incorrectly documented.
+- NB: with ANNIS-QL, we cannot go as deeply into different temporal layers, but we can query directly:
+
+    node @* zeit="19" &
+    #1 >[tree=/ob_akk.*/] node &
+    #1 >[tree=/ob_dat.*/] node &
+    #3 .* #2 &
+    #2 _i_ DTA_stts=/N.*/ &
+    #3 _i_ DTA_stts=/N.*/
