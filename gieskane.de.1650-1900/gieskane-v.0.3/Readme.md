@@ -12,3 +12,4 @@ Modern High German, 1650-1900
    - **FAILED** search for "tok", GridExporter, +-1 token, results in list of numbers (no annotations whatsoever)
    - **FAILED** search for "tok", CSVExporter, nur plain text export
    - search for `node & tok & #1 _i_ #2`, CSVExporter. we loose the function labels ... and this is a **huge** dump, from which most parts of the annotation can be recovered
+- note that this export is limited to token-level annotations, so we loose all span annotations
