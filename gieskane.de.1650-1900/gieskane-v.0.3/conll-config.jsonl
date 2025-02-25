@@ -1,0 +1,21 @@
+# JSON-L configuration file for GiesKaNe CoNLL export
+# every cell defines a column in their order of appearance
+# we extend common JSON-L format by permitting #-marked comment
+# @label is informational only
+# unique values for @keys will be concatenated in order of first occurrence
+{ "label": "ID", "keys" : ["2_id"] }
+{ "label": "FORM", "keys": ["2_span" ] }
+{ "label": "ORIG", "keys" : ["1_anno_DTA::DTA_tok"] }
+{ "label": "NORM", "keys": ["1_anno_BASIS::norm"] }
+{ "label": "LEMMA", "keys": ["1_anno_BASIS::lemma","1_anno_DTA::DTA_lemma"] }
+{ "label": "POS", "keys" :["1_anno_DTA::DTA_stts"] }
+{ "label": "ORTHSATZ", "keys": ["1_anno_BASIS::orthsatz","1_anno_DTA::DTA_orthsatz"] }
+{ "label": "MAKRO::k-ellipse", "keys": ["1_anno_MAKRO::k-ellipse"] }
+{ "label": "MAKRO::makro", "keys": ["1_anno_MAKRO::makro"] }
+{ "label": "MAKRO::mg", "keys": ["1_anno_MAKRO::mg"] }
+{ "label": "MAKRO::strukt", "keys": ["1_anno_MAKRO::strukt"] }
+{ "label": "MAKRO::teilsatz", "keys": ["1_anno_MAKRO::teilsatz"] }
+{ "label": "MIKRO::finit", "keys": ["1_anno_MIKRO::finit"] }
+{ "label": "MIKRO::wa", "keys": ["1_anno_MIKRO::wa"] }
+{ "label": "MIKRO::wasub", "keys": ["1_anno_MIKRO::wasub"] }
+{ "label": "TREE", "keys": ["1_anno_bauernleben::tree", "1_anno_birken::tree", "1_anno_braeker::tree", "1_anno_briefwechsel::tree", "1_anno_dietz::tree", "1_anno_gessner::tree", "1_anno_guentzer::tree", "1_anno_harenberg::tree", "1_anno_knigge::tree", "1_anno_michelis::tree", "1_anno_nehrlich::tree", "1_anno_nn_weltmann::tree", "1_anno_ranke::tree", "1_anno_soeldnerleben::tree", "1_anno_thomasius::tree", "1_anno_zimmer::tree"]}
