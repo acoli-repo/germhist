@@ -1,4 +1,8 @@
-all: annis-export.conll annis-export.tree.tsv annis-export.roles.tsv
+all: annis-export.conll annis-export.tree.tsv annis-export.roles.tsv merged.ptb
+
+merged.ptb: annis-export.conll annis-export.tree.tsv annis-export.roles.tsv
+	@echo "warning: merged.ptb this is an incomplete export" 1>&2;\
+	python3 merge-tsv-files.py annis-export.conll annis-export.tree.tsv annis-export.roles.tsv > merged.ptb
 
 annis-export.csv.gz:
 	if [ ! -e annis-export.csv.gz ]; then \

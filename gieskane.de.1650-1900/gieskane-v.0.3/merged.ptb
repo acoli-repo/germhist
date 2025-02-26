@@ -1,0 +1,1960 @@
+# ID	FORM	ORIG	NORM	LEMMA	POS	ORTHSATZ	MAKRO::k-ellipse	MAKRO::makro	MAKRO::mg	MAKRO::strukt	MAKRO::teilsatz	MIKRO::finit	MIKRO::wa	MIKRO::wasub	ORIG_ID
+
+(ni
+      (ngr
+              1	Erste	Erſte	Erste	erst	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok1	_
+              2	Vorlesung	Vorleſung	Vorlesung	Vorlesung	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok2	_
+    )
+      (ngr
+              1	Erste	Erſte	Erste	erst	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok1	_
+              2	Vorlesung	Vorleſung	Vorlesung	Vorlesung	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok2	_
+    )
+)
+
+
+
+
+_
+
+
+
+(s
+      1	Goethe	Goethe	Goethe	Goethe	NE	_	_	_	_	_	_	_	n	ne	salt:/GiesKaNe_v0.3/anthus#sTok4	sbj
+      (vgr-pred
+              2	läßt	laͤßt	lässt	lassen	VVFIN	_	_	_	_	_	_	fin	v	kausat	salt:/GiesKaNe_v0.3/anthus#sTok5	_
+              8	sagen	ſagen	sagen	sagen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok11	_
+    )
+      (pgr-advmod
+              3	in	in	in	in	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok6	_
+              (ngr
+                      4	seinen	ſeinen	seinen	sein	PPOSAT	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok7	_
+                      5	Wahlverwandtschaften	Wahlverwandtſchaften	Wahlverwandtschaften	Wahlverwandtschaft	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok8	_
+        )
+              (ngr
+                      4	seinen	ſeinen	seinen	sein	PPOSAT	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok7	_
+                      5	Wahlverwandtschaften	Wahlverwandtſchaften	Wahlverwandtschaften	Wahlverwandtschaft	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok8	_
+        )
+    )
+      (pgr-advmod
+              3	in	in	in	in	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok6	_
+              (ngr
+                      4	seinen	ſeinen	seinen	sein	PPOSAT	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok7	_
+                      5	Wahlverwandtschaften	Wahlverwandtſchaften	Wahlverwandtschaften	Wahlverwandtschaft	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok8	_
+        )
+              (ngr
+                      4	seinen	ſeinen	seinen	sein	PPOSAT	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok7	_
+                      5	Wahlverwandtschaften	Wahlverwandtſchaften	Wahlverwandtschaften	Wahlverwandtschaft	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok8	_
+        )
+    )
+      (pgr-advmod
+              3	in	in	in	in	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok6	_
+              (ngr
+                      4	seinen	ſeinen	seinen	sein	PPOSAT	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok7	_
+                      5	Wahlverwandtschaften	Wahlverwandtſchaften	Wahlverwandtschaften	Wahlverwandtschaft	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok8	_
+        )
+              (ngr
+                      4	seinen	ſeinen	seinen	sein	PPOSAT	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok7	_
+                      5	Wahlverwandtschaften	Wahlverwandtſchaften	Wahlverwandtschaften	Wahlverwandtschaft	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok8	_
+        )
+    )
+      (ngr-odat
+              6	den	den	den	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok9	_
+              7	Architekten	Architekten	Architekten	Architekt	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok10	_
+    )
+      (ngr-odat
+              6	den	den	den	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok9	_
+              7	Architekten	Architekten	Architekten	Architekt	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok10	_
+    )
+      (ngr-odat
+              6	den	den	den	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok9	_
+              7	Architekten	Architekten	Architekten	Architekt	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok10	_
+    )
+)
+
+
+
+
+_
+
+
+
+_
+
+
+
+(s
+      2	Wenn	Wenn	Wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok14	_
+      3	Sie	Sie	Sie	sie	PPER	_	_	_	_	_	_	_	pr	pers	salt:/GiesKaNe_v0.3/anthus#sTok15	sbj
+      4	wüßten	wuͤßten	wüssten	wissen	VVFIN	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok16	pred
+      5	,	,	,	,	$,	_	_	_	_	_	_	_	_	_	salt:/GiesKaNe_v0.3/anthus#sTok17	_
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+      (ns-obj
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (adjgr-advmod
+                      6	wie	wie	wie	wie	PWAV	_	_	_	_	_	_	_	adv	inter	salt:/GiesKaNe_v0.3/anthus#sTok18	_
+                      7	roh	roh	roh	roh	ADJD	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok19	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (ngr-sbj
+                      8	selbst	ſelbſt	selbst	selbst	ADV	_	_	_	_	_	_	_	adv	_	salt:/GiesKaNe_v0.3/anthus#sTok20	_
+                      9	gebildete	gebildete	gebildete	bilden	ADJA	_	_	_	_	_	_	pii	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok21	_
+                      10	Menschen	Menſchen	Menschen	Menschen	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok22	_
+        )
+              (disk-pred
+                      11	sich	ſich	sich	sich	PRF	_	_	_	_	_	_	_	p	rf	salt:/GiesKaNe_v0.3/anthus#sTok23	_
+                      16	verhalten	verhalten	verhalten	verhalten	VVINF	_	_	_	_	_	_	fin	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok28	_
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+              (pgr-obj
+                      12	gegen	gegen	gegen	gegen	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok24	_
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+                      (ngr
+                              13	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok25	_
+                              14	schätzbarsten	ſchaͤtzbarſten	schätzbarsten	schätzbar	ADJA	_	_	_	_	_	_	_	adj	_	salt:/GiesKaNe_v0.3/anthus#sTok26	_
+                              15	Kunstwerke	Kunſtwerke	Kunstwerke	Kunstwerk	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok27	_
+            )
+        )
+    )
+)
+
+
+
+_
+
+
+
+(s
+      18	Sie	Sie	Sie	sie	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok30	sbj
+      (vgr-pred
+              19	würden	wuͤrden	würden	werden	VAFIN	_	_	_	_	_	_	fin	v	hv	salt:/GiesKaNe_v0.3/anthus#sTok31	_
+              21	verzeihen	verzeihen	verzeihen	verzeihen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok33	_
+    )
+      20	mir	mir	mir	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok32	odat
+      20	mir	mir	mir	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok32	odat
+      22	,	,	,	,	$,	_	_	_	_	_	_	_	_	_	salt:/GiesKaNe_v0.3/anthus#sTok34	_
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+      (ns-advmod
+              23	wenn	wenn	wenn	wenn	KOUS	_	_	_	_	_	_	_	j	subj	salt:/GiesKaNe_v0.3/anthus#sTok35	_
+              24	ich	ich	ich	ich	PPER	_	_	_	_	_	_	_	p	pers	salt:/GiesKaNe_v0.3/anthus#sTok36	sbj
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              (ngr-oacc
+                      25	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok37	_
+                      26	Meinigen	Meinigen	Meinigen	meinig	PPOSS	_	_	_	_	_	_	_	p	poss	salt:/GiesKaNe_v0.3/anthus#sTok38	_
+        )
+              27	nicht	nicht	nicht	nicht	PTKNEG	_	_	_	_	_	_	_	ptk	neg	salt:/GiesKaNe_v0.3/anthus#sTok39	advmod
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (pgr-advmod
+                      28	unter	unter	unter	unter	APPR	_	_	_	_	_	_	_	pr	_	salt:/GiesKaNe_v0.3/anthus#sTok40	_
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+                      (ngr
+                              29	die	die	die	d	ART	_	_	_	_	_	_	_	d	def	salt:/GiesKaNe_v0.3/anthus#sTok41	_
+                              30	Menge	Menge	Menge	Menge	NN	_	_	_	_	_	_	_	n	_	salt:/GiesKaNe_v0.3/anthus#sTok42	_
+            )
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+              (vgr-pred
+                      31	bringen	bringen	bringen	bringen	VVINF	_	_	_	_	_	_	inf	v	vv	salt:/GiesKaNe_v0.3/anthus#sTok43	_
+                      32	mag	mag	mag	mögen	VMFIN	_	_	_	_	_	_	fin	v	mv	salt:/GiesKaNe_v0.3/anthus#sTok44	_
+        )
+    )
+)
+
+
+
+

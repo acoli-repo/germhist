@@ -2,13 +2,13 @@
 
 Modern High German, 1650-1900
 
-Unfortunately, the corpus is **not available as a dataset**. We can retrieve parts of the annotation from a corpus management system, but this does not include annotations for syntax. In the context of GermHist, the corpus is thus currently unusable.
+Unfortunately, the corpus is **not available as a dataset**. We can retrieve parts of the annotation from a corpus management system, but this does not include annotations for syntax. In the context of GermHist, the corpus is thus currently unusable. It is possible to address this by taking partial exports for grammatical roles and tree structures into account, but this needs to directly generate an RDF export.
 
-For building the corpus and storing it in `annis-export.conll`, run
+For building corpus in CoNLL (toks only) and PTB-style format (incomplete), run
 
     $> make
 
-The corpus is built over DTA, the added value in comparison to DTA is marginal. Apparently, the morphosyntactic annotations have been manually corrected.
+Note that the PTB export is incomplete, as we found the corpus to contain discontinuous annotations that cannot be easily be represented with PTB-style annotation. This export is thus abandoned.
 
 ## Corpus information
 
