@@ -8,7 +8,7 @@ For building corpus in CoNLL (toks only) and PTB-style format (incomplete), run
 
     $> make
 
-Note that the PTB export is incomplete, as we found the corpus to contain discontinuous annotations that cannot be easily be represented with PTB-style annotation. This export is thus abandoned.
+Note that the PTB export is incomplete (some duplication bug has not been fixed), and **won't be fixed**, as we found the corpus to contain discontinuous annotations that cannot be easily be represented with PTB-style annotation. This export is thus abandoned. Instead, prepare for a direct conversion into RDF.
 
 ## Corpus information
 
