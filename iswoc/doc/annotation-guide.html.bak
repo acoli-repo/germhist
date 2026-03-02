@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Annotation guide | Syntacticus</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    <link rel="icon" href="/assets/img/logo.png">
+    <meta name="description" content="Resources for developers using the Syntacticus treebank">
+    
+    <link rel="preload" href="/assets/css/0.styles.5be624d7.css" as="style"><link rel="preload" href="/assets/js/app.e520ee65.js" as="script"><link rel="preload" href="/assets/js/2.6b092d03.js" as="script"><link rel="preload" href="/assets/js/8.1a5b4582.js" as="script"><link rel="prefetch" href="/assets/js/10.69c201ce.js"><link rel="prefetch" href="/assets/js/11.1ecd9b02.js"><link rel="prefetch" href="/assets/js/12.08e94cc3.js"><link rel="prefetch" href="/assets/js/13.b6a8c739.js"><link rel="prefetch" href="/assets/js/14.17b53637.js"><link rel="prefetch" href="/assets/js/3.4795b389.js"><link rel="prefetch" href="/assets/js/4.48af2b25.js"><link rel="prefetch" href="/assets/js/5.925cb319.js"><link rel="prefetch" href="/assets/js/6.4e53a11e.js"><link rel="prefetch" href="/assets/js/7.c4de925d.js"><link rel="prefetch" href="/assets/js/9.720f233a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5be624d7.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="Syntacticus" class="logo"> <span class="site-name can-hide">Syntacticus</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  About Syntacticus
+</a></div><div class="nav-item"><a href="/annotation-guide/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Annotation guide
+</a></div><div class="nav-item"><a href="/development-guide/" class="nav-link">
+  Development guide
+</a></div><div class="nav-item"><a href="http://syntacticus.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Treebank browser
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/mlj/syntacticus.org" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  About Syntacticus
+</a></div><div class="nav-item"><a href="/annotation-guide/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  Annotation guide
+</a></div><div class="nav-item"><a href="/development-guide/" class="nav-link">
+  Development guide
+</a></div><div class="nav-item"><a href="http://syntacticus.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Treebank browser
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <a href="https://github.com/mlj/syntacticus.org" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Annotation guide</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/annotation-guide/#introduction" class="sidebar-link">Introduction</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/annotation-guide/#the-idea-of-dependency-grammar" class="sidebar-link">The idea of dependency grammar</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/annotation-guide/#sentence-boundaries" class="sidebar-link">Sentence boundaries</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/annotation-guide/#tokenization" class="sidebar-link">Tokenization</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/annotation-guide/#the-verb" class="sidebar-link">The verb</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/annotation-guide/#exclamations" class="sidebar-link">Exclamations</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/annotation-guide/#non-verbal-sentence-level-grammatical-relations" class="sidebar-link">Non-verbal sentence-level grammatical relations</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#subject" class="sidebar-link">Subject</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#object" class="sidebar-link">Object</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#obliques" class="sidebar-link">Obliques</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#agents-in-passive-constructions" class="sidebar-link">Agents in passive constructions</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#adverbials" class="sidebar-link">Adverbials</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#predicative-complements" class="sidebar-link">Predicative complements</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#adverbal-appositions" class="sidebar-link">Adverbal appositions</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#supertags" class="sidebar-link">Supertags</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#auxiliary-words" class="sidebar-link">Auxiliary words</a></li></ul></li><li><a href="/annotation-guide/#noun-phrases-without-nouns" class="sidebar-link">Noun phrases without nouns</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/annotation-guide/#adnominal-tags" class="sidebar-link">Adnominal tags</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#general" class="sidebar-link">General</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#attributes" class="sidebar-link">Attributes</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#appositions" class="sidebar-link">Appositions</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#partitives" class="sidebar-link">Partitives</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#arguments-of-nouns" class="sidebar-link">Arguments of nouns</a></li></ul></li><li><a href="/annotation-guide/#embedded-predication" class="sidebar-link">Embedded predication</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#the-basic-types-of-subordinate-clauses" class="sidebar-link">The basic types of subordinate clauses</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#substantival-sentences" class="sidebar-link">Substantival sentences</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#finite-subordinate-clauses-with-subjunctions" class="sidebar-link">Finite subordinate clauses with subjunctions</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#finite-subordinate-clauses-without-subjunction" class="sidebar-link">Finite subordinate clauses without subjunction</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#relative-clauses" class="sidebar-link">Relative clauses</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#indirect-questions" class="sidebar-link">Indirect questions</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#infinite-predication-accusative-with-infinitive-aci" class="sidebar-link">Infinite predication: Accusative with infinitive (AcI)</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#infinite-predication-absolute-constructions" class="sidebar-link">Infinite predication: absolute constructions</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#infinite-predication-dominant-participles-and-gerundives" class="sidebar-link">Infinite predication: dominant participles and gerundives</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#open-predications" class="sidebar-link">Open predications</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#supertags-2" class="sidebar-link">Supertags</a></li></ul></li><li><a href="/annotation-guide/#coordination" class="sidebar-link">Coordination</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#coordination-of-constituents-single-rooted-elements" class="sidebar-link">Coordination of constituents/single rooted elements</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#sentence-coordination" class="sidebar-link">Sentence coordination</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#conjunction-of-non-constituents-multi-rooted-elements" class="sidebar-link">Conjunction of non-constituents/multi-rooted elements</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#in-which-conjunct-does-an-element-belong" class="sidebar-link">In which conjunct does an element belong?</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#other-issues" class="sidebar-link">Other issues</a></li></ul></li><li><a href="/annotation-guide/#gapping-and-ellipsis" class="sidebar-link">Gapping and ellipsis</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#elided-copulas" class="sidebar-link">Elided copulas</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#gapping" class="sidebar-link">Gapping</a></li></ul></li><li><a href="/annotation-guide/#the-article" class="sidebar-link">The article</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#noun-phrases" class="sidebar-link">Noun phrases</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#the-article-on-its-own" class="sidebar-link">The 'article' on its own</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#articles-without-nouns" class="sidebar-link">Articles without nouns</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#articular-infinitives-in-greek" class="sidebar-link">Articular infinitives in Greek</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#slavicmockarticle" class="sidebar-link">slavicmockarticle</a></li></ul></li><li><a href="/annotation-guide/#slash-notation" class="sidebar-link">Slash notation</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#introduction-2" class="sidebar-link">Introduction</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#open-functions-xadv-and-xobj" class="sidebar-link">Open functions: XADV and XOBJ</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#slashes-in-gapping-and-coordination" class="sidebar-link">Slashes in gapping and coordination</a></li></ul></li><li><a href="/annotation-guide/#other-constructions" class="sidebar-link">Other constructions</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#all-self-and-similar-words" class="sidebar-link">'all', 'self' and similar words</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#headedness-of-compound-verb-forms" class="sidebar-link">Headedness of compound verb forms</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#comparison" class="sidebar-link">Comparison</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#verbs-of-preference" class="sidebar-link">Verbs of preference</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#approximately" class="sidebar-link">'Approximately'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#coordination-through-particles-in-greek" class="sidebar-link">Coordination through particles in Greek</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#scope" class="sidebar-link">Scope</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#impersonal-verbs" class="sidebar-link">Impersonal verbs</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#esse-participle" class="sidebar-link">esse + participle</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#gerunds" class="sidebar-link">Gerunds</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#infinitives" class="sidebar-link">Infinitives</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#ocs-reflexives" class="sidebar-link">OCS reflexives</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#datives" class="sidebar-link">Datives</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#compound-subjunctions" class="sidebar-link">Compound subjunctions</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#appositive-names-καλουμενος-ονοματι-etc" class="sidebar-link">Appositive names: καλούμενος, ὀνόματι etc.</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#copulae-copula-like-verbs-and-location-verbs-esse-fieri-etc" class="sidebar-link">Copulae, copula-like verbs and location verbs: esse, fieri etc.</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#vocatives" class="sidebar-link">Vocatives</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#and-it-came-to-pass" class="sidebar-link">And it came to pass...</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#copula-verb-of-position-verb-of-existence" class="sidebar-link">Copula, verb of position, verb of existence</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#gothic-sa" class="sidebar-link">Gothic sa</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#pleonastic-αυτος-resumptive-pronouns-and-topicalizations" class="sidebar-link">'Pleonastic' αὐτός -- resumptive pronouns and topicalizations</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#gothic-at-du-introducing-infinite-predication" class="sidebar-link">Gothic at, du introducing infinite predication</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#aux-on-pronouns-ocs-иже-аще" class="sidebar-link">AUX on pronouns -- OCS иже аще</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#adnominal-infinitives" class="sidebar-link">Adnominal infinitives</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#impersonal-temporal-expressions-cum-sero-factum-esset-etc" class="sidebar-link">Impersonal temporal expressions: cum sero factum esset etc.</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#it-happened-to-him" class="sidebar-link">It happened to him...</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#if-not-ει-δε-μη" class="sidebar-link">'if not' -- εἰ δὲ μή</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#comp-and-obj-in-the-same-sentence" class="sidebar-link">COMP and OBJ in the same sentence</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#questions-with-alternatives" class="sidebar-link">Questions with alternatives</a></li></ul></li><li><a href="/annotation-guide/#general-issues" class="sidebar-link">General issues</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#adv-or-obl-adjunct-or-argument" class="sidebar-link">ADV or OBL? adjunct or argument?</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#atr-or-apos-attribute-or-apposition" class="sidebar-link">ATR or APOS? attribute or apposition?</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#atr-or-xadv" class="sidebar-link">ATR or XADV?</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#xadv-or-sub" class="sidebar-link">XADV or SUB?</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#more-on-the-xobj-relation" class="sidebar-link">More on the XOBJ relation</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#empty-nodes" class="sidebar-link">Empty nodes</a></li></ul></li><li><a href="/annotation-guide/#error-messages-during-syntactic-annotation" class="sidebar-link">Error messages during syntactic annotation</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/annotation-guide/#must-have-or-inherit-one-outgoing-slash-edge" class="sidebar-link">'Must have or inherit one outgoing slash edge'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#may-not-be-a-daughter-of-the-root-node" class="sidebar-link">'May not be a daughter of the root node'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#subgraphs-overlap" class="sidebar-link">'Subgraphs overlap'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#slashes-are-not-contained-by-subgraph" class="sidebar-link">'Slashes are not contained by subgraph'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#the-head-of-a-parpred-voc-relation-must-be-the-root-node-or-a-valid-coordination" class="sidebar-link">'The head of a PARPRED/VOC relation must be the root node or a valid coordination'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#slash-must-target-the-node-s-head-or-a-node-dominated-by-the-head" class="sidebar-link">'Slash must target the node's head or a node dominated by the head'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#the-head-of-a-pred-relation-must-be-the-root-node-a-subjunction-or-a-valid-coordination" class="sidebar-link">'The head of a PRED relation must be the root node, a subjunction or a valid coordination'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#a-subjunction-may-only-be-the-dependent-in-a-comp-adv-or-apos-relation" class="sidebar-link">'A subjunction may only be the dependent in a COMP, ADV or APOS relation'</a></li><li class="sidebar-sub-header"><a href="/annotation-guide/#an-infinitive-may-not-be-the-dependent-in-an-adv-relation" class="sidebar-link">'An infinitive may not be the dependent in an ADV relation'</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>This annotation guide is partially transferred from an older <a href="/proiel-annotators-handbook-v1.pdf">PDF version</a>. There is a also a separate set of guidelines for information structure, also as an old <a href="/proiel-givenness-annotation-v1.pdf">PDF version</a>.</p></div> <h2 id="introduction"><a href="#introduction" class="header-anchor">#</a> Introduction</h2> <p>The system of annotation presented here is based on dependency grammar
+enriched with secondary dependencies ('slashes', see <a href="#slash-notation">Slash Notation</a>) reminiscent of the structure sharing mechanism in
+Lexical-Functional Grammar. Much of the scheme is adapted from the
+<a href="http://nlp.perseus.tufts.edu/syntax/treebank/1.3/docs/guidelines.pdf" target="_blank" rel="noopener noreferrer"><em>Guidelines for the Syntactic Annotation of Latin Treebanks</em> (v.
+1.3)<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+and its ultimate source, the <a href="https://ufal.mff.cuni.cz/pdt2.0/doc/manuals/en/a-layer/html/index.html" target="_blank" rel="noopener noreferrer"><em>Guidelines for Annotations at Analytical
+Level of the Prague Dependency
+Treebank</em><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.
+However, there are several important differences that will be adressed in
+a separate document which also discusses questions of conversion.</p> <p>Since we use a dependency grammar, word order \topicword{Word order}
+is not modelled at all in our syntactic trees. The information about
+word order is rather stored in a separate layer where each word is
+given a linearisation index corresponding to its position in the
+sentence. This means that there is no left-to-right ordering in our
+trees. In this document, the ordering often but not always
+approximates the linear order of the sentence. In the annotation
+interface, the left-to-right ordering of trees is decided by the
+dependency tree grapher and is purely conventional. If an annotation
+is changed in some minor way, this may result in the dependency
+grapher deciding to change the graphical representation of the
+analysis tree.</p> <p>This also means that annotators can work in the sequence they
+prefer. Dependents of the same node can be added in any order: it is
+not necessary to add the subject, the object and other arguments in
+any particular order.</p> <h2 id="the-idea-of-dependency-grammar"><a href="#the-idea-of-dependency-grammar" class="header-anchor">#</a> The idea of dependency grammar</h2> <p>Dependency grammar sets out to model the syntactic structure of sentences
+as a set of <em>relations</em> between words. These relations are called
+<em>dependencies</em>. It is notoriously hard to define a syntactic dependency,
+but as a basis for an intuitive grasp of the concept, a word X is
+dependent on a word Y just in case, if you remove Y from the sentence, you
+also have to remove X.</p> <p>These relations must be <em>antisymmetric</em>, which is why they are referred to
+as dependencies: if X depends Y, Y cannot depend on X. Sometimes it would
+be tempting to analyse words as mutually dependent. For example, it is the
+case in many languages that a preposition cannot occur without its
+complement; nor can the complement occur without the preposition. Most
+dependency grammarians do not tolerate such mutual dependencies however.</p> <h2 id="sentence-boundaries"><a href="#sentence-boundaries" class="header-anchor">#</a> Sentence boundaries</h2> <p>The division of the text into sentences has been done
+automatically. It is based on the punctuation used in the source text,
+which does not always correspond to meaningful syntactic units. In the
+case of the Latin Vulgate, the source text had no punctuation at all,
+so we have 'imported' punctuation from another, slightly different
+text (the Clementine Vulgate). This means that there is even more
+potential for errors.</p> <p>The interface therefore allows for changes in the sentence boundaries
+through the use of the two buttons in the sentence division
+field. 'Merge with next' will merge the sentence with the next
+sentence; 'edit' will open a box which allows the annotator to split the
+sentence in two by inserting a <code>|</code> (pipe character) into the
+xml-presentation of the sentence. Care should be taken not to split the
+sentence inside an XML element; normally, a new sentence should start
+right after a space (<code>&lt;s&gt; &lt;/s&gt;</code>).</p> <p>\topicword{Grouping of main clauses} Whether two main sentences with
+<em>καί</em>, <em>et</em>, ꙇ or a similar conjunction between them have been conjoined
+or not depends on the punctuation used by the editor. The annotators
+should in general not change this, but only verify</p> <ul><li><p>that there are no 'off-by-one' errors, ie. cases where the sentence
+boundary is wrong by a couple of words. This can happen if there are
+important textual deviations between the Clementine Vulgate and our
+text. Also, subjunctions like <em>quia</em> are often placed together with
+direct speech ('mixed speech'), but should belong with the verb of
+saying.</p></li> <li><p>that the sentence does not contain two main clauses which are not
+conjoined by a conjunction. In general we prefer to split such sentences
+instead of coordinating two main clauses using a null conjunction.</p></li> <li><p>that there are no subordinate clauses which have been assigned to the
+wrong governing main clause</p></li></ul> <p>Notice\topicword{'Mixed' speech} that the most frequent off-by-one-error
+occurs when a subjunction like <em>quia</em> is put in the same sentence as
+direct speech. In such cases, the subjunction should be dependent on the
+verb of speech (normally via the relation <code>COMP</code>), but not itself have any
+dependent, because the direct speech is marked off as a separate sentence.
+Notice that sentences introduced by subjunctions should be considered
+indirect speech if this is possible, ie. if there is no evidence from e.g.
+pronouns (first or second person pronouns if the subject of the verb of
+saying is in the third person) or other deictic elements to indicate that
+the quote is direct.</p> <p>\topicword{Direct and indirect speech} Indirect speech should depend
+on, and be grouped with, the sentence containing the verb of
+speech. Direct speech should be separated off as main clauses. If a
+sentence contains both a verb of saying and some direct speech, it is
+possible to analyse this as two separate sentences, see the next
+section.</p> <p>There are cases where \topicword{Parenthetical sentences} one main
+clause is entirely included in another main clause as a parenthetical
+sentence. Since we consider direct speech as main clauses, this is the
+case whenever a verb of speech is inserted parenthetically into a
+sequence of direct speech, as in the following example (Acts 25.5):</p> <blockquote><p>οἱ οὖν ἐν ὑμῖν, φησίν, δυνατοὶ συνκαταβάντες εἴ τί ἐστιν ἐν τῷ ἀνδρὶ ἄτοπον κατηγορείτωσαν αὐτοῦ.</p></blockquote> <blockquote><p>Qui ergo in vobis, ait, potentes sunt, descendentes simul, si quod est in viro crimen, accusent eum.</p></blockquote> <p>This should be split into two sentences, a <code>PRED</code> and a <code>PARPRED</code>.
+Disregarding the internal structure of the main clause, the analysis will
+look the following way:</p> <p>\begin{example} \label{division}
+\Tree [.Root \qroof{qui ergo in vobis potentes sunt descententes\simul si quod est in viro crimen eum}.PRED\accusent    [.PARPRED\ait  ]  ]
+\end{example}</p> <p>Conversely, when direct speech is wedged into another main clause, as
+сьде хь is in the following example, the direct speech is analysed as
+a PARPRED:</p> <img src="/assets/img/d02794059a7f3f7111c79f19e7ded7d1c832acab.svg"><blockquote><p>аште речетъ къто вамъ се сьде хь. не имѣте вѣрꙑ</p></blockquote> <blockquote><p>'If someone tells you 'Christ is here', do not believe him.'</p></blockquote> <p>But there are also longer parenthetical sentences, especially in
+Paul. For the purpose of the sentence boundaries, the whole should be
+treated as one sentence. In analysing the syntactic dependencies, the
+verb of the parenthetical sentence should be made dependent directly
+on the sentence root (and not on the main clause) via the relation
+PARPRED (parenthetical predication).</p> <p>Notice that only PRED, PARPRED and VOC relations are allowed
+directly under the root.</p> <h2 id="tokenization"><a href="#tokenization" class="header-anchor">#</a> Tokenization</h2> <p>The words to be analyzed \topicword{Clitics, krasis} and represented in
+the dependency tree do not always match those in the text. Sometimes
+elements which need to be treated as separate tokens in the syntactic
+model are run together in the text. This is the case with <em>krasis</em> in
+Greek, and with enclitic <em>-que</em> in Latin. The conjunction cum negation
+<em>neque</em> has also been split into a conjunction part <em>que</em> and a negation
+part <em>ne</em>. When the meaning is 'not even' we do not split it.</p> <h2 id="the-verb"><a href="#the-verb" class="header-anchor">#</a> The verb</h2> <p>The verb is the central element of every predication. We model this by
+taking the verb to be the head of all other elements in its sentence
+(except subjunctions, see section \ref{subjunctions}). We also let the
+verb ''stand in'' for the sentence as a whole, which means that it is
+annotated with the function of the whole sentence (unless, again, a
+subjunction is present). This structure is apparent in example
+\ref{division}: although the internal structure of the main clause is
+not shown in the figure, we see that the main verb dominates all the
+other elements of its sentence.</p> <p>Main clauses \topicword{Main clauses} do not have a function within
+some larger sentence, therefore their verbs are attached to the root via
+the relation PREDication:</p> <img src="/assets/img/4be32c8820318c05e9da9ffa68e6af0675691824.svg"><blockquote><p>Dico enim vobis</p></blockquote> <p>In subordinate clauses \topicword{Subordinate clauses} introduced by
+a subjunction, the subjunction is assigned the relation which
+corresponds to the function of the clause, and the verb is attached to the
+subjunction via the relation PRED:</p> <img src="/assets/img/90622cc0d0f04c5c09d2734eb6f6230fc452aefe.svg"><blockquote><p>Dicite quia Domino necessarius est</p></blockquote> <p>For more on subordinate clauses with subjunctions, see section
+\ref{subjunctions}. Sometimes the subjunction is missing even in
+sentences where we would expect one, see section \ref{wosubj}.</p> <p>In other \topicword{Other\embedded\predications}contexts (relative
+clauses, accusative with infinitives, absolute constructions, dominant
+participles, conjunct participles and governed infinitives), verbs
+will be annotated with the function of the whole construction, see
+section \ref{embeddedpredication}. This means that a verb should
+always be present: if it is not in the text, it will have to be
+inserted, see section \ref{ellipsis}.</p> <p>Auxiliary verbs \topicword{Auxiliary verbs}are attached to the main verb
+via the relation AUX:</p> <img src="/assets/img/f2b35c032c39179e4076b44267d67854bea3119f.svg"><blockquote><p>Dictum est vobis</p></blockquote> <p>Since we only allow PRED, PARPRED and VOC under
+\topicword{Non-verbal predication} the root, it is necessary to supply an
+empty verb whenever none is present. For example, when Jesus asks the
+disciples how many baskets of bread they distributed, the disciples answer
+'seven':</p> <img src="/assets/img/a8360c4069097b9b058c6acd7f1e3421cbcf2d9a.svg"><p>On the other hand, there are cases where a participle is coordinated
+with a finite verb. Since we annotate syntactic function, and not form,
+these are treated as PREDs, corresponding to their function:</p> <img src="/assets/img/3380312df9083ec469034cdf09e8a87f5f55b140.svg"><blockquote><p>προσεφώνησεν τοὺς μαθητὰς αὐτοῦ, καὶ ἐκλεξάμενος ἀπ’ αὐτῶν δώδεκα</p></blockquote> <h2 id="exclamations"><a href="#exclamations" class="header-anchor">#</a> Exclamations</h2> <p>We use the relation VOC for all kinds of exclamations.
+\topicword{Vocatives,\interjections}These are placed directly under the
+root, as they are external to the sentence. In the syntactic annotation we
+annotate function and not form, so this relation is not only used for
+vocative nouns, but also for nominative and accusative exclamations as
+well as for different interjections etc.</p> <img src="/assets/img/2e642b2be5caeaffaf8ae88b332d0034e8957dde.svg"><blockquote><p>Habemus senatus consultum in te, Catilina, vehemens et grave</p></blockquote> <img src="/assets/img/5a96a23d9117f1a2cdf15f3db713f3cd53ccb65a.svg"><blockquote><p>Amen, dico vobis</p></blockquote> <p>Some sentences consist of only an exclamation. In such cases there is no
+need to introduce an empty PRED-node:</p> <img src="/assets/img/5479895e14851f5ac5f2966e44f7a8b22b9d4eaf.svg"><blockquote><p>Osanna in excelsis</p></blockquote> <p>Notice in particular that <em>ecce</em>, <em>ἰδοὺ</em>, and <em>се</em> belong here. In many
+cases, these are used in presentation constructions, which should then be
+analysed as involving an empty PRED \corref{10474}:</p> <img src="/assets/img/fe405b8ff8c116bdeff7ff398a29649353ad3897.svg"><blockquote><p>ecce mater mea et fratres mei</p></blockquote> <blockquote><p>'Behold my mother and my brethren'</p></blockquote> <h2 id="non-verbal-sentence-level-grammatical-relations"><a href="#non-verbal-sentence-level-grammatical-relations" class="header-anchor">#</a> Non-verbal sentence-level grammatical relations</h2> <p>In this section we describe sentence-level grammatical relations, ie.
+relations that have a verbal node as a head. These are SUBject,
+OBJect, OBLique, AGent, XOBJ (predicative complement) and
+ADVerbial, as well as some supertags described in section
+\ref{supertags}</p> <h3 id="subject"><a href="#subject" class="header-anchor">#</a> Subject</h3> <p>\label{subject}</p> <p>In the typical case, SUB relates a nominative noun to its verb:</p> <img src="/assets/img/8da63a059eb1ecca413188d872fdbd76d8002e4c.svg"><blockquote><p>statim Spiritus expellit eum in desertum</p></blockquote> <p>But on some \topicword{Partitive\subjects}occasions, we also find
+partitive expressions (genitive nouns and prepositional phrases) which are
+subjects and must be given the relation SUB:</p> <img src="/assets/img/d1de19758a6f3f137a1a8a24ad7e62c32a9fdb8a.svg"><blockquote><p>ex discipulis eius dixerunt ad invicem</p></blockquote> <img src="/assets/img/c309ce94c89a6b6baae19aa11db3a6af968c0cd7.svg"><blockquote><p>не бѣ има мѣста въ обитѣли (Luke 2:7)</p></blockquote> <p>Note that more generally, preposition phrases can serve as subjects in
+Greek when they are nominalised by the article:</p> <img src="/assets/img/06285d4eaac27768bb7c782294fdf1224935ae8c.svg"><blockquote><p>οἱ παρ’ αὐτοῦ ἐξῆλθον</p></blockquote> <p>Note that (non-articular) infinitives are never subjects, but rather
+COMPs or XOBJs, see section \ref{infinitives}.</p> <p>Subjects \topicword{Subjects in\absolute\constructions} can also be
+nouns in oblique cases in an absolute construction, see section
+\ref{absolutes}.</p> <h3 id="object"><a href="#object" class="header-anchor">#</a> Object</h3> <p>\label{object}</p> <p>In the typical case, OBJ relates an accusative noun to the verb:</p> <img src="/assets/img/f4440c8afceb206627171fc392925e9c12f7498f.svg"><blockquote><p>iterum intravit Capharnaum post dies</p></blockquote> <p>OCS genitive-formed accusative objects should of course also be analysed
+as OBJ, not OBL. In some cases there may be doubt whether the verb
+requires a genitive or an accusative, or may occur with either. In such
+cases the supertag ARG should be used, see section \ref{supertags}.</p> <p>As with subjects, \topicword{Partitive\objects} we sometimes find
+partitive expressions which are objects. They are given the relation
+OBJ:</p> <img src="/assets/img/d7b1479495f255b9d4e10efed848e2aff7cb4bba.svg"><blockquote><p>morte afficient ex vobis</p></blockquote> <p>Partitive objects raise a problem which does not occur with partitive
+subjects, since they must be distinguished from normal governed genitives
+as we find, f.ex. with <em>meminisse</em>. The relation OBJ should only
+be assigned if an accusative could be substituted. If in doubt, consult
+section \ref{supertags}. In OCS, it can be hard to distinguish partitive
+genitive objects (OBJs) from genitive objects required by the verb
+(OBLs). If in doubt, use the supertag ARG.</p> <p>In OCS, negated objects regularly occur in the genitive. They should be
+analysed as OBJs. Again, if there is doubt whether the verb requires the
+accusative or the genitive, use the supertag ARG.</p> <img src="/assets/img/95ecfef1c6527263b8a29286158e0bddb94e014f.svg"><blockquote><p>вꙑ не вѣсте ничесоже (John 11:49)</p></blockquote> <p>Notice also that the OCS supine demands genitive objects. If the verb
+requires an accusative object in other forms, the genitive object of the
+supine should still be an OBJ. If there is doubt whether the verb
+requires the accusative or the genitive, the supertag ARG should again
+be used.</p> <p>Some verbs, like <em>docere</em>, take \topicword{Double\accusatives}
+two accusatives. In such cases, annotators should first check if both
+accusatives qualifies as arguments (see section \ref{advobl}). If they do,
+it is possible to take both accusatives as OBJects, but this should only
+be done if both accusatives could become subjects in a passive
+construction. If only one of the accusatives can be the subject in
+a passive construction, the other accusative must become an OBL (or an
+ADV, if it does not qualify for argumenthood). Very often, it is not
+possible to determine whether a given accusative can become the subject in
+the passive or not; in such cases, annotators should assume that they can
+be, and annotate them as object. Thus the 'default case' is that two
+accusative arguments of a verb should both be treated as OBJects.</p> <p>Note that (non-articular) infinitives are never subjects, but rather
+COMPs, see section \ref{infinitives}.</p> <h3 id="obliques"><a href="#obliques" class="header-anchor">#</a> Obliques</h3> <p>We use the relation OBLique to attach those arguments of the verb which
+are not subjects or objects to the clausal node. By <em>argument</em> we
+mean any syntactic element seen as required by a verb. This could be
+a genitive, as with <em>meminisse</em>; a dative, as with
+<em>sucurrere</em>; an ablative, as with <em>uti</em>; a prepositional
+phrase, as with <em>pertinere</em> and in general with motion verbs; and
+even an adverb, as with <em>tractare</em>. It is not always clear whether
+a noun phrase is an oblique argument or not; or whether a genitive is
+a partitive object or an oblique argument. If in doubt consult section
+\ref{supertags}.  Oblique arguments include non-accusative 'objects' as
+well as prepostional arguments.</p> <p>\topicword{Indirect\objects}</p> <img src="/assets/img/1717e7da9c50eb0de9294f10630790d68b07439a.svg"><blockquote><p>et dixit mihi angelus</p></blockquote> <p>We include all directional expressions here (goal and source) here
+when they are used with motion
+verbs.\topicword{Prepositional\arguments} This goes both for
+prepositions and adverbs, so e.g. <em>huc</em> should very often be an
+OBL. Other prepositions that are necessary to the meaning of the verb,
+such as in e.g. <em>pertinere ad</em>, also belong here:</p> <img src="/assets/img/8f2cc40af036afeefb49b5095095f6b5082f4ea6.svg"><blockquote><p>et introibo ad eum</p></blockquote> <p>Path expressions, on the other hand, are normally not oblique
+arguments, but rather adjuncts. Exceptions occur, however, for example in
+cases where the path argument is 'required' by a preverb.</p> <p>A restricted \topicword{Arguments\of adjectives}group of adjectives
+such as <em>similis</em>, <em>dissimilis</em> also take complement nouns. We
+relate these nouns to their adjectives via the relation OBL:</p> <img src="/assets/img/92820b11c9da0066bb7c7ec17461f0f5f2c91daa.svg"><blockquote><p>iris erat similis visioni zmaragdinae</p></blockquote> <p>As the last example illustrates,\topicword{Objects of\prepositions}
+the complement of the preposition is also considered an oblique
+argument (of the preposition), no matter the function of the phrase as
+a whole:</p> <img src="/assets/img/bc171bde9e41339e42b642efd49df6e4dd11277c.svg"><blockquote><p>cenabo cum illo</p></blockquote> <h3 id="agents-in-passive-constructions"><a href="#agents-in-passive-constructions" class="header-anchor">#</a> Agents in passive constructions</h3> <p>In passive constructions, and some rare active ones, we use the
+relation AG to relate a non-nominative agent to the verb. A typical
+example is: \topicword{PPs as agents}</p> <img src="/assets/img/f3973684a37cedf24605f573290e7cfedd9b8481.svg"><blockquote><p>quae tibi obicuntur ab his</p></blockquote> <img src="/assets/img/c758e374c2a16271498faaeaed79a34eac8f2fdb.svg"><blockquote><p>кръсти сѧ отъ иоана} (Mark 1:9)</p></blockquote> <p>The same relation AGent is used whenever the agent is expressed by a
+pure case form rather than a prepositional construction:
+\topicword{Pure\case forms}</p> <img src="/assets/img/4167fff77d2e47dac9b2f073d8426ee15307ddcd.svg"><blockquote><p>ἰδοὺ οὐδὲν ἄξιον θανάτου ἐστὶν πεπραγμένον αὐτῷ</p></blockquote> <p>The AG tag is ordinarily used to express the agent with a passive verb. In
+Greek, however, some intransitives are regularly used instead of the
+expected passive form of a verb. Verbs occurring with this construction
+include <em>πάσχω</em>, <em>πίπτω</em>, <em>φεύγω</em>, <em>εὖ</em>/<em>κακῶς ἀκούω</em>, <em>ἀποθνῄσκω</em>.</p> <img src="/assets/img/fe72b8d32b5be8dc8777f5c18271bf89e3f28682.svg"><img src="/assets/img/ff57de421af5f3a2f11bc814b880229c7266cf32.svg"><p>Since these verbs are functionally equivalent to passives and have
+supplanted the passive verbs forms (although the passive of
+e.g. <em>ἀποθνῄσκω</em> does also occur in the NT), we allow for
+prepositional phrases with <em>ὑπὸ</em> to be marked as AG. Note,
+however, that this is only allowed with a restricted set of verbs and
+is most often found in Greek. There are some examples,
+e.g. исцѣлѣти in \corref{40449}.</p> <p>Note finally that infinitives in Gothic are ambiguous with regard to
+diathesis, so that what looks like (and is tagged as) an active
+infinitive can take an agent expresssion and have passive meaning.</p> <h3 id="adverbials"><a href="#adverbials" class="header-anchor">#</a> Adverbials</h3> <p>We use the relation ADVerbial to attach adverbial expressions to the
+sentence. Such expressions can take various forms: adverbs,
+preposition phrases, nouns (in oblique cases), participles and
+gerunds. In some cases, it is not clear whether they are adverbials or
+oblique arguments, and in that case, sections \ref{supertags} and
+\ref{advobl} should be consulted:\topicword{Adverbs}</p> <img src="/assets/img/437b02c55d43b6189eab26626d9687d8312e24ba.svg"><blockquote><p>epulabatur cotidie splendide</p></blockquote> <p>\topicword{Preposition phrases}</p> <img src="/assets/img/652bfddbcd318883c4658bdc7e1147201b212ab5.svg"><blockquote><p>iam moechatus est eam in corde suo</p></blockquote> <p>\topicword{Noun in\oblique case}</p> <img src="/assets/img/9781abad62c007583dcc0cc2a122fee7736d03ac.svg"><blockquote><p>Et primo die azymorum dicunt ei discipuli</p></blockquote> <p>We also consider predicative/conjunct participles and adjectives (see
+<a href="#atr-or-xadv">ATR or XADV?</a> and \ref{xadv}), as well as gerunds, to be
+adverbial, but they special because they are cases of embedded
+predications with their own argument structure. Moreover, they are
+special in that they cannot take a subject dependent. They are further
+described in section \ref{open}. In the nominal domain, we do not try
+to separate predicative nouns from appositions, see section
+\ref{appos}.</p> <p>Adverbial accusatives \topicword{Adverbial\accusative} are also ADVs
+and annotators should beware that <em>multum, multa</em>, <em>πολλά</em> and the like
+are often ADV and not OBJ.</p> <p>The relation\topicword{ADV\modifying\non-verbal\elements} ADV is also
+used for sub-sentence-level modifiers of adjectives, prepositions,
+numerals (see \corref{36579}) and other adverbs:</p> <img src="/assets/img/008942897cf4b7cd9bd5c977cd175f100481ac1b.svg"><blockquote><p>erat valde dives</p></blockquote> <img src="/assets/img/2dc9dc92cf4ad9a619e3644f66a618ed5ea24d25.svg"><blockquote><p>tenebrae factae sunt per totam terram usque in horam nonam</p></blockquote> <img src="/assets/img/01005a433969c196cb35ebadd20ecd34d38c5e11.svg"><blockquote><p>et valde mane una sabbatorum veniunt ad monumentum</p></blockquote> <h3 id="predicative-complements"><a href="#predicative-complements" class="header-anchor">#</a> Predicative complements</h3> <p>The relation XOBJ is used for subject and object complements (as well
+as other functions as explained in section \ref{morexobj}) which are
+introduced by verbs like <em>esse</em>, <em>uideri</em>, <em>appellari</em>, <em>fieri</em>
+(subject complements) and <em>facere</em>, <em>creare</em> (object complements),
+as well as in verbless absolute ablatives (see section
+\ref{absolutes}). The relation itself does not make clear whether we
+are dealing with a subject predicative or an object
+predicative. Instead, we use the slash notation to mark this, see
+<a href="#slash-notation">Slash notation</a>. Note that in OCS, complements can be
+instrumental-marked. They should still be analysed as XOBJs, not as
+OBLs. The same goes for complements introduced by a preposition, such
+as in Gothic <em>wair\th{}an du</em>, OCS бꙑти въ.</p> <p>Note that predicatives can be of many different syntactic categories:
+adjectives, nouns and preposition phrases are typical examples:</p> <img src="/assets/img/42dec464cce1aafca1b21c9c7b1c036bd987988e.svg"><blockquote><p>Cicero consul est</p></blockquote> <img src="/assets/img/f6cd0d1f8ec0e46074f3f4adc03d3c5a069b460b.svg"><blockquote><p>Romani Ciceronem consulem creaverunt</p></blockquote> <img src="/assets/img/c47790a45ec91ebbf9e52ad029a2d0667089e464.svg"><blockquote><p>navis in medio mari erat</p></blockquote> <img src="/assets/img/ce7de19a306932e2051886df3d8fa211a2fabc8e.svg"><blockquote><p>reddite quae sunt Caesaris Caesari</p></blockquote> <p>Notice that we also use XOBJ for some 'non-standard' copulas such as
+Greek <em>ἔχω</em> in constructions such as <em>ἔχω ἑτοίμως</em> 'be ready'.
+correct?</p> <h3 id="adverbal-appositions"><a href="#adverbal-appositions" class="header-anchor">#</a> Adverbal appositions</h3> <p>Although appositions are normally dependents of sentence constituents,
+there is at least one case where we use sentence level appositions, namely
+in the case of 'distributive elaborations', i.e. cases where
+a predicational structure (normally without a finite verb) containing
+a distributive element or a list. A classical example is <em>and all were
+going to be enrolled, each to his proper city</em>:</p> <img src="/assets/img/29e2312e68620a5e5e76f98c6d1eb9ecbd12e238.svg"><blockquote><p>καὶ ἐπορεύοντο πάντες ἀπογράφεσθαι, ἕκαστος εἰς τὴν ἑαυτοῦ πόλιν</p></blockquote> <p>Since the appositive element is not a constituent, we need to embed
+the separate elements under an empty verbal node, which is then given the
+relation APOS to the finite verb.</p> <h3 id="supertags"><a href="#supertags" class="header-anchor">#</a> Supertags</h3> <p>\label{supertags}</p> <p>The distinctions that we attempt to make in our syntactic model are
+not always crystal clear. Section \ref{general} offers some
+supplementary advice on the use of some relations.  In order to
+preserve the quality of the data, we also provide certain supertags
+which the annotators should use when they are in doubt, instead of
+simply choosing one of the alternatives. These are:</p> <ul><li><p>PER for peripheral (not subject or object) elements, ie. OBL or
+ADV. This should be used whenever it is not possible to decide whether
+an element is an argument or an adjunct.</p></li> <li><p>ARG for arguments, to be used whenever it is not possible to decide
+whenever an element is an OBJect or an OBLique.</p></li> <li><p>NONSUB for non-subjects, ie. elements that are either OBJets,
+OBLiques or ADVerbials.[^1]</p></li></ul> <p>In addition there are supertags for verbal functions, see section
+\ref{verbsupertags} and a supertag for adnominal functions, see
+section \ref{adnom}.</p> <h3 id="auxiliary-words"><a href="#auxiliary-words" class="header-anchor">#</a> Auxiliary words</h3> <p>Items that are not covered by these tags are simply given the tag Aux,
+which serves to mark auxiliary verbs, modal particles, focus
+particles, negation etc. Information about these items is always
+recoverable from the categorial information in their morphology. The
+intuition behind the relation Aux is that it serves to mark off
+'grammatical words' as opposed to 'lexical words'. There are certain
+adverbs whose meaning can sometimes be so weakened that they appear as
+grammatical words (<em>ergo</em> signalling simple progression for
+example), so the distinction between Aux and ADV is not always clear.</p> <p>It can be a bit confusing that the Aux tag is used for so many
+different groups. What these words have in common is that they do not
+really bear a syntactic function towards their heads, they just give
+additional information about them. An article specifies the
+definiteness of its head noun; a negation negates its head word, a
+focus particle gives information about the information status of its
+head, auxiliary verbs gives tense and aspect information relating to
+the verb etc.</p> <p>It is important to attend to scope issues: auxiliary verbs should be
+attached via Aux to their verbs; focus particles and constituent
+negation should be attached to the items they take scope over. In
+general, a scoping item is considered to scope over its mother node
+and all nodes dominated by its mother, and it should be placed
+accordingly. For more on this, see section \ref{scope}.</p> <p>[^1] This case is extremely rare, of course, but the tag can also be used to flag anomalies which the reviewers should look at.</p> <h2 id="noun-phrases-without-nouns"><a href="#noun-phrases-without-nouns" class="header-anchor">#</a> Noun phrases without nouns</h2> <p>\label{npnonoun}</p> <p>Sometimes a sentence-level function is not filled by a noun, but by an
+adjective, participle or a numeral. Such elements should be given the
+appropriate function in the sentence, and should <em>not</em> be related to an
+empty node representing the 'elliptical' subject, object or otherwise:</p> <img src="/assets/img/133e6c08cbbf2116b289efb1f6a5b6ddadd65e38.svg"><blockquote><p>omnes ex illo biberunt</p></blockquote> <img src="/assets/img/846f0e799f82b0541185cd595908af0647548c9e.svg"><blockquote><p>responderunt prudentes</p></blockquote> <p>Before opting for such an analysis, the annotators should make sure
+that the adjective/participle is not predicative. The example above means
+'The wise ones answered'. If the sentence meant 'Being wise, they
+answered' or 'They answered wisely', <em>prudentes</em> would have been an
+XADV, see section \ref{xadv}.</p> <p>As we have seen in the sections on the subject (\ref{subject}) and the
+object (\ref{object}) even prepositional phrases can be subjects and
+objects, especially when they express partitivity. Another
+construction, which is fairly frequent in Greek, is the nominalisation of
+prepositions and adverbs in constructions like <em>οἱ παρ’ αὐτοῦ</em> 'the ones
+around him' or <em>οἱ νῦν</em> 'people nowadays'. In such cases, the preposition
+should be the head and the article an Aux, as usual:</p> <img src="/assets/img/6a8e1a290dfeadaf40b002c4411d333ce0d03b11.svg"><blockquote><p>οἱ παρ’ αὐτοῦ ἐξῆλθον</p> <p>'The ones around him went out'</p></blockquote> <p>Sometimes there are several adjectives, participles and/or
+numerals. In such cases annotators will have to make a choice as to
+what is the head of the construction and what is the
+modifier/attribute. In general, the element which is most central to
+establishing the referent should be the head.</p> <p>This means that numerals should not be the head if there are other
+available heads, so <em>alii duo</em> 'two others' should be</p> <img src="/assets/img/4d42759539d6b6cb4333a3904ae2d97e55531707.svg"><p>and not the other way around. Generally the hierarchy is</p> <blockquote><p>adjectives, participles &gt;&gt; nominalized prepositional phrases &gt;&gt; demonstratives &gt;&gt; indefinite pronouns &gt;&gt; numerals &gt;&gt; relative clauses</p></blockquote> <p>This means that <em>tria haec</em> should be</p> <img src="/assets/img/df89dffc15a101a6a20c68b93d9db056372b4d67.svg"><p>and <em>haec omnia</em> should be</p> <img src="/assets/img/4e192872b12b5b4a5515cb93d5c27bad0cdd2cbb.svg"><p>Notice that since relative clauses are lowest on the hierarchy, sentences
+like <em>omnis quicumque confessus fuerit in me</em> will be representendes as
+relative clauses modifying the quantifier:</p> <img src="/assets/img/908a18f6c29954fc10d45c8c9f59a4656c359ef0.svg"><blockquote><p>'whoever believes in me'</p></blockquote> <h2 id="adnominal-tags"><a href="#adnominal-tags" class="header-anchor">#</a> Adnominal tags</h2> <p>\label{adnom}</p> <h3 id="general"><a href="#general" class="header-anchor">#</a> General</h3> <p>Dependents of nouns can be of various types. There are negations,
+emphatic particles etc. which are related via Aux, but with due
+consideration of scope issues (see section \ref{scope}). In general,
+'grammatical words' will bear the relation Aux, whereas 'lexical
+words' which are dependents of nouns will have various relations
+depending on their function. We recognise 4 main types:</p> <ul><li><p>ATR: attributes are elements which serve to restrict the reference of
+a noun. For example, in <em>canis albus</em> the adjective <em>albus</em> serves to
+restrict the possible reference of the noun <em>canis</em>. Attributes can be
+adjectives, prepositional phrases, relative clauses, participles,
+genitives, number words - but these categories can also have other
+adnominal functions, so it is important to pay attention here.</p></li> <li><p>APOS: appositions are elements which serve to further elaborate on
+a nominal referent, without restricting the reference. Examples are
+<em>consul</em> in <em>Cicero consul</em>, <em>frater</em> in <em>Marcus frater</em>. Appositions
+are mostly nouns in the same case as their head, and non-restrictive
+relative clauses.</p></li> <li><p>PART: partitives are elements which tell us to which group or whole
+the noun belongs. They are typically realised by genitives or by
+prepositions like <em>ex</em>, <em>de</em>, <em>ἀp'o</em> etc.</p></li> <li><p>NARG: some elements can be said to be <em>arguments</em> of nouns. The most
+clear example is the object genitive, as in <em>spes uincendi</em> or <em>amor
+fati</em>. Arguments can also be realised as prepositional phrases, as in
+e.g. <em>Dei amor erga nos</em>. Here <em>erga</em> is an argument of <em>amor</em> (and
+<em>nos</em> is in turn an argument of <em>erga</em>). Note that subject genitives are
+counted among the normal possessive genitives, as attributes. Arguments
+of adjectives are <em>not</em> NARGs but OBLs.</p></li></ul> <p>These categories are further explained and exemplified in the following
+sections. There is also supplementary information in section
+\ref{general}. If in doubt annotators should use the supertag ADNOM.</p> <h3 id="attributes"><a href="#attributes" class="header-anchor">#</a> Attributes</h3> <p>Attributes are given the tag ATR. Here is an example with an adjective
+and a possessive pronoun:</p> <img src="/assets/img/eb05e8eedf2647a238cd879a07f2bce1e2b17233.svg"><blockquote><p>pater vester caelestis perfectus est</p></blockquote> <p>Here is a \topicword{Descriptive\genitives}subtree involving a
+descriptive genitive and a numeral which is an attribute of the
+genitive noun:</p> <img src="/assets/img/83d5a081cdd8002fe3980068d284e2855e6fa6d5.svg"><blockquote><p>puer decem annorum</p></blockquote> <p>There are various other possibilities not illustrated here, such as
+possessive genitive (<em>patris filius</em>) and definitive genitives (<em>arbor
+fici</em>). Also, restrictive relative clauses are considered attributes, see
+section \ref{relatives}.</p> <p>We use \topicword{Non-traditional\attributes} the tag ATR also for some
+constructions which are not traditionally called attributes, f.ex. because
+we do not allow nouns to take adverbial dependents. If a noun (f.ex. the
+name of a city or a small island in Latin) is equivalent to a directional
+prepositional phrase, dependent adverbs will have to be ATR and not
+ADV:</p> <img src="/assets/img/1bacd7cc5bf4623524093d5ab63f97359c5731e7.svg"><blockquote><p>et miserunt Barnaban usque Antiochiam</p></blockquote> <p>Therefore it is useful to think of the ATR as not only comprising
+traditional attributes but all kinds of modifiers of nouns.</p> <h3 id="appositions"><a href="#appositions" class="header-anchor">#</a> Appositions</h3> <p>\label{appos}</p> <p>This section deals with adnominal appositions. We also use the APOS tag
+in a variety of sentential contexts, see <a href="#adverbal-appositions">Adverbal appositions</a>.</p> <p>Appositive nouns are attached to their head noun via the relation APOS.
+Such nouns are never restrictive (if they are, they are attached via the
+relation ATR instead), and we do not attempt to keep apart predicative
+appositions from other appositive nouns.</p> <img src="/assets/img/71128f9f2c054da8b41eb206c2aa69be9de4ddd5.svg"><blockquote><p>Cicero consul coniurationem Catilinae detexit</p></blockquote> <p>Non-restrictive relative clauses are also considered appositions, see
+section \ref{relatives}.</p> <p>Notice \topicword{Names and\modifyers\of names} in particular that
+'second names', and modifiers of names, as in <em>Maria Magdalena</em> or <em>Iesus
+Christus</em>, are always considered appositions. In OCS, such ‘second names’
+are generally denominal adjectives.</p> <p>There can sometimes be doubt whether a participle is an apposition or
+a predicative adjunct. In general, APOS should be chosen whenever
+a timeless property of the head is expressed, or at least a property which
+is not tied to the time of the governing verb, as in the following
+example:</p> <img src="/assets/img/3c56f665f3e35afe05aa005fc359ee792341063c.svg"><blockquote><p>Εἰσῆλθεν δὲ σατανᾶς εἰς Ἰούδαν τὸν καλούμενον Ἰσκαριώτην, ὄντα ἐκ τοῦ ἀριθμοῦ τῶν δώδεκα</p> <p>'Satan entered Judas, called Iscariot, one of the Twelve'</p></blockquote> <p>Being called Iscariot and being one of the Twelve are properties of
+Judas that are not temporally connected with the event of Satan entering
+Judas, so we use XADV instead of APOS.</p> <p>When multiple expressions with the same function
+occur,\topicword{Appositions and\word order} it is often difficult to
+decide which one to take as the head and which one as the
+apposition. In such cases we follow the surface word order: the
+expressions which comes first in the sentence is taken as the head,
+while the one that follows, is taken as an apposition.</p> <img src="/assets/img/28fda24a26453a1ca8ecb83ea4d8a05ea0490a7c.svg"><blockquote><p>не и ли сестрꙑ его сѫтъ оу насъ сьде</p> <p>'Are not his sisters with us, here?'</p></blockquote> <img src="/assets/img/73070b07f43f491d01454ecfb910d6f33dbd873e.svg"><blockquote><p>καὶ οὐκ εἰσὶν αἱ ἀδελφαὶ αὐτοῦ ὧδε πρὸς ἡμᾶς</p> <p>'Are not his sisters here with us?'</p></blockquote> <p>In the Greek text, the adverb comes first and the PP second while in
+the OCS text it is the other way around. Following linear principle,
+we take the PP as an apposition on the adverb in the Greek text while
+in the OCS text the adverb is taken as an apposition on the PP. It is
+important to remember, however, that this approach is only possible when
+the two (or more) elements have <em>the same function</em>, in this case both
+functioning as place adverbials. A time adverbial should not be taken as
+an apposition on a place adverbial even though they both carry the ADV
+tag.</p> <h3 id="partitives"><a href="#partitives" class="header-anchor">#</a> Partitives</h3> <p>Adnominal partitive expressions are typically realised as genitives or
+preposition phrases:</p> <img src="/assets/img/be07a8a7a853de67b86c456fcec99e9a89353f81.svg"><blockquote><p>Unus ex eis mortuus est</p></blockquote> <img src="/assets/img/ff834847761e9bc30fb4d0f94368cf922f5a3fdd.svg"><blockquote><p>Unus eorum mortuus est</p></blockquote> <p>Notice that PART is reserved strictly for adnominal partitives. It
+should <em>not</em> be used for partitive objects. These are OBJs, and only the
+morphology signals that they are partitives. This means that <em>ut ab
+agricolis acciperet de fructu vineae</em>, there is no partitive: <em>de fructu
+vineae</em> is a normal object of <em>acciperet</em>.</p> <p>The PART relation is not limited to the meaning 'one of/some of'. It is
+also used for other part-whole relations as in</p> <img src="/assets/img/1816a3767a90880ecce0db00a5693b8f03e0774e.svg"><blockquote><p>Maria accepit libram unguenti</p></blockquote> <p>Genitives required by numerals (as often happens in OCS, but also in other
+languages) should be analysed as PART:</p> <img src="/assets/img/2c3c1f37602473e596b0d8b944e8f42c31f4d208.svg"><p>In general, PART should not be used for 'components' such as body part
+nouns, or 'the root of the tree' and similar: there should be
+a <em>contingent</em> part-whole relationship, not a permanent one. The head will
+generally be a measure noun of some sort.</p> <h3 id="arguments-of-nouns"><a href="#arguments-of-nouns" class="header-anchor">#</a> Arguments of nouns</h3> <p>\label{narg}</p> <p>Nouns, especially deverbal nouns, can take arguments just like
+verbs.[^1] A clear case are
+so-called objective genitives, but also other items like prepositional
+phrases can be NARGs:</p> <img src="/assets/img/3dfa477adc516d1a8ff88e75fc39323532177008.svg"><blockquote><p>baptismus est ingressio in sanctitatem Dei</p></blockquote> <p>In OCS, arguments of nouns can sometimes be denominal adjectives, as
+\ocs{бзии} in the following example:</p> <img src="/assets/img/0cac0686d26856087e8deccfdfffb69a7bc69981.svg"><p>Verbal nouns, such as infinitives and gerundives, are often NARGs when
+they are dependent on deverbal nouns, but they can also restrict the
+nouns, see section \ref{adnominf}.</p> <img src="/assets/img/a5bc7ab5738d201e01c04c1ada96e6bfb12b4e59.svg"><blockquote><p>Tota spes vincendi est in confirmatione</p></blockquote> <p>In such cases, there is not always a clear subject in the sentence. But if
+there is one, it should be marked by a slash arrow. Consult sections
+\ref{gerunds} and \ref{infinitives} for further information.</p> <p>[^1] However, nouns very rarely take direct object arguments,
+although some exceptions are found e.g. in early Latin.</p> <h2 id="embedded-predication"><a href="#embedded-predication" class="header-anchor">#</a> Embedded predication</h2> <p>\label{embeddedpredication}</p> <p>Embedded predications \topicword{Open and closed\predications} are
+divided in two major classes according to whether they can have their own,
+overt subject or not. Predications which cannot have an overt subject are
+called <em>open</em>, because their subject is supplied from outside the
+construction. They include some infinitives, such as the complement
+infinitives of <em>posse</em> -- witness the grammaticality of <em>potesne mihi
+auscultare</em> as opposed to *<em>potesne te mihi auscultare</em> -- and conjunct
+participles, whose subject is always coreferent with some other element of
+the sentence, but never expressed as a dependent of the participle. Open
+predications are further discussed in section \ref{open}. Sections
+\ref{types} to \ref{auc} describe various kinds of closed predications.</p> <p>The distinction between open and closed predications has to do with
+being a sentence or not. 'Real' subordinate sentences, introduced by
+subjunctions, have all it takes to be a sentence: a subject, a
+predicate, aspect, voice, etc. etc. Accusative with infinitive structures
+and absolute construction and even the <em>ab urbe condita</em>-constrution also
+have these characteristics. So we can refer to these as subordinate
+<em>sentences</em>. Conjunct participles are also like sentences in some ways,
+but differ in a crucial respect, since they do not have their own subject.</p> <h3 id="the-basic-types-of-subordinate-clauses"><a href="#the-basic-types-of-subordinate-clauses" class="header-anchor">#</a> The basic types of subordinate clauses</h3> <p>\label{types}</p> <p>Traditional grammar divides subordinate clauses into three groups:
+substantival sentences, adjectival sentences and adverbial
+sentences. This distinction reflected in our annotation.</p> <h3 id="substantival-sentences"><a href="#substantival-sentences" class="header-anchor">#</a> Substantival sentences</h3> <p>\label{substantival}</p> <p><em>Substantival sentences</em> are also called complement sentences because
+they complement the main verb. They often seem to have the same functions as
+nouns, most often as objects, but sometimes as subjects. However, we do not
+attempt to keep such functions apart, but use COMP for all of them. We treat
+them this way, because in a sentence like <em>dicitur Homerum caecum fuisse</em>, it
+is not easy to tell whether <em>Homerum caecum fuisse</em> is the subject of <em>dicitur</em>
+or rather the object of an impersonal construction.</p> <p>In effect COMP 'overrules' other relations whenever an argument is
+sentence-formed. Most of the time it functions as a subject or an object, but
+sometimes sentences can be arguments of nouns, in which case they are marked as
+COMP rather than NARG; or as predicatives (in sentences like 'My will is
+that'), where they are COMP instead of XOBJ.</p> <p>Substantival \topicword{Types of\complement\sentences} sentences are
+typically AcIs, indirect questions and subordinate clauses introduced by
+<em>quod</em>, <em>quia</em>, ѣко and <em>ὅτι</em> (in the meaning 'that', not 'because', which
+introduces an adverbial sentence). Notice that in Biblical Greek <em>ἵνα</em> is also
+used to introduce complement clauses much more regularly than in Classical
+Greek. In Latin, complement clauses can also be introduced by <em>ut</em>, <em>ne</em>,
+<em>quominus</em> and <em>quin</em>.The criterion is that the sentence is selected by the
+verb: <em>persuadere</em> selects an <em>ut</em>-sentence, f.ex., so this sentence is a COMP.
+The same goes for locutions like <em>prohibeo quominus</em> and <em>haud dubito quin</em>.
+Sometimes a subordinate clause is not introduced by any subjunction at all and
+such subordinate clauses are always COMPs.</p> <p>The COMP relation takes precedence over other relations, even in adnominal
+contexts. A complement sentence which is dependent on a noun should therefore
+be COMP, not NARG, as in <em>τὸ εὐαγγέλιον ὅτι...</em>, see \corref{6516}.</p> <p>Notice that an <em>ut</em>-sentence which depends on
+<em>persuadere</em> differs from the <em>ut</em>-sentence which can be
+added to any verb, to express intention. A fairly comprehensive list
+of verbs that take completive <em>ut</em> in Latin is: <em>accidit</em>, <em>adhortor</em>, <em>adipiscor</em>, <em>admoneo</em>, <em>caveo</em>, <em>cogo</em>, <em>concedo</em>,
+<em>constituo</em>, <em>contendo</em>, <em>contingit</em>, <em>convenit</em>, <em>decerno</em>, <em>denuntio</em>,
+<em>deprecor</em>, <em>dico</em>, <em>edico</em>, <em>efficio</em>, <em>enitor</em>, <em>evenit</em>, <em>facio</em>, <em>fit</em>, <em>flagito</em>,
+<em>hortor</em>, <em>impello</em>, <em>impero</em>, <em>impetro</em>, <em>incito</em>, <em>interdico</em>, <em>interest</em>,
+<em>iubeo</em>, <em>laboro</em>, <em>mando</em>, <em>mereo</em>, <em>moneo</em>, <em>obsecro</em>, <em>opto</em>, <em>oro</em>, <em>permitto</em>,
+<em>persuadeo</em>, <em>peto</em>, <em>placet</em>, <em>posco</em>, <em>postulo</em>, <em>praecipio</em>, <em>praescribo</em>,
+<em>precor</em>, <em>rogo</em>, <em>scribo</em>, <em>sequitur</em>, <em>sino</em>, <em>statuo</em>, <em>studeo</em>, <em>suadeo</em>,
+<em>subigo</em>, <em>volo</em>. No such list is available for Biblical Greek or the
+other languages, but the intuition to follow is that with verbs with
+the above semantics, the <em>ut</em>-sentence belongs closer to the
+verb than in other cases, where it introduces an adverbial sentence.</p> <p>For guidelines on how to annotate the various complement sentences,
+consult sections \ref{subjunctions} (finite sentences with
+subjunctions), \ref{wosubj} (finite sentences without subjunction),
+\ref{AcI} (accusative with infinitive) and \ref{indqu} (indirect
+questions).</p> <p>Our representation is therefore:</p> <img src="/assets/img/a641248e3e95229bc7fd84cca3cffa7b681aa30f.svg"><blockquote><p>dicitur Homerum caecum fuisse</p></blockquote> <p>Notice that the so-called nominative with infinitive is treated differently:</p> <img src="/assets/img/6e4af385af0e11261efc3e311cc98030994a7f7c.svg"><blockquote><p>dicitur Homerus caecus fuisse</p></blockquote> <p>In the nominative with infinitive, the infinitive no longer has its
+own subject, so it is an XOBJ and not a COMP.</p> <p>Another common variant of the complement clause is the indirect
+question:</p> <h4 id="adjectival-sentences"><a href="#adjectival-sentences" class="header-anchor">#</a> Adjectival sentences</h4> <p>Relative sentences are adjectival in the sense that they have the same
+functions as adjectives. They are often adnominal (ADV and ATR), but
+can also be 'substantivized' and used directly for sentence-level
+functions without having a antecedent.</p> <p>Relative sentences are the only adjectival sentences and their
+annotation is further described in section \ref{relatives}.</p> <h4 id="adverbial-sentences"><a href="#adverbial-sentences" class="header-anchor">#</a> Adverbial sentences</h4> <p>\label{advsen}</p> <p>Adverbial sentences are sentences which express information about time,
+intention, result, cause, concession, condition etc. Absolute constructions
+(\ref{absolutes}) belong here. Otherwise, they are always introduced by
+subjunctions and treated in section \ref{subjunctions}. Some subjunctions which
+introduce adverbial sentences in latin are: <em>cum</em>, <em>donec</em>, <em>dum</em>, <em>ne</em>, <em>nec</em>,
+<em>neque</em>, <em>nisi</em>, <em>postquam</em>, <em>prout</em>, <em>quando</em>, <em>quia</em>, <em>quoadusque</em>, <em>quod</em>,
+<em>quoniam</em>, <em>si</em>, <em>sicut</em>, <em>siquidem</em>. In Greek, at least <em>ἔαν</em>, <em>εἴ</em>, <em>ἐπάν</em>,
+<em>ἐπεί</em>, <em>ἐπειδή</em>, <em>ἔως</em>, <em>ἡνίκα</em>, <em>ἵνα</em>, <em>ὅταν</em>, <em>ὅτε</em>, <em>ὁτι</em>, <em>ὥστε</em> introduce
+adverbial sentences.</p> <h3 id="finite-subordinate-clauses-with-subjunctions"><a href="#finite-subordinate-clauses-with-subjunctions" class="header-anchor">#</a> Finite subordinate clauses with subjunctions</h3> <p>\label{subjunctions}</p> <p>In subordinate clauses, except relative clauses, the finite verb is
+attached to the subjunction via the same relation PRED that we use in
+main clauses. The subjunction is related to the matrix clause via COMP
+if it is a complement clause:</p> <img src="/assets/img/d0b905bef125c0358a27c9130bb21feeafa09040.svg"><blockquote><p>audistis quis dictum est antiquis non occides</p></blockquote> <img src="/assets/img/767468c13893363dbd10f5c543b79865b379c81f.svg"><blockquote><p>datum est illis ne occiderent eos</p></blockquote> <p>Only a restricted group of subjunctions introduce COMPs, see the
+discussion in in section \ref{substantival}. Many more subjunctions
+introduce adverbial sentences, consult section \ref{advsen}.</p> <p>In Greek, verbs of saying such as <em>λέγειν</em> or
+<em>εἰπεῖν</em> may take a complement clause introduced by
+<em>ἴνα</em>, in which case the speech verb itself is intrepreted as
+expressing the will of the speaker.</p> <img src="/assets/img/1b4d7b2868dea416b8b424c7bac3f85015b3dba5.svg"><p>\corref{6622}</p> <p>When a speech verb is overtly present, we assign the relation COMP to
+the subjunction <em>ἴνα</em>. When no speech verb is present,
+however, <em>ἴνα</em> may function as a subjunctive marker and the
+clause may act as a main clause equivalent to an imperative clause.</p> <p>Notice \topicword{Modification\of a subjunction} that in most cases the
+subjunction will only have a single daughter, the verb, although sometimes a
+subjunction can be modified. For example, we can have <em>εἰ καί</em> or <em>et si</em> (=
+<em>etsi</em>) where <em>καί</em>/<em>et</em> modifies the subjunction:</p> <img src="/assets/img/cf97b9bc6c9d297cff05c9c2fc690792c5a8e2ee.svg"><blockquote><p>et si omnes fuerint scandalizati</p></blockquote> <p>This means 'even if everyone is scandalized'. In cases where <em>et si</em> means 'and
+if', <em>et</em> should be attached to the main verb:</p> <img src="/assets/img/c2c47e4c20ea4c84ebd5f255e2b8269bba0cf9af.svg"><blockquote><p>et si dimisero eos in domum suam deficient in via</p></blockquote> <p>Here the meaning is 'And if I send them home, they will faint on their way',
+ie. <em>et</em> modifies the whole sentence, and not the subjunction alone.</p> <h3 id="finite-subordinate-clauses-without-subjunction"><a href="#finite-subordinate-clauses-without-subjunction" class="header-anchor">#</a> Finite subordinate clauses without subjunction</h3> <p>\label{wosubj}</p> <p>It can happen that a finite subordinate clause is not introduced by a
+subjunction, e.g. when <em>ut</em> is left out. In such cases, the
+function of the subordinate clause is annotated directly on the verb,
+and the function is almost always COMP:</p> <img src="/assets/img/792bd58ea708e3fc62bbb6c01d9092ae462e37d2.svg"><blockquote><p>vide dixeris nemini</p></blockquote> <h3 id="relative-clauses"><a href="#relative-clauses" class="header-anchor">#</a> Relative clauses</h3> <p>\label{relatives}</p> <p>Relative clauses differ from other finite subordinate clauses in that they do
+not have a subjunction. Instead, they are introduced by an element (the
+relative pronouns or adverbial) which also has a role in the sentence, such as
+subject, object, oblique or adverbial. Therefore these sentences should be
+headed by the verb directly, and the relative or interrogative should be
+annotated with its function within the clause. In other words, it is <em>never</em>
+correct to let an adverbial or relative word head a sentece.  This also goes
+for relative adverbs like <em>ubi</em> and similar words.</p> <p>Annotators are often tempted to let the relative pronoun depend on its
+antecedent: after all it agrees with its antecedent in gender and number. But
+we annotate syntactic <em>function</em> and function is indicated by <em>case</em>. On the
+other hand, the verb of the relative clause should be made dependent on the
+pronoun's antecedent (if there is one) since that is what the relative clause
+modifies.</p> <p>The verb of such subordinate sentences is given the relation
+corresponding to the function of the sentence as a whole. There are
+several possible functions.</p> <p>The verb of a relative clause with an antecedent is attached to
+\topicword{Adnominal\relative\clauses} the antecendent via the
+relation ATR (restrictive relative clauses) or APOS (non-restrictive
+relative clauses):</p> <img src="/assets/img/0f809e9121830a1bd425b008cf1b784762c4ef1e.svg"><blockquote><p>Et viri qui tenebant illum, illudebant ei</p></blockquote> <img src="/assets/img/3834a77f33f530b910198a6adc6084e5d9db8be8.svg"><blockquote><p>dicit Deus qui est omnipotens</p></blockquote> <p>Whenever there are two verbs which share one relative word, we make
+the relative word dependent on the closest verb, but it is important
+to add a shared argument slash from the second verb to show that we
+deal with a relative clause. However, this is only possible when the
+relative pronoun has the same function in both clauses, see below.</p> <p>If the verb of the relative clause was instead attached via the
+relation ATR, this would correspond to the semantic interpretation
+''the god who is omnipotent'' (in contrast to some other god). If it
+is not possible to decide whether a relative clause is restrictive or
+not, use the supertag REL.</p> <p>It is important that not only \topicword{Relative\adverbs}relative pronouns,
+but also relative adverbs should be annotated this way, since relative adverbs
+also have a function within their own clause. The same goes for interrogative
+adverbs. The following sentence illustrates <em>ubi</em> in both uses:</p> <img src="/assets/img/faa6d77d396d27f5c61b3ec914fc9d14cb396dfc.svg"><blockquote><p>ubi est refectio mea ubi pascha cum discipulis meis manducem</p></blockquote> <img src="/assets/img/8632970bee73310748329f6489ddf836cc396cd0.svg"><blockquote><p>обрѣте мѣсто идеже бѣ написано</p></blockquote> <p>If there is no antecedent \topicword{Relatives\without\antecedent}
+for the relative pronoun, the verb of the relative clause will itself
+bear a sentence-level function within the matrix clause:</p> <img src="/assets/img/38719e67fcd31dcd74c447d4196e66b347a9c12d.svg"><blockquote><p>qui habet aurem, audiat</p></blockquote> <p>Although this implies that we take the relative clause to be a noun
+phrase, we avoid adding nominal modifiers to it, so quantifiers such
+as <em>πᾶς</em> and <em>omnis</em> are taken as heads of the relative
+clauses, see also \ref{npnonouns}.</p> <p>Notice that this style of annotation implies that the relation of the
+subordinate verb changes if the correlate is left out. Consider the
+following two sentences:</p> <img src="/assets/img/12e8389db43e650ce56c2302b03401498ae00f6e.svg"><blockquote><p>scribe ea quae vides</p></blockquote> <img src="/assets/img/40080208d4262362329db409714108aa8fd498c5.svg"><blockquote><p>scribe quae vides</p></blockquote> <p>Leaving out the correlate changes the function of the relative clause, which is
+annotated on its verb, from an attribute which restricts the reference of <em>ea</em>
+to a direct object of <em>scribe</em>.</p> <p>A variant of headless relative clauses are those which have an
+internal head.\topicword{Internally headed\relative clauses} In this case the noun is given its function inside the
+relative clause (normally with the relative pronoun as an ATR):</p> <img src="/assets/img/f451b7882f23e52d05e188cc67d454985659cc5d.svg"><blockquote><p>et in qua mensura mensi fueritis metietur vobis</p> <p>'In what measure ye mete it shall be measured to you'</p></blockquote> <p>Sometimes the correct position of the relative pronoun can be deep
+inside the clause it introduces, e.g. in an embedded accusative with
+infinitve:</p> <img src="/assets/img/75f0a25cd75be9f0b6c2b6245fb9f28ee7f846b6.svg"><p>Sometimes a sentence where the relative pronoun does not have a role
+is coordinated with the real relative clause. We still coordinate such
+clauses, and use shared argument slashes where we can. In the
+following example, the relative pronouns arguably does have a function
+in both sentences, but not the same function (it could be an ADV in
+the second clause), so we cannot express this in our notation:</p> <img src="/assets/img/8c4eb672f0a3ec6af75cb11998d1c9b620b17d84.svg"><blockquote><p>ꙇ вьзвѣсти имь. елико ти гъ сътвори и помилова тѧ</p></blockquote> <p>In correlative constructions the relative sentence is made a dependent
+on the correlative: if the relative sentences precedes it is in most
+cases an APOS (as this is a topicalizing construction,
+cf. \ref{resumtopic}. Else it is normally, but not always,
+restrictive.</p> <p>Finallly, notice that infinitives sometimes can have a function
+similar to that of relative clauses, see section \ref{adnominf}.</p> <h3 id="indirect-questions"><a href="#indirect-questions" class="header-anchor">#</a> Indirect questions</h3> <p>\label{indqu}</p> <p>Indirect questions are like relative sentences in that there is no
+element which introduces the sentence. The interrogative
+pronoun/adverbial has a function inside the sentence and must be
+annotated accordingly. The verb of the indirect question is given the
+function of the whole subordniate sentence, which in the case of
+indirect questions is almost always COMP:</p> <img src="/assets/img/213e60f9b01712bfb81bcca9c9c17d797923a278.svg"><blockquote><p>quaesivit quare exivisset</p></blockquote> <p>However, in rare cases a dependent question can have adverbial
+(e.g. conditional) force:</p> <img src="/assets/img/07e2c532b8ae2169fb955fb3933d1d6d4149dc29.svg"><blockquote><p>quis autem ex vobis patrem petet panem numquid lapidem dabit illi</p></blockquote> <h3 id="infinite-predication-accusative-with-infinitive-aci"><a href="#infinite-predication-accusative-with-infinitive-aci" class="header-anchor">#</a> Infinite predication: Accusative with infinitive (AcI)</h3> <p>\label{AcI}</p> <p>Again we let the infinitive verb stand in for the whole
+construction. In the normal case this construction consists of a
+subject in the accusative, a predicate which is a verb in the
+infinitive and possibly further arguments and adjuncts. The infinitive
+is given the relation COMP:</p> <img src="/assets/img/b7edf969eade451c3e7fe72f79a6c0ba0b1388ad.svg"><blockquote><p>vidi stellam de caelo in terram cecidisse</p></blockquote> <p>However, it can happen that the predicate infinitive is
+lacking.\topicword{Elided\infinitive} Most often the elided
+infinitive is <em>esse</em> or a similar verb, and we introduce an
+empty, verbal node:</p> <img src="/assets/img/a6f50d78e4038b77dd892279005f24ec72efe758.svg"><blockquote><p>quando te vidimus infirmum aut in carcere</p></blockquote> <p>Accusative with infinitive structures should be kept apart from pure
+infinitives which cannot take a subject, as with the complement
+infintives of auxiliary verbs like <em>posse</em>, <em>velle</em>. For the
+annotation of the latter structures, consult section \ref{open}.</p> <p>However, \topicword{AcI without\subject} since the subject is not
+always present in an accusative with infinitive structure, it is
+sometimes hard to tell whether a given infinitive is part of an AcI
+with an unexpressed subject or is an open complement. In addition,
+some verbs allow both constructions. For example, both <em>uolo id
+facere</em> and <em>uolo me id facere</em> are possible constructions in
+Latin. In examples like <em>uolo id facere</em>, <em>facere</em>
+should be treated as an open complement (XOBJ) and not part of an AcI
+with a deleted subject. An elliptical AcI should be assumed only if
+the matrix verb does not allow an open complement construction.</p> <p>There are \topicword{COMP vs\OBJ+XOBJ}structures where one could be
+in doubt whether an accusative noun is the object of the main verb or
+the subject of the subordinate verb. Consider f.ex. the causative
+construction with <em>facere</em> + accusative noun + infinitive, as
+in <em>fecit omnes accumbere</em>. <em>omnes</em> could be analysed as
+the subjet of <em>accumbere</em> or as the object of
+<em>fecit</em>. Both analyses would in principle be possible, but
+annotators should always use the AcI analysis with the accusative noun
+dependent on the infinitive:</p> <img src="/assets/img/91802ce74e3ec5b0678bcaf06f0c4d059c9344ad.svg"><blockquote><p>fecit omnes accumbere</p></blockquote> <p>This is a purely conventional choice and applies only to accusative
+nouns. In structures with a dative noun and an infinitive, f.ex, the
+noun is made dependent on the matrix verb, as in <em>licet mihi
+exire</em>, see section \ref{impers}.</p> <p>OCS sometimes \topicword{Dative with\infinitive}has datives with
+infinitives that behave very much like AcI. The construction consists
+of a dative subject, a predicate which is a verb in the infinitive,
+and possibly other dependents, and the entire construction is a COMP
+to e.g. a speech verb. It should be analysed like AcIs:</p> <img src="/assets/img/21320b8b05a89dc57acbb1d60142d917f505eece.svg"><blockquote><p>придѭ садоукеи иже глглѭтъ не бꙑти вьскрѣшению (Mark 12:18)</p></blockquote> <h3 id="infinite-predication-absolute-constructions"><a href="#infinite-predication-absolute-constructions" class="header-anchor">#</a> Infinite predication: absolute constructions</h3> <p>\label{absolutes}</p> <p>Absolute constructions are embedded predications with an adverbial
+relation to the rest of the sentence. We consider the participial verb
+to be the head of the construction. It is therefore related to the
+matrix clause via the relation ADV:</p> <img src="/assets/img/e9a9fdd0236248db1fd9d1d172cb61b0a5466904.svg"><blockquote><p>convocata turba dixit eis</p></blockquote> <p>The predicate in an absolute construction need not be a verb: it can
+be a noun or an adjective. In such cases, we assume an empty verb:</p> <img src="/assets/img/76c2431eeecbaa681ede43ed532403db9313e704.svg"><blockquote><p>Cicerone consule senatus coniurationem Catilinae detexit</p></blockquote> <h3 id="infinite-predication-dominant-participles-and-gerundives"><a href="#infinite-predication-dominant-participles-and-gerundives" class="header-anchor">#</a> Infinite predication: dominant participles and gerundives</h3> <p>\label{auc}</p> <p>Latin has a special type of an embedded predication which looks like a
+normal noun phrase: sometimes noun + agreeing participle/gerundive
+corresponds to an English translation with a verbal noun translating
+the participle (or gerundive) + a dependent genitive. Thus <em>ab
+urbe condita</em> means 'from the founding of the city', and not 'from
+the founded city'; <em>Caesar occisus</em> can mean 'the murder of
+Caesar' (ie. 'that Caesar was murdered') and not 'the murdered
+Caesar'. In such cases, we consider the participle/gerundive to be the
+head of the construction and the noun is attached via the
+SUB-relation, whereas the participle/gerundive is annotated with the
+function of the whole predication.</p> <p>Probably the \topicword{<em>ad</em> + noun\+ gerundive} single most
+frequent case of such a construction, is the <em>ad</em> + gerundive +
+noun construction. In this locution, the noun is almost always
+dependent on the gerundive:</p> <img src="/assets/img/2f3baeebec9cf86406222f47aa0873db42cbd81d.svg"><blockquote><p>venit ad libros legendos</p></blockquote> <p>But the <em>ab urbe condita</em>-construction is found in other contexts as well:</p> <img src="/assets/img/7ef4e4b3515eca68d6dd26a1a006478b449983c8.svg"><blockquote><p>superbus victa serpente est</p> <p>'(Apollo) is proud that the serpent was defeated'</p></blockquote> <h3 id="open-predications"><a href="#open-predications" class="header-anchor">#</a> Open predications</h3> <p>\label{open}</p> <p>Open predications are predications that do not supply their own
+subject, but get a subject via coreference relations[^1] within the sentence. Their subject is not
+necessarily a nominative. Finite verb forms never take part in open
+predication, only infinite forms. The infinite verb form heads the
+whole construction and is related to the matrix verb via the relation
+corresponding to the function of the embedded predication + a prefix
+X. We distinguish two kinds of open predications according to whether
+they are arguments which <em>complement</em> a verb or adverbials
+which <em>modify</em> a verb.</p> <p>In some cases, infinite verb like infinitives and gerunds can depend
+on nouns. In these cases, they are never given the relations XOBJ or
+ADV, but are most often NARGs. Consult section \ref{narg}, as well as
+\ref{gerunds} on gerunds and \ref{infinitives} on infinitives.</p> <h4 id="xobj-tag"><a href="#xobj-tag" class="header-anchor">#</a> XOBJ tag</h4> <p>Infinitives can also be objects of verbs. This typically happens with
+auxiliary verbs like <em>uelle</em>, <em>posse</em> etc.:</p> <img src="/assets/img/093699e1a3fc0490cff140468569f58eaba75757.svg"><blockquote><p>non potest se ipsum facere salvum</p></blockquote> <p>But it is also found with some other verbs, such as <em>dare</em>:</p> <img src="/assets/img/9162144fca4a03dcc73c6f4a1a67f883b4518de5.svg"><blockquote><p>dabo ei edere de ligno vitae</p></blockquote> <p>Such constructions are different from other embedded predications
+(AcI's etc.) in that no subject can be added. Instead the subject is
+supplied by coreference with an element which is either present in the
+matrix clause, such as <em>ei</em> in the last example, or implied by
+the argument structure of the matrix verb, as the implied subject of
+<em>potest</em>. This coreference should be marked by means of the
+slash notation, see section <a href="#slash-notation">Slash Notation</a>.</p> <p>The so-called\topicword{Nominative with\infinitive} nominative with
+infinitive construction also involves an XOBJ:</p> <img src="/assets/img/7e9abf6fff058e17e2a9c21182939919087293f1.svg"><blockquote><p>Terentii fabellae a Laelio scribi putabantur</p></blockquote> <p>XOBJs are not always infinitives; some verbs, like \scriptgr{l'hgw }
+govern a participle which is then related to it via XOBJ. The
+coreference between the subject of the participle and the subject of
+the matrix verb is again marked via the slash notation. Also,
+perception words which take an accusative with participle construction
+are analysed as taking the accusative as an object and the participle
+as an XOBJ:</p> <img src="/assets/img/1ae5481c85e43a135adfd69e3a73985064543b80.svg"><blockquote><p>Vidi puerum currentem</p></blockquote> <h4 id="xadv-tag"><a href="#xadv-tag" class="header-anchor">#</a> XADV tag</h4> <p>\label{xadv}</p> <p>Conjunct (or predicative) participles are adverbials which modify the
+matrix verb, to which they are attached via the relation XADV:</p> <img src="/assets/img/0d5384ca7e50735ce26bdafbfef4b7ea2c2632f2.svg"><blockquote><p>exclamans voce magna exivit ab eo</p></blockquote> <p>Like predicative participles, predicative adjectives are also given
+the tag XADV:</p> <img src="/assets/img/03b4d879fe59649b2c6d5e79bcf093f0faf9b14d.svg"><blockquote><p>Galli laeti in castra pergunt</p></blockquote> <p>Participles and adjectives are given the tag ADV when they are
+predicative, ie. do not restrict the reference of a noun phrase but
+rather modify the main verb, ie. the above sentence means 'The Gauls
+proceeded happily into the camp.' whereas the meaning 'The happy Gauls
+proceeded into the camp.' would be represented as</p> <img src="/assets/img/5704883610ea50bf176069c1670741e61a9a3d85.svg"><blockquote><p>Galli laeti in castra pergunt</p></blockquote> <p>OCS reciprocal pronouns have two components, and prepositions come
+between them. \topicword{OCS \reciprocals}The first component is in
+the nominative, and should be analysed as an XADV, to capture its
+apposition-like relationship to the subject. The second component, on
+the other hand, will be an OBJ, OBL or ADV daughter of the verb.</p> <img src="/assets/img/26dc4f62e9695edc3cac9bd11913421072f85655.svg"><blockquote><p>ꙇ глахѫ дроугъ къ дроугоу</p></blockquote> <p>Morphologically, both components should be marked as reciprocal
+pronouns.</p> <p>The infinitive of purpose is also an adverbial expression and should
+be assigned to the relation XADV \topicword{Infinitives\of purpose}:</p> <img src="/assets/img/c290016e5823bcdf35ae5b1716c0311604b13022.svg"><blockquote><p>παρέσμεν ἀκοῦσαι</p></blockquote> <p>OCS supines are also analysed as XADV.</p> <h3 id="supertags-2"><a href="#supertags-2" class="header-anchor">#</a> Supertags</h3> <p>\label{verbsupertags}</p> <p>One supertag is relevant for embedded predications: REL, which is used
+whenever it is not possible to determine whether a relative clause is
+restrictive or not.</p> <h2 id="coordination"><a href="#coordination" class="header-anchor">#</a> Coordination</h2> <p>Notice first that we do not recognize monopartite coordination. Thus,
+in the numerous cases in the New Testament where a sentence is
+introduced by a conjuction (_et and others), this should not be
+treated as coordination, but the <em>et</em> should be attached to the
+sentence predicate via the relation Aux. In many sentences there is
+one introductory conjunction, which should be an aux under the first
+verb, and then a coordination of two verbs:</p> <img src="/assets/img/810cff9a8b6d62d827760342202ad85675ac4ea7.svg"><blockquote><p>Et veniunt et dicunt illi</p> <p>'And he came and said to them'</p></blockquote> <p>We adopt a restrictive definition of conjunctions. Only items which
+can actually coordinate two words into a phrase. These are the words
+we recognize as conjunctions:</p> <ul><li><p>Gothic: <em>ai\th\th{}au</em>, <em>ak</em>, <em>akei</em>, <em>alja</em>, <em>a\th\th{}an</em>, <em>jah</em>, <em>ni</em>, <em>nih</em></p></li> <li><p>Greek: <em>ἀλλά</em>, <em>εἴτε</em>, <em>ἤ</em>, <em>ἤτοι</em>, <em>καί</em>, <em>μηδέ</em>, <em>μήτε</em>, <em>οὐδέ</em>, <em>οὔτε</em>, <em>τέ</em></p></li> <li><p>Latin: <em>an</em>, <em>atque</em>, <em>aut</em>, <em>et</em>, <em>neque</em>, <em>neu</em>, <em>que</em>, <em>ve</em>, <em>vel</em>, <em>sed</em></p></li> <li><p>OCS: али, да, и, а, или, любо, ни, нъ</p></li></ul> <p>The slash arrow notation, which is used extensively in this section,
+is further explained and discussed in <a href="#slash-notation">Slash Notation</a>, often
+with the same examples being used.</p> <p>In \topicword{Types of\coordination} analysing coordination, the
+first step is to ascertain what kind of elements are being conjoined:
+the conjuncts can be either constituents, multi-rooted elements, or
+sentences.</p> <p>A constituent, \topicword{Constituent}in the sense of a dependency
+grammar, is a node together with all the nodes it dominates: for
+example, a noun with all its attributes and appositions is a
+constituent. In <em>Cicero consul coniurationem Catilinae detexit</em>
+(see the tree on page \pageref{Cicero}), there are exactly five
+constituents: <em>consul</em>, <em>Cicero consul</em>,
+<em>Catilinae</em>, <em>coniurationem Catilinae</em> and
+<em>Cicero consul coniurationem Catilinae detexit</em>.^[2] However, the latter constituent, which
+corresponds to a sentence, is treated differently from other
+sentences. By definition a constituent has a single root.</p> <p>A \topicword{Multi-rooted\elements} multi-rooted element is a set if
+nodes which are not connected, ie. does not have a common
+mother. Consider <em>tradet frater fratrem in mortem</em> (example
+\ref{mors} = \ref{mors1}): <em>frater fratrem in mortem</em> has a
+common mother node, the verb, but this is not present in the string,
+so this set of nodes is as such multi-rooted. And still, it can be
+coordinated with another element, as in <em>tradet frater fratrem
+in mortem et pater filium</em>.</p> <p>A sentence \topicword{Sentences} is a constituent dominated by a
+finite verb, or by an empty node which stands in for a verb, or by the
+infinitive in an Accusative with infinitive construction.</p> <h3 id="coordination-of-constituents-single-rooted-elements"><a href="#coordination-of-constituents-single-rooted-elements" class="header-anchor">#</a> Coordination of constituents/single rooted elements</h3> <p>\label{concoord}</p> <p>Coordination of constituents is the most straightforward case,
+especially when the constituents are single words. Consider the
+example '<em>quid nobis et tibi Iesu Nazarene?</em>'. <em>nobis</em>
+and <em>tibi</em> are conjoined by <em>et</em>. They are both OBLique
+arguments of a (elliptical) <em>esse</em>, but so is the whole phrase
+<em>nobis et tibi</em>. We therefore want to have both <em>nobis</em>,
+<em>tibi</em> and <em>nobis et tibi</em> as constituents which bear
+the OBL relation and we achieve this by having the conjunction
+dominating both <em>nobis</em> and <em>tibi</em> via the relation
+these would have had to the main verb if there was no
+coordination. The conjunction then inherits this relation and is
+attached to its head via the same relation that it bears to its
+daughter(s):</p> <img src="/assets/img/9304a381456eff4616f4d9460e47725a8fb799c0.svg"><blockquote><p>Quid tibi et nobis, Iesu Nazarene?</p></blockquote> <p>If there are more than than two elements, all conjuncts are attached
+to the conjunction in the same way. Often there will also be more than
+one conjunction. In such cases, the first conjunction (not counting
+conjuntions which occur before the first conjunct!) should serve as a
+head of the coordinated phrase, and any further conjunctions should
+depend on the first one via the relation Aux</p> <img src="/assets/img/b9a28e4c23c360f09d8e4553b70933fd20aad8bf.svg"><blockquote><p>scio opera tua et quia non potes sustinere malos</p></blockquote> <p>If there is no conjunction present we insert an empty node which behaves as a conjunction.</p> <p>We use essentially the same analysis whenever the conjuncts are single
+rooted but share a subtree. Consider the string <em>boni viri et
+cives</em>. There are two possible analyses: the intended meaning can be
+'good men and citizens (which are not necessarily good)' (tree (a)
+below)- in that case we have constituent coordination, since
+<em>viri</em> and its attribute <em>boni</em> is a constituent which
+is related to the constituent <em>cives</em>. But the meaning can also
+be 'good men and good citizens' (tree (b) below), in which case
+<em>boni</em> modifies both <em>viri</em> and <em>cives</em>. We
+represent the difference in the following way:</p> <img src="/assets/img/0b0495ad827818c54bc247057780ecab5f5ecdfc.svg"><img src="/assets/img/5b44a1ab6ed867ec68b6120ad1900aa996225e58.svg"><p>In this way, the adjective has correct scope, see section \ref{scope}.</p> <p>Notice that there is an alternative way to express shared attributes
+like this, namely through slash notation. The practice of putting
+shared elements on conjunctions is used when the coordinated elements
+are not finite verbs; for finite verbs sharing elements, the slash
+notation <em>must</em> be used.</p> <p>In analysis\topicword{Identity\of function} of single root conjuncts,
+it is important to ensure that both conjoined elements have the same
+function, ie. should bear the same grammatical relation. SUBs can only
+be coordinated with SUBs, OBJs with OBJs etc.  Only in this way is it
+possible to give the conjunction a correct function.</p> <p>There \topicword{Coordination\of ADV and XADV} are some exceptions to
+this, however. The XADV-relation, which can be coordinated with an
+ADV-element. In such cases the conjunction is given the relation XADV
+(and not ADV). This makes it possible to slash from the conjunction to
+the appropriate subject, and have the XADV inherit this
+slash.[^3]</p> <p>Also,\topicword{Coordination\of COMP and OBJ} is allowed, and the
+resulting coordinator node should get the OBJ function. In a very few
+cases we also recognize coordination of COMP and OBL, and the
+coordinator node is labelled OBL.</p> <p>If the relations of the two conjuncts are not identical, another form
+of conjunction must be used. Of course, beside the conjuncts
+themselves, the coordination can have 'superfluous' conjunctions
+bearing the relation Aux, as well as items that are shared between the
+two conjuncts.</p> <p>Sometimes the principle of identical relation leads to slightly forced
+analyses:</p> <img src="/assets/img/26e4bdbaf23a36543061348fda022f1fc92c6d00.svg"><blockquote><p>καὶ διηγήσαντο αὐτοῖς οἱ ἰδόντες πῶς ἐγένετο τῷ δαιμονιζομένῳ καὶ περὶ τῶν χοίρων</p></blockquote> <p>It would perhaps seem natural to take <em>πῶς ἐγένετο τῷ
+δαιμονιζομένῳ</em> and <em>περὶ τῶν χοίρων</em> as coordinated
+arguments of the main verb, but since their relations differ we cannot
+do this, and have to do a gapping analysis instead.</p> <p>The principles described in this section are only applicable to <em>constituent</em>
+coordination. Whenever the two elements which each have more than one root are
+coordinated, the construction must be treated as described in section
+\ref{multiroot}. One case which is not infrequent is the coordination of two
+object + object predicative structures. Even though we might like to conceive
+of an object + an object predicative as a single constituent, they have no
+common root except the governing verb in our model. We must therefore treat
+such coordinations as sentence coordinations, see example \ref{tosmstn}.</p> <p>On the other hand, it <em>is</em> possible to coordinate two XOBJs:</p> <img src="/assets/img/f0c92f024e6e9ecf8694ca2fe36dd55c4e63b127.svg"><blockquote><p>vidit spiritum descendentem et manentem</p></blockquote> <p>In this case, there should be a slash from the conjunction <em>et</em>
+to <em>spiritum</em>, see <a href="#slash-notation">Slash Notation</a>.</p> <p>It is also possible to coordinate a nominal object with an accusative
+with infinitive, even if the object takes a predicative complement:</p> <img src="/assets/img/41f7f03b007aa9ba467f80b5ae0f4e0d351de87a.svg"><blockquote><p>invenit puellam iacentem supra lectum et daemonium exisse</p></blockquote> <p>In this case there should be a slash from <em>iacentem</em> to
+<em>puellam</em>. The example illustrates how our analysis relates to
+the semantics of the sentence in such cases: the subject of
+<em>invenit</em> preceives both the girl (<em>puellam</em>) and some
+proposition about here (that she is lying down,
+<em>iacentem</em>). The subject also perceives a proposition about the
+demon (<em>daemonium exisse</em>), but he does not directly perceive
+the demon, and therefore <em>daemonium</em>, unlike <em>puellam</em>,
+is not a direct object of <em>invenit</em>. Notice that the analysis
+involves coordination of COMP and OBJ, see section (\ref{compobj}).</p> <p>On the other hand, whenever there is a coordination of two groups of
+OBJ + XOBJ, we need to treat this as gapping because there is no
+common root for the OBJ + XOBJ group, see example (\ref{tosmstn}).</p> <h3 id="sentence-coordination"><a href="#sentence-coordination" class="header-anchor">#</a> Sentence coordination</h3> <p>\label{sc}</p> <p>Although technically it would be possible to model VP
+coordination in the same way as other
+coordinations of single rooted conjuncts which share a subtree, we do
+not pursue this option. Instead we follow the spirit of dependency
+grammar and assume that every finite verb, as well as infinitives in
+accusative with infinitives, forms a sentence. This also ensures
+consistency in the analysis, since - given the liberal use of pro-drop
+subjects in ancient IE languages - it is often not possible to
+determine whether we have sentence coordination or VP coordination.</p> <p>Consider <em>homo induebatur purpura et bysso et epulabatur
+cotidie</em>. There is no way of knowing whether the two conjunts are
+<em>induebatur purpura et bysso</em> and <em>epulabatur cotidie</em>,
+with the subject belonging to both conjuncts, or rather <em>homo
+induebatur purpura et bysso</em> and <em>epulabatur cotidie</em> with a
+zero subject in the second conjunct. To avoid making such decisions,
+we treat all such cases as sentence coordination and mark shared
+arguments via the 'slash notation', see section \ref{ellipsis}. The
+representation is therefore:</p> <img src="/assets/img/f6f1e269b7f1aae40192ed194a655fae67b07ce4.svg"><blockquote><p>homo induebatur purpura et bysso et epulabatur cotidie</p></blockquote> <p>If there is more than one conjunction present, the first one which occurs between two conjuncts will dominate
+the coordinated elements, whereas subsequent conjunctions will be
+attached to the first one via the relation Aux. Any conjunction preceding the first conjunct will be an Aux on that first conjunct:</p> <img src="/assets/img/9b36410bf5f81edef8ee62f175d19e05e1af323d.svg"><blockquote><p>et quattuor animalia dicebant amen et seniores ceciderunt et adoraverunt</p></blockquote> <p>In subordinate clauses without a subjunction, the verbs do not bear
+the relation PRED but corresponding to the funtion of the subordinate
+clause. Conjunct verbs are analysed as sentence coordination here too:</p> <img src="/assets/img/e01001b88bb32655bc41d46732be1644a656e69f.svg"><blockquote><p>qui uiuit et aurem habet, audiat</p></blockquote> <h3 id="conjunction-of-non-constituents-multi-rooted-elements"><a href="#conjunction-of-non-constituents-multi-rooted-elements" class="header-anchor">#</a> Conjunction of non-constituents/multi-rooted elements</h3> <p>\label{multiroot}</p> <p>The conjuncts do not always have a single root. Consider a sentence
+like 'John drank coffee and Peter beer.' The second conjunct here is
+'Peter beer' which is not a constituent and does not have one root but
+two unconnected roots, 'Peter' bearing a SUB relation and 'beer' an
+OBJ relation. We must first create a common root for them. This will
+be an empty node functioning as a conjunction. The empty node and the
+sentence are then conjoined in a way similar to sentence
+coordination. Both are given the relation PRED, but the second
+conjunct lacks the verb and is therefore marked with a slash arrow
+towards the overt verb, ie. it is a kind of predication which shares
+the central element, the predicate, with the first conjunct):</p> <img src="/assets/img/4054dcd74377414a9d45fbc7ad323c24ff7a86ca.svg"><blockquote><p>εἶδεν σχιζομένους τοὺς οὐρανοὺς καὶ τὸ πνεῦμα καταβαῖνον εἰς αὐτόν</p></blockquote> <img src="/assets/img/1ce207a5a7b3a721ec5cbadf1514656e79d3bb2a.svg"><p>In other cases, not only the predicate but also other elements can be shared between the two conjuncts.</p> <img src="/assets/img/c2b511fced3f20b5ad815b884b8fe62fafc2078d.svg"><blockquote><p>Ὁ λόγος γὰρ ὁ τοῦ σταυροῦ τοῖς μὲν ἀπολλυμένοις μωρία ἐστίν, τοῖς δὲ σῳζομένοις ἡμῖν δύναμις θεοῦ ἐστιν</p></blockquote> <h3 id="in-which-conjunct-does-an-element-belong"><a href="#in-which-conjunct-does-an-element-belong" class="header-anchor">#</a> In which conjunct does an element belong?</h3> <p>It is sometimes not clear how the conjoined domains should be
+delimited and in which conjunct an element belongs. If the element is
+shared between the two conjuncts, the question is which dependency
+should be marked directly in the tree, and which one by a slash
+arrow. This does not affect the semantic interpretation of the
+sentence in any way, since the element is shared. For such questions,
+consult section \ref{belong}.</p> <p>It can happen that it is clear that an element belongs to only one
+conjunct, but it is unclear which one that is. In such cases, the
+choice will determine the interpretation. If in doubt, the annotator
+should consult standard translations. The principles in section
+\ref{belong} do not apply to such cases.</p> <h3 id="other-issues"><a href="#other-issues" class="header-anchor">#</a> Other issues</h3> <p>Finally, it is important to distinguish the <em>conjunction et</em>
+'and' from the <em>particle et</em> 'also'. This latter should be
+attached to the word it emphasises via the relation Aux. The same also
+holds for some other particles, as <em>neque</em> which can sometimes
+mean 'not even', in which case we do not split it into its constituent
+parts <em>ne</em> + <em>que</em>.</p> <p>[^1] These relations are normally analysed in terms of <em>raising</em> and <em>control</em>.
+[^2] In a phrase structure grammar, on the other hand, all words would be constituents, as would the VP (verb + object) <em>coniurationem Catilinae detexit</em>.
+[^3] Note that the relation between OBJ and XOBJ is different, since verbs subcategorize differently for these functions whereas ADV and XADV are not subcategorized functions.
+[^4] That is, the coordination fo two verbs with their arguments, but without the subject.</p> <h2 id="gapping-and-ellipsis"><a href="#gapping-and-ellipsis" class="header-anchor">#</a> Gapping and ellipsis</h2> <p>\label{ellipsis}</p> <h3 id="elided-copulas"><a href="#elided-copulas" class="header-anchor">#</a> Elided copulas</h3> <p>Since we take the verb to be the head of the entire sentence in our
+model, we always need a verb in the analysis. However, copular verbs
+are often elided. In such cases we insert an empty copula:</p> <img src="/assets/img/3a390ec024cf8a5bf0cad4cc523e6295621b2e95.svg"><blockquote><p>beati pauperes spiritu quoniam ipsorum est regnum caelorum</p> <p>'Blessed are the poor in spirit for theirs is the kingdom of heaven'</p></blockquote> <p>Note that we have to assume an empty copula even in some cases where
+it is never overtly realised, as absolute ablatives with a predicative
+noun, see section \ref{absolutes}</p> <p>When the absent verb is not a copula, we will have to analyse this as
+gapping (see next section), ie. the structure should be attached to
+the sentence with which it shares a verb.</p> <h3 id="gapping"><a href="#gapping" class="header-anchor">#</a> Gapping</h3> <p>Note that we do not mark ellipsis of nominal arguments as such, ie. we
+do not mark absent subjects in sentences like <em>currit</em> 'he
+runs'; nor do we mark absent objects in sentences like
+<em>interfecit</em> 'he killed him'. The only kind of ellipsis that we
+<em>do</em> mark is so-called gapping, ie. cases where shared material
+in a coordinated structure is left out in one or more of the
+conjuncts. Such conjuncts are treated as sentences, ie. we insert an
+empty verb which is given the relation PRED, and the shared elements
+are stored in a list, as explained in section \ref{multiroot}. One
+further example will suffice:</p> <img src="/assets/img/dead6cb965a0a19b04cd6fa0d56a17393270a18d.svg"><blockquote><p>unam incolunt Belgae, aliam Aquitani</p></blockquote> <p>Notice that for the purposes of this rule, we treat XADVs as coordinated
+with the main verbs, ie. it is allowed to use a slash arrow from a main
+verb towards an argument of an XADV participle, see example
+\ref{multiarrow}.</p> <h2 id="the-article"><a href="#the-article" class="header-anchor">#</a> The article</h2> <p>\label{article}</p> <h3 id="noun-phrases"><a href="#noun-phrases" class="header-anchor">#</a> Noun phrases</h3> <p>When a Greek noun phrase does not contain any articles, it is treated
+like NPs in other languages:</p> <img src="/assets/img/588fb55f5b95de70e2e71decfb0854db223e7aa1.svg"><blockquote><p>καὶ κατεδίωξεν αὐτὸν Σίμων</p></blockquote> <p>However, \topicword{Possible\configurations} many Greek noun phrases
+contain one or more definite articles which can appear in various
+configurations, DAN, DNDA, NDA, ADN and DNA:^[1] <em>ὁ ἀγαθὸς
+ἀνήρ, ὁ ἀνήρ ὁ ἀγαθός, ἀνήρ ὁ ἀγαθός, ἀγαθός ὁ ἀνήρ</em> and <em>ὁ
+ἀνήρ ἀγαθός</em>. In the last two onfigurations the adjective is
+normally considered predicative and not attributive, so there is a
+functional difference as well as a difference in word order. For our
+purposes, this means that adjectives in configurations like
+<em>ἀγαθός ὁ ἀνήρ</em> and <em>ὁ ἀνήρ ἀγαθός</em> should not be
+related to the noun via ATR, but rather to the verb via XADV. The
+article, on the other hand, is related to the noun via Aux. Note that
+since our syntax is dependency-based and not configurational, there is
+no difference between <em>ταχύς ὁ ἀνήρ τρέχει</em> and <em>ὁ
+ἀνήρ ταχύς τρέχει</em>:</p> <img src="/assets/img/1efce0e2e923300fc7b1085c1359316b9abccd35.svg"><blockquote><p>= ταχύς ὁ ἀνήρ τρέχει or ὁ ἀνήρ ταχύς τρέχει</p></blockquote> <p>In other cases, where the adjective is attributive, we always attach
+the article to an item on the right: the noun, if this occurs to the
+right of the article (but not necessarily directly to the right);
+otherwise to the adjective. This means that the dependency structure
+distinguishes between <em>ὁ ταχὺς ἀνήρ</em> and <em>ἀνήρ ὁ
+ταχύς</em>:</p> <img src="/assets/img/3bf0e7c5cc4348e3ea5ffdee31a762f31d0cc738.svg"><blockquote><p>ἀνήρ ὁ ταχύς τρέχει</p></blockquote> <img src="/assets/img/0ab97ffeb684c31e5542c9084cbd7cd410ad82f0.svg"><blockquote><p>ὁ ταχὺς ἀνήρ τρέχει</p></blockquote> <p>In the final case, there is an article preceding both the noun and the
+adjective and we attach each one to the element to their right.
+<em>ὁ ἀνήρ ὁ ταχὺς τρέχει</em> ends up as:</p> <img src="/assets/img/edf32ff137cab313daade6571a3f71cbfaa123c5.svg"><p>However, the modifier in an NP need not be an adjective; it can be a
+genitive NP, an adverb etc. We attach the article to that element of
+the modifier which is related to the noun via ATR:</p> <img src="/assets/img/e8a30602adf096ad2639b77792ace3488a361a12.svg"><blockquote><p>Ὁ λόγος γὰρ ὁ τοῦ σταυροῦ τοῖς μὲν ἀπολλυμένοις μωρία ἐστί</p> <p>For the preaching of the cross is foolishness to them that perish.</p></blockquote> <p>Notice that in the structure of <em>ὁ τοῦ σταυροῦ</em>, both
+<em>ὁ</em> and <em>τοῦ</em> are Aux-daughters of
+<em>σταυροῦ</em>.</p> <h3 id="the-article-on-its-own"><a href="#the-article-on-its-own" class="header-anchor">#</a> The 'article' on its own</h3> <p>Whenever the article appears on its own, without belonging to a noun
+or to some other element, as in the \scriptgr{ὁ m'{e}n} \ldots
+\scriptgr{ὁ d'{e}} construction, it is not an article at all, but
+should be marked as a pronoun in the morphological analysis and be
+analysed as a subject.</p> <h3 id="articles-without-nouns"><a href="#articles-without-nouns" class="header-anchor">#</a> Articles without nouns</h3> <p>If an article appears with only an adjective or only a participle, it
+nominalizes this adjective/participle (for syntactic purposes, not the
+morphology!). This means the adjective/participle will have a normal
+sentence-level function like SUB, OBJ or similar.</p> <p>We use the same analysis even when the article appears with
+non-nominal categories like adverbs or preposition phrases. The
+adverb/preposition will be the head of the construction and given the
+appropriate relation, and the article will be a dependent of the
+adverb/preposition via Aux:</p> <img src="/assets/img/cec0ebf2db9e24210ead5bc1890801dd992a899d.svg"><blockquote><p>καὶ ἀκούσαντες οἱ παρ’ αὐτοῦ ἐξῆλθον κρατῆσαι αὐτόν</p></blockquote> <h3 id="articular-infinitives-in-greek"><a href="#articular-infinitives-in-greek" class="header-anchor">#</a> Articular infinitives in Greek</h3> <p>In articular infintive structures, the article should always depend on
+the infinitive via Aux, even if it is separated from its infinitive by
+other elements. Here is a rather complicated subtree showing the
+analysis of a preposition + to coordinated articular infinitives:</p> <img src="/assets/img/43a01bb6ce58cb67f6740037ad2f6e5f8d6fef29.svg"><blockquote><p>διὰ τὸ αὐτὸν πολλάκις πέδαις καὶ ἁλύσεσιν δεδέσθαι καὶ διεσπάσθαι ὑπ’ αὐτοῦ τὰς ἁλύσεις</p></blockquote> <p>Notice that since articular infinitives are explicitly nominalized by
+an article, they can have all kinds of functions, also SUBject, OBJect
+and OBLique, whereas non-articular infinitives will normally be COMP
+in such situations. This also holds for the Slavic 'mock article'
+еже, see section (\ref{slavmock}).</p> <h3 id="slavicmockarticle"><a href="#slavicmockarticle" class="header-anchor">#</a> slavicmockarticle</h3> <p>\label{slavmock}</p> <p>Sometimes the Slavic translators seems to have used the relative
+pronoun иже to render the Greek article. In particular this
+happens with infinitives. Although we take иже as a
+demonstrative pronoun, we make it an AUX on the infinitive and
+let it nominalize the infinitive:</p> <img src="/assets/img/173da4e53f1a6043a2f8ff1ac19c18c80549b317.svg"><p>This usage is also found with quotations, see \corref{39165}.
+However, there are also possible cases of the mock article
+nominalizing prepositions, although we currently analyse them as
+relative clauses with null copula. The only non-infinitive case we
+accept now is \corref{40334}.</p> <p>[^1] D for the determiner/article, N for noun, A for adjective.</p> <h2 id="slash-notation"><a href="#slash-notation" class="header-anchor">#</a> Slash notation</h2> <h3 id="introduction-2"><a href="#introduction-2" class="header-anchor">#</a> Introduction</h3> <p>Slashes are used in our system to represent coreference relations
+within one dependency tree (which can of course contain several
+coordinated main clauses). Informally, the general principle is that a
+whenever an item 'needs' to have a dependent, but this dependent is
+already 'used' (ie. is a dependent of something else).</p> <p>In other \topicword{Interpretation} words, the meaning of a slash is
+<em>not</em> that the slasher node[^1] is referentially identical
+to the slashee node.[^2] Rather, the slash arrows should be
+conceived of as supplementary dependency relations: the slashee node
+is a dependent of the slasher. There is one exception to this
+principle, namely when the slasher is an empty node which bears the
+PRED-relation, see section \ref{multislash}.</p> <p>To understand this general principle, consider the sentence
+<em>Caesar non potuit mingere</em>. The dependency tree is</p> <img src="/assets/img/40b73cee0917454946806cd6080ff6fa32c3bcc6.svg"><p>Caesar is correctly designated as the subject of
+<em>posse</em>. However, Caesar is also the subject of
+<em>mingere</em> and to represent this fact, we put a slash arrow from
+<em>mingere</em> to <em>Caesar</em>:</p> <img src="/assets/img/80b1e8bc218045cb249652e922c395a1de45c927.svg"><blockquote><p>Caesar non potuit mingere</p></blockquote> <p>The interpretation of this notation is that the subject of
+<em>mingere</em> is coreferent with the subject of <em>posse</em>,
+which is <em>Caesar</em>.</p> <p>We can distinguish two groups of uses of the slash notation, one
+associated with the 'open' functions XADV and XOBJ, and
+one associated with gapping and elliptical coordination.</p> <h3 id="open-functions-xadv-and-xobj"><a href="#open-functions-xadv-and-xobj" class="header-anchor">#</a> Open functions: XADV and XOBJ</h3> <p>The open functions XADV and XOBJ were introduced in section
+\ref{open}. By definition, they do not supply their own subject, but
+get a subject via coreference relations within the sentence. From the
+perspective of traditional grammar, it is perhaps not clear that
+nominal predicatives behave in the same manner, but consider the
+example <em>Caesar calvus est</em>. <em>Caesar</em> is the subject of
+<em>est</em>, and <em>calvus</em> is the predicative complement of
+<em>est</em>:</p> <img src="/assets/img/094c4f40820082e0c775accfe09eb436d079c5a7.svg"><blockquote><p>Caesar calvus est</p></blockquote> <p>However, we want to capture the fact that not only is <em>calvus</em>
+an argument of <em>est</em>, in the sense that <em>est</em> requires
+the presence of a predicative complement, <em>calvus</em> is also a
+predication about <em>Caesar</em>. In other words, <em>Caesar</em> is
+the subject of <em>calvus</em> and this is represented by a slash
+arrow from <em>calvus</em> to <em>Caesar</em>:</p> <img src="/assets/img/b4021b29490c000ad2e683da5bd2ad012cb90eb1.svg"><blockquote><p>Caesar calvus est</p></blockquote> <p>The same holds for a traditional 'object predicative', as in
+<em>Romani Ciceronem consulem creaverunt</em>: <em>creare</em>
+requires three arguments, a subject, an object and a predicative. So,
+<em>consulem</em> is a XOBJ-dependent of <em>creaverunt</em>, and
+<em>Ciceronem</em> is a OBJ-dependent of <em>creaverunt</em>, but at
+the same time, <em>Ciceronem</em> is the subject of <em>consulem</em>
+and we capture this fact by a slash arrow from <em>consulem</em> to
+<em>Ciceronem</em>:</p> <img src="/assets/img/16998c8069730c9fa17aa787b4d2d835b4fa7f9b.svg"><blockquote><p>Romani Ciceronem consulem creaverunt</p></blockquote> <p>With the relation XADV, the facts are the same. Consider <em>ille respondens dixit
+eis</em>: <em>dixit</em> is the main verb, <em>ille</em> its subject and <em>eis</em> its oblique
+argument. <em>respondens</em> is an adverbial which modifies the main verb,
+contributing the extra information that the 'saying' was 'responding'. So
+<em>respondens</em> is an XADV-daughter of <em>dixit</em>, but we also want to express that
+<em>ille</em> is the subject of <em>respondens</em>:</p> <img src="/assets/img/2ea95c30dc7fc14a725742953ff1a695f94a6032.svg"><blockquote><p>Ille dixit eis respondens</p></blockquote> <p>Now what if there was no overt subject in the sentence, ie. if the
+subject of <em>dixit</em> was pro-dropped and the sentence read
+<em>respondens dixit eis</em>? In this case, the subject is supplied
+by the finite verb itself, and the slash arrow is therefore directed
+towards the verb:</p> <img src="/assets/img/f6e5908f149e83318c2981e8d7b7dbc154ef967a.svg"><blockquote><p>Dixit eis respondens</p></blockquote> <p>This\topicword{Number of\outgoing\slashes\on XOBJs/XADVs} means that <em>every
+node which is the daughter in an XOBJ or XADV relation should have a slash!</em>
+The interpretation of the slash arrow is always uniform, since it is always a
+<em>subject</em> dependent that these nodes lack. In other words, the slashee is aways
+the subject of the slasher. Therefore there should <em>never be more than one</em>
+outgoing slash from the daughter in an XOBJ or XADV relation, since this will
+create an ambiguity. In other words, it is not possible to mark that such an
+element shares an argument with another element of the sentence.</p> <p>Notice finally, that the slash arrow from an XOBJ or XADV node should
+always be local, ie. directed towards either the head verb or an
+element dominated by the head verb. This restriction is enforced by
+the annotation interface. However, the annotation interface does allow
+slashing into a dependent clause under the head verb. This should
+<em>only</em> be done when the argument in question is a shared argument of
+the main verb. Consider <em>tollens ergo membra Christi faciam membra
+meretricis</em>. By section \ref{belong}, <em>membra Christi</em> is made
+an object of tollens. However it is also shared as an object by
+faciam. Therefore it is licit to slash from the object predicative
+<em>membra meretricis</em> to <em>membra Christi</em>. However, in other
+cases, where the argument of the dependent clause is not directly
+shared by the main clause, we should not slash to it.</p> <h3 id="slashes-in-gapping-and-coordination"><a href="#slashes-in-gapping-and-coordination" class="header-anchor">#</a> Slashes in gapping and coordination</h3> <h4 id="motivation"><a href="#motivation" class="header-anchor">#</a> Motivation</h4> <p>Slashes in coordinate <em>sentences</em> denote much of the same
+scoping information that is expressed in other ways in constituent
+coordination. In section \ref{concoord} we represented adjectives
+scoping over two coordinated nouns as in (b) below:</p> <img src="/assets/img/c0899516bf633ec2d0e314338959c9e6046df0db.svg"><img src="/assets/img/37b9b1f1b50ff45b7c5dad6aadfd9c6e4f19c07e.svg"><p>Theoretically, it would be possible to represent <em>Caesar edit et bibit</em> by
+coordinating the two verbs under the conjunction and then attach <em>Caesar</em> as a
+SUB-daughter of the conjunction. But consider <em>quod Caesar edit et bibit bonum
+erat</em>. <em>et</em> would be a subject daughter of <em>erat</em>, and would dominate one
+object daughter, <em>quod</em>, and <em>three</em> subject daughters, namely <em>edit</em>, <em>bibit</em></p> <ul><li>and <em>Caesar</em>. Although this ambiguity could be resolved through the
+morphological annotation, we prefer to avoid it entirely and represent the
+sentence as:</li></ul> <img src="/assets/img/1c9a274c80cd7827c23f511d70635a34e33a27c6.svg"><blockquote><p>quod Caesar edit et bibit bonum erat</p></blockquote> <h4 id="slashes-in-sentence-coordination"><a href="#slashes-in-sentence-coordination" class="header-anchor">#</a> Slashes in sentence coordination</h4> <p>Whenever \topicword{Shared\arguments}two coordinated sentences, or an
+XADV and its main verb, share an element, be it a SUB, OBJ, XOBJ, OBL,
+AG or ADV, and this element is overtly represented only once, the
+element should be attached to the verb to which it belongs in the
+surface string, and a slash arrow should be set from the other verb to
+the shared element.</p> <p>Notice in particular \topicword{Treatment\of XADVs} that for the
+purposes of slashing, XADVs are considered to be on par with their
+governing verbs. It is allowed to slash from a main verb to an
+argument of an XADV, but not to an argument of some dependent clause
+(XOBJ, accusative with infinitive or subordinate clause). But the
+opposite, a slash arrow from an XADV to an argument of the verb can
+only indicate the subject of the XADV, therefore XADVs can only have
+one outgoing slash arrow.</p> <p>This kind of slashes should leave a verbal node and point towards the
+shared element. One should never use slashes between two verbs to
+indicate subject identity.</p> <p>Consider again the first example from section \ref{sc}:</p> <img src="/assets/img/5802a38df1ea44f49b2e42c9c7c1ffff26fb60be.svg"><blockquote><p>Homo indebatur purpura et bysso et epulabatur cotidie</p></blockquote> <p>Now consider the example <em>qui uiuit et aurem habet, audiat</em>:</p> <img src="/assets/img/5b8f93f45ddbed6d8c9e312d6b8e245d3c458053.svg"><blockquote><p>qui vivit et aurem habet, audiat</p></blockquote> <p>The shared \topicword{Shared auxiliaries} element can also be an auxiliary verb:</p> <img src="/assets/img/43fd5ed2f1c7574d846fc8893d128e817ff61b5b.svg"><blockquote><p>multi autem sunt vocati, pauci vero electi</p></blockquote> <p>When\topicword{Interpretation\of slashes in\coordination} the slash
+notation is used in sentence coordination, it is important to assure
+that the grammatical relation between the slasher node and the slashee
+is identical to the relation of the slashee to its mother. In other
+words, if the slashee is a subject in its own clause, it should also
+be the subject of the slasher. If the unexpressed object of a
+coordinated verb is identical to the overt subject of another verb, we
+cannot express this coreference relation.This is so because, unlike
+the case of slash notation on open predications, where all slashees
+are subjects, there is no default relation type with which to
+interpret the slash relation. Instead, the slash relation 'inherits'
+the function of the slashee node. As long as this restriction is
+respected, there can be several slashes in a tree:</p> <img src="/assets/img/6347c417a7bbf8a11bc342ccfc21cc3d163ca3d9.svg"><blockquote><p>alii autem frondes  de arboribus et sternebant in via</p></blockquote> <p>We can even have many more arrows:</p> <img src="/assets/img/3c8e93300ef7866958f31373a844bb5b6893279d.svg"><blockquote><p>καὶ λαβόντες αὐτὸν ἔδειραν καὶ ἀπέστειλαν κενόν</p></blockquote> <p>Here, <em>αὐτὸν</em> is taken to be the overt object of
+<em>λαβόντες</em> (for the general principle, see section
+\ref{belong}). The arrows from <em>ἔδειραν</em> and
+<em>ἀπέστειλαν</em> indicate that these verbs also have
+<em>αὐτὸν</em> as their object. The arrows from <em>λαβόντες</em>
+and <em>κενόν</em> to their respective dominating verbs
+<em>ἔδειραν</em> and <em>ἀπέστειλαν</em> indicate that the
+subjects of these XADVs is an unexpressed element which is 'supplied
+by the verb'. In the case of <em>λαβόντες</em>, the subject of the
+participle is the unexpressed subject of the main verb; and in the
+case of <em>κενόν</em>, the subject of the adjective is the object
+of the main verb. This object is expressed, but via a slash arrow: it
+is therefore not possible to slash directly from <em>κενόν</em> to
+its subject.</p> <h4 id="when-is-an-adverbial-shared"><a href="#when-is-an-adverbial-shared" class="header-anchor">#</a> When is an adverbial shared?</h4> <p>While it is generally easy to decide when two coordinated verbs share
+their subject or another argument (object, oblique), it can be more
+difficult to decide whether an adverbial actually has scope over both
+conjuncts. Some are easy: for example, an adverbial conditional clause
+is shared between two main clauses if they both belong to the apodosis
+(if X, then Y and Z). Generally, time and space adverbials are the
+most tricky ones: note in particular that time adverbials should only
+be shared by two main clauses, if their events are cotemporal and not
+consecutive.</p> <h4 id="slashes-in-gapping-multi-rooted-conjuncts"><a href="#slashes-in-gapping-multi-rooted-conjuncts" class="header-anchor">#</a> Slashes in gapping/multi-rooted conjuncts</h4> <p>\label{multislash}</p> <p>Slashes in multi-rooted conjuncts behave exactly like slashes in
+sentence coordination, except that there is also a slash arrow from
+the empty node representing the verb, to the overt verb.[^3] Consider
+<em>tradet frater fratrem in mortem et pater filium</em>:</p> <img src="/assets/img/284fcf1c1fcc42b169de8e13d79faf2f40b9e718.svg"><blockquote><p>tradet frater fratrem in mortem et pater filium</p></blockquote> <p>As here, it is often the case that other elements than the predicate
+are shared between the conjuncts. The slash arrow from the empty node
+to <em>tradet</em> indicates predicate identity whereas the arrow from
+the empty node to <em>in</em> indicates a shared argument. As such it
+underlies the same restriction as other slashes in sentence
+coordination: the slashee must have the same grammatical function in
+both conjuncts.</p> <h4 id="in-which-conjunct-does-a-shared-element-belong"><a href="#in-which-conjunct-does-a-shared-element-belong" class="header-anchor">#</a> In which conjunct does a shared element belong?</h4> <p>\label{belong}</p> <p>Our treatment of shared arguments raises the question where a shared
+argument belongs in the tree. Sometimes an element can belong in
+several places. Why do we put <em>in mortem</em> in the first conjunct
+in example \ref{mors}? Or, in a more difficult case, why does
+<em>αὐτὸν</em> belong to <em>λαβόντες</em> in example
+\ref{multiarrow}? The following section provides some guidelines for
+making such decisions.</p> <p>For \topicword{Delimitation\of conjunct\domains} argument sharing
+between coordinated elements we need to establish the domains of both
+conjuncts. If there is an overt conjunction, this will indicate the
+boundary between the two domains. Elements should therefore be made to
+depend on the verb in their domain. In <em>tradet frater fratrem
+in mortem et pater filium</em> we have the domains <em>tradet frater
+fratrem in morten</em> and <em>pater filium</em>, so <em>in mortem</em>
+clearly depends on <em>tradet</em> and not on the empty node. If there
+is no overt conjunction, we appeal to the principle of domain
+continuity: both domains should, if possible, be continuous. If there
+are several possibilities, ambiguous elements should belong to the
+first conjunct. For example, if there was no <em>et</em> in example
+\ref{mors}, both <em>tradet frater fratrem in mortem // pater
+filium</em> and <em>tradet frater fratrem // in mortem pater filium</em>
+would yield continuous domains, so we choose the first option, which
+attaches <em>in mortem</em> to the first conjunct.</p> <p>In practice, then, the principles mean that the first element which
+belongs only to the second conjunct marks the start of the second
+conjunct domain.</p> <p>When there is argument sharing between a clause and an XADV, the
+principles remain the same, but the application is slightly
+different. The subtree dominated by the subordinate verb or the
+subjunction should correspond to a continuous string in the
+sentence. In example \ref{multiarrow}, this means that
+<em>αὐτὸν</em> can be attached to <em>λαβόντες</em>; if
+<em>αὐτὸν</em> appeared to the right of <em>ἔδειραν</em>, such an
+attachment would not be possible. When several attachments are
+possible, we again choose to attach elements as early as possible in
+the surface string: this means that we prefer to attach
+<em>αὐτὸν</em> to <em>λαβόντες</em>. However, if the subject of
+<em>ἔδειραν</em> intervened between <em>λαβόντες</em> and
+<em>αὐτὸν</em>, such an attachment would <em>not</em> be possible,
+since <em>λαβόντες αὐτὸν</em> would no longer be a continuous
+domain.</p> <p>Notice, finally, that the principles described in this section are
+only applicable whenever the sentence is ambiguous. Very often, case
+morphology will make it entirely clear where an element belongs, and
+in such cases, the morphology should not be overridden by
+considerations of domain continuity etc.</p> <p>[^1] Ie. the node where the slash is inserted; the origin of the slash arrow in the visual representation of the dependency tree.
+[^2] Ie. the goal of the slash arrow in the visual representation of the dependency tree.
+[^3] This slash arrow therefore has a different interpretation, meaning that the slasher node has the same meaning as the slashee node.</p> <h2 id="other-constructions"><a href="#other-constructions" class="header-anchor">#</a> Other constructions</h2> <h3 id="all-self-and-similar-words"><a href="#all-self-and-similar-words" class="header-anchor">#</a> 'all', 'self' and similar words</h3> <p>Words like 'all', 'self' and a few others are special: they are not really
+pronouns with anaphoric reference, but they behave very similarly when
+they determine non-overt ('pro-dropped') subjects as in:</p> <blockquote><p>At <em>illi</em> ut viderunt eum ambulantem super mare putaverunt fantasma esse et exclamaverunt. <em>Omnes</em> enim eum viderunt et conturbati sunt.</p> <p>'But as <em>they</em> saw him walk on the see, they thought it was a spirit and cried out. For <em>they all</em> saw him and were terrified.' (Mark 6.50)</p></blockquote> <p><em>omnes</em> does not refer to the same referent as <em>illi</em>, but
+rather quantifies over this referent. However, this is difficult to
+represent in a syntax without empty nominal elements. Instead we have
+opted to take <em>omnes</em> as the subject in such cases. The same holds for
+<em>ipse</em> 'self' in cases like the following:</p> <img src="/assets/img/799d9bcf0a5e7bb5b619d83d6ee97efb13f259e8.svg"><blockquote><p>ipse autem dixit illis</p> <p>'He himself told them'</p></blockquote> <p>With <em>ipse</em> there is the added complication, however, that <em>ipse</em> (just
+like Greek <em>αὐτός</em> which it translates) sometimes means 'self' and
+sometimes is used as a pure anaphoric pronoun 'he'. This difference in
+meaning (which is necessarily subjective) is rendered in the morphology:
+when the meaning is 'self' we make it a demonstrative pronoun, and when it
+is 'he' we make it a personal pronoun.</p> <p>In effect, this means that we take intensifiers and quantifiers as
+subjects when they really are not. This leads to some complications
+whenever the intensifier/quantifier appears in an open predication,
+i.e.\ a structure which should not have a subject:</p> <img src="/assets/img/5b6061cdcf5fc528b500891ba428dad5a40df720.svg"><p>When interpreting such structures, it should be born in mind that 'self'
+and 'all' are not normal subjects.</p> <h3 id="headedness-of-compound-verb-forms"><a href="#headedness-of-compound-verb-forms" class="header-anchor">#</a> Headedness of compound verb forms</h3> <p>In constructions like copula + some infinite form (<em>amatus est</em>,
+<em>ἦν διδάσκων</em>) or modal auxiliary + some infinite form, two
+analyses are in principle possible: a biclausal one where the finite
+copula/auxiliary is the head and the lexical verb is an XOBJ
+dependent; or a monoclausal analysis where the infinite lexical verb
+is the head, and the copula/auxiliary verb is an Aux-dependent.</p> <p>The two analyses correspond to different degrees of grammaticalization
+of the constructions. We have decided to treat the following cases as
+monoclausal ones (ie. the finite verb is an aux and not the head):</p> <ul><li><p>Latin passives, future infinitives and the periphrastic conjugation</p></li> <li><p>Slavic periphrastic perfects (<em>l</em>-participles)</p></li> <li><p>The Greek periphrastic passive perfect</p></li></ul> <p>In all other cases, we take the finite verb to be the main PRED. In
+such cases, temporal and local adverbials should be dependents on the
+finite verbs, whereas arguments and event modifiers like instrumentals
+should depend on lexical verb.</p> <h3 id="comparison"><a href="#comparison" class="header-anchor">#</a> Comparison</h3> <p>Ablatives of comparison in Latin, and the similar genitives of
+comparison in Greek and Old Church Slavonic, are dependent on the
+comparative adjective via OBL:</p> <img src="/assets/img/cdf6f536ccf0c4fb6de5a55d1bbe35b58ab6d5b7.svg"><blockquote><p>luce sunt clariora nobis tua consilia omnia</p> <p>'Your plans are clearer than light for us'</p></blockquote> <p>When <em>quam</em> is used it should depend on the comparative
+adjective via OBL, and the second member should depend on
+<em>quam</em> via the same relation as the other item compared:</p> <img src="/assets/img/60be445504a242cc02c48cf3ef021dd1f48ee01f.svg"><blockquote><p>puella est laetior quam puer</p></blockquote> <p>OCS неже behaves in the same way, and should have the same analysis.</p> <p>Other expressions of comparison are analysed in the same way:
+<em>nihil aliud nisi</em>, <em>idem qui</em>, <em>similis ac</em>
+etc. Here is an example:</p> <img src="/assets/img/e1d934c14c619d5ae3ecd65feee6b8c657a396e5.svg"><blockquote><p>Caesarem non eadem quae me sensisse scio</p></blockquote> <p>We use the same principle for comparative adverbs.</p> <img src="/assets/img/efcd5a34d3c3698ba04abf61c24048541be0c304.svg"><blockquote><p>Brutus amat Caesarem plus quam Augustum</p></blockquote> <img src="/assets/img/0d18dcf1de848b000ed5e91cbbf67740fb31a677.svg"><blockquote><p>Brutus amat Caesarem plus quam Augustus</p></blockquote> <p>This approach is tantamount to treating <em>quam</em> (as well as <em>nisi</em> in <em>nihil aliud nisi</em>, <em>qui</em> in <em>idem qui</em>, <em>ac</em> in <em>similis ac</em>) as introducing a sentence.</p> <p>Here is another example where <em>nisi</em> modifies an interrogative pronoun:</p> <img src="/assets/img/f47f2719d23a9c496a79fde45f9f2b8a4366c394.svg"><blockquote><p>quis potest dimittere peccata nisi solus Deus</p> <p>'Who but God alone can forgive sins'</p></blockquote> <p>If there is no 'antecedent' to <em>nisi</em>, it will bear a sentence-level function:</p> <img src="/assets/img/9a6c1a8e4736975d40525bd549b992ffb425033d.svg"><blockquote><p>manducavit panes quos non licet manducare nisi sacerdotibus</p></blockquote> <p>Words that mean 'as' (such as Greek <em>ὡς</em>, OCS ѣко, Latin
+<em>velut</em> and Gothic <em>swa</em>) are treated in the same way. On the
+sentence level they are often adverbs (as in the following example)
+or predicative complements (\ref{velutpredcomp}):</p> <img src="/assets/img/1ea44e8ae9257ecab4d4f32a6bd01dafe99aaff5.svg"><img src="/assets/img/b56125feacefbd2532fdc01bdaad53edd0a7798b.svg"><blockquote><p>Homines erant sicut oves non habentes pastorem</p> <p>'People are like sheep without a shepherd'</p></blockquote> <p>Note that the adverbs of comparison are often used to introduce object
+predicatives as well. Here the comparison analysis does not work,
+since the implicit verb of the predicative is the copula, not the main
+verb. E.g. <em>fac me sicut unum de mercennariis tuis</em> does not mean
+'Make me as (you make) one of your hirelings', but rather 'Make me be
+one of your hirelings'.</p> <h3 id="verbs-of-preference"><a href="#verbs-of-preference" class="header-anchor">#</a> Verbs of preference</h3> <p>Latin in particular has some 'comparative' verbs, like <em>malo</em> 'prefer
+something to something', or <em>expedit</em> 'it is better that something than
+that something'. The first sentence in the comparison is assigned the
+COMP or XOBJ relation, depending on whether it has an internal subject
+or not. The second element is typically introduced by (the adverb) <em>quam</em>,
+which becomes an OBL under <em>malo</em>, <em>expedit</em>, and invariably introduces
+a COMP, even if the first comparandum is an XOBJ, see \corref{53182}.</p> <h3 id="approximately"><a href="#approximately" class="header-anchor">#</a> 'Approximately'</h3> <p>The idea 'approximately' is often expressed by words like ὡς and ѣко,
+which are then taken as AUX'es. In Slavic this is always an AUX on the
+numeral, if there is one, whereas in the other languages we try to put it
+on the the head of the phrase being modified:</p> <img src="/assets/img/954afc4347cc68ee005b9a2c423e5089c28b251d.svg"><img src="/assets/img/f45ebf0cfba5dcb2a58809763226409ed4b5cc1b.svg"><p>The situation in Gothic and Latin is unresolved.</p> <h3 id="coordination-through-particles-in-greek"><a href="#coordination-through-particles-in-greek" class="header-anchor">#</a> Coordination through particles in Greek</h3> <p>We adopt a very restrictive view of conjunctions: basically only words
+that can conjoin two words into a phrase, or two sentences into one,
+count as conjunctions. Particles like <em>μὲν...δὲ...</em> are not treated as conjunctions: instead we treat
+this as asyndetic coordination, using an empty conjunction and leaving
+<em>μὲν</em> and <em>δὲ</em> as Aux-dependents on their respective
+conjuncts.</p> <p>In a sequence <em>τε...καί</em> we treat
+<em>καί</em> as the head and <em>τε</em> as an auxiliary
+particle.</p> <h3 id="scope"><a href="#scope" class="header-anchor">#</a> Scope</h3> <p>\label{scope}</p> <p>Scope is relevant to many constructions. An adjective can modify one
+or more nouns, and is then said to have scope over these nouns. A
+genitive can be dependent upon (and thereby for example modify) one or
+more nouns. The negation can negate one particular element in a
+sentence, or several, or the whole sentence - these elements are said
+to be in the scope of the negation. Emphasizing particles can take
+scope of one or more words.</p> <p>We represent scope via the attachment site of scoping items. Scoping
+items should be placed so as to be dependent on the item in their
+scope. By default, they also take scope over all elements dominated by
+their mother node; so a negation dependent on the verb negates the
+whole sentence. This means that if we want an item to take scope over
+two coordinated elements, it should be made to depend on the
+conjunction. However, since the status of the Greek definite article
+regarding whether it can take scope over two coordinated proper nouns
+is completely unclear, we currently make it a dependent of the
+following noun only - in other words, the article is never attached to
+a conjunction.</p> <p>If e.g. a negation has scope over only one of two coordinated
+elements, it must be attached to that element. Note that this holds
+even in cases of double negation, i.e. a negation may be an AUX on a
+negative pronoun. In OCS, consequently, a pronoun may end up having
+both a negative particle and a negation as AUXes, such as in
+\corref{36606}, where the negation has scope over only one of two
+coordinated OBJs.</p> <p>Notice that we do take <em>ni manna</em> as grammaticalized in the
+meaning 'noone', which means that <em>ni</em> is taken a dependent on
+<em>manna</em>.</p> <p>It is often difficult to determine the correct scope of time and space
+adverbials, especially when they co-occur with participles or subordinate
+clauses at the beginning of the sentence.</p> <img src="/assets/img/3a1848829cdc3fca20a37dba831a16fd10541451.svg"><blockquote><p>surgens autem de synagoga introivit in domum Simonis</p> <p>'And having risen out of the synagogue, he entered into the house of Simon'</p></blockquote> <p><em>autem</em> is here made dependent on the main verb, but <em>de
+synagoga</em> on <em>surgens</em>: Our guiding principles is to mark such
+adverbials as ADVs on the main PRED unless their scope is clearly only
+over a participle (XADV) or a subordinate clause. In this way, the
+default solution is to give time and space adverbials maximal scope
+within the sentence.</p> <p>Note however that scope over coordinated verbs/sentences is treated in
+a fundamentally different way. An item which is the subject of two
+coordinated verbs can <em>not</em> be made dependent on the
+conjunction. Instead, it should depend on the verb in the sentence
+where it appears (see section \ref{belong} for delimitation of the
+domains) and have an incoming slash arrow from the verb in the second
+conjunct.</p> <h3 id="impersonal-verbs"><a href="#impersonal-verbs" class="header-anchor">#</a> Impersonal verbs</h3> <p>\label{impers}</p> <p>Impersonal verbs are defined by their inability to take a
+subject. Therefore, verbs like <em>licet</em>, <em>pudet</em>
+\scriptgr{'{e}xestin} etc. should never take a subject
+dependent. Infinitives with such verbs should be considered COMPs or
+XOBJs, depending on whether an accusative subject would be possible or
+not. For example <em>licet</em> takes a dative and an infinitive. This
+becomes:</p> <img src="/assets/img/07f805bc4c5329e20dbbacbd259c6aa9e8532f2a.svg"><blockquote><p>licet viro dimittere uxorem</p></blockquote> <p>This means that whenever no dative is present, there should be a slash to the main verb:</p> <img src="/assets/img/5c3d8489d10b7d5cabd99a1ea8dd7c07b89780d8.svg"><blockquote><p>oportet fieri</p></blockquote> <p>On the other hand, such verbs can often also be constructed with an
+Accusative with infinitive, and in such cases, they must be COMPs:</p> <img src="/assets/img/6bef5ec10bc95fddb18aeff928672d878ebe9400.svg"><blockquote><p>in omnes gentes oportet praedicari evangelium</p></blockquote> <p>Verbs which are sometimes constructed with an AcI and sometimes with a
+pure infintive are ambiguous whenever there is no subject accusative
+to the infinitive and no argument of the main verb which can supply a
+subject to the infinitive. In such cases, annotators should choose the
+XOBJ relation, as in example \ref{imperswosubject}. But first it must
+be made sure that the verb in question can take a pure infinitive.</p> <h3 id="esse-participle"><a href="#esse-participle" class="header-anchor">#</a> esse + participle</h3> <p>In the New Testament, we fairly often find a construction where the
+copula combines with a participle to form something which could almost
+be described as a periphrastic form. However, despite the regularity
+of the construction, we have chosen to treat it as if the copula had
+its full force:</p> <img src="/assets/img/60d306ba24f6a16dd30debf1778061bcd92447b6.svg"><blockquote><p>erat docens</p></blockquote> <p>We use the same analysis for this construction in the other languages.</p> <h3 id="gerunds"><a href="#gerunds" class="header-anchor">#</a> Gerunds</h3> <p>\label{gerunds}</p> <p>Gerunds on verbal nouns which cannot take a subject. As such, they
+should have an outgoing slash arrow. Gerunds on their own will very
+often be XADVs, fulfilling an adverbial role in the sentence. This
+goes both for instrumental ablative gerunds and final genitive
+gerunds:</p> <img src="/assets/img/075e7ab0e78d1175caf1906e4cc1ee7305c748d2.svg"><blockquote><p>qui habet aures audiendi, audiat</p></blockquote> <p>However, gerunds are also very often embedded in a preposition
+phrase. In such cases, the preposition serves as an ADV, while the
+gerund is an OBL of the preposition with a slash to its subject:</p> <img src="/assets/img/45d5aaa37529163c20a59bb7cb439202f7d406ac.svg"><blockquote><p>discipuli in remigando laborant</p></blockquote> <p>Another common use of gerunds is as arguments of certain verbal nouns,
+as in e.g. <em>spes vincendi</em>. In this function, they are NARGs,
+but with a slash to the subject if one is present. This slash should
+be directed towards the nearest possible subject - the number of nodes
+one must go upwards from the NARG/OBL slasher node before one descends
+towards the slashee node should be as small as possible.</p> <p>Ablative gerunds are also typically ADVs:</p> <img src="/assets/img/cd95e6ccc3da63b0524ee08ace2b9ee73432e169.svg"><blockquote><p>gutta cavat lapidem non vi sed saepe cadendo</p></blockquote> <h3 id="infinitives"><a href="#infinitives" class="header-anchor">#</a> Infinitives</h3> <p>\label{infinitives}</p> <p>The two most common functions of (non-articular) infinitives are head
+of AcI (which is a COMP) and complement of auxiliary verb (XOBJ). But
+infinitives can have other functions, often corresponding to that of
+the gerund in Latin. For example, a bare infinitive can express
+purpose, in which case it is an XADV. It can also be an argument of a
+noun, in which case it is a NARG. The articular infinitive can be the
+object of a preposition, in which case it is an OBL. XADVs and XOBJs
+underlie some restriction on their slashes, which should always be
+'local', ie. point toward the mother node or a node which the mother
+node dominates. Slashes from NARGs and OBLs are freer, but should
+still be as local as possible - the number of nodes one must go
+upwards from the NARG/OBL slasher node before one descends towards the
+slashee node should be as small as possible.</p> <img src="/assets/img/b513ef070e6fe3e09467c1665d3dab1a8573090f.svg"><blockquote><p>ἔχει χρείαν νίψασθαι</p></blockquote> <p>The subject of <em>νίψασθαι</em> is not represented directly, but is
+coreferent with the subject of <em>ἔχει</em>. If this subject was
+present in the sentence, the coreference would again be noted by means
+of the slash notation.</p> <p>Furthermore, infinitives are often found in positions where it could
+be analysed as a subject. However, we have chosen to treat it as a
+COMP 'across the board', in order to avoid complicated choices:</p> <img src="/assets/img/b9c1186c66f3e88972e87bf953b1d13e048d8b00.svg"><blockquote><p>dulce et decorum est pro patria mori</p></blockquote> <h3 id="ocs-reflexives"><a href="#ocs-reflexives" class="header-anchor">#</a> OCS reflexives</h3> <p>Note that the reflexive marker with OCS and Gothic reflexive verbs is
+analysed as Aux:</p> <img src="/assets/img/7bfd44d3006f04527004780194e46527b126be52.svg"><p>Reflexive clitics can sometimes occur in the dative instead of the
+accusative; they are still aux'es.</p> <h3 id="datives"><a href="#datives" class="header-anchor">#</a> Datives</h3> <p>The dative has a variety of meanings within the languages in our
+corpus. In Greek and Gothic, for example, the instrumental and the
+dative have syncretized.  Therefore the dative has a variety of
+instrumental meanings which are almost always ADVs, except with some
+verbs like <em>χράομαι</em> 'use' which takes a dative OBL.</p> <p>In this section, we focus particularly on the 'dative proper',
+excluding meanings that have arisen by syncretism.  The proper dative
+has as its central meaning the expression of 'the more remotely
+concerned person'. This will most often be an OBL. However, there are
+some other possibilities.</p> <p>Note that it is not always easy to determine whether a dative-marked
+nominal is adverbal or adnominal, particularly in constructions which
+can be perceived as predicative possession:</p> <img src="/assets/img/09bdacc5e6478d2bfd021383462e253327e9b89e.svg"><img src="/assets/img/65d873e2c0644c901ca17e6fd3eaa4e819fb8a9f.svg"><img src="/assets/img/c373cbccb580bcfe09628c4e5c68d66c6fe111a8.svg"><p>Our rule of thumb is that if the construction contains a (possibly
+null) copula and can be perceived as a predicative possessive
+construction (as in (\ref{name1}) and (\ref{name2}), see section
+\ref{subsec:copula} for more), the dative should be considered an OBL
+on the verb.</p> <p>In other such constructions (e.g.\ \ref{money}), the dative should be
+considered an adnominal ATR if the verb is <em>not</em> the copula, or if
+the construction is <em>not</em> possessive. The reason for this rule is
+that the class of dative ATRs is so much smaller than the class of
+dative OBLs contained in ditransitive constructions and possessive
+constructions, and thus they are also easier to tease apart manually.</p> <p>In other adnominal uses, the dative can be a NARG, whereas the
+so-called ethical dative should be ADV. This is our general usage
+whenever we have copula + adjective + dative: <em>bonum esse alicui</em>
+and similar constructions.</p> <h3 id="compound-subjunctions"><a href="#compound-subjunctions" class="header-anchor">#</a> Compound subjunctions</h3> <p>In Biblical Greek, there are some 'compound subjunctions' like
+<em>ἕως ὅτου</em>/<em>οὗ</em> and <em>πρὶν ἢ</em>. In such
+cases, we take the main word <em>ἕως</em> or <em>πρὶν</em> to be
+the the real subjunction, mostly bearing an ADV relation to the
+governing verb and being the PRED head of a subordinated verb, whereas
+the accompanying element <em>ὅτου</em>, <em>οὗ</em>, <em>ἢ</em> is an AUX dependent
+on it. We also treat <em>ἄχρι οὗ</em> the same way. Gothic <em>\th{}izei</em>
+is also done the same way, \corref{52365}.</p> <p>Latin <em>eo quod</em> and <em>propterea quod</em>, on the other hand, is not taken as a compound
+subjunction: rather, <em>eo, propterea</em> gets its function in the main clause
+(mostly ADV), and the clause introduced by <em>quod</em> is an apposition
+on it. <em>und þatei</em> in Gothic is treated the same way, since
+<em>quod</em> and <em>þatei</em> are subjunctions.</p> <h3 id="appositive-names-καλουμενος-ονοματι-etc"><a href="#appositive-names-καλουμενος-ονοματι-etc" class="header-anchor">#</a> Appositive names: <em>καλούμενος</em>, <em>ὀνόματι</em> etc.</h3> <p>Names can be expressed as appositions, which sometimes occur by
+themselves, sometimes with an added <em>ὀνόματι</em> and sometimes
+introduced by
+<em>καλούμενος</em> (as an ATR or APOS, see below) in the
+appropriate case. When it is not introduced by <em>καλούμενος</em>
+or a similar verb, it is is simply an apposition to its noun,
+eventually with <em>ὀνόματι</em> as its own attribute:</p> <img src="/assets/img/3416a7b5f04c7d7d25d459e5613a87eadc2f7f5e.svg"><blockquote><p>ἔρχεται εἷς τῶν ἀρχισυναγώγων, ὀνόματι Ἰάειρος</p></blockquote> <img src="/assets/img/b30f60317b3acf1a521ec715ff79fe421a7b6c83.svg"><blockquote><p>ἤλθομεν εἰς τόπον τινὰ καλούμενον Καλοὺς λιμένας</p></blockquote> <p>Here <em>καλούμενος</em> is an ATR because it determines the
+reference of <em>τόπον</em> and tells us which place is
+mentioned. If dependent on a proper noun or a definite expression,
+<em>καλούμενος</em> will be an APOS instead.</p> <h3 id="copulae-copula-like-verbs-and-location-verbs-esse-fieri-etc"><a href="#copulae-copula-like-verbs-and-location-verbs-esse-fieri-etc" class="header-anchor">#</a> Copulae, copula-like verbs and location verbs: <em>esse, fieri</em> etc.</h3> <p>\label{subsec:copula}</p> <p>In the old Indo-European languages, copulae and copula-like verbs
+often double as verbs of position, as in example \ref{esse1}. We do
+not try to keep these apart, but treat the preposition phrase as an
+XOBJ in both cases. It should be stressed, though, that this
+analysis is purely conventional and does not carry over to other
+location verbs, like <em>stare</em>, <em>maneo</em> etc. which takes a
+preposition phrase as an OBL.</p> <p><em>esse</em> and similar verbs can also have existential force,
+meaning 'there exists'. In such cases, if there is a preposition
+phrase or another locative expression present, it will be an ADV, and
+the sentence means 'There were X in Y.'</p> <p>The copula verb is typically also used in predicative possessive
+constructions like <em>liber est mihi</em> 'I have a book'. The dative is
+here considered an OBL dependent of the verb. In possessive
+constructions there is often no XOBJ, but sometimes -- particularly in
+some naming constructions like <em>nomen alicui esse X</em> -- we have
+both SUB, XOBJ and OBL. Such constructions express that the subject
+referent 'belongs to' (in a wide sense) the referent of the oblique.</p> <h3 id="vocatives"><a href="#vocatives" class="header-anchor">#</a> Vocatives</h3> <p>It is easy to think that all morphological vocatives will have the
+relation VOC, but annotators should note that there are other
+possibilities. First, and most obvious, vocative nouns and adjectives
+can be ATR or APOS under another vocative.</p> <p>But there are other possibilites. In <em>Οὐ πᾶς ὁ λέγων μοι
+κύριε κύριε εἰσελεύσεται εἰς τὴν βασιλείαν τῶν οὐρανῶν</em>, f.ex.,
+<em>κύριε κύριε</em> will be an OBJ of <em>λέγων</em>. In
+<em>Τί δέ με καλεῖτε κύριε κύριε</em>, <em>κύριε</em> is an
+XOBJ (with a slash to <em>με</em>).</p> <h3 id="and-it-came-to-pass"><a href="#and-it-came-to-pass" class="header-anchor">#</a> And it came to pass...</h3> <p>Narrative sequences are often introduced by <em>ἐγένετο</em>,
+<em>factum est autem</em> or similar expressions. These are sometimes
+followed by a substantival clause (<em>ὅτι</em>, <em>ut</em>) which
+is clearly a COMP dependent of <em>ἐγένετο</em>/<em>factum</em>
+Often, however, the subjunction is lacking. We still treat these
+sentences as COMP dependents, no different from other substantival
+clauses without subjunction:</p> <img src="/assets/img/2854c480d3c7cc46224a2ff49359dbcfe64fe1a5.svg"><p>However, we sometimes find _factum est...et..._V. Here we coordinate the V with <em>factum est</em>.</p> <p>Adverbs of time and space should generally be put under _factum.</p> <h3 id="copula-verb-of-position-verb-of-existence"><a href="#copula-verb-of-position-verb-of-existence" class="header-anchor">#</a> Copula, verb of position, verb of existence</h3> <p>In the old Indo-European languages, the copula ('John is a doctor') is
+often also a verb of position ('John is in London') and a verb of
+existence ('There are doctors in London'). We do not attempt to keep
+the first two apart: both complements ('a doctor') and ('in London')
+are considered XOBJs. But the existence verb is treated
+differently: here there is in fact no complement, only an adverbial:</p> <img src="/assets/img/9986a47001c29585014c19415a10d4e1736d0c47.svg"><blockquote><p>erant autem in ecclesia propheta et doctores</p></blockquote> <p>If in doubt, annotators should ask themselves whether a translation by
+'there is/are' is possible in English, in which case the verb should
+be treated as a verb of existence.</p> <h3 id="gothic-sa"><a href="#gothic-sa" class="header-anchor">#</a> Gothic <em>sa</em></h3> <p>Gothic <em>sa</em> shows the syntactic behaviour of a demonstrative
+pronoun/adjective, but can also be used as a pure substitute for the
+Greek article.  We try to capture this distinction by giving
+<em>sa</em> the Aux-relation whenever it functions as a mere article;
+when it has full deictic force, on the other hand, it will typically
+be an ATR-dependent of a noun, or bear a nominal function itself. The
+first example shows <em>sa</em> as an article, the second <em>sa</em>
+as a demonstrative pronoun:</p> <img src="/assets/img/997229d2b6c9efbac0c7847decad254fd2d520f0.svg"><blockquote><p>\th{}is audagins gu\th{}s</p></blockquote> <img src="/assets/img/914123c00373ddd92524157a20c30ef10fccc35b.svg"><blockquote><p>sildaleikidedun ana þamma</p></blockquote> <p>Note that just like the Greek article which it serves to translate,
+Gothic <em>sa</em> can be used to nominalize adverbs or prepositions,
+in which case it is made an Aux-dependent on the head of the adverbial
+element:</p> <img src="/assets/img/5ff0acff63996339c4978df947f2dd96249ae430.svg"><blockquote><p>attan izwarana \th{}ana in himinam</p></blockquote> <img src="/assets/img/85f99c078cb704a14aeff2bd0b4b8e64758881d1.svg"><blockquote><p>fram himma nu</p></blockquote> <p>It can often be hard to decide whether <em>sa</em> in a given context
+passage has demonstrative force or not. Annotators should ask
+themselves whether <em>this</em>/<em>that</em> or <em>the</em> is the
+best translation.</p> <h3 id="pleonastic-αυτος-resumptive-pronouns-and-topicalizations"><a href="#pleonastic-αυτος-resumptive-pronouns-and-topicalizations" class="header-anchor">#</a> 'Pleonastic' <em>αὐτός</em> -- resumptive pronouns and topicalizations</h3> <p>\label{resumtopic}</p> <p>In many cases, Greek (and sometimes the translations) have a
+pleonastic <em>αὐτός</em> which picks up the reference of a full
+lexical noun phrase. A typical example is:</p> <img src="/assets/img/248539d53f645d0552ef218749cb5905779027f9.svg"><p>αὐτοῦ carries the syntactic function in the sentence, whereas τοῦ δὲ μὴ ἔχοντος
+supplies the semantics. This is analysed by having τοῦ δὲ μὴ ἔχοντος be an
+apposition on αὐτοῦ:</p> <img src="/assets/img/b96263f2466020d63f02448e5d86142ef0c0175c.svg"><p>We use the same analysis for relative clauses with resumptive
+pronouns: <em>αὐτός</em> gets the grammatical function, and the
+relative pronoun is an apposition on it:</p> <img src="/assets/img/e8cc6383dcd6c8d0d10dc72b11b013ea7274e810.svg"><blockquote><p>ὄχλος πολύς, ὃν ἀριθμῆσαι αὐτὸν οὐδεὶς ἐδύνατο}</p> <p>(lit.) 'a large crowd which noone could count it'</p></blockquote> <p>Sometimes (e.g. \corref{6784}) we get a full NP inside the relative
+clause; it should get the grammatical function, and the relative
+pronoun should be an APOS on it.</p> <p>More common, however, are the cases where we get a fronted relative
+clause which is picked up by an <em>αὐτός</em> in the main
+clause. We analyse these as non-restrictive relative clauses on
+<em>αὐτός</em>:</p> <img src="/assets/img/0b39e58a27f9d42a2c3557b482c137817d419493.svg"><p>The same analysis is used whenever the fronted constituent is not a
+relative clause, but a normal NP.</p> <h3 id="gothic-at-du-introducing-infinite-predication"><a href="#gothic-at-du-introducing-infinite-predication" class="header-anchor">#</a> Gothic <em>at</em>, <em>du</em> introducing infinite predication</h3> <p>In Gothic, infinite predications such as infinitive constructions and
+absolutive constructions are sometimes introduced by <em>at</em> and
+<em>du</em>. These are taken as aux-dependents of the verbal head of
+the construction:</p> <img src="/assets/img/cee4db5282d81eca7837313d3be03c8fb9106078.svg"><p>Exactly analogous is the treatment of <em>at</em> + absolutive
+construction e.g. in \corref{37757}. Note that when there is only one
+<em>du</em>, but two coordinated infinitives, we take <em>du</em> as a
+dependent on the closest infinitive only, cf. \corref{37500}. Since
+infinitives can occur without <em>du</em>, and since it is not possible
+to decide whether <em>du</em> also belongs to the other infinitive, this
+is in a sense the minimal claim.</p> <h3 id="aux-on-pronouns-ocs-иже-аще"><a href="#aux-on-pronouns-ocs-иже-аще" class="header-anchor">#</a> AUX on pronouns -- OCS иже аще</h3> <p>In OCS, аще converts relative pronouns into indefinite relative
+pronouns, such as in \corref{36505}. In these cases, аще should
+be analysed as a non-comparable adverb morphologically and as an AUX
+directly on the pronoun. In the Greek counterpart sentences, however,
+<em>ἂν</em> is considered to have sentence scope and should
+therefore be an AUX on the verb, as in \corref{6652}.</p> <h3 id="adnominal-infinitives"><a href="#adnominal-infinitives" class="header-anchor">#</a> Adnominal infinitives</h3> <p>\label{adnominf}</p> <p>In several cases, infinitives modify nominal forms like pronouns,
+adjectives and nouns, as in 'easy to read', 'something to eat' etc. We
+treat such infinitives as <em>modifiers</em> since it tells us
+<em>in what respect</em> something is easy and <em>what kind</em> of
+something we are talking about.</p> <p>Dependents on pronouns and nouns therefore often become ATRs:</p> <img src="/assets/img/f3ae6763e844ee9fc7102a748c11a8b8afc7d6ae.svg"><p>Dependents of adjectives is a somewhat more complicated matter: many
+adjectives such as <em>dignus</em>, <em>ἄξιος</em>
+etc. <em>require</em> an infinitive or a subordinate clause. The
+infinitive therefore becomes an OBL, or a COMP if it is a full
+accusative with infinitive construction:</p> <img src="/assets/img/2e60ad2c023839cd003d52d4608aef437f7fcbf0.svg"><p>But note that adjectives also can take infinitives that are ADVs, such
+as in the 'easy to read' construction.</p> <h3 id="impersonal-temporal-expressions-cum-sero-factum-esset-etc"><a href="#impersonal-temporal-expressions-cum-sero-factum-esset-etc" class="header-anchor">#</a> Impersonal temporal expressions: <em>cum sero factum esset</em> etc.</h3> <p>In impersonal temporal expressions like <em>cum sero factum esset</em>,
+<em>cum nona hora esset</em> we take the temporal expression to be a
+XOBJ, since the construction is impersonal the time is not
+predicated of something, but currently the system enforces that all
+open relations have a slash, so there should be a slash to the copula.</p> <p>However, we sometimes get <em>hora</em> combined with something which cannot readily be an attributive modifier, such as <em>hora est vespera</em>. In these cases, <em>hora</em> is taken as the subject.</p> <h3 id="it-happened-to-him"><a href="#it-happened-to-him" class="header-anchor">#</a> It happened to him...</h3> <p>Verbs such as gr. \scriptgr{gignomai} may express that some event
+takes place. The person affected by the event may surface as a dative
+(in Greek) or as a prepositional phrase (<em>de</em> in Latin, <em>bi</em>
+in Gothic). We take these expressions as OBLs.</p> <img src="/assets/img/ac253cee7fc8e874e1291807898053e901049253.svg"><img src="/assets/img/02f72806d84b51784e0c0fbb5450f9d5a4c623a6.svg"><img src="/assets/img/0f20ad953a9b078a33064c679458345fb808c40b.svg"><h3 id="if-not-ει-δε-μη"><a href="#if-not-ει-δε-μη" class="header-anchor">#</a> 'if not' -- <em>εἰ δὲ μή</em></h3> <p>'if not' is often rendered in Greek as <em>εἰ δὲ μή</em> and in
+Slavic as аште ли же ни. Observe that we need an empty verbal
+node under the subjunction here; if the negation was hung directly on
+the subjunction the meaning would be 'not if'. The particle should
+belong to the main clause.</p> <p>Latin uses <em>alioquin</em> and Gothic <em>ai\th\th{}au</em> for this. Both
+are simply treated as adverbs.</p> <h3 id="comp-and-obj-in-the-same-sentence"><a href="#comp-and-obj-in-the-same-sentence" class="header-anchor">#</a> COMP and OBJ in the same sentence</h3> <p>\label{compobj}</p> <p>Sometimes a verb seems to govern both a COMP and an OBJ. There are two
+different cases to distinguish:</p> <ul><li><p>COMP and OBJ are coordinated</p></li> <li><p>the OBJ is co-referent with the subject of the COMP</p></li></ul> <p>In the first case, the COMP and the OBJ should simply be coordinated
+and the coordinating node should be given the OBJ relation:</p> <img src="/assets/img/4cd6d5e132dec42ddc819edb8a2d52df477439a8.svg"><blockquote><p>viderunt mulieres monumentum et quemadmodum positum erat corpus eius</p> <p>'The women beheld the sepulchre and how his body was laid.'</p></blockquote> <p>But in most cases where the object is coreferent with the subject of
+the COMP we have a different construction ('prolepsis' in traditional
+grammar) and here we make both the OBJ and the COMP directly dependent
+on the verb without any coordination:</p> <img src="/assets/img/da0d87c62935cb7289fccef4cd6c6dd70ac5e1e7.svg"><blockquote><p>Scio te qui sis</p> <p>'I know who you are'</p></blockquote> <p>It seems characteristic of these constructions that the object is not
+really a thematic argument of the verb, but just anticipates the
+subject of the complement clause.</p> <h3 id="questions-with-alternatives"><a href="#questions-with-alternatives" class="header-anchor">#</a> Questions with alternatives</h3> <p>Sometimes a question is asked with alternatives to choose between, as
+in 'Who is the better one, me or my brother?'. In these cases, the alternatives are taken as appositions on the question-word:</p> <img src="/assets/img/6b5193e68fe430773c99f176045bf834622ca0a6.svg"><h2 id="general-issues"><a href="#general-issues" class="header-anchor">#</a> General issues</h2> <p>\label{general}</p> <h3 id="adv-or-obl-adjunct-or-argument"><a href="#adv-or-obl-adjunct-or-argument" class="header-anchor">#</a> ADV or OBL? adjunct or argument?</h3> <p>\label{advobl}</p> <p>It can often be hard to decide whether a given element should be an
+ADV or an OBL, or -- in more traditional terms -- whether an element
+is an adjunct or an argument. Therefore we provide a super-tag which
+should be used whenever the annotator cannot decide, but the following
+section offers some advice to guide the choice.</p> <p><em>Arguments</em> are traditionally defined as 'elements seen as required by the
+verb'. In old Indo-European languages, nothing is really 'required by the
+verb', because all elements, even subjects and objects, can be dropped if they
+are easily inferable from the context. The test is therefore not whether an
+element can be left out or not, but rather whether it is possible to
+conceptualize the event expressed by the verb while abstracting from some
+element in the sentence. If that is possible, the element is an adjunct.
+Adjuncts (ADVs) are elements which elaborate upon an event desription and gives
+extra information about the event.</p> <p>There are some kinds of adverbials which are almost always
+adjuncts. These are</p> <ul><li><p>Adverbials of manner</p></li> <li><p>Adverbials of instrument</p></li> <li><p>Adverbials of time</p></li> <li><p>Adverbials of place</p></li> <li><p>Adverbials of purpose</p></li></ul> <p>But even here there are exceptions: in <em>bene tractare</em>, for
+example, <em>bene</em> is an argument, since it is not possible to
+conceptualize the idea of 'treating someone' while abstracting away
+from the way of treating him. <em>utor</em> + ablative in Latin, and
+\scriptgr{qr'{a}omai} + dative in Greek are cases where an adverbial
+of instrument has been grammaticalized so as to become a
+ablative/dative ''object'' - which we treat as an OBL. Place
+adverbials are typically OBLs and not ADVs when they appear with
+'positional verbs', such as <em>stare, sedere</em> etc. However, even
+these can sometimes take a position ADV. Consider the following
+interesting example:</p> <img src="/assets/img/2a369bb07a38f6419eeea107842db41247d6d23e.svg"><blockquote><p>in synagogis sedebant in cathedris primis</p></blockquote> <p>The <em>cathedris</em>, seats, are inextricably linked to the sitting
+event, but the synagogues are not.</p> <p>Elements of an idiom will also often be OBLs, e.g. <em>cum</em> in
+<em>pacem facere cum aliquo</em>. some more</p> <p>There is also another way of thinking about arguments: they are
+elements that can appear in a sentence because of the main
+verb. Specifications on manner, instruments, times and places can
+appear with almost any verb. Specifications of goal and source, on the
+other hand, can only appear with a subset of verbs - mostly motion
+verbs - therefore they are arguments of their verbs. Sometimes both a
+source and a goal appears in a sentence, and both are OBLs:</p> <img src="/assets/img/d5b03c6d3a69e69eda1fe414f452cd5cd2b83f52.svg"><blockquote><p>ἤρχοντο πρὸς αὐτὸν πάντοθεν</p></blockquote> <p>The two ways of thinking about arguments do not always give the same
+predictions. Here for example, one could argue that it is possible to
+conceptualize motion without a goal and a source; but goal and source
+are 'selected' by the verb and cannot appear with any verb.</p> <p>If the two tests give the same result, we have a rather clear case of
+an argument. But most elements which test positively for argumenthood
+in either one should be considered arguments.</p> <h3 id="atr-or-apos-attribute-or-apposition"><a href="#atr-or-apos-attribute-or-apposition" class="header-anchor">#</a> ATR or APOS? attribute or apposition?</h3> <p>\ldots</p> <h3 id="atr-or-xadv"><a href="#atr-or-xadv" class="header-anchor">#</a> ATR or XADV?</h3> <p>Adjectives and participles (and other adjective-like categories) can
+be attributive or predicative/conjunct. In the first case it helps
+determine the reference of the noun phrase; in the second case, it is
+a predication which expresses an event or a state which 'accompanies'
+the main event and which takes the noun as its subject. Thus, example
+\ref{gauls} has two readings: 'The happy Gauls (as opposed to
+f.ex. the sad ones) entered the camp', with a restrictive adjective
+which should be an ATR, and 'The Gauls, being happy, entered the
+camp', where the adjective does not restrict the group of Gauls, but
+rather describes a state which coincides with the main event. It is
+generally the case that attributive adjectives/participles can be
+rendered by a restrictive relative clause ('The Gauls who were happy
+entered the camp.') and predicative ones by non-restrictive relative
+clauses or even adverbial clauses: 'The Gauls, who were happy, entered
+the camp.'</p> <p>It can sometimes be hard to know whether a participle or an adjective
+is an ATR or an XADV, ie. whether it helps determine the reference of
+the noun (ATR) or is predicated of the noun (XADV).</p> <p>With definite noun phrases, the decision is easier to make than with
+indefinite nouns. In Greek there is overt marking:
+participles/adjectives in attributive position (directly after the
+article) are ATRs and participles/adjectives in predicative position
+are XADVs. But note that not all adnominal elements follow the
+standard rules; for example <em>πᾶς</em> regularly appears in
+predicative position even when it is attributive.</p> <p>Even in languages with no overt marking of the attributive/predicative
+opposition or of the definite/indefinite opposition, it is generally
+easier to determine whether an item is an ATR or an XADV if the NP is
+semantically definite. This is so because the NP in such cases has a
+definite referent, and we can easily determine whether the
+adjective/participle helps picking out this referent.</p> <p>With indefinites, this is more difficult to determine. Annotators can
+try whether it is possible to paraphrase a participle or adjective by
+a non-restrictive relative clause - if so, the participle/adjective is
+likely an XADV. Another test is whether it is possible to set up a
+contrasting referent - if so, the participle/adjective is likely an
+ATR.</p> <h3 id="xadv-or-sub"><a href="#xadv-or-sub" class="header-anchor">#</a> XADV or SUB?</h3> <p>A similar question arises whenever a participle is dependent on a verb without
+there being an overt subject present, as in <em>venientes dicunt ei</em>. If
+<em>venientes</em> is taken as the subject, the sentence means 'those who are coming
+say to him'. If <em>venientes</em> is taken as an XADV, it means 'Coming (to him),
+they said to him'. There are no clear tests to be used. Annotators should base
+their analysis on a semantic interpretation of the sentence.</p> <h3 id="more-on-the-xobj-relation"><a href="#more-on-the-xobj-relation" class="header-anchor">#</a> More on the XOBJ relation</h3> <p>\label{morexobj}</p> <p>The XADV and XOBJ relations are unfamiliar from traditional school
+grammar. XADV corresponds quite closely to the concept of
+predicative/conjunct participle or adjective, so it should not be too
+hard to grasp. The XOBJ relation, on the other hand, does not
+correspond closely to one particular category of traditional grammar,
+so it needs further explanation.</p> <p>The crucial facts to grasp about the XOBJ relation is that it is used
+for predications which have external subjects (whence the 😆 and
+which are governed by another verb. This means that nothing which can
+itself have a subject daughter, is an XOBJ: all finite verbs are
+excluded.</p> <p>The prototypical XOBJ is therefore an infinite verbal form, but other
+word classes can also be predicative: most notably nouns, adjectives
+and prepositions.</p> <p>XOBJ is a governed relation, an element which is selected and demanded
+by the matrix verb. A prototypical case are auxiliary verbs, like
+<em>posse</em>, <em>coepi</em>, <em>velle</em> and others, which demand a complement
+infinitive (and this infinitive cannot take its own subject). However,
+other verbs can also take an infinitive argument:</p> <img src="/assets/img/6e43a93374e4cc2faa07dd9d7f337f188bbd3445.svg"><blockquote><p>praevenit unguere corpus meum in sepulturam</p></blockquote> <img src="/assets/img/00bf8d322a26bd9d96471a2f4cad2595ca0eed8f.svg"><blockquote><p>deus potest iudicare</p></blockquote> <blockquote><p>deus est omnipotens</p></blockquote> <p>The facts are the same in both constructions: both <em>iudicare</em>
+and <em>omnipotens</em> are selected by the main verb and cannot be
+deleted; and they both have external subjects (they do not themselves
+govern their subject). For this reason, we treat traditional
+predicative complements as XOBJs. A notable case which often appears
+is the accusative with participle construction:</p> <img src="/assets/img/5dc414c7c5990b51aa365540c7e4ca978c953f46.svg"><h3 id="empty-nodes"><a href="#empty-nodes" class="header-anchor">#</a> Empty nodes</h3> <p>In our model, we only use empty nodes to stand in for missing
+conjunctions in asyndetic coordination and missing verbs in elliptical
+constructions. Empty nodes should never be used for any other purpose,
+ie. to mark a 'null head noun' on which an adjective is dependent.</p> <h2 id="error-messages-during-syntactic-annotation"><a href="#error-messages-during-syntactic-annotation" class="header-anchor">#</a> Error messages during syntactic annotation</h2> <h3 id="must-have-or-inherit-one-outgoing-slash-edge"><a href="#must-have-or-inherit-one-outgoing-slash-edge" class="header-anchor">#</a> 'Must have or inherit one outgoing slash edge'</h3> <p>This error message means that a token which is XADV or XOBJ lacks
+a slash arrow.</p> <p>Open predications (XADV and XOBJ, see section \ref{open}) do not
+have an 'internal' subject dominated by the predicate. Instead, the
+instead the subject is present somewhere else in the same sentence and
+should be linked to via a slash arrow. If the subject is not overtly
+present in the sentence, it must nevertheless be present in the
+argument structure of the governing verb and to represent this we let
+the slash arrow point towards the verb.</p> <p>Notice that two XADVs or XOBJs under the same conjunction should
+not have one slash arrow each: instead the slash should be put on the
+conjunction. It will be inherited by the daughter nodes.</p> <p>If you can't find a suitable target for the slash arrow, the use of
+XADV or XOBJ is probably wrong.</p> <h3 id="may-not-be-a-daughter-of-the-root-node"><a href="#may-not-be-a-daughter-of-the-root-node" class="header-anchor">#</a> 'May not be a daughter of the root node'</h3> <p>Only tokens bearing the relations PRED, PARPRED or VOC are allowed as
+daughters of the sentence root. If you let any other element be
+directly dominated by the root, you will get this error message.</p> <h3 id="subgraphs-overlap"><a href="#subgraphs-overlap" class="header-anchor">#</a> 'Subgraphs overlap'</h3> <p>If there are several PRED daughters directly under the root, they must
+be strictly ordered linearly. If there are two PRED tokens under the
+root, all daughters of the first one must precede all daughters of the
+second one. If there are three PRED tokens, all daughters of the first
+one must precede all daughters of the next two; and all daughters of
+the second one must precede all daughters of the third one.</p> <p>The reason for this is that if one sentence root has several PRED
+daughters, the tree will eventually be 'sawed up' in several trees
+each having only one PRED daughter. To assure that this will be
+possible, we need to secure that the trees are linearly ordered. If
+one sentence is contained in another, you should use the PARPRED
+relation instead.</p> <h3 id="slashes-are-not-contained-by-subgraph"><a href="#slashes-are-not-contained-by-subgraph" class="header-anchor">#</a> 'Slashes are not contained by subgraph'</h3> <p>If there are two PRED daughters directly under the root, it is not
+allowed to have a slash arrow between the a daughter of the one of the
+PREDs and the other. In other words, the slasher and the slashee
+should both be daughters of the same PRED.</p> <p>This error message is most likely to occur in the analysis of gapping
+in asyndetic coordination. In such cases, it is necessary to conjoin
+the two subtree through an empty node, see example \ref{aquitania}.</p> <p>The reason is, as in the preceding section, that two PRED daughters
+under the same root will eventually be converted to dependents of one
+root each, with no possibility of slashing between them.</p> <h3 id="the-head-of-a-parpred-voc-relation-must-be-the-root-node-or-a-valid-coordination"><a href="#the-head-of-a-parpred-voc-relation-must-be-the-root-node-or-a-valid-coordination" class="header-anchor">#</a> 'The head of a PARPRED/VOC relation must be the root node or a valid coordination'</h3> <p>Elements with the relation VOC or PARPRED should always be made
+daughters of the sentence root.</p> <h3 id="slash-must-target-the-node-s-head-or-a-node-dominated-by-the-head"><a href="#slash-must-target-the-node-s-head-or-a-node-dominated-by-the-head" class="header-anchor">#</a> 'Slash must target the node's head or a node dominated by the head'</h3> <p>The subject of an open predication (XADV or XOBJ, see section
+\ref{open}) should always be found in the same sentence. In case the
+subject of the open predication is not overtly realized in the same
+sentence, but is found in a conjoined sentence, the slash arrow should
+point towards the dominating verb, which in turn will have a 'shared
+argument' slash arrow to the overt realization of the subject of the
+XADV/XOBJ. ADD REFERENCE TO AN EXAMPLE.</p> <h3 id="the-head-of-a-pred-relation-must-be-the-root-node-a-subjunction-or-a-valid-coordination"><a href="#the-head-of-a-pred-relation-must-be-the-root-node-a-subjunction-or-a-valid-coordination" class="header-anchor">#</a> 'The head of a PRED relation must be the root node, a subjunction or a valid coordination'</h3> <p>There are restrictions on when to use the PRED relation: in fact it is
+only used under the sentence root or under a subjunction. There are
+two common situations where annotators get this message.</p> <p>First, relative sentences and dependent interrogative clauses should
+<em>not</em> be headed by the relative/interrogative word, with the
+verb as a PRED daughter. Follow the rules in sections \ref{relatives}
+and \ref{indqu} instead.</p> <p>Second, many subjunctions are not marked as such in the
+morphology. Check the morphological annotation and make sure that the
+subjunction is not annotated as a conjunction, non-comparable adverb
+or something else.</p> <h3 id="a-subjunction-may-only-be-the-dependent-in-a-comp-adv-or-apos-relation"><a href="#a-subjunction-may-only-be-the-dependent-in-a-comp-adv-or-apos-relation" class="header-anchor">#</a> 'A subjunction may only be the dependent in a COMP, ADV or APOS relation'</h3> <p>Subjunctions should always be COMP (if selected for by the verb and
+necessary for the sentence), ADV (if introducing an adjunct clause) or
+APOS (if dependent on a noun).</p> <p>If you don't understand why you get this message, please go to the
+morphological annotation and check whether it is caused by a token
+wrongly marked as a subjunction.</p> <h3 id="an-infinitive-may-not-be-the-dependent-in-an-adv-relation"><a href="#an-infinitive-may-not-be-the-dependent-in-an-adv-relation" class="header-anchor">#</a> 'An infinitive may not be the dependent in an ADV relation'</h3> <p>Infinitives can certainly be adverbials (for example final
+infinitives), but they always imply a subject and so should be XADVs
+instead.</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/proiel/dev.syntacticus.org/edit/master/docs/annotation-guide/README.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last updated:</span> <span class="time">10/10/2021, 9:59:10 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.e520ee65.js" defer></script><script src="/assets/js/2.6b092d03.js" defer></script><script src="/assets/js/8.1a5b4582.js" defer></script>
+  </body>
+</html>
