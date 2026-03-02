@@ -4,13 +4,8 @@ Old English prose (600-1150) with PTB-based annotations, see [YCOE manual](https
 
 Please cite as
 
-    @misc{20.500.12024/2462,
-    title = {The York-Toronto-Helsinki Parsed Corpus of Old English prose ({YCOE})},
-    url = {http://hdl.handle.net/20.500.12024/2462},
-    note = {Oxford Text Archive},
-    copyright = {Oxford Text Archive},
-    year = {2003} }
+    University of Oxford, 2003, The York-Toronto-Helsinki Parsed Corpus of Old English prose (YCOE), Literary and Linguistic Data Service, http://hdl.handle.net/20.500.14106/2462. 
 
-Corpus must not be redistributed but can be retrieved for academic purposes from [the Oxford Text Archive](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/2462#) (OTA identifier: ota:2462). Accessing the OTA requires an institutional affiliation.
+The corpus is published for *Academic use* under the [OTA Attribution Required Noncommercial license](https://hdl.handle.net/20.500.14106/licence-ota). As of 2026-03-02, it is now directly downloadable from http://hdl.handle.net/20.500.14106/2462.
 
-For this reason, we do not provide a build script. Please acquire the corpus manually and unzip it in this directory. 
+It is thus possible to provide a build script by now. Run with `make`.
