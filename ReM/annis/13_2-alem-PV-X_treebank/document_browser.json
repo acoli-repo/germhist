@@ -1,0 +1,4 @@
+{ "visualizers" : [
+    { "type" : "htmldoc", "displayName" : "diplomatic transcription", "mappings" : "config:dipl" },
+    { "type" : "htmldoc", "displayName" : "modernized transcription", "mappings" : "config:mod" }
+] }

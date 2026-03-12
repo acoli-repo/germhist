@@ -1,0 +1,20 @@
+.htmlvis {
+    white-space: nowrap;
+    font-family: Junicode, arial, sans-serif;
+}
+.page {
+    background-color: #ffffdf;
+    border: thin solid;
+    margin-bottom: 5.5ex;
+    float: top;
+    overflow: auto;
+}
+.side, .column {
+    display: inline-block;
+}
+.side:nth-of-type(2n) {
+    border-left: thin dotted;
+}
+.token {
+    margin-right: 1ex;
+}
